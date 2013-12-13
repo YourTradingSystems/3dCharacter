@@ -251,7 +251,7 @@
     if([sender isKindOfClass:[UIButton class]])
     {
         UIButton *btn = (UIButton *)sender; 
-        self.avatarSettings.skin = [[FileToSettingsConverter instance] getScinSettings:[NSString stringWithFormat: @"skin%d", btn.tag]];
+        self.avatarSettings.skin = [[FileToSettingsConverter instance] getSettings:[NSString stringWithFormat: @"skin%d", btn.tag]];
     }
 }
 
