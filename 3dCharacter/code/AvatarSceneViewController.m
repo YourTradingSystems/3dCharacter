@@ -15,6 +15,7 @@
 #import "CC3Light.h"
 #import "CC3ParametricMeshNodes.h"
 #import "CC3UtilityMeshNodes.h"
+#import "ModelSettings.h"
 
 @implementation AvatarSceneViewController
 
@@ -421,7 +422,8 @@
 
 -(void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
 {
-    
+    UIColor* color = [UIColor alloc];
+    color = [(AvatarModelSettings*) object skin].color;
 }
 
 @end

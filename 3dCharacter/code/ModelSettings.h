@@ -21,11 +21,15 @@ enum modelType
 
 @interface ModelSettings : NSObject
 {
-    @public enum modelType type;
-    @public int templateIndex;
-    @public UIColor* color;
+    enum modelType type;
+    NSString* modelName;
+    UIColor* color;
 }
 
-- (id) initWithType: (enum modelType) theType andIndex: (int) theIndex andColor:(UIColor*) theColor;
+@property (nonatomic) enum modelType type;
+@property (nonatomic) NSString* modelName;
+@property (nonatomic) UIColor* color;
+
+- (id) initWithType: (enum modelType) theType andName: (NSString*) theName andColor:(UIColor*) theColor;
 
 @end

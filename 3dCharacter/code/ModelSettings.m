@@ -10,12 +10,14 @@
 
 @implementation ModelSettings
 
-- (id) initWithType: (enum modelType) theType andIndex: (int) theIndex andColor:(UIColor*) theColor
+@synthesize type, modelName, color;
+
+- (id) initWithType: (enum modelType) theType andName: (NSString*) theName andColor:(UIColor*) theColor;
 {
     if(self = [super init])
     {
         type = theType;
-        templateIndex = theIndex;
+        modelName = theName;
         color = theColor;
     }
     return self;

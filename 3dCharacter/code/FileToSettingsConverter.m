@@ -39,37 +39,37 @@
 - (NSDictionary*) initializeDictionary
 {
     return @{@"skin1" : [[ModelSettings alloc] initWithType: skin
-                                                   andIndex:1
+                                                   andName:@"skin"
                                                    andColor: [UIColor colorWithRed:247.0/255.0 green:247.0 / 255.0 blue:247.0 / 255.0 alpha:1.0]],
              @"skin2" : [[ModelSettings alloc] initWithType: skin
-                                                   andIndex:2
+                                                    andName:@"skin"
                                                    andColor: [UIColor colorWithRed:247.0/255.0 green:247.0 / 255.0 blue:247.0 / 255.0 alpha:1.0]],
              @"skin3" : [[ModelSettings alloc] initWithType: skin
-                                                   andIndex:3
+                                                    andName:@"skin"
                                                    andColor: [UIColor colorWithRed:247.0/255.0 green:247.0 / 255.0 blue:247.0 / 255.0 alpha:1.0]],
              @"skin4" : [[ModelSettings alloc] initWithType: skin
-                                                    andIndex:4
+                                                    andName:@"skin"
                                                     andColor: [UIColor colorWithRed:247.0/255.0 green:247.0 / 255.0 blue:247.0 / 255.0 alpha:1.0]],
              @"skin5" : [[ModelSettings alloc] initWithType: skin
-                                                   andIndex:5
+                                                    andName:@"skin"
                                                    andColor: [UIColor colorWithRed:247.0/255.0 green:247.0 / 255.0 blue:247.0 / 255.0 alpha:1.0]],
              @"skin6" : [[ModelSettings alloc] initWithType: skin
-                                                   andIndex:6
+                                                    andName:@"skin"
                                                    andColor: [UIColor colorWithRed:247.0/255.0 green:247.0 / 255.0 blue:247.0 / 255.0 alpha:1.0]],
              @"skin7" : [[ModelSettings alloc] initWithType: skin
-                                                   andIndex:7
+                                                    andName:@"skin"
                                                    andColor: [UIColor colorWithRed:247.0/255.0 green:247.0 / 255.0 blue:247.0 / 255.0 alpha:1.0]],
              @"skin8" : [[ModelSettings alloc] initWithType: skin
-                                                   andIndex:8
+                                                    andName:@"skin"
                                                    andColor: [UIColor colorWithRed:247.0/255.0 green:247.0 / 255.0 blue:247.0 / 255.0 alpha:1.0]],
              @"skin9" : [[ModelSettings alloc] initWithType: skin
-                                                   andIndex:9
+                                                    andName:@"skin"
                                                    andColor: [UIColor colorWithRed:247.0/255.0 green:247.0 / 255.0 blue:247.0 / 255.0 alpha:1.0]],
              @"skin10" : [[ModelSettings alloc] initWithType: skin
-                                                    andIndex:10
+                                                     andName:@"skin"
                                                     andColor: [UIColor colorWithRed:247.0/255.0 green:247.0 / 255.0 blue:247.0 / 255.0 alpha:1.0]],
              @"skin11" :[[ModelSettings alloc] initWithType: skin
-                                                   andIndex:11
+                                                    andName:@"skin"
                                                    andColor: [UIColor colorWithRed:247.0/255.0 green:247.0 / 255.0 blue:247.0 / 255.0 alpha:1.0]],};
 }
 
@@ -77,7 +77,7 @@
     // Should never be called, but just here for clarity really.
 }
 
-- (ModelSettings*) getScinSettings: (NSString*) fileName
+- (ModelSettings*) getSettings: (NSString*) fileName
 {
     return (ModelSettings*)dicNameColor[fileName];
 }

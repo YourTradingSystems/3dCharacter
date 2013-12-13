@@ -16,6 +16,6 @@
 
 + (id) instance;
 
--(ModelSettings*) getScinSettings:(NSString*) fileName;
+-(ModelSettings*) getSettings:(NSString*) fileName;
 
 @end
