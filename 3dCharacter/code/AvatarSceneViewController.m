@@ -323,7 +323,7 @@
 			break;
 	}
 	
-}
+} 
 
 
 -(CC3Vector) rotateDirectionByQuaternion: (CC3Vector) direction : (CC3Quaternion) quaternion {
@@ -413,6 +413,16 @@
  * For more info, read the notes of this method on CC3Scene.
  */
 -(void) nodeSelected: (CC3Node*) aNode byTouchEvent: (uint) touchType at: (CGPoint) touchPoint {}
+
+-(void) setAvatarSettings:(AvatarModelSettings *)theAvatarSettings
+{
+    [theAvatarSettings addObserver:self forKeyPath:@"skin" options:NSKeyValueObservingOptionNew context: nil];
+}
+
+-(void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
+{
+    
+}
 
 @end
 

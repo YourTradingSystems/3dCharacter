@@ -9,16 +9,20 @@
 #import "AvatarLayer.h"
 #import "AvatarSceneViewController.h"
 #import "AvatarConstants.h"
+#import "AvatarModelSettings.h"
+#import "FileToSettingsConverter.h"
 //#import "AppContainer.h"
 
 @interface CC3Layer(Private)
 
 -(BOOL) handleTouch: (UITouch*) touch ofType: (uint) touchType;
 
+
 @end
 
 @implementation AvatarLayer
 
+@synthesize avatarSettings = _avatarSettings;
 
 -(void) dealloc {
     [super dealloc];
@@ -32,12 +36,21 @@
 -(void) initializeControls {
 	[self scheduleUpdate];
     self.isTouchEnabled = YES;
+    _avatarSettings = [[AvatarModelSettings alloc] init];
+    
+    [_avatarSettings addObserver:self forKeyPath:@"bodyIndex" options:NSKeyValueObservingOptionNew context: nil];
     
     [self setContentSize:CGSizeMake(1024,768)];
 
     [self yawOnly];
     
     [self playAnimModeOnce];
+}
+    
+     
+-(void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
+{
+    
 }
 
 
@@ -185,8 +198,18 @@
         btn.frame = CGRectMake(200 + 109 * i + 20 * i,50,129,161);
         [btn setImage:[UIImage imageNamed:[NSString stringWithFormat:@"cha%d",i]] forState:UIControlStateNormal];
         [[[CCDirector sharedDirector] openGLView] addSubview:btn];
+        btn.tag = i;
+        [btn addTarget:self action:@selector(btnModelClicked:) forControlEvents:UIControlEventTouchUpInside];
     }
-    
+}
+
+-(void) btnModelClicked : (id)sender
+{
+    if([sender isKindOfClass:[UIButton class]])
+    {
+        UIButton *btn = (UIButton *)sender;
+        self.avatarSettings.bodyIndex = btn.tag;
+    }
 }
 
 - (void) addSkin
@@ -204,7 +227,8 @@
         UIButton    *btn = [UIButton buttonWithType:UIButtonTypeCustom];
         btn.frame = CGRectMake(60 * i ,0,45,45);
         [btn setImage:[UIImage imageNamed:[NSString stringWithFormat:@"skin%d",i+1]] forState:UIControlStateNormal];
-        
+        btn.tag = i+1;
+        [btn addTarget:self action:@selector(btnScinTouchUp:) forControlEvents:UIControlEventTouchUpInside];
         [scrollView addSubview:btn];
     }
     
@@ -215,7 +239,15 @@
     scrollView.scrollEnabled = NO;
     
     [[[CCDirector sharedDirector] openGLView] addSubview:scrollView];
+}
 
+-(void) btnScinTouchUp:(id)sender
+{
+    if([sender isKindOfClass:[UIButton class]])
+    {
+        UIButton *btn = (UIButton *)sender; 
+        self.avatarSettings.scinColor = [[FileToSettingsConverter instance] getScinColor:[NSString stringWithFormat: @"skin%d", btn.tag]];
+    }
 }
 
 - (void) addHair

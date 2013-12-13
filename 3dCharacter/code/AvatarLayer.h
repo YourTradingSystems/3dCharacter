@@ -8,11 +8,15 @@
 
 
 #import "CC3Layer.h"
+#import "AvatarModelSettings.h"
 
 
 /** A sample application-specific CC3Layer subclass. */
 @interface AvatarLayer : CC3Layer<UIScrollViewDelegate>
-{
+{    
+    AvatarModelSettings *_avatarSettings;
 }
+
+@property (nonatomic, readonly) AvatarModelSettings *avatarSettings;
 
 @end

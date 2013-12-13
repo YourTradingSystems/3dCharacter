@@ -8,6 +8,7 @@
 
 
 #import "CC3Scene.h"
+#import "AvatarModelSettings.h"
 
 /** A sample application-specific CC3Scene subclass.*/
 @interface AvatarSceneViewController : CC3Scene {
@@ -54,6 +55,7 @@
 -(void) playAnim ;
 -(void) playAnimModeOnce;
 -(void) yawOnly;
+-(void) setAvatarSettings: (AvatarModelSettings*) theAvatarSettings;
 
 //rotation about y
 -(void) rotateObjectAboutYAxis: (CGPoint) touchPoint;
@@ -70,4 +72,5 @@
 
 -(void) enableChildOf:(CC3Node*) node AtIndex: (int) index;
 -(CC3Quaternion) CreateQuatFromVectors: (CC3Vector) v0 : (CC3Vector) v1;
+
 @end

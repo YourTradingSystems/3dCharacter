@@ -369,6 +369,9 @@
 		08A1058918575A2200B26770 /* shoeTitle.png in Resources */ = {isa = PBXBuildFile; fileRef = 08A1058318575A2200B26770 /* shoeTitle.png */; };
 		08A1058A18575A2200B26770 /* skinTitle.png in Resources */ = {isa = PBXBuildFile; fileRef = 08A1058418575A2200B26770 /* skinTitle.png */; };
 		08A1058B18575A2600B26770 /* obicharacter.pod in Resources */ = {isa = PBXBuildFile; fileRef = 08A104B618575A0B00B26770 /* obicharacter.pod */; };
+		84D8D81F1859B70C00B328B2 /* AvatarModelSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D8D81E1859B70C00B328B2 /* AvatarModelSettings.m */; };
+		84D8D8221859F10C00B328B2 /* FileToSettingsConverter.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D8D8211859F10C00B328B2 /* FileToSettingsConverter.m */; };
+		84D8D828185AF85E00B328B2 /* ModelSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D8D827185AF85E00B328B2 /* ModelSettings.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -991,6 +994,12 @@
 		08A1058218575A2200B26770 /* hairTitle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hairTitle.png; sourceTree = "<group>"; };
 		08A1058318575A2200B26770 /* shoeTitle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = shoeTitle.png; sourceTree = "<group>"; };
 		08A1058418575A2200B26770 /* skinTitle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = skinTitle.png; sourceTree = "<group>"; };
+		84D8D81D1859B70C00B328B2 /* AvatarModelSettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AvatarModelSettings.h; sourceTree = "<group>"; };
+		84D8D81E1859B70C00B328B2 /* AvatarModelSettings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AvatarModelSettings.m; sourceTree = "<group>"; };
+		84D8D8201859F10C00B328B2 /* FileToSettingsConverter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileToSettingsConverter.h; sourceTree = "<group>"; };
+		84D8D8211859F10C00B328B2 /* FileToSettingsConverter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FileToSettingsConverter.m; sourceTree = "<group>"; };
+		84D8D826185AF85D00B328B2 /* ModelSettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModelSettings.h; sourceTree = "<group>"; };
+		84D8D827185AF85E00B328B2 /* ModelSettings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModelSettings.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1112,6 +1121,12 @@
 				08A1047718573FA900B26770 /* ZFont.h */,
 				08A1047818573FA900B26770 /* ZFont.m */,
 				08A10495185756F500B26770 /* GameConfig.h */,
+				84D8D81D1859B70C00B328B2 /* AvatarModelSettings.h */,
+				84D8D81E1859B70C00B328B2 /* AvatarModelSettings.m */,
+				84D8D8201859F10C00B328B2 /* FileToSettingsConverter.h */,
+				84D8D8211859F10C00B328B2 /* FileToSettingsConverter.m */,
+				84D8D826185AF85D00B328B2 /* ModelSettings.h */,
+				84D8D827185AF85E00B328B2 /* ModelSettings.m */,
 			);
 			path = code;
 			sourceTree = "<group>";
@@ -2220,6 +2235,7 @@
 				08A102E51857282500B26770 /* CC3PointParticleSamples.m in Sources */,
 				08A1043B185728C600B26770 /* CCProgressTimer.m in Sources */,
 				08A1045C185728C600B26770 /* base64.c in Sources */,
+				84D8D828185AF85E00B328B2 /* ModelSettings.m in Sources */,
 				08A10445185728C600B26770 /* CCTextureAtlas.m in Sources */,
 				08A1035D1857282500B26770 /* CC3ClipSpaceTexturable.vsh in Sources */,
 				08A103561857282500B26770 /* CC3World.m in Sources */,
@@ -2262,6 +2278,7 @@
 				08A103391857282500B26770 /* CC3DataStreams.m in Sources */,
 				08A1041B185728C600B26770 /* CCActionGrid.m in Sources */,
 				08A103041857282500B26770 /* PVRTString.cpp in Sources */,
+				84D8D8221859F10C00B328B2 /* FileToSettingsConverter.m in Sources */,
 				08A102EA1857282500B26770 /* CC3PODLight.mm in Sources */,
 				08A10447185728C600B26770 /* CCTexturePVR.m in Sources */,
 				08A103181857282500B26770 /* CC3VertexArrays.m in Sources */,
@@ -2317,6 +2334,7 @@
 				08A103581857282500B26770 /* CC3BumpMapObjectSpaceAlphaTest.fsh in Sources */,
 				08A103611857282500B26770 /* CC3NoTextureReflect.fsh in Sources */,
 				08A1045E185728C600B26770 /* CCFileUtils.m in Sources */,
+				84D8D81F1859B70C00B328B2 /* AvatarModelSettings.m in Sources */,
 				08A102F71857282500B26770 /* PVRTTextureAPI.cpp in Sources */,
 				08A1031B1857282500B26770 /* CC3BitmapLabelNode.m in Sources */,
 				08A103101857282500B26770 /* CC3LinearMatrix.m in Sources */,
@@ -2570,6 +2588,7 @@
 				08A101921857261E00B26770 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
