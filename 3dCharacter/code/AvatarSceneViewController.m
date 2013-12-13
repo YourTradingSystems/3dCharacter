@@ -418,6 +418,12 @@
 -(void) setAvatarSettings:(AvatarModelSettings *)theAvatarSettings
 {
     [theAvatarSettings addObserver:self forKeyPath:@"skin" options:NSKeyValueObservingOptionNew context: nil];
+    [theAvatarSettings addObserver:self forKeyPath:@"body" options:NSKeyValueObservingOptionNew context: nil];
+    [theAvatarSettings addObserver:self forKeyPath:@"hair" options:NSKeyValueObservingOptionNew context: nil];
+    [theAvatarSettings addObserver:self forKeyPath:@"top" options:NSKeyValueObservingOptionNew context: nil];
+    [theAvatarSettings addObserver:self forKeyPath:@"bottom" options:NSKeyValueObservingOptionNew context: nil];
+    [theAvatarSettings addObserver:self forKeyPath:@"shoes" options:NSKeyValueObservingOptionNew context: nil];
+    [theAvatarSettings addObserver:self forKeyPath:@"glasses" options:NSKeyValueObservingOptionNew context: nil];
 }
 
 -(void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context

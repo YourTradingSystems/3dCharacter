@@ -372,6 +372,7 @@
 		84D8D81F1859B70C00B328B2 /* AvatarModelSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D8D81E1859B70C00B328B2 /* AvatarModelSettings.m */; };
 		84D8D8221859F10C00B328B2 /* FileToSettingsConverter.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D8D8211859F10C00B328B2 /* FileToSettingsConverter.m */; };
 		84D8D828185AF85E00B328B2 /* ModelSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D8D827185AF85E00B328B2 /* ModelSettings.m */; };
+		84D8D82B185B374100B328B2 /* UIButtonTag.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D8D82A185B374100B328B2 /* UIButtonTag.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -1000,6 +1001,8 @@
 		84D8D8211859F10C00B328B2 /* FileToSettingsConverter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FileToSettingsConverter.m; sourceTree = "<group>"; };
 		84D8D826185AF85D00B328B2 /* ModelSettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModelSettings.h; sourceTree = "<group>"; };
 		84D8D827185AF85E00B328B2 /* ModelSettings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModelSettings.m; sourceTree = "<group>"; };
+		84D8D829185B374100B328B2 /* UIButtonTag.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIButtonTag.h; sourceTree = "<group>"; };
+		84D8D82A185B374100B328B2 /* UIButtonTag.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIButtonTag.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1127,6 +1130,8 @@
 				84D8D8211859F10C00B328B2 /* FileToSettingsConverter.m */,
 				84D8D826185AF85D00B328B2 /* ModelSettings.h */,
 				84D8D827185AF85E00B328B2 /* ModelSettings.m */,
+				84D8D829185B374100B328B2 /* UIButtonTag.h */,
+				84D8D82A185B374100B328B2 /* UIButtonTag.m */,
 			);
 			path = code;
 			sourceTree = "<group>";
@@ -2207,6 +2212,7 @@
 				08A103491857282500B26770 /* CC3ShadowVolumes.m in Sources */,
 				08A10437185728C600B26770 /* CCParticleExamples.m in Sources */,
 				08A1033B1857282500B26770 /* CC3Resource.m in Sources */,
+				84D8D82B185B374100B328B2 /* UIButtonTag.m in Sources */,
 				08A1044A185728C600B26770 /* CCTMXObjectGroup.m in Sources */,
 				08A103111857282500B26770 /* CC3Matrix.m in Sources */,
 				08A10433185728C600B26770 /* CCMenuItem.m in Sources */,

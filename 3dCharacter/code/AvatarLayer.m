@@ -11,7 +11,7 @@
 #import "AvatarConstants.h"
 #import "AvatarModelSettings.h"
 #import "FileToSettingsConverter.h"
-//#import "AppContainer.h"
+#import "UIButtonTag.h"
 
 @interface CC3Layer(Private)
 
@@ -201,21 +201,51 @@
 {
     for (int i = 0; i < 6; i ++)
     {
-        UIButton    *btn = [UIButton buttonWithType:UIButtonTypeCustom];
+        UIButtonTag    *btn = [self createButtonWithTag: [NSString stringWithFormat:@"cha%d",i]];
         btn.frame = CGRectMake(200 + 109 * i + 20 * i,50,129,161);
-        [btn setImage:[UIImage imageNamed:[NSString stringWithFormat:@"cha%d",i]] forState:UIControlStateNormal];
         [[[CCDirector sharedDirector] openGLView] addSubview:btn];
-        btn.tag = i;
-        [btn addTarget:self action:@selector(btnModelClicked:) forControlEvents:UIControlEventTouchUpInside];
     }
 }
 
--(void) btnModelClicked : (id)sender
+-(UIButtonTag*) createButtonWithTag: (NSString*) name
 {
-    if([sender isKindOfClass:[UIButton class]])
+    UIButtonTag *btn = [UIButtonTag buttonWithType:UIButtonTypeCustom];
+    [btn setImage:[UIImage imageNamed: name] forState:UIControlStateNormal];
+    btn.tagSettings = [[FileToSettingsConverter instance] getSettings: name];
+    [btn addTarget:self action:@selector(buttonTouchedUp:) forControlEvents:UIControlEventTouchUpInside];
+    return btn;
+}
+
+-(void) buttonTouchedUp : (id)sender
+{
+    if([sender isKindOfClass:[UIButtonTag class]])
     {
-        UIButton *btn = (UIButton *)sender;
-        //self.avatarSettings.body = [[]
+        UIButtonTag *btn = (UIButtonTag *)sender;
+        switch (btn.tagSettings.type) {
+            case skin:
+                self.avatarSettings.skin = btn.tagSettings;
+                break;
+            case body:
+                self.avatarSettings.body = btn.tagSettings;
+                break;
+            case hair:
+                self.avatarSettings.hair = btn.tagSettings;
+                break;
+            case top:
+                self.avatarSettings.top = btn.tagSettings;
+                break;
+            case bottom:
+                self.avatarSettings.bottom = btn.tagSettings;
+                break;
+            case shoes:
+                self.avatarSettings.shoes = btn.tagSettings;
+                break;
+            case glasses:
+                self.avatarSettings.glasses = btn.tagSettings;
+                
+            default:
+                break;
+        }
     }
 }
 
@@ -231,11 +261,8 @@
     
     for (int i = 0; i < Avatar_SkinItemCount; i ++)
     {
-        UIButton    *btn = [UIButton buttonWithType:UIButtonTypeCustom];
+        UIButtonTag    *btn = [self createButtonWithTag: [NSString stringWithFormat:@"skin%d",i+1]];
         btn.frame = CGRectMake(60 * i ,0,45,45);
-        [btn setImage:[UIImage imageNamed:[NSString stringWithFormat:@"skin%d",i+1]] forState:UIControlStateNormal];
-        btn.tag = i+1;
-        [btn addTarget:self action:@selector(btnScinTouchUp:) forControlEvents:UIControlEventTouchUpInside];
         [scrollView addSubview:btn];
     }
     
@@ -246,15 +273,6 @@
     scrollView.scrollEnabled = NO;
     
     [[[CCDirector sharedDirector] openGLView] addSubview:scrollView];
-}
-
--(void) btnScinTouchUp:(id)sender
-{
-    if([sender isKindOfClass:[UIButton class]])
-    {
-        UIButton *btn = (UIButton *)sender; 
-        self.avatarSettings.skin = [[FileToSettingsConverter instance] getSettings:[NSString stringWithFormat: @"skin%d", btn.tag]];
-    }
 }
 
 - (void) addHair
@@ -269,10 +287,8 @@
     
     for (int i = 0; i < Avatar_HairItemCount; i ++)
     {
-        UIButton    *btn = [UIButton buttonWithType:UIButtonTypeCustom];
+        UIButtonTag    *btn = [self createButtonWithTag:[NSString stringWithFormat:@"hairstyle%d",i+1]];
         btn.frame = CGRectMake(90 * i ,0,45,35);
-        [btn setImage:[UIImage imageNamed:[NSString stringWithFormat:@"hairstyle%d",i+1]] forState:UIControlStateNormal];
-        
         [scrollView addSubview:btn];
     }
     
@@ -310,10 +326,8 @@
     
     for (int i = 0; i < Avatar_TopClothesItemCount; i ++)
     {
-        UIButton    *btn = [UIButton buttonWithType:UIButtonTypeCustom];
+        UIButtonTag    *btn = [self createButtonWithTag:[NSString stringWithFormat:@"shirt%d",i+1]];
         btn.frame = CGRectMake(88 * i ,0,80,100);
-        [btn setImage:[UIImage imageNamed:[NSString stringWithFormat:@"shirt%d",i+1]] forState:UIControlStateNormal];
-        
         [scrollView addSubview:btn];
     }
     
@@ -352,13 +366,10 @@
     
     for (int i = 0; i < Avatar_BottomClothesItemCount; i ++)
     {
-        UIButton    *btn = [UIButton buttonWithType:UIButtonTypeCustom];
+        UIButtonTag    *btn = [self createButtonWithTag:[NSString stringWithFormat:@"trousers%d",i+1]];
         btn.frame = CGRectMake(90 * i ,0,80,100);
-        [btn setImage:[UIImage imageNamed:[NSString stringWithFormat:@"trousers%d",i+1]] forState:UIControlStateNormal];
-        
         [scrollView addSubview:btn];
     }
-    
     
     [scrollView setBackgroundColor:[UIColor colorWithRed:247.0/255.0 green:247.0 / 255.0 blue:247.0 / 255.0 alpha:1.0]];
     scrollView.pagingEnabled = YES;
@@ -394,13 +405,10 @@
     
     for (int i = 0; i < Avatar_ShoesItemCount; i ++)
     {
-        UIButton    *btn = [UIButton buttonWithType:UIButtonTypeCustom];
+        UIButtonTag    *btn = [self createButtonWithTag:[NSString stringWithFormat:@"shoes%d",i+1]];
         btn.frame = CGRectMake(90 * i ,0,75,80);
-        [btn setImage:[UIImage imageNamed:[NSString stringWithFormat:@"shoes%d",i+1]] forState:UIControlStateNormal];
-        
         [scrollView addSubview:btn];
     }
-    
     
     [scrollView setBackgroundColor:[UIColor colorWithRed:247.0/255.0 green:247.0 / 255.0 blue:247.0 / 255.0 alpha:1.0]];
     scrollView.pagingEnabled = YES;
@@ -420,7 +428,6 @@
     pageControl.tag = Avatar_ShoeScr + 1000;
     [[[CCDirector sharedDirector] openGLView] addSubview:pageControl];
     [pageControl release];
-
 }
 
 - (void) addGlasses
@@ -436,10 +443,8 @@
     
     for (int i = 0; i < Avatar_GlassItemCount; i ++)
     {
-        UIButton    *btn = [UIButton buttonWithType:UIButtonTypeCustom];
+        UIButtonTag *btn = [self createButtonWithTag:[NSString stringWithFormat:@"glasses%d",i+1]];
         btn.frame = CGRectMake(120 * i ,0,92,58);
-        [btn setImage:[UIImage imageNamed:[NSString stringWithFormat:@"glasses%d",i+1]] forState:UIControlStateNormal];
-        
         [scrollView addSubview:btn];
     }
     
