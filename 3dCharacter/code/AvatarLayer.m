@@ -44,7 +44,7 @@
 
     [self yawOnly];
     
-    [self playAnimModeOnce];
+    [self playAnimModeOnce];    
 }
     
      
@@ -78,6 +78,13 @@
 //
 //
 -(void) playAnim {
+    id aClass = self.cc3Scene;
+    NSLog(@"cc3Scene.class = %@", [aClass class]);
+    
+    if (![aClass respondsToSelector:@selector(playAnim)]) {
+        NSLog(@"%@ not contain selector playAnim", [aClass class]);
+    }
+    
     [(AvatarSceneViewController*)[self cc3Scene] playAnim];
 }
 //
@@ -160,7 +167,7 @@
     
     [self playAnim];
     
-    
+    [(AvatarSceneViewController*)[self cc3Scene] setAvatarSettings: _avatarSettings];
 }
 
 
@@ -208,7 +215,7 @@
     if([sender isKindOfClass:[UIButton class]])
     {
         UIButton *btn = (UIButton *)sender;
-        self.avatarSettings.bodyIndex = btn.tag;
+        //self.avatarSettings.body = [[]
     }
 }
 
@@ -246,7 +253,7 @@
     if([sender isKindOfClass:[UIButton class]])
     {
         UIButton *btn = (UIButton *)sender; 
-        self.avatarSettings.scinColor = [[FileToSettingsConverter instance] getScinColor:[NSString stringWithFormat: @"skin%d", btn.tag]];
+        self.avatarSettings.skin = [[FileToSettingsConverter instance] getScinSettings:[NSString stringWithFormat: @"skin%d", btn.tag]];
     }
 }
 
