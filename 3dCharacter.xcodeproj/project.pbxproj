@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		04D1F576185B1A23007BB289 /* final_female.pod in Resources */ = {isa = PBXBuildFile; fileRef = 04D1F575185B1A23007BB289 /* final_female.pod */; };
 		08A101681857261E00B26770 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08A101671857261E00B26770 /* Foundation.framework */; };
 		08A1016A1857261E00B26770 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08A101691857261E00B26770 /* CoreGraphics.framework */; };
 		08A1016C1857261E00B26770 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08A1016B1857261E00B26770 /* UIKit.framework */; };
@@ -375,6 +376,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		04D1F575185B1A23007BB289 /* final_female.pod */ = {isa = PBXFileReference; lastKnownFileType = file; path = final_female.pod; sourceTree = "<group>"; };
 		08A101641857261E00B26770 /* 3dCharacter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = 3dCharacter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		08A101671857261E00B26770 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		08A101691857261E00B26770 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -1871,6 +1873,7 @@
 		08A10497185759DF00B26770 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				04D1F575185B1A23007BB289 /* final_female.pod */,
 				08A1057E18575A2200B26770 /* ItemTitle */,
 				08A104B718575A1500B26770 /* 3DItem */,
 				08A104B618575A0B00B26770 /* obicharacter.pod */,
@@ -2100,6 +2103,7 @@
 				08A1052918575A1500B26770 /* glasses18.png in Resources */,
 				08A1057918575A1500B26770 /* trousers5.png in Resources */,
 				08A104B5185759FF00B26770 /* toon.pod in Resources */,
+				04D1F576185B1A23007BB289 /* final_female.pod in Resources */,
 				08A1051F18575A1500B26770 /* cha5.png in Resources */,
 				08A1057618575A1500B26770 /* trousers2.png in Resources */,
 				08A1055D18575A1500B26770 /* shoes18.png in Resources */,

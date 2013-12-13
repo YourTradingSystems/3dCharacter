@@ -124,8 +124,8 @@
 	lamp.isDirectionalOnly = NO;
     lamp.opacity = 1.0;
 	[cam addChild: lamp];
-    [self addContentFromPODFile:@"obicharacter.pod"];
-    mainNode = [self getNodeNamed: @"obicharacter.pod"];
+    [self addContentFromPODFile:@"final_female.pod"];
+    mainNode = [self getNodeNamed: @"final_female.pod"];
 
     
     //adjust main node w.r.t backdrop
@@ -421,7 +421,9 @@
 
 -(void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
 {
-    
+    AvatarModelSettings* modelSettings = (AvatarModelSettings *)object;
+    CC3Node skinModel = [mainNode getNodeNamed: @"Skin"];
+    skinModel.ambientColor = ;
 }
 
 @end

@@ -38,8 +38,6 @@
     self.isTouchEnabled = YES;
     _avatarSettings = [[AvatarModelSettings alloc] init];
     
-    [_avatarSettings addObserver:self forKeyPath:@"bodyIndex" options:NSKeyValueObservingOptionNew context: nil];
-    
     [self setContentSize:CGSizeMake(1024,768)];
 
     [self yawOnly];
