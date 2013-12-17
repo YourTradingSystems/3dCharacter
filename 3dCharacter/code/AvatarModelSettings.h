@@ -20,12 +20,17 @@
     ModelSettings* glasses;
 }
 
-@property (nonatomic) ModelSettings* body;
-@property (nonatomic) ModelSettings* hair;
-@property (nonatomic) ModelSettings* skin;
-@property (nonatomic) ModelSettings* top;
-@property (nonatomic) ModelSettings* bottom;
-@property (nonatomic) ModelSettings* shoes;
-@property (nonatomic) ModelSettings* glasses;
+@property (nonatomic, setter = setBody:) ModelSettings* body;
+@property (nonatomic, setter = setHair:) ModelSettings* hair;
+@property (nonatomic, setter = setSkin:) ModelSettings* skin;
+@property (nonatomic, setter = setTop:) ModelSettings* top;
+@property (nonatomic, setter = setBottom:) ModelSettings* bottom;
+@property (nonatomic, setter = setShoes:) ModelSettings* shoes;
+@property (nonatomic, setter = setGlasses:) ModelSettings* glasses;
+
+//-(void) setBody:(ModelSettings *)body;
+-(void) raiseModelChanged:(NSString*) propertyName settings: (ModelSettings*) modelSettings;
+-(void) raiseColorChanged:(NSString*) propertyName settings: (ModelSettings*) modelSettings;
+-(void) compareAndRaiseChanges:(NSString *)propertyName oldSettings:(ModelSettings *)oldSetting withNewSettings:(ModelSettings*) newSettings;
 
 @end

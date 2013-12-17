@@ -424,13 +424,29 @@
     [theAvatarSettings addObserver:self forKeyPath:@"bottom" options:NSKeyValueObservingOptionNew context: nil];
     [theAvatarSettings addObserver:self forKeyPath:@"shoes" options:NSKeyValueObservingOptionNew context: nil];
     [theAvatarSettings addObserver:self forKeyPath:@"glasses" options:NSKeyValueObservingOptionNew context: nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onModelChanged:) name:@"modelChanged" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onColorChanged:) name:@"colorChanged" object:nil];
 }
 
 -(void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
 {
     UIColor* color = [UIColor alloc];
     color = [(AvatarModelSettings*) object skin].color;
+    
+    
 }
+
+-(void) onModelChanged:(NSNotification *) notification
+{
+
+}
+
+-(void) onColorChanged:(NSNotification *) notification
+{
+    
+}
+
 
 @end
 
