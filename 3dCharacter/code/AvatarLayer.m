@@ -195,7 +195,7 @@
     //[[NavigationBarManager sharedNavigationController] popViewControllerAnimated:YES];
 }
 
-- (void) addModel
+-(void) addModel
 {
     for (int i = 0; i < 6; i ++)
     {

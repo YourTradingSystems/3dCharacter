@@ -126,8 +126,9 @@
     [scene addChild:mainLayer];
     
 	[[CCManager sharedManager] runScene:scene];
-    
-    [self.view addSubview:CCManager.sharedManager.glView];
+    UIView *openGlView = CCManager.sharedManager.glView;
+    openGlView.frame = CGRectMake(0.f, 0.f, 1024.f, 1024.f);
+    [self.view addSubview:openGlView];
     self.view.backgroundColor = [UIColor whiteColor];
 }
 
