@@ -159,58 +159,58 @@
                                                          andColor: [UIColor colorWithRed:200.0/255.0 green:100.0 / 255.0 blue:0.0 / 255.0 alpha:1.0]],
              
              @"shirt1" : [[ModelSettings alloc] initWithType: top
-                                                          andName:@"shirt"
+                                                          andName:@"blouse"
                                                          andColor: [UIColor colorWithRed:20.0/255.0 green:100.0 / 255.0 blue:250.0 / 255.0 alpha:1.0]],
              @"shirt2" : [[ModelSettings alloc] initWithType: top
-                                                    andName:@"shirt"
+                                                    andName:@"blouse"
                                                    andColor: [UIColor colorWithRed:20.0/255.0 green:100.0 / 255.0 blue:250.0 / 255.0 alpha:1.0]],
              @"shirt3" : [[ModelSettings alloc] initWithType: top
-                                                    andName:@"shirt"
+                                                    andName:@"blouse"
                                                    andColor: [UIColor colorWithRed:20.0/255.0 green:100.0 / 255.0 blue:250.0 / 255.0 alpha:1.0]],
              @"shirt4" : [[ModelSettings alloc] initWithType: top
-                                                    andName:@"shirt"
+                                                    andName:@"blouse"
                                                    andColor: [UIColor colorWithRed:20.0/255.0 green:100.0 / 255.0 blue:250.0 / 255.0 alpha:1.0]],
              @"shirt5" : [[ModelSettings alloc] initWithType: top
-                                                    andName:@"shirt"
+                                                    andName:@"blouse"
                                                    andColor: [UIColor colorWithRed:20.0/255.0 green:100.0 / 255.0 blue:250.0 / 255.0 alpha:1.0]],
              @"shirt6" : [[ModelSettings alloc] initWithType: top
-                                                    andName:@"shirt"
+                                                    andName:@"blouse"
                                                    andColor: [UIColor colorWithRed:20.0/255.0 green:100.0 / 255.0 blue:250.0 / 255.0 alpha:1.0]],
              @"shirt7" : [[ModelSettings alloc] initWithType: top
-                                                    andName:@"shirt"
+                                                    andName:@"blouse"
                                                    andColor: [UIColor colorWithRed:20.0/255.0 green:100.0 / 255.0 blue:250.0 / 255.0 alpha:1.0]],
              @"shirt8" : [[ModelSettings alloc] initWithType: top
-                                                    andName:@"shirt"
+                                                    andName:@"blouse"
                                                    andColor: [UIColor colorWithRed:20.0/255.0 green:100.0 / 255.0 blue:250.0 / 255.0 alpha:1.0]],
              @"shirt9" : [[ModelSettings alloc] initWithType: top
-                                                    andName:@"shirt"
+                                                    andName:@"blouse"
                                                    andColor: [UIColor colorWithRed:20.0/255.0 green:100.0 / 255.0 blue:250.0 / 255.0 alpha:1.0]],
              @"shirt10" : [[ModelSettings alloc] initWithType: top
-                                                    andName:@"shirt"
+                                                    andName:@"blouse"
                                                     andColor: [UIColor colorWithRed:20.0/255.0 green:100.0 / 255.0 blue:250.0 / 255.0 alpha:1.0]],
              @"shirt11" : [[ModelSettings alloc] initWithType: top
-                                                     andName:@"shirt"
+                                                     andName:@"blouse"
                                                     andColor: [UIColor colorWithRed:20.0/255.0 green:100.0 / 255.0 blue:250.0 / 255.0 alpha:1.0]],
              @"shirt12" : [[ModelSettings alloc] initWithType: top
-                                                     andName:@"shirt"
+                                                     andName:@"blouse"
                                                     andColor: [UIColor colorWithRed:20.0/255.0 green:100.0 / 255.0 blue:250.0 / 255.0 alpha:1.0]],
              @"shirt13" : [[ModelSettings alloc] initWithType: top
-                                                     andName:@"shirt"
+                                                     andName:@"blouse"
                                                     andColor: [UIColor colorWithRed:20.0/255.0 green:100.0 / 255.0 blue:250.0 / 255.0 alpha:1.0]],
              @"shirt14" : [[ModelSettings alloc] initWithType: top
-                                                     andName:@"shirt"
+                                                     andName:@"blouse"
                                                     andColor: [UIColor colorWithRed:20.0/255.0 green:100.0 / 255.0 blue:250.0 / 255.0 alpha:1.0]],
              @"shirt15" : [[ModelSettings alloc] initWithType: top
-                                                     andName:@"shirt"
+                                                     andName:@"blouse"
                                                     andColor: [UIColor colorWithRed:20.0/255.0 green:100.0 / 255.0 blue:250.0 / 255.0 alpha:1.0]],
              @"shirt16" : [[ModelSettings alloc] initWithType: top
-                                                     andName:@"shirt"
+                                                     andName:@"blouse"
                                                     andColor: [UIColor colorWithRed:20.0/255.0 green:100.0 / 255.0 blue:250.0 / 255.0 alpha:1.0]],
              @"shirt17" : [[ModelSettings alloc] initWithType: top
-                                                     andName:@"shirt"
+                                                     andName:@"blouse"
                                                     andColor: [UIColor colorWithRed:20.0/255.0 green:100.0 / 255.0 blue:250.0 / 255.0 alpha:1.0]],
              @"shirt18" : [[ModelSettings alloc] initWithType: top
-                                                     andName:@"shirt"
+                                                     andName:@"blouse"
                                                     andColor: [UIColor colorWithRed:20.0/255.0 green:100.0 / 255.0 blue:250.0 / 255.0 alpha:1.0]],
              
              
@@ -270,77 +270,77 @@
                                                      andColor: [UIColor colorWithRed:20.0/255.0 green:100.0 / 255.0 blue:250.0 / 255.0 alpha:1.0]],
              
              @"skin1" : [[ModelSettings alloc] initWithType: skin
-                                                   andName:@"skin"
+                                                   andName:nil
                                                    andColor: [UIColor colorWithRed:252.0/255.0 green:239.0 / 255.0 blue:202.0 / 255.0 alpha:1.0]],
              @"skin2" : [[ModelSettings alloc] initWithType: skin
-                                                    andName:@"skin"
+                                                    andName:nil
                                                    andColor: [UIColor colorWithRed:237.0/255.0 green:223.0 / 255.0 blue:220.0 / 255.0 alpha:1.0]],
              @"skin3" : [[ModelSettings alloc] initWithType: skin
-                                                    andName:@"skin"
+                                                    andName:nil
                                                    andColor: [UIColor colorWithRed:255.0/255.0 green:206.0 / 255.0 blue:160.0 / 255.0 alpha:1.0]],
              @"skin4" : [[ModelSettings alloc] initWithType: skin
-                                                    andName:@"skin"
+                                                    andName:nil
                                                     andColor: [UIColor colorWithRed:225.0/255.0 green:170.0 / 255.0 blue:149.0 / 255.0 alpha:1.0]],
              @"skin5" : [[ModelSettings alloc] initWithType: skin
-                                                    andName:@"skin"
+                                                    andName:nil
                                                    andColor: [UIColor colorWithRed:144.0/255.0 green:97.0 / 255.0 blue:69.0 / 255.0 alpha:1.0]],
              @"skin6" : [[ModelSettings alloc] initWithType: skin
-                                                    andName:@"skin"
+                                                    andName:nil
                                                    andColor: [UIColor colorWithRed:95.0/255.0 green:69.0 / 255.0 blue:53.0 / 255.0 alpha:1.0]],
              
              @"trousers1" : [[ModelSettings alloc] initWithType: bottom
-                                                    andName:@"trousers"
+                                                    andName:@"skirt"
                                                       andColor: [UIColor colorWithRed:247.0/255.0 green:247.0 / 255.0 blue:247.0 / 255.0 alpha:1.0]],
              @"trousers2" : [[ModelSettings alloc] initWithType: bottom
-                                                       andName:@"trousers"
+                                                       andName:@"skirt"
                                                       andColor: [UIColor colorWithRed:247.0/255.0 green:247.0 / 255.0 blue:247.0 / 255.0 alpha:1.0]],
              @"trousers3" : [[ModelSettings alloc] initWithType: bottom
-                                                       andName:@"trousers"
+                                                       andName:@"skirt"
                                                       andColor: [UIColor colorWithRed:247.0/255.0 green:247.0 / 255.0 blue:247.0 / 255.0 alpha:1.0]],
              @"trousers4" : [[ModelSettings alloc] initWithType: bottom
-                                                       andName:@"trousers"
+                                                       andName:@"skirt"
                                                       andColor: [UIColor colorWithRed:247.0/255.0 green:247.0 / 255.0 blue:247.0 / 255.0 alpha:1.0]],
              @"trousers5" : [[ModelSettings alloc] initWithType: bottom
-                                                       andName:@"trousers"
+                                                       andName:@"skirt"
                                                       andColor: [UIColor colorWithRed:247.0/255.0 green:247.0 / 255.0 blue:247.0 / 255.0 alpha:1.0]],
              @"trousers6" : [[ModelSettings alloc] initWithType: bottom
-                                                       andName:@"trousers"
+                                                       andName:@"skirt"
                                                       andColor: [UIColor colorWithRed:247.0/255.0 green:247.0 / 255.0 blue:247.0 / 255.0 alpha:1.0]],
              @"trousers7" : [[ModelSettings alloc] initWithType: bottom
-                                                       andName:@"trousers"
+                                                       andName:@"skirt"
                                                       andColor: [UIColor colorWithRed:247.0/255.0 green:247.0 / 255.0 blue:247.0 / 255.0 alpha:1.0]],
              @"trousers8" : [[ModelSettings alloc] initWithType: bottom
-                                                       andName:@"trousers"
+                                                       andName:@"skirt"
                                                       andColor: [UIColor colorWithRed:247.0/255.0 green:247.0 / 255.0 blue:247.0 / 255.0 alpha:1.0]],
              @"trousers9" : [[ModelSettings alloc] initWithType: bottom
-                                                       andName:@"trousers"
+                                                       andName:@"skirt"
                                                       andColor: [UIColor colorWithRed:247.0/255.0 green:247.0 / 255.0 blue:247.0 / 255.0 alpha:1.0]],
              @"trousers10" : [[ModelSettings alloc] initWithType: bottom
-                                                       andName:@"trousers"
+                                                       andName:@"skirt"
                                                       andColor: [UIColor colorWithRed:247.0/255.0 green:247.0 / 255.0 blue:247.0 / 255.0 alpha:1.0]],
              @"trousers11" : [[ModelSettings alloc] initWithType: bottom
-                                                       andName:@"trousers"
+                                                       andName:@"skirt"
                                                        andColor: [UIColor colorWithRed:247.0/255.0 green:247.0 / 255.0 blue:247.0 / 255.0 alpha:1.0]],
              @"trousers12" : [[ModelSettings alloc] initWithType: bottom
-                                                        andName:@"trousers"
+                                                        andName:@"skirt"
                                                        andColor: [UIColor colorWithRed:247.0/255.0 green:247.0 / 255.0 blue:247.0 / 255.0 alpha:1.0]],
              @"trousers13" : [[ModelSettings alloc] initWithType: bottom
-                                                        andName:@"trousers"
+                                                        andName:@"skirt"
                                                        andColor: [UIColor colorWithRed:247.0/255.0 green:247.0 / 255.0 blue:247.0 / 255.0 alpha:1.0]],
              @"trousers14" : [[ModelSettings alloc] initWithType: bottom
-                                                        andName:@"trousers"
+                                                        andName:@"skirt"
                                                        andColor: [UIColor colorWithRed:247.0/255.0 green:247.0 / 255.0 blue:247.0 / 255.0 alpha:1.0]],
              @"trousers15" : [[ModelSettings alloc] initWithType: bottom
-                                                        andName:@"trousers"
+                                                        andName:@"skirt"
                                                        andColor: [UIColor colorWithRed:247.0/255.0 green:247.0 / 255.0 blue:247.0 / 255.0 alpha:1.0]],
              @"trousers16" : [[ModelSettings alloc] initWithType: bottom
-                                                        andName:@"trousers"
+                                                        andName:@"skirt"
                                                        andColor: [UIColor colorWithRed:247.0/255.0 green:247.0 / 255.0 blue:247.0 / 255.0 alpha:1.0]],
              @"trousers17" : [[ModelSettings alloc] initWithType: bottom
-                                                        andName:@"trousers"
+                                                        andName:@"skirt"
                                                        andColor: [UIColor colorWithRed:247.0/255.0 green:247.0 / 255.0 blue:247.0 / 255.0 alpha:1.0]],
              @"trousers18" : [[ModelSettings alloc] initWithType: bottom
-                                                        andName:@"trousers"
+                                                        andName:@"skirt"
                                                        andColor: [UIColor colorWithRed:247.0/255.0 green:247.0 / 255.0 blue:247.0 / 255.0 alpha:1.0]]};
 }
 

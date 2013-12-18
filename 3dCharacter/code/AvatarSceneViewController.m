@@ -125,8 +125,8 @@
 	lamp.isDirectionalOnly = NO;
     lamp.opacity = 1.0;
 	[cam addChild: lamp];
-    [self addContentFromPODFile:@"obicharacter.pod"];
-    mainNode = [self getNodeNamed: @"obicharacter.pod"];
+    [self addContentFromPODFile:@"final_female_body.pod"];
+    mainNode = [self getNodeNamed: @"final_female_body.pod"];
     
     //adjust main node w.r.t backdrop
     [mainNode setScale:CC3VectorMake(0.5, 0.5, 0.55)];
@@ -430,17 +430,46 @@
 
 -(void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
 {
-    UIColor* color = [UIColor alloc];
-    color = [(AvatarModelSettings*) object skin].color;
-    
-    for(object in mainNode.children)
+    CC3Node *aModel = nil;
+    UIColor *color = [UIColor alloc];
+    ModelSettings *settings = (ModelSettings *)[change valueForKey:@"new"];
+    NSString *namePODFile = settings.modelName;
+    color = settings.color;
+    if (namePODFile != nil)
     {
-        NSLog(@"%@", [object class]);
-        if([object isKindOfClass:[CC3Node class]])
+        namePODFile= [namePODFile stringByAppendingString:@".pod"];
+        aModel = [self getNodeNamed:namePODFile];
+        if (aModel == nil)
         {
-            CC3Node* node = (CC3Node*)object;
+            [self addContentFromPODFile:namePODFile];
+            CC3Node *aModel = [self getNodeNamed:namePODFile];
+            aModel.tag = settings.type;
+            [self attachModel:aModel ToModel:mainNode];
         }
+        [self changeColor:color ToModel:aModel];
     }
+    else
+        [self changeColor:color ToModel:[mainNode getNodeNamed:@"skin"]];
+}
+
+-(void)attachModel:(CC3Node *)attachedModel ToModel:(CC3Node *)model
+{
+    CC3Node *removedNode = nil;
+    if ([model getNodeNamed:attachedModel.name] == nil)
+    {
+        for (CC3Node *node in model.children)
+        {
+            if (node.tag == attachedModel.tag)
+                removedNode = node;
+        }
+        removedNode.remove;
+        [model addChild:attachedModel];
+    }
+}
+
+-(void)changeColor:(UIColor *)color ToModel:(CC3Node *)model
+{
+    model.ambientColor = color.asCCColor4F;
 }
 
 -(void) onModelChanged:(NSNotification *) notification
