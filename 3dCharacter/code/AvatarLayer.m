@@ -201,6 +201,7 @@
     {
         UIButtonTag    *btn = [self createButtonWithTag: [NSString stringWithFormat:@"cha%d",i]];
         btn.frame = CGRectMake(200 + 109 * i + 20 * i,50,129,161);
+        NSLog(@"size %f %f %f %f", btn.frame.origin.x, btn.frame.origin.y, btn.bounds.size.width, btn.bounds.size.height);
         [[[CCDirector sharedDirector] openGLView] addSubview:btn];
     }
 }

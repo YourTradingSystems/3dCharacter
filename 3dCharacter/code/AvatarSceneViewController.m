@@ -125,8 +125,8 @@
 	lamp.isDirectionalOnly = NO;
     lamp.opacity = 1.0;
 	[cam addChild: lamp];
-    [self addContentFromPODFile:@"final_female_body.pod"];
-    mainNode = [self getNodeNamed: @"final_female_body.pod"];
+    [self addContentFromPODFile:@"final_female.pod"];
+    mainNode = [self getNodeNamed: @"final_female.pod"];
     
     //adjust main node w.r.t backdrop
     [mainNode setScale:CC3VectorMake(0.5, 0.5, 0.55)];
@@ -140,7 +140,7 @@
     mainNodeSavedLocation = mainNode.location;
     mainNodeSavedRotation = mainNode.quaternion;
     
-    actions = [[NSMutableArray alloc] initWithCapacity:6];
+    /*actions = [[NSMutableArray alloc] initWithCapacity:6];
     
     //init animation
     currentAction = 0;
@@ -163,7 +163,7 @@
     [actions addObject:a2];
     [actions addObject:b0];
     [actions addObject:b1];
-    [actions addObject:b2];
+    [actions addObject:b2];*/
 
 
 	[self createGLBuffers];
@@ -469,7 +469,11 @@
 
 -(void)changeColor:(UIColor *)color ToModel:(CC3Node *)model
 {
-    model.ambientColor = color.asCCColor4F;
+    CC3Node *colorMaterial = [model getNodeNamed:@"planeColor"];
+    if (colorMaterial != nil)
+        colorMaterial.diffuseColor = color.asCCColor4F;
+    else
+        model.diffuseColor = color.asCCColor4F;
 }
 
 -(void) onModelChanged:(NSNotification *) notification
