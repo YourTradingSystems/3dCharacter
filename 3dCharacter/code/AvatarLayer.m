@@ -200,7 +200,8 @@
     for (int i = 0; i < 6; i ++)
     {
         UIButtonTag    *btn = [self createButtonWithTag: [NSString stringWithFormat:@"cha%d",i]];
-        btn.frame = CGRectMake(200 + 109 * i + 20 * i,50,129,161);
+        btn.frame = CGRectMake(200 + 129 * i, 50, 129, 161);
+        //NSLog(@"frame: %f  %f  %f  %f", btn.frame.origin.x, btn.frame.origin.y, btn.frame.size.width, btn.frame.size.height);
         [[[CCDirector sharedDirector] openGLView] addSubview:btn];
     }
 }
@@ -219,6 +220,23 @@
     if([sender isKindOfClass:[UIButtonTag class]])
     {
         UIButtonTag *btn = (UIButtonTag *)sender;
+        UIWindow* window = btn.window;
+        NSArray* arr = window.subviews;
+        for (int i =0; i<arr.count; i++)
+        {
+            UIView* obj = [arr objectAtIndex:i];
+            NSLog(@"%@  %@", [obj class], NSStringFromCGRect(obj.frame));
+            NSArray* subv = obj.subviews;
+            for (int j=0; j<subv.count; j++) {
+                CC3GLView* glview =[subv objectAtIndex:j];
+                NSLog(@"%@  %@", [glview class], NSStringFromCGRect([glview frame]));
+                for (int k=0; k<glview.subviews.count; k++) {
+                    NSObject* o = [glview.subviews objectAtIndex:k];
+                    NSLog(@"%@ %@", [o class], NSStringFromCGRect([(UIView*)o frame]));
+                }
+                
+            }
+        }
         switch (btn.tagSettings.type) {
             case skin:
                 self.avatarSettings.skin = btn.tagSettings;
