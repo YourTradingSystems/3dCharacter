@@ -127,7 +127,6 @@
 	[cam addChild: lamp];
     [self addContentFromPODFile:@"obicharacter.pod"];
     mainNode = [self getNodeNamed: @"obicharacter.pod"];
-
     
     //adjust main node w.r.t backdrop
     [mainNode setScale:CC3VectorMake(0.5, 0.5, 0.55)];
