@@ -8,8 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		04D8D0621861ADA600853619 /* dress.pod in Resources */ = {isa = PBXBuildFile; fileRef = 04D8D05F1861ADA600853619 /* dress.pod */; };
-		04D8D0631861ADA600853619 /* final_female.pod in Resources */ = {isa = PBXBuildFile; fileRef = 04D8D0601861ADA600853619 /* final_female.pod */; };
 		04D8D0641861ADA600853619 /* shirt.pod in Resources */ = {isa = PBXBuildFile; fileRef = 04D8D0611861ADA600853619 /* shirt.pod */; };
+		04D8D0691861FDA800853619 /* skirt.pod in Resources */ = {isa = PBXBuildFile; fileRef = 04D8D0661861FDA800853619 /* skirt.pod */; };
+		04D8D06A1861FDA800853619 /* t-shirt.pod in Resources */ = {isa = PBXBuildFile; fileRef = 04D8D0671861FDA800853619 /* t-shirt.pod */; };
+		04D8D06E1862009E00853619 /* final_female.pod in Resources */ = {isa = PBXBuildFile; fileRef = 04D8D06D1862009E00853619 /* final_female.pod */; };
+		04D8D0701862018C00853619 /* shoes.pod in Resources */ = {isa = PBXBuildFile; fileRef = 04D8D06F1862018C00853619 /* shoes.pod */; };
+		04D8D0721862071B00853619 /* tt-shirt.pod in Resources */ = {isa = PBXBuildFile; fileRef = 04D8D0711862071B00853619 /* tt-shirt.pod */; };
 		08A101681857261E00B26770 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08A101671857261E00B26770 /* Foundation.framework */; };
 		08A1016A1857261E00B26770 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08A101691857261E00B26770 /* CoreGraphics.framework */; };
 		08A1016C1857261E00B26770 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08A1016B1857261E00B26770 /* UIKit.framework */; };
@@ -380,8 +384,12 @@
 
 /* Begin PBXFileReference section */
 		04D8D05F1861ADA600853619 /* dress.pod */ = {isa = PBXFileReference; lastKnownFileType = file; path = dress.pod; sourceTree = "<group>"; };
-		04D8D0601861ADA600853619 /* final_female.pod */ = {isa = PBXFileReference; lastKnownFileType = file; path = final_female.pod; sourceTree = "<group>"; };
 		04D8D0611861ADA600853619 /* shirt.pod */ = {isa = PBXFileReference; lastKnownFileType = file; path = shirt.pod; sourceTree = "<group>"; };
+		04D8D0661861FDA800853619 /* skirt.pod */ = {isa = PBXFileReference; lastKnownFileType = file; path = skirt.pod; sourceTree = "<group>"; };
+		04D8D0671861FDA800853619 /* t-shirt.pod */ = {isa = PBXFileReference; lastKnownFileType = file; path = "t-shirt.pod"; sourceTree = "<group>"; };
+		04D8D06D1862009E00853619 /* final_female.pod */ = {isa = PBXFileReference; lastKnownFileType = file; path = final_female.pod; sourceTree = "<group>"; };
+		04D8D06F1862018C00853619 /* shoes.pod */ = {isa = PBXFileReference; lastKnownFileType = file; path = shoes.pod; sourceTree = "<group>"; };
+		04D8D0711862071B00853619 /* tt-shirt.pod */ = {isa = PBXFileReference; lastKnownFileType = file; path = "tt-shirt.pod"; sourceTree = "<group>"; };
 		08A101641857261E00B26770 /* 3dCharacter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = 3dCharacter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		08A101671857261E00B26770 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		08A101691857261E00B26770 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -1882,8 +1890,12 @@
 		08A10497185759DF00B26770 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				04D8D0711862071B00853619 /* tt-shirt.pod */,
+				04D8D06F1862018C00853619 /* shoes.pod */,
+				04D8D06D1862009E00853619 /* final_female.pod */,
+				04D8D0661861FDA800853619 /* skirt.pod */,
+				04D8D0671861FDA800853619 /* t-shirt.pod */,
 				04D8D05F1861ADA600853619 /* dress.pod */,
-				04D8D0601861ADA600853619 /* final_female.pod */,
 				04D8D0611861ADA600853619 /* shirt.pod */,
 				08A1057E18575A2200B26770 /* ItemTitle */,
 				08A104B718575A1500B26770 /* 3DItem */,
@@ -2115,6 +2127,7 @@
 				08A1052918575A1500B26770 /* glasses18.png in Resources */,
 				08A1057918575A1500B26770 /* trousers5.png in Resources */,
 				08A104B5185759FF00B26770 /* toon.pod in Resources */,
+				04D8D0691861FDA800853619 /* skirt.pod in Resources */,
 				08A1051F18575A1500B26770 /* cha5.png in Resources */,
 				08A1057618575A1500B26770 /* trousers2.png in Resources */,
 				08A1055D18575A1500B26770 /* shoes18.png in Resources */,
@@ -2149,6 +2162,7 @@
 				08A1052718575A1500B26770 /* glasses16.png in Resources */,
 				08A1054F18575A1500B26770 /* shirt5.png in Resources */,
 				08A104AA185759FF00B26770 /* bgDrop.png in Resources */,
+				04D8D0721862071B00853619 /* tt-shirt.pod in Resources */,
 				08A102DE1857282500B26770 /* Cal3D File Formats.txt in Resources */,
 				08A104A8185759FF00B26770 /* 3dNavBg.png in Resources */,
 				08A1057C18575A1500B26770 /* trousers8.png in Resources */,
@@ -2159,8 +2173,10 @@
 				08A1053F18575A1500B26770 /* hairstyle7.png in Resources */,
 				08A1052F18575A1500B26770 /* glasses7.png in Resources */,
 				08A1052418575A1500B26770 /* glasses13.png in Resources */,
+				04D8D06E1862009E00853619 /* final_female.pod in Resources */,
 				08A1051B18575A1500B26770 /* cha1.png in Resources */,
 				08A1054B18575A1500B26770 /* shirt18.png in Resources */,
+				04D8D0701862018C00853619 /* shoes.pod in Resources */,
 				08A1052E18575A1500B26770 /* glasses6.png in Resources */,
 				08A1053618575A1500B26770 /* hairstyle13.png in Resources */,
 				08A1057B18575A1500B26770 /* trousers7.png in Resources */,
@@ -2193,8 +2209,8 @@
 				08A104AC185759FF00B26770 /* Firstgimp.png in Resources */,
 				08A1055A18575A1500B26770 /* shoes15.png in Resources */,
 				08A1058718575A2200B26770 /* glassTitle.png in Resources */,
+				04D8D06A1861FDA800853619 /* t-shirt.pod in Resources */,
 				08A1053D18575A1500B26770 /* hairstyle5.png in Resources */,
-				04D8D0631861ADA600853619 /* final_female.pod in Resources */,
 				08A104B0185759FF00B26770 /* samplepod.pod in Resources */,
 				08A1054318575A1500B26770 /* shirt10.png in Resources */,
 				08A1053A18575A1500B26770 /* hairstyle2.png in Resources */,

@@ -446,6 +446,7 @@
             aModel.tag = settings.type;
             [self attachModel:aModel ToModel:mainNode];
         }
+        aModel = [self getNodeNamed:namePODFile];
         [self changeColor:color ToModel:aModel];
     }
     else
