@@ -434,7 +434,14 @@
     UIColor* color = [UIColor alloc];
     color = [(AvatarModelSettings*) object skin].color;
     
-    
+    for(object in mainNode.children)
+    {
+        NSLog(@"%@", [object class]);
+        if([object isKindOfClass:[CC3Node class]])
+        {
+            CC3Node* node = (CC3Node*)object;
+        }
+    }
 }
 
 -(void) onModelChanged:(NSNotification *) notification
