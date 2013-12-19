@@ -450,7 +450,7 @@
         [self changeColor:color ToModel:aModel];
     }
     else
-        [self changeColor:color ToModel:[mainNode getNodeNamed:@"skin"]];
+        [self changeColor:color ToModel:mainNode];
 }
 
 -(void)attachModel:(CC3Node *)attachedModel ToModel:(CC3Node *)model

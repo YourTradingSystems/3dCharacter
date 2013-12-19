@@ -200,7 +200,7 @@
     for (int i = 0; i < 6; i ++)
     {
         UIButtonTag    *btn = [self createButtonWithTag: [NSString stringWithFormat:@"cha%d",i]];
-        btn.frame = CGRectMake(200 + 109 * i + 20 * i,50,129,161);
+        btn.frame = CGRectMake(200 + 129 * i, 50, 129, 161);
         [[[CCDirector sharedDirector] openGLView] addSubview:btn];
     }
 }
