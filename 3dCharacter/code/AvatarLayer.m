@@ -166,6 +166,10 @@
     [self playAnim];
     
     [(AvatarSceneViewController*)[self cc3Scene] setAvatarSettings: _avatarSettings];
+    
+    self.avatarSettings.top = [[FileToSettingsConverter instance] getSettings: @"shirt1"];
+    self.avatarSettings.bottom = [[FileToSettingsConverter instance] getSettings: @"trousers1"];
+    self.avatarSettings.shoes = [[FileToSettingsConverter instance] getSettings: @"shoes1"];
 }
 
 
