@@ -27,8 +27,8 @@ enum modelType
 }
 
 @property (nonatomic) enum modelType type;
-@property (nonatomic) NSString* modelName;
-@property (nonatomic) UIColor* color;
+@property (nonatomic, retain) NSString* modelName;
+@property (nonatomic, retain) UIColor* color;
 
 - (id) initWithType: (enum modelType) theType andName: (NSString*) theName andColor:(UIColor*) theColor;
 
