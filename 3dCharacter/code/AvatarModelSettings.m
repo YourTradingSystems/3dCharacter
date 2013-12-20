@@ -10,76 +10,76 @@
 
 @implementation AvatarModelSettings
 
-@synthesize body, hair, skin, top, bottom, shoes, glasses;
+@synthesize body = _body, hair = _hair, skin = _skin, top = _top, bottom = _bottom, shoes = _shoes, glasses = _glasses;
 
 -(void) setBody:(ModelSettings *)aBody
 {
-    if (body != aBody)
+    if (_body != aBody)
     {
-        ModelSettings* oldBody = body;
-        body = aBody;
-        [self compareAndRaiseChanges:@"body" oldSettings: oldBody withNewSettings:body];
+        ModelSettings* oldBody = _body;
+        _body = aBody;
+        [self compareAndRaiseChanges:@"body" oldSettings: oldBody withNewSettings:_body];
     }
 }
 
 -(void) setHair:(ModelSettings *)aHair
 {
-    if(hair != aHair)
+    if(_hair != aHair)
     {
-        ModelSettings* oldHair = hair;
-        hair = aHair;
-        [self compareAndRaiseChanges:@"hair" oldSettings:oldHair withNewSettings:hair];
+        ModelSettings* oldHair = _hair;
+        _hair = aHair;
+        [self compareAndRaiseChanges:@"hair" oldSettings:oldHair withNewSettings:_hair];
     }
 }
 
 -(void) setSkin:(ModelSettings *)aSkin
 {
-    if(skin != aSkin)
+    if(_skin != aSkin)
     {
-        ModelSettings* oldSkin = skin;
-        skin = aSkin;
-        [self compareAndRaiseChanges:@"skin" oldSettings:oldSkin withNewSettings:skin];
+        ModelSettings* oldSkin = _skin;
+        _skin = aSkin;
+        [self compareAndRaiseChanges:@"skin" oldSettings:oldSkin withNewSettings:_skin];
     }
 }
 
 -(void) setTop:(ModelSettings *)aTop
 {
-    if(top != aTop)
+    if(_top != aTop)
     {
-        ModelSettings* oldTop = skin;
-        top = aTop;
-        [self compareAndRaiseChanges:@"top" oldSettings:oldTop withNewSettings:top];
+        ModelSettings* oldTop = _skin;
+        _top = aTop;
+        [self compareAndRaiseChanges:@"top" oldSettings:oldTop withNewSettings:_top];
     }
 }
 
--(void) setBottom:(ModelSettings *)abottom
+-(void) setBottom:(ModelSettings *)aBottom
 {
-    if(bottom != abottom)
+    if(_bottom != aBottom)
     {
-        ModelSettings* oldbottom = bottom;
-        bottom = abottom;
-        [self compareAndRaiseChanges:@"bottom" oldSettings:oldbottom withNewSettings:bottom];
+        ModelSettings* oldbottom = _bottom;
+        _bottom = aBottom;
+        [self compareAndRaiseChanges:@"bottom" oldSettings:oldbottom withNewSettings:_bottom];
     }
 }
 
 -(void) setShoes:(ModelSettings *)aShoes
 {
-    if(shoes != aShoes)
+    if(_shoes != aShoes)
     {
-        ModelSettings* oldshoes = shoes;
-        shoes = aShoes;
-        [self compareAndRaiseChanges:@"shoes" oldSettings:oldshoes withNewSettings:shoes];
+        ModelSettings* oldshoes = _shoes;
+        _shoes = aShoes;
+        [self compareAndRaiseChanges:@"shoes" oldSettings:oldshoes withNewSettings:_shoes];
     }
 }
 
 
 -(void) setGlasses:(ModelSettings *)aGlasses
 {
-    if(glasses != aGlasses)
+    if(_glasses != aGlasses)
     {
-        ModelSettings* oldglasses = glasses;
-        glasses = aGlasses;
-        [self compareAndRaiseChanges:@"glasses" oldSettings:oldglasses withNewSettings:glasses];
+        ModelSettings* oldglasses = _glasses;
+        _glasses = aGlasses;
+        [self compareAndRaiseChanges:@"glasses" oldSettings:oldglasses withNewSettings:_glasses];
     }
 }
 
@@ -106,6 +106,5 @@
     NSDictionary *userInfo = [NSDictionary dictionaryWithObject:modelSettings forKey:propertyName];
     [[NSNotificationCenter defaultCenter] postNotificationName: @"colorChanged" object:nil userInfo:userInfo];
 }
-
 
 @end

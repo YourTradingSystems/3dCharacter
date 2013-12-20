@@ -14,6 +14,6 @@
     @private ModelSettings* _tagSettings;
 }
 
-@property (atomic) ModelSettings* tagSettings;
+@property (atomic, retain ) ModelSettings* tagSettings;
 
 @end
