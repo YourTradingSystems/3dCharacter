@@ -176,9 +176,16 @@
     [(AvatarSceneViewController*)[self cc3Scene] setAvatarSettings: _avatarSettings];
     
     self.avatarSettings.top = [[FileToSettingsConverter instance] getSettings: @"shirt1"];
+    [[topButtons objectAtIndex:0] setChoosed:YES];
     self.avatarSettings.bottom = [[FileToSettingsConverter instance] getSettings: @"trousers1"];
+    [[bottomButtons objectAtIndex:0] setChoosed:YES];
     self.avatarSettings.shoes = [[FileToSettingsConverter instance] getSettings: @"shoes1"];
+    [[shoesButtons objectAtIndex:0] setChoosed:YES];
     self.avatarSettings.hair = [[FileToSettingsConverter instance] getSettings:@"hairstyle1"];
+    [[hairButtons objectAtIndex:0] setChoosed:YES];
+    [[modelButtons objectAtIndex:3] setChoosed:YES];
+    self.avatarSettings.skin = [[FileToSettingsConverter instance] getSettings:@"skin3"];
+    [[skinButtons objectAtIndex:2] setChoosed:YES];
 }
 
 
