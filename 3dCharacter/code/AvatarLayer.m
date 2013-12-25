@@ -17,10 +17,18 @@
 
 -(BOOL) handleTouch: (UITouch*) touch ofType: (uint) touchType;
 
-
 @end
 
 @implementation AvatarLayer
+{
+    NSMutableArray *modelButtons;
+    NSMutableArray *skinButtons;
+    NSMutableArray *hairButtons;
+    NSMutableArray *topButtons;
+    NSMutableArray *bottomButtons;
+    NSMutableArray *shoesButtons;
+    NSMutableArray *glassesButtons;
+}
 
 @synthesize avatarSettings = _avatarSettings;
 
@@ -168,7 +176,9 @@
     [(AvatarSceneViewController*)[self cc3Scene] setAvatarSettings: _avatarSettings];
     
     self.avatarSettings.top = [[FileToSettingsConverter instance] getSettings: @"shirt1"];
+    [[topButtons objectAtIndex:0] setChoosed:YES];
     self.avatarSettings.bottom = [[FileToSettingsConverter instance] getSettings: @"trousers1"];
+    [[bottomButtons objectAtIndex:0] setChoosed:YES];
     self.avatarSettings.shoes = [[FileToSettingsConverter instance] getSettings: @"shoes1"];
     self.avatarSettings.hair = [[FileToSettingsConverter instance] getSettings: @"hairstyle1"];
     self.avatarSettings.glasses = [[FileToSettingsConverter instance] getSettings: @"glasses1"];
@@ -203,11 +213,13 @@
 
 -(void) addModel
 {
+    modelButtons = [[NSMutableArray alloc] init];
     for (int i = 0; i < 6; i ++)
     {
         UIButtonTag    *btn = [self createButtonWithTag: [NSString stringWithFormat:@"cha%d",i]];
         btn.frame = CGRectMake(200 + 129 * i, 50, 129, 161);
         [[[CCDirector sharedDirector] openGLView] addSubview:btn];
+        [modelButtons addObject:btn];
     }
 }
 
@@ -215,9 +227,35 @@
 {
     UIButtonTag *btn = [UIButtonTag buttonWithType:UIButtonTypeCustom];
     [btn setImage:[UIImage imageNamed: name] forState:UIControlStateNormal];
+    [btn setImage:[self imageWithShadowForImage:[UIImage imageNamed: name]] forState: UIControlStateSelected];
     btn.tagSettings = [[FileToSettingsConverter instance] getSettings: name];
-    [btn addTarget:self action:@selector(buttonTouchedUp:) forControlEvents:UIControlEventTouchUpInside];
+    [btn addTarget:self action:@selector(buttonTouchedUp:) forControlEvents: UIControlEventTouchUpInside];
     return btn;
+}
+
+-(UIImage*)imageWithShadowForImage:(UIImage *)initialImage {
+    
+    CGColorSpaceRef colourSpace = CGColorSpaceCreateDeviceRGB();
+    CGContextRef shadowContext = CGBitmapContextCreate(NULL, initialImage.size.width + 10, initialImage.size.height + 10, CGImageGetBitsPerComponent(initialImage.CGImage), 0, colourSpace, kCGImageAlphaPremultipliedLast);
+    CGColorSpaceRelease(colourSpace);
+    
+    CGContextSetShadowWithColor(shadowContext, CGSizeMake(0,0), 15, [UIColor blueColor].CGColor);
+    CGContextDrawImage(shadowContext, CGRectMake(5, 5, initialImage.size.width, initialImage.size.height), initialImage.CGImage);
+    
+    CGImageRef shadowedCGImage = CGBitmapContextCreateImage(shadowContext);
+    CGContextRelease(shadowContext);
+    
+    UIImage * shadowedImage = [UIImage imageWithCGImage:shadowedCGImage];
+    CGImageRelease(shadowedCGImage);
+    
+    return shadowedImage;
+}
+
+-(void) unsetButtons: (NSMutableArray*) buttons
+{
+    for (UIButtonTag *btnTag in buttons) {
+        btnTag.choosed = NO;
+    }
 }
 
 -(void) buttonTouchedUp : (id)sender
@@ -228,35 +266,43 @@
         switch (btn.tagSettings.type) {
             case skin:
                 self.avatarSettings.skin = btn.tagSettings;
+                [self unsetButtons:skinButtons];
                 break;
             case body:
                 self.avatarSettings.body = btn.tagSettings;
+                [self unsetButtons:modelButtons];
                 break;
             case hair:
                 self.avatarSettings.hair = btn.tagSettings;
+                [self unsetButtons:hairButtons];
                 break;
             case top:
                 self.avatarSettings.top = btn.tagSettings;
+                [self unsetButtons:topButtons];
                 break;
             case bottom:
                 self.avatarSettings.bottom = btn.tagSettings;
+                [self unsetButtons:bottomButtons];
                 break;
             case shoes:
                 self.avatarSettings.shoes = btn.tagSettings;
+                [self unsetButtons:shoesButtons];
                 break;
             case glasses:
                 self.avatarSettings.glasses = btn.tagSettings;
-                
+                [self unsetButtons:glassesButtons];
             default:
                 break;
         }
+        btn.choosed = YES;
     }
 }
 
 - (void) addSkin
 {
     //Add Skin Color
-    
+    skinButtons = [[NSMutableArray alloc] init];
+
     UIImageView *skinTitleImg = [[UIImageView alloc] initWithFrame:CGRectMake(290,260,350,23)];
     skinTitleImg.image = [UIImage imageNamed:@"skinTitle"];
     [[[CCDirector sharedDirector] openGLView] addSubview:skinTitleImg];
@@ -268,6 +314,7 @@
         UIButtonTag    *btn = [self createButtonWithTag: [NSString stringWithFormat:@"skin%d",i+1]];
         btn.frame = CGRectMake(60 * i ,0,45,45);
         [scrollView addSubview:btn];
+        [skinButtons addObject:btn];
     }
     
     [scrollView setContentSize:CGSizeMake(60 * Avatar_SkinItemCount, 55)];
@@ -282,6 +329,7 @@
 - (void) addHair
 {
     //Add Hair Style
+    hairButtons = [[NSMutableArray alloc] init];
     
     UIImageView *hairTitleImg = [[UIImageView alloc] initWithFrame:CGRectMake(655,260,350,23)];
     hairTitleImg.image = [UIImage imageNamed:@"hairTitle"];
@@ -294,8 +342,8 @@
         UIButtonTag    *btn = [self createButtonWithTag:[NSString stringWithFormat:@"hairstyle%d",i+1]];
         btn.frame = CGRectMake(90 * i ,0,45,35);
         [scrollView addSubview:btn];
-    }
-    
+        [hairButtons addObject:btn];
+    }    
     
     [scrollView setBackgroundColor:[UIColor colorWithRed:247.0/255.0 green:247.0 / 255.0 blue:247.0 / 255.0 alpha:1.0]];
     scrollView.pagingEnabled = YES;
@@ -320,11 +368,11 @@
 - (void) addTopClothese
 {
     //Add Top Clothese
+    topButtons = [[NSMutableArray alloc] init];
     
     UIImageView *topClotheImg = [[UIImageView alloc] initWithFrame:CGRectMake(290,370,350,23)];
     topClotheImg.image = [UIImage imageNamed:@"clotheTitle"];
     [[[CCDirector sharedDirector] openGLView] addSubview:topClotheImg];
-    
     
     UIScrollView    *scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(290, 400, 350,110)];
     
@@ -333,8 +381,8 @@
         UIButtonTag    *btn = [self createButtonWithTag:[NSString stringWithFormat:@"shirt%d",i+1]];
         btn.frame = CGRectMake(88 * i ,0,80,100);
         [scrollView addSubview:btn];
+        [topButtons addObject:btn];
     }
-    
     
     [scrollView setBackgroundColor:[UIColor colorWithRed:247.0/255.0 green:247.0 / 255.0 blue:247.0 / 255.0 alpha:1.0]];
     scrollView.pagingEnabled = YES;
@@ -354,12 +402,12 @@
     pageControl.tag = Avatar_TopClotheScr + 1000;
     [[[CCDirector sharedDirector] openGLView] addSubview:pageControl];
     [pageControl release];
-
 }
 
 - (void) addBottomClothese
 {
     //Add Bottom Clothese
+    bottomButtons = [[NSMutableArray alloc] init];
     
     UIImageView *bottomClotheImg = [[UIImageView alloc] initWithFrame:CGRectMake(655,370,350,23)];
     bottomClotheImg.image = [UIImage imageNamed:@"bottomClotheTitle"];
@@ -373,6 +421,7 @@
         UIButtonTag    *btn = [self createButtonWithTag:[NSString stringWithFormat:@"trousers%d",i+1]];
         btn.frame = CGRectMake(90 * i ,0,80,100);
         [scrollView addSubview:btn];
+        [bottomButtons addObject:btn];
     }
     
     [scrollView setBackgroundColor:[UIColor colorWithRed:247.0/255.0 green:247.0 / 255.0 blue:247.0 / 255.0 alpha:1.0]];
@@ -393,13 +442,12 @@
     pageControl.tag = Avatar_BottomClotheScr + 1000;
     [[[CCDirector sharedDirector] openGLView] addSubview:pageControl];
     [pageControl release];
-
-
 }
 
 - (void) addShoes
 {
     //Add Shoe Img
+    shoesButtons = [[NSMutableArray alloc] init];
     
     UIImageView *shoeImg = [[UIImageView alloc] initWithFrame:CGRectMake(290,540,350,23)];
     shoeImg.image = [UIImage imageNamed:@"shoeTitle"];
@@ -412,6 +460,7 @@
         UIButtonTag    *btn = [self createButtonWithTag:[NSString stringWithFormat:@"shoes%d",i+1]];
         btn.frame = CGRectMake(90 * i ,0,75,80);
         [scrollView addSubview:btn];
+        [shoesButtons addObject: btn];
     }
     
     [scrollView setBackgroundColor:[UIColor colorWithRed:247.0/255.0 green:247.0 / 255.0 blue:247.0 / 255.0 alpha:1.0]];
@@ -437,6 +486,7 @@
 - (void) addGlasses
 {
     //Add glassImg
+    glassesButtons =[[NSMutableArray alloc] init];
     
     UIImageView *glassImg = [[UIImageView alloc] initWithFrame:CGRectMake(655,540,350,23)];
     glassImg.image = [UIImage imageNamed:@"glassTitle"];
@@ -450,8 +500,8 @@
         UIButtonTag *btn = [self createButtonWithTag:[NSString stringWithFormat:@"glasses%d",i+1]];
         btn.frame = CGRectMake(120 * i ,0,92,58);
         [scrollView addSubview:btn];
+        [glassesButtons addObject:btn];
     }
-    
     
     [scrollView setBackgroundColor:[UIColor colorWithRed:247.0/255.0 green:247.0 / 255.0 blue:247.0 / 255.0 alpha:1.0]];
     scrollView.pagingEnabled = YES;
@@ -471,7 +521,6 @@
     pageControl.tag = Avatar_GlassScr + 1000;
     [[[CCDirector sharedDirector] openGLView] addSubview:pageControl];
     [pageControl release];
-
 }
 
 /**
@@ -505,34 +554,6 @@
     UIPageControl   *pgControl = (UIPageControl*)[[[CCDirector sharedDirector] openGLView] viewWithTag:(scrollView.tag + 1000)];
     
     pgControl.currentPage = pagingVal;
-    
-//    switch (scrollView.tag)
-//    {
-//        case Avatar_HairScr:
-//        {
-//
-//            break;
-//        }
-//        case Avatar_TopClotheScr:
-//        {
-//            break;
-//        }
-//        case Avatar_BottomClotheScr:
-//        {
-//            break;
-//        }
-//        case Avatar_ShoeScr:
-//        {
-//            break;
-//        }
-//        case Avatar_GlassScr:
-//        {
-//            break;
-//        }
-//            
-//        default:
-//            break;
-//    }
 }
 
 

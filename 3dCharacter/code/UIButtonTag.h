@@ -12,8 +12,10 @@
 @interface UIButtonTag : UIButton
 {
     @private ModelSettings* _tagSettings;
+    @private BOOL _choosed;
 }
 
 @property (atomic, retain ) ModelSettings* tagSettings;
+@property (atomic, setter = setChoosed:) BOOL choosed;
 
 @end

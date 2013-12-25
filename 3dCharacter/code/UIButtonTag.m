@@ -10,7 +10,7 @@
 
 @implementation UIButtonTag
 
-@synthesize tagSettings = _tagSettings;
+@synthesize tagSettings = _tagSettings, choosed = _choosed;
 
 - (id)initWithFrame:(CGRect)frame
 {
@@ -19,6 +19,20 @@
         // Initialization code
     }
     return self;
+}
+
+-(void) setChoosed:(BOOL) theChoosed
+{
+    if (theChoosed != _choosed)
+    {
+        _choosed = theChoosed;
+        if (theChoosed)
+        {
+            self.selected = YES;            
+        }
+        else
+            self.selected = NO;
+    }
 }
 
 /*
