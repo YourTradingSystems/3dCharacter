@@ -7,17 +7,28 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		04A974971869942600ECE773 /* shirt31.png in Resources */ = {isa = PBXBuildFile; fileRef = 04A974961869942600ECE773 /* shirt31.png */; };
+		04A974991869944100ECE773 /* tt-shirt.pod in Resources */ = {isa = PBXBuildFile; fileRef = 04A974981869944100ECE773 /* tt-shirt.pod */; };
+		04E33088186B06A5001F1D1C /* shoes1.pod in Resources */ = {isa = PBXBuildFile; fileRef = 04E33087186B06A5001F1D1C /* shoes1.pod */; };
+		04E3309D186B349B001F1D1C /* hair1.pod in Resources */ = {isa = PBXBuildFile; fileRef = 04E33099186B349B001F1D1C /* hair1.pod */; };
+		04E3309E186B349B001F1D1C /* hair2.pod in Resources */ = {isa = PBXBuildFile; fileRef = 04E3309A186B349B001F1D1C /* hair2.pod */; };
+		04E3309F186B349B001F1D1C /* hair3.pod in Resources */ = {isa = PBXBuildFile; fileRef = 04E3309B186B349B001F1D1C /* hair3.pod */; };
+		04E330A0186B349B001F1D1C /* hair4.pod in Resources */ = {isa = PBXBuildFile; fileRef = 04E3309C186B349B001F1D1C /* hair4.pod */; };
+		04E330A7186B35B8001F1D1C /* shirt1.pod in Resources */ = {isa = PBXBuildFile; fileRef = 04E330A1186B35B8001F1D1C /* shirt1.pod */; };
+		04E330A9186B35B8001F1D1C /* shirt3.pod in Resources */ = {isa = PBXBuildFile; fileRef = 04E330A3186B35B8001F1D1C /* shirt3.pod */; };
+		04E330AA186B35B8001F1D1C /* t-shirt_02.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 04E330A4186B35B8001F1D1C /* t-shirt_02.jpg */; };
+		04E330AB186B35B8001F1D1C /* t-shirt_03.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 04E330A5186B35B8001F1D1C /* t-shirt_03.jpg */; };
+		04E330AC186B35B8001F1D1C /* t-shirt.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 04E330A6186B35B8001F1D1C /* t-shirt.jpg */; };
+		04E330AF186B36F5001F1D1C /* shirt2.pod in Resources */ = {isa = PBXBuildFile; fileRef = 04E330AD186B36F5001F1D1C /* shirt2.pod */; };
+		04E330B0186B36F5001F1D1C /* top.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 04E330AE186B36F5001F1D1C /* top.jpg */; };
+		04E330B7186B3848001F1D1C /* pants.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 04E330B1186B3848001F1D1C /* pants.jpg */; };
+		04E330B8186B3848001F1D1C /* skirt_and_belt.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 04E330B2186B3848001F1D1C /* skirt_and_belt.jpg */; };
+		04E330B9186B3848001F1D1C /* skirt.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 04E330B3186B3848001F1D1C /* skirt.jpg */; };
+		04E330C0186B3A25001F1D1C /* trousers1.pod in Resources */ = {isa = PBXBuildFile; fileRef = 04E330BD186B3A25001F1D1C /* trousers1.pod */; };
+		04E330C2186B3A25001F1D1C /* trousers4.pod in Resources */ = {isa = PBXBuildFile; fileRef = 04E330BF186B3A25001F1D1C /* trousers4.pod */; };
+		04E330C4186B3C92001F1D1C /* trousers3.pod in Resources */ = {isa = PBXBuildFile; fileRef = 04E330C3186B3C92001F1D1C /* trousers3.pod */; };
 		04F3F7CF1863475F00D2A5FE /* glasses1.pod in Resources */ = {isa = PBXBuildFile; fileRef = 04F3F7CE1863475F00D2A5FE /* glasses1.pod */; };
-		04F3F7D4186347E100D2A5FE /* trousers2.pod in Resources */ = {isa = PBXBuildFile; fileRef = 04F3F7D0186347E000D2A5FE /* trousers2.pod */; };
-		04F3F7D5186347E100D2A5FE /* trousers1.pod in Resources */ = {isa = PBXBuildFile; fileRef = 04F3F7D1186347E000D2A5FE /* trousers1.pod */; };
-		04F3F7D6186347E100D2A5FE /* trousers3.pod in Resources */ = {isa = PBXBuildFile; fileRef = 04F3F7D2186347E100D2A5FE /* trousers3.pod */; };
-		04F3F7D7186347E100D2A5FE /* trousers4.pod in Resources */ = {isa = PBXBuildFile; fileRef = 04F3F7D3186347E100D2A5FE /* trousers4.pod */; };
-		04F3F7DB186347F500D2A5FE /* shirt1.pod in Resources */ = {isa = PBXBuildFile; fileRef = 04F3F7D8186347F500D2A5FE /* shirt1.pod */; };
-		04F3F7DC186347F500D2A5FE /* shirt2.pod in Resources */ = {isa = PBXBuildFile; fileRef = 04F3F7D9186347F500D2A5FE /* shirt2.pod */; };
-		04F3F7DD186347F500D2A5FE /* shirt3.pod in Resources */ = {isa = PBXBuildFile; fileRef = 04F3F7DA186347F500D2A5FE /* shirt3.pod */; };
 		04F3F7DF1863517600D2A5FE /* final_female.pod in Resources */ = {isa = PBXBuildFile; fileRef = 04F3F7DE1863517600D2A5FE /* final_female.pod */; };
-		04F3F7E11863551300D2A5FE /* shoes1.pod in Resources */ = {isa = PBXBuildFile; fileRef = 04F3F7E01863551300D2A5FE /* shoes1.pod */; };
-		04F3F7E918635AF500D2A5FE /* hair1.pod in Resources */ = {isa = PBXBuildFile; fileRef = 04F3F7E818635AF500D2A5FE /* hair1.pod */; };
 		08A101681857261E00B26770 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08A101671857261E00B26770 /* Foundation.framework */; };
 		08A1016A1857261E00B26770 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08A101691857261E00B26770 /* CoreGraphics.framework */; };
 		08A1016C1857261E00B26770 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08A1016B1857261E00B26770 /* UIKit.framework */; };
@@ -273,7 +284,6 @@
 		08A104B2185759FF00B26770 /* simple.vert in Sources */ = {isa = PBXBuildFile; fileRef = 08A104A3185759FF00B26770 /* simple.vert */; };
 		08A104B3185759FF00B26770 /* tex_arm.pvr in Resources */ = {isa = PBXBuildFile; fileRef = 08A104A4185759FF00B26770 /* tex_arm.pvr */; };
 		08A104B4185759FF00B26770 /* tex_base.pvr in Resources */ = {isa = PBXBuildFile; fileRef = 08A104A5185759FF00B26770 /* tex_base.pvr */; };
-		08A104B5185759FF00B26770 /* toon.pod in Resources */ = {isa = PBXBuildFile; fileRef = 08A104A6185759FF00B26770 /* toon.pod */; };
 		08A1051B18575A1500B26770 /* cha1.png in Resources */ = {isa = PBXBuildFile; fileRef = 08A104B818575A1500B26770 /* cha1.png */; };
 		08A1051C18575A1500B26770 /* cha2.png in Resources */ = {isa = PBXBuildFile; fileRef = 08A104B918575A1500B26770 /* cha2.png */; };
 		08A1051D18575A1500B26770 /* cha3.png in Resources */ = {isa = PBXBuildFile; fileRef = 08A104BA18575A1500B26770 /* cha3.png */; };
@@ -390,17 +400,28 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		04A974961869942600ECE773 /* shirt31.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = shirt31.png; sourceTree = "<group>"; };
+		04A974981869944100ECE773 /* tt-shirt.pod */ = {isa = PBXFileReference; lastKnownFileType = file; path = "tt-shirt.pod"; sourceTree = "<group>"; };
+		04E33087186B06A5001F1D1C /* shoes1.pod */ = {isa = PBXFileReference; lastKnownFileType = file; path = shoes1.pod; sourceTree = "<group>"; };
+		04E33099186B349B001F1D1C /* hair1.pod */ = {isa = PBXFileReference; lastKnownFileType = file; path = hair1.pod; sourceTree = "<group>"; };
+		04E3309A186B349B001F1D1C /* hair2.pod */ = {isa = PBXFileReference; lastKnownFileType = file; path = hair2.pod; sourceTree = "<group>"; };
+		04E3309B186B349B001F1D1C /* hair3.pod */ = {isa = PBXFileReference; lastKnownFileType = file; path = hair3.pod; sourceTree = "<group>"; };
+		04E3309C186B349B001F1D1C /* hair4.pod */ = {isa = PBXFileReference; lastKnownFileType = file; path = hair4.pod; sourceTree = "<group>"; };
+		04E330A1186B35B8001F1D1C /* shirt1.pod */ = {isa = PBXFileReference; lastKnownFileType = file; path = shirt1.pod; sourceTree = "<group>"; };
+		04E330A3186B35B8001F1D1C /* shirt3.pod */ = {isa = PBXFileReference; lastKnownFileType = file; path = shirt3.pod; sourceTree = "<group>"; };
+		04E330A4186B35B8001F1D1C /* t-shirt_02.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "t-shirt_02.jpg"; sourceTree = "<group>"; };
+		04E330A5186B35B8001F1D1C /* t-shirt_03.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "t-shirt_03.jpg"; sourceTree = "<group>"; };
+		04E330A6186B35B8001F1D1C /* t-shirt.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "t-shirt.jpg"; sourceTree = "<group>"; };
+		04E330AD186B36F5001F1D1C /* shirt2.pod */ = {isa = PBXFileReference; lastKnownFileType = file; path = shirt2.pod; sourceTree = "<group>"; };
+		04E330AE186B36F5001F1D1C /* top.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = top.jpg; sourceTree = "<group>"; };
+		04E330B1186B3848001F1D1C /* pants.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = pants.jpg; sourceTree = "<group>"; };
+		04E330B2186B3848001F1D1C /* skirt_and_belt.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = skirt_and_belt.jpg; sourceTree = "<group>"; };
+		04E330B3186B3848001F1D1C /* skirt.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = skirt.jpg; sourceTree = "<group>"; };
+		04E330BD186B3A25001F1D1C /* trousers1.pod */ = {isa = PBXFileReference; lastKnownFileType = file; path = trousers1.pod; sourceTree = "<group>"; };
+		04E330BF186B3A25001F1D1C /* trousers4.pod */ = {isa = PBXFileReference; lastKnownFileType = file; path = trousers4.pod; sourceTree = "<group>"; };
+		04E330C3186B3C92001F1D1C /* trousers3.pod */ = {isa = PBXFileReference; lastKnownFileType = file; path = trousers3.pod; sourceTree = "<group>"; };
 		04F3F7CE1863475F00D2A5FE /* glasses1.pod */ = {isa = PBXFileReference; lastKnownFileType = file; path = glasses1.pod; sourceTree = "<group>"; };
-		04F3F7D0186347E000D2A5FE /* trousers2.pod */ = {isa = PBXFileReference; lastKnownFileType = file; path = trousers2.pod; sourceTree = "<group>"; };
-		04F3F7D1186347E000D2A5FE /* trousers1.pod */ = {isa = PBXFileReference; lastKnownFileType = file; path = trousers1.pod; sourceTree = "<group>"; };
-		04F3F7D2186347E100D2A5FE /* trousers3.pod */ = {isa = PBXFileReference; lastKnownFileType = file; path = trousers3.pod; sourceTree = "<group>"; };
-		04F3F7D3186347E100D2A5FE /* trousers4.pod */ = {isa = PBXFileReference; lastKnownFileType = file; path = trousers4.pod; sourceTree = "<group>"; };
-		04F3F7D8186347F500D2A5FE /* shirt1.pod */ = {isa = PBXFileReference; lastKnownFileType = file; path = shirt1.pod; sourceTree = "<group>"; };
-		04F3F7D9186347F500D2A5FE /* shirt2.pod */ = {isa = PBXFileReference; lastKnownFileType = file; path = shirt2.pod; sourceTree = "<group>"; };
-		04F3F7DA186347F500D2A5FE /* shirt3.pod */ = {isa = PBXFileReference; lastKnownFileType = file; path = shirt3.pod; sourceTree = "<group>"; };
 		04F3F7DE1863517600D2A5FE /* final_female.pod */ = {isa = PBXFileReference; lastKnownFileType = file; path = final_female.pod; sourceTree = "<group>"; };
-		04F3F7E01863551300D2A5FE /* shoes1.pod */ = {isa = PBXFileReference; lastKnownFileType = file; path = shoes1.pod; sourceTree = "<group>"; };
-		04F3F7E818635AF500D2A5FE /* hair1.pod */ = {isa = PBXFileReference; lastKnownFileType = file; path = hair1.pod; sourceTree = "<group>"; };
 		08A101641857261E00B26770 /* 3dCharacter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = 3dCharacter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		08A101671857261E00B26770 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		08A101691857261E00B26770 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -913,7 +934,6 @@
 		08A104A3185759FF00B26770 /* simple.vert */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = simple.vert; sourceTree = "<group>"; };
 		08A104A4185759FF00B26770 /* tex_arm.pvr */ = {isa = PBXFileReference; lastKnownFileType = file; path = tex_arm.pvr; sourceTree = "<group>"; };
 		08A104A5185759FF00B26770 /* tex_base.pvr */ = {isa = PBXFileReference; lastKnownFileType = file; path = tex_base.pvr; sourceTree = "<group>"; };
-		08A104A6185759FF00B26770 /* tt-shirt.pod */ = {isa = PBXFileReference; lastKnownFileType = file; path = "tt-shirt.pod"; sourceTree = "<group>"; };
 		08A104B618575A0B00B26770 /* obicharacter.pod */ = {isa = PBXFileReference; lastKnownFileType = file; path = obicharacter.pod; sourceTree = "<group>"; };
 		08A104B818575A1500B26770 /* cha1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cha1.png; sourceTree = "<group>"; };
 		08A104B918575A1500B26770 /* cha2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cha2.png; sourceTree = "<group>"; };
@@ -1052,10 +1072,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		04E33086186B0692001F1D1C /* ShoesModels */ = {
+			isa = PBXGroup;
+			children = (
+				04E33087186B06A5001F1D1C /* shoes1.pod */,
+			);
+			name = ShoesModels;
+			sourceTree = "<group>";
+		};
 		04F3F7C9186346D700D2A5FE /* HairModels */ = {
 			isa = PBXGroup;
 			children = (
-				04F3F7E818635AF500D2A5FE /* hair1.pod */,
+				04E33099186B349B001F1D1C /* hair1.pod */,
+				04E3309A186B349B001F1D1C /* hair2.pod */,
+				04E3309B186B349B001F1D1C /* hair3.pod */,
+				04E3309C186B349B001F1D1C /* hair4.pod */,
 			);
 			name = HairModels;
 			sourceTree = "<group>";
@@ -1063,9 +1094,13 @@
 		04F3F7CA186346EC00D2A5FE /* TopClothesModels */ = {
 			isa = PBXGroup;
 			children = (
-				04F3F7D8186347F500D2A5FE /* shirt1.pod */,
-				04F3F7D9186347F500D2A5FE /* shirt2.pod */,
-				04F3F7DA186347F500D2A5FE /* shirt3.pod */,
+				04E330AD186B36F5001F1D1C /* shirt2.pod */,
+				04E330AE186B36F5001F1D1C /* top.jpg */,
+				04E330A1186B35B8001F1D1C /* shirt1.pod */,
+				04E330A3186B35B8001F1D1C /* shirt3.pod */,
+				04E330A4186B35B8001F1D1C /* t-shirt_02.jpg */,
+				04E330A5186B35B8001F1D1C /* t-shirt_03.jpg */,
+				04E330A6186B35B8001F1D1C /* t-shirt.jpg */,
 			);
 			name = TopClothesModels;
 			sourceTree = "<group>";
@@ -1073,20 +1108,14 @@
 		04F3F7CB186346FC00D2A5FE /* BottomClothesModels */ = {
 			isa = PBXGroup;
 			children = (
-				04F3F7D0186347E000D2A5FE /* trousers2.pod */,
-				04F3F7D1186347E000D2A5FE /* trousers1.pod */,
-				04F3F7D2186347E100D2A5FE /* trousers3.pod */,
-				04F3F7D3186347E100D2A5FE /* trousers4.pod */,
+				04E330C3186B3C92001F1D1C /* trousers3.pod */,
+				04E330BD186B3A25001F1D1C /* trousers1.pod */,
+				04E330BF186B3A25001F1D1C /* trousers4.pod */,
+				04E330B1186B3848001F1D1C /* pants.jpg */,
+				04E330B2186B3848001F1D1C /* skirt_and_belt.jpg */,
+				04E330B3186B3848001F1D1C /* skirt.jpg */,
 			);
 			name = BottomClothesModels;
-			sourceTree = "<group>";
-		};
-		04F3F7CC1863471A00D2A5FE /* ShoesModels */ = {
-			isa = PBXGroup;
-			children = (
-				04F3F7E01863551300D2A5FE /* shoes1.pod */,
-			);
-			name = ShoesModels;
 			sourceTree = "<group>";
 		};
 		04F3F7CD1863473600D2A5FE /* GlassesModels */ = {
@@ -1949,9 +1978,9 @@
 		08A10497185759DF00B26770 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				04E33086186B0692001F1D1C /* ShoesModels */,
 				04F3F7DE1863517600D2A5FE /* final_female.pod */,
 				04F3F7CD1863473600D2A5FE /* GlassesModels */,
-				04F3F7CC1863471A00D2A5FE /* ShoesModels */,
 				04F3F7CB186346FC00D2A5FE /* BottomClothesModels */,
 				04F3F7CA186346EC00D2A5FE /* TopClothesModels */,
 				04F3F7C9186346D700D2A5FE /* HairModels */,
@@ -1963,6 +1992,7 @@
 				08A1049A185759FF00B26770 /* 3dStartBtn.png */,
 				08A1049B185759FF00B26770 /* bgDrop.png */,
 				08A1049C185759FF00B26770 /* cartoon_006.pod */,
+				04A974981869944100ECE773 /* tt-shirt.pod */,
 				08A1049D185759FF00B26770 /* Firstgimp.png */,
 				08A1049E185759FF00B26770 /* Firstgimp2.png */,
 				08A1049F185759FF00B26770 /* hello-world.pod */,
@@ -1972,7 +2002,6 @@
 				08A104A3185759FF00B26770 /* simple.vert */,
 				08A104A4185759FF00B26770 /* tex_arm.pvr */,
 				08A104A5185759FF00B26770 /* tex_base.pvr */,
-				08A104A6185759FF00B26770 /* tt-shirt.pod */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -1980,6 +2009,7 @@
 		08A104B718575A1500B26770 /* 3DItem */ = {
 			isa = PBXGroup;
 			children = (
+				04A974961869942600ECE773 /* shirt31.png */,
 				08A104B818575A1500B26770 /* cha1.png */,
 				08A104B918575A1500B26770 /* cha2.png */,
 				08A104BA18575A1500B26770 /* cha3.png */,
@@ -2148,18 +2178,22 @@
 			buildActionMask = 2147483647;
 			files = (
 				08A1056C18575A1500B26770 /* trousers1.png in Resources */,
+				04E330B9186B3848001F1D1C /* skirt.jpg in Resources */,
 				08A1057A18575A1500B26770 /* trousers6.png in Resources */,
 				08A1054218575A1500B26770 /* shirt1.png in Resources */,
 				08A1053E18575A1500B26770 /* hairstyle6.png in Resources */,
-				04F3F7E11863551300D2A5FE /* shoes1.pod in Resources */,
 				08A1058B18575A2600B26770 /* obicharacter.pod in Resources */,
+				04E330C0186B3A25001F1D1C /* trousers1.pod in Resources */,
 				08A1052618575A1500B26770 /* glasses15.png in Resources */,
 				08A1057018575A1500B26770 /* trousers13.png in Resources */,
 				08A104B4185759FF00B26770 /* tex_base.pvr in Resources */,
 				08A1056818575A1500B26770 /* skin3.png in Resources */,
 				08A1051C18575A1500B26770 /* cha2.png in Resources */,
+				04E330A9186B35B8001F1D1C /* shirt3.pod in Resources */,
+				04E330A7186B35B8001F1D1C /* shirt1.pod in Resources */,
 				08A1052018575A1500B26770 /* glasses1.png in Resources */,
 				08A1057D18575A1500B26770 /* trousers9.png in Resources */,
+				04E330B7186B3848001F1D1C /* pants.jpg in Resources */,
 				08A1052318575A1500B26770 /* glasses12.png in Resources */,
 				08A1055518575A1500B26770 /* shoes10.png in Resources */,
 				08A1053418575A1500B26770 /* hairstyle11.png in Resources */,
@@ -2168,29 +2202,31 @@
 				08A1051D18575A1500B26770 /* cha3.png in Resources */,
 				08A1057518575A1500B26770 /* trousers18.png in Resources */,
 				08A1058A18575A2200B26770 /* skinTitle.png in Resources */,
-				04F3F7D7186347E100D2A5FE /* trousers4.pod in Resources */,
 				08A1052518575A1500B26770 /* glasses14.png in Resources */,
+				04E330A0186B349B001F1D1C /* hair4.pod in Resources */,
 				08A1056918575A1500B26770 /* skin4.png in Resources */,
 				08A101721857261E00B26770 /* InfoPlist.strings in Resources */,
 				08A1055918575A1500B26770 /* shoes14.png in Resources */,
 				08A1055B18575A1500B26770 /* shoes16.png in Resources */,
 				08A1056118575A1500B26770 /* shoes5.png in Resources */,
+				04E330C2186B3A25001F1D1C /* trousers4.pod in Resources */,
 				08A1056D18575A1500B26770 /* trousers10.png in Resources */,
 				08A1055E18575A1500B26770 /* shoes2.png in Resources */,
 				08A1053C18575A1500B26770 /* hairstyle4.png in Resources */,
+				04E330C4186B3C92001F1D1C /* trousers3.pod in Resources */,
 				08A1055218575A1500B26770 /* shirt8.png in Resources */,
 				08A104B3185759FF00B26770 /* tex_arm.pvr in Resources */,
 				08A1056018575A1500B26770 /* shoes4.png in Resources */,
 				08A1054818575A1500B26770 /* shirt15.png in Resources */,
 				08A1054E18575A1500B26770 /* shirt4.png in Resources */,
 				08A1052918575A1500B26770 /* glasses18.png in Resources */,
+				04E330B8186B3848001F1D1C /* skirt_and_belt.jpg in Resources */,
 				08A1057918575A1500B26770 /* trousers5.png in Resources */,
-				08A104B5185759FF00B26770 /* tt-shirt.pod in Resources */,
 				08A1051F18575A1500B26770 /* cha5.png in Resources */,
 				08A1057618575A1500B26770 /* trousers2.png in Resources */,
 				08A1055D18575A1500B26770 /* shoes18.png in Resources */,
 				08A1054A18575A1500B26770 /* shirt17.png in Resources */,
-				04F3F7DD186347F500D2A5FE /* shirt3.pod in Resources */,
+				04E330AA186B35B8001F1D1C /* t-shirt_02.jpg in Resources */,
 				08A1053818575A1500B26770 /* hairstyle15.png in Resources */,
 				08A1056318575A1500B26770 /* shoes7.png in Resources */,
 				08A1057418575A1500B26770 /* trousers17.png in Resources */,
@@ -2200,24 +2236,26 @@
 				08A1056618575A1500B26770 /* skin1.png in Resources */,
 				08A1058818575A2200B26770 /* hairTitle.png in Resources */,
 				08A1054918575A1500B26770 /* shirt16.png in Resources */,
+				04E3309D186B349B001F1D1C /* hair1.pod in Resources */,
 				08A1055C18575A1500B26770 /* shoes17.png in Resources */,
 				08A1052B18575A1500B26770 /* glasses3.png in Resources */,
+				04A974991869944100ECE773 /* tt-shirt.pod in Resources */,
+				04E330AF186B36F5001F1D1C /* shirt2.pod in Resources */,
 				08A1054D18575A1500B26770 /* shirt3.png in Resources */,
 				08A1056218575A1500B26770 /* shoes6.png in Resources */,
 				08A1053718575A1500B26770 /* hairstyle14.png in Resources */,
 				08A1055418575A1500B26770 /* shoes1.png in Resources */,
-				04F3F7D6186347E100D2A5FE /* trousers3.pod in Resources */,
 				08A1017A1857261E00B26770 /* Images.xcassets in Resources */,
 				08A1058518575A2200B26770 /* bottomClotheTitle.png in Resources */,
 				08A104A9185759FF00B26770 /* 3dStartBtn.png in Resources */,
 				08A1055318575A1500B26770 /* shirt9.png in Resources */,
-				04F3F7DC186347F500D2A5FE /* shirt2.pod in Resources */,
 				08A1056E18575A1500B26770 /* trousers11.png in Resources */,
 				08A1056B18575A1500B26770 /* skin6.png in Resources */,
 				08A1052118575A1500B26770 /* glasses10.png in Resources */,
 				08A1056718575A1500B26770 /* skin2.png in Resources */,
 				08A1054018575A1500B26770 /* hairstyle8.png in Resources */,
 				08A104AB185759FF00B26770 /* cartoon_006.pod in Resources */,
+				04E330AB186B35B8001F1D1C /* t-shirt_03.jpg in Resources */,
 				08A1053018575A1500B26770 /* glasses8.png in Resources */,
 				08A1052718575A1500B26770 /* glasses16.png in Resources */,
 				08A1054F18575A1500B26770 /* shirt5.png in Resources */,
@@ -2229,18 +2267,18 @@
 				08A1054418575A1500B26770 /* shirt11.png in Resources */,
 				08A1053918575A1500B26770 /* hairstyle16.png in Resources */,
 				08A104AE185759FF00B26770 /* hello-world.pod in Resources */,
-				04F3F7DB186347F500D2A5FE /* shirt1.pod in Resources */,
 				04F3F7DF1863517600D2A5FE /* final_female.pod in Resources */,
+				04E3309F186B349B001F1D1C /* hair3.pod in Resources */,
 				08A10451185728C600B26770 /* ___CCGL___h___w5WcaK in Resources */,
-				04F3F7D4186347E100D2A5FE /* trousers2.pod in Resources */,
 				08A1053F18575A1500B26770 /* hairstyle7.png in Resources */,
 				08A1052F18575A1500B26770 /* glasses7.png in Resources */,
 				08A1052418575A1500B26770 /* glasses13.png in Resources */,
-				04F3F7D5186347E100D2A5FE /* trousers1.pod in Resources */,
 				08A1051B18575A1500B26770 /* cha1.png in Resources */,
 				08A1054B18575A1500B26770 /* shirt18.png in Resources */,
 				08A1052E18575A1500B26770 /* glasses6.png in Resources */,
+				04E3309E186B349B001F1D1C /* hair2.pod in Resources */,
 				84DFD54318621360002B7D09 /* shoes.pod in Resources */,
+				04E33088186B06A5001F1D1C /* shoes1.pod in Resources */,
 				08A1053618575A1500B26770 /* hairstyle13.png in Resources */,
 				08A1057B18575A1500B26770 /* trousers7.png in Resources */,
 				08A1056518575A1500B26770 /* shoes9.png in Resources */,
@@ -2255,6 +2293,7 @@
 				08A1053118575A1500B26770 /* glasses9.png in Resources */,
 				08A1052218575A1500B26770 /* glasses11.png in Resources */,
 				08A1052818575A1500B26770 /* glasses17.png in Resources */,
+				04A974971869942600ECE773 /* shirt31.png in Resources */,
 				08A1054118575A1500B26770 /* hairstyle9.png in Resources */,
 				08A1052D18575A1500B26770 /* glasses5.png in Resources */,
 				08A1054518575A1500B26770 /* shirt12.png in Resources */,
@@ -2264,6 +2303,7 @@
 				08A1058918575A2200B26770 /* shoeTitle.png in Resources */,
 				08A1055718575A1500B26770 /* shoes12.png in Resources */,
 				08A1051E18575A1500B26770 /* cha4.png in Resources */,
+				04E330AC186B35B8001F1D1C /* t-shirt.jpg in Resources */,
 				08A1055818575A1500B26770 /* shoes13.png in Resources */,
 				08A1057118575A1500B26770 /* trousers14.png in Resources */,
 				08A1055F18575A1500B26770 /* shoes3.png in Resources */,
@@ -2282,9 +2322,9 @@
 				08A1055018575A1500B26770 /* shirt6.png in Resources */,
 				08A1058618575A2200B26770 /* clotheTItle.png in Resources */,
 				08A1053518575A1500B26770 /* hairstyle12.png in Resources */,
+				04E330B0186B36F5001F1D1C /* top.jpg in Resources */,
 				841EC8131862D4C800D44AE6 /* final_female.pod in Resources */,
 				08A102FA1857282500B26770 /* PVRT_Removed_Files.txt in Resources */,
-				04F3F7E918635AF500D2A5FE /* hair1.pod in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

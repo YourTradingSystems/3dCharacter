@@ -16,6 +16,7 @@
 #import "CC3ParametricMeshNodes.h"
 #import "CC3UtilityMeshNodes.h"
 #import "ModelSettings.h"
+#import "CC3AffineMatrix.h"
 
 @implementation AvatarSceneViewController
 
@@ -147,15 +148,15 @@
     loopAnimations = YES;
     //anim 1
     //"punching"
-    CCAction *a0 = [[self makePlayFirstFrameActionFromFrameStart:0 withTrackFrameCount:193] retain];
-    CCAction *a1 = [[self makePlayOnceActionFromFrameStart:0 toFrameEnd:28 atFPS:30 withTrackFrameCount:193] retain];
-    CCAction *a2 = [[self makePlayLoopedActionFromFrameStart:0 toFrameEnd:28 at:30 withTrackFrameCount:193] retain];
+    CCAction *a0 = [[self makePlayFirstFrameActionFromFrameStart:0 withTrackFrameCount:1930] retain];
+    CCAction *a1 = [[self makePlayOnceActionFromFrameStart:0 toFrameEnd:28 atFPS:30 withTrackFrameCount:1930] retain];
+    CCAction *a2 = [[self makePlayLoopedActionFromFrameStart:0 toFrameEnd:28 at:30 withTrackFrameCount:1930] retain];
     
     //anim 2
     //"expressing_thanks"	
     CCAction *b0 = [[self makePlayFirstFrameActionFromFrameStart:100 withTrackFrameCount:193] retain];
-    CCAction *b1 = [[self makePlayOnceActionFromFrameStart:100 toFrameEnd:193 atFPS:30 withTrackFrameCount:193] retain];
-    CCAction *b2 = [[self makePlayLoopedActionFromFrameStart:100 toFrameEnd:193 at:30 withTrackFrameCount:193] retain];
+    CCAction *b1 = [[self makePlayOnceActionFromFrameStart:100 toFrameEnd:193 atFPS:30 withTrackFrameCount:1930] retain];
+    CCAction *b2 = [[self makePlayLoopedActionFromFrameStart:100 toFrameEnd:193 at:30 withTrackFrameCount:1930] retain];
     
     //add animations
     [actions addObject:a0];
@@ -165,6 +166,8 @@
     [actions addObject:b1];
     [actions addObject:b2];*/
 
+    //CCActionInterval *stride = [CC3Animate actionWithDuration:10.0];
+    //[mainNode runAction:[CCRepeatForever actionWithAction:stride]];
 
 	[self createGLBuffers];
 	[self releaseRedundantContent];
@@ -183,7 +186,7 @@
     arcBallCenter = CGPointMake(winSize.width/2, winSize.height/2);
     
     [self yawOnly];
-    [self playAnimModeOnce];
+    //[self playAnimModeOnce];
 }
 
 -(void) restoreCamAndMainNode {
@@ -435,6 +438,7 @@
     ModelSettings *settings = (ModelSettings *)[change valueForKey:@"new"];
     NSString *namePODFile = settings.modelName;
     color = settings.color;
+    
     if (namePODFile != nil)
     {
         namePODFile= [namePODFile stringByAppendingString:@".pod"];
@@ -465,6 +469,9 @@
         }
         removedNode.remove;
         [model addChild:attachedModel];
+        //[attachedModel reattachBonesFrom:model];
+        //CC3Bone *spineBone = (CC3Bone*)[model getNodeNamed:@"LeftUpLeg"];
+        //[spineBone setScale: cc3v(1.4, 1, 1.2)];
     }
 }
 
@@ -479,7 +486,7 @@
 
 -(void) onModelChanged:(NSNotification *) notification
 {
-
+    
 }
 
 -(void) onColorChanged:(NSNotification *) notification

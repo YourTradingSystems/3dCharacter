@@ -170,6 +170,8 @@
     self.avatarSettings.top = [[FileToSettingsConverter instance] getSettings: @"shirt1"];
     self.avatarSettings.bottom = [[FileToSettingsConverter instance] getSettings: @"trousers1"];
     self.avatarSettings.shoes = [[FileToSettingsConverter instance] getSettings: @"shoes1"];
+    self.avatarSettings.hair = [[FileToSettingsConverter instance] getSettings: @"hairstyle1"];
+    self.avatarSettings.glasses = [[FileToSettingsConverter instance] getSettings: @"glasses1"];
 }
 
 

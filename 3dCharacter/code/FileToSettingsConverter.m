@@ -113,13 +113,13 @@
                                                         andName:@"hair1"
                                                        andColor: [UIColor colorWithRed:200.0/255.0 green:100.0 / 255.0 blue:0.0 / 255.0 alpha:1.0]],
              @"hairstyle2" : [[ModelSettings alloc] initWithType: hair
-                                                        andName:@"hair1"
+                                                        andName:@"hair2"
                                                        andColor: [UIColor colorWithRed:200.0/255.0 green:100.0 / 255.0 blue:0.0 / 255.0 alpha:1.0]],
              @"hairstyle3" : [[ModelSettings alloc] initWithType: hair
-                                                        andName:@"hair1"
+                                                        andName:@"hair3"
                                                        andColor: [UIColor colorWithRed:200.0/255.0 green:100.0 / 255.0 blue:0.0 / 255.0 alpha:1.0]],
              @"hairstyle4" : [[ModelSettings alloc] initWithType: hair
-                                                        andName:@"hair1"
+                                                        andName:@"hair4"
                                                        andColor: [UIColor colorWithRed:200.0/255.0 green:100.0 / 255.0 blue:0.0 / 255.0 alpha:1.0]],
              @"hairstyle5" : [[ModelSettings alloc] initWithType: hair
                                                         andName:@"hair1"
@@ -292,7 +292,7 @@
                                                     andName:@"trousers1"
                                                       andColor: [UIColor colorWithRed:247.0/255.0 green:247.0 / 255.0 blue:247.0 / 255.0 alpha:1.0]],
              @"trousers2" : [[ModelSettings alloc] initWithType: bottom
-                                                       andName:@"trousers2"
+                                                       andName:@"trousers1"
                                                       andColor: [UIColor colorWithRed:247.0/255.0 green:247.0 / 255.0 blue:247.0 / 255.0 alpha:1.0]],
              @"trousers3" : [[ModelSettings alloc] initWithType: bottom
                                                        andName:@"trousers3"
