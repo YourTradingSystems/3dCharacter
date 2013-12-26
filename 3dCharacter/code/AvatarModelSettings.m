@@ -12,7 +12,7 @@
 
 @synthesize body = _body, hair = _hair, skin = _skin, top = _top, bottom = _bottom, shoes = _shoes, glasses = _glasses;
 
--(void) setBody:(ModelSettings *)aBody
+-(void) setBody:(NSDictionary *)aBody
 {
     if (_body != aBody)
     {

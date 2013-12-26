@@ -450,7 +450,7 @@
             [self addContentFromPODFile:namePODFile];
             CC3Node *aModel = [self getNodeNamed:namePODFile];
             aModel.tag = settings.type;
-            [self attachModel:aModel ToModel:mainNode];
+            [self attachModel:aModel ToModel:mainNode withTag:settings.type];
         }
         aModel = [self getNodeNamed:namePODFile];
         [self changeColor:color ToModel:aModel];
@@ -459,14 +459,14 @@
         [self changeColor:color ToModel:mainNode];
 }
 
--(void)attachModel:(CC3Node *)attachedModel ToModel:(CC3Node *)model
+-(void)attachModel:(CC3Node *)attachedModel ToModel:(CC3Node *)model withTag: (enum modelType) tag
 {
     CC3Node *removedNode = nil;
     if ([model getNodeNamed:attachedModel.name] == nil)
     {
         for (CC3Node *node in model.children)
         {
-            if (node.tag == attachedModel.tag)
+            if (node.tag == tag)
                 removedNode = node;
         }
         removedNode.remove;
