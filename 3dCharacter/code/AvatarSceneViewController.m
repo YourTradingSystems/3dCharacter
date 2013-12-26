@@ -429,10 +429,12 @@
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onModelChanged:) name:@"modelChanged" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onColorChanged:) name:@"colorChanged" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onBodyChanged:) name:@"bodyChanged" object:nil];
 }
 
 -(void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
 {
+    if([keyPath compare:@"body"] == NSOrderedSame) return;
     CC3Node *aModel = nil;
     UIColor *color = [UIColor alloc];
     ModelSettings *settings = (ModelSettings *)[change valueForKey:@"new"];
@@ -492,6 +494,12 @@
 -(void) onColorChanged:(NSNotification *) notification
 {
     
+}
+
+-(void) onBodyChanged:(NSNotification *) notification
+{
+    NSDictionary* spines = (NSDictionary*)[notification.userInfo objectForKey:@"body"];
+    NSLog(@"body changed: %@", spines);
 }
 
 

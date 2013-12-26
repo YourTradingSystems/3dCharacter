@@ -8,6 +8,7 @@
 
 #import "FileToSettingsConverter.h"
 #import "ModelSettings.h"
+#import "Point3d.h"
 
 @interface FileToSettingsConverter()
 
@@ -36,23 +37,34 @@
     return self;
 }
 
+-(NSDictionary*) initializeBodySpines: (float) x withY: (float) y withZ: (float) z
+{
+    return @{@"Spine2.002" : [[Point3d alloc] initWithX:x withY:y withZ:z],
+             @"Spine2.001" : [[Point3d alloc] initWithX:x withY:y withZ:z],
+             @"RightForeArm" : [[Point3d alloc] initWithX:x withY:y withZ:z],
+             @"RightArm" : [[Point3d alloc] initWithX:x withY:y withZ:z],
+             @"LeftForeArm" : [[Point3d alloc] initWithX:x withY:y withZ:z],
+             @"LeftArm" : [[Point3d alloc] initWithX:x withY:y withZ:z],
+             @"Spine2" : [[Point3d alloc] initWithX:x withY:y withZ:z],
+             @"Spine1" : [[Point3d alloc] initWithX:x withY:y withZ:z],
+             @"RightUpLeg" : [[Point3d alloc] initWithX:x withY:y withZ:z],
+             @"RightLeg" : [[Point3d alloc] initWithX:x withY:y withZ:z],
+             @"RightFoot" : [[Point3d alloc] initWithX:x withY:y withZ:z],
+             @"RightToeBase" : [[Point3d alloc] initWithX:x withY:y withZ:z],
+             @"LeftUpLeg" : [[Point3d alloc] initWithX:x withY:y withZ:z],
+             @"LeftLeg" : [[Point3d alloc] initWithX:x withY:y withZ:z],
+             @"LeftFoot" : [[Point3d alloc] initWithX:x withY:y withZ:z],
+             @"LeftToeBase" : [[Point3d alloc] initWithX:x withY:y withZ:z],
+             };
+}
+
 - (NSDictionary*) initializeDictionary
 {
-    return @{@"cha1" : [[ModelSettings alloc] initWithType: body
-                                                    andName:@"cha1"
-                                                   andColor: [UIColor colorWithRed:255.0/255.0 green:255.0 / 255.0 blue:255.0 / 255.0 alpha:1.0]],
-             @"cha2" : [[ModelSettings alloc] initWithType: body
-                                                    andName:@"cha2"
-                                                   andColor: [UIColor colorWithRed:255.0/255.0 green:255.0 / 255.0 blue:255.0 / 255.0 alpha:1.0]],
-             @"cha3" : [[ModelSettings alloc] initWithType: body
-                                                    andName:@"cha3"
-                                                   andColor: [UIColor colorWithRed:255.0/255.0 green:255.0 / 255.0 blue:255.0 / 255.0 alpha:1.0]],
-             @"cha4" : [[ModelSettings alloc] initWithType: body
-                                                    andName:@"cha4"
-                                                   andColor: [UIColor colorWithRed:255.0/255.0 green:255.0 / 255.0 blue:255.0 / 255.0 alpha:1.0]],
-             @"cha5" : [[ModelSettings alloc] initWithType: body
-                                                    andName:@"cha5"
-                                                  andColor: [UIColor colorWithRed:255.0/255.0 green:255.0 / 255.0 blue:255.0 / 255.0 alpha:1.0]],
+    return @{@"cha1" : [self initializeBodySpines:1.4 withY:0.8 withZ:1.4],
+             @"cha2" : [self initializeBodySpines:1.2 withY:0.9 withZ:1.2],
+             @"cha3" : [self initializeBodySpines:1 withY:1 withZ:1],
+             @"cha4" : [self initializeBodySpines:1.2 withY:1.1 withZ:1.2],
+             @"cha5" : [self initializeBodySpines:1.4 withY:1.2 withZ:1.4],
              
              @"glasses1" : [[ModelSettings alloc] initWithType: glasses
                                                    andName:@"glasses"
@@ -348,9 +360,9 @@
     // Should never be called, but just here for clarity really.
 }
 
-- (ModelSettings*) getSettings: (NSString*) fileName
+- (NSObject*) getSettings: (NSString*) fileName
 {
-    return (ModelSettings*)dicNameColor[fileName];
+    return dicNameColor[fileName];
 }
 
 @end

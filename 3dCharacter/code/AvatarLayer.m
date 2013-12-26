@@ -110,58 +110,8 @@
 
 
 -(void) onOpenCC3Layer {
-
-//    CCMenuItemFont *resetRot =
-//    [CCMenuItemFont itemFromString:@"Reset" target:self selector:@selector(resetRot)];
-//  
-//    CCMenuItemFont *yawOnly =
-//    [CCMenuItemFont itemFromString:@"YawOnly" target:self selector:@selector(yawOnly)];
-//    
-//    CCMenuItemFont *arcBall =
-//    [CCMenuItemFont itemFromString:@"Arbitory" target:self selector:@selector(arbitory)];
-//
-//    CCMenuItemFont *playLooped =
-//    [CCMenuItemFont itemFromString:@"LoopAnims" target:self selector:@selector(playAnimModeLooped)];
-//
-//    CCMenuItemFont *playOnce =
-//    [CCMenuItemFont itemFromString:@"Don'tLoopAnims" target:self selector:@selector(playAnimModeOnce)];
-//
-//    
-//    CCMenuItemFont *play =
-//    [CCMenuItemFont itemFromString:@"PlayNextAnim" target:self selector:@selector(playAnim)];
-//
-//    CCMenuItemFont *stop =
-//    [CCMenuItemFont itemFromString:@"Stop" target:self selector:@selector(stopAnimations)];
-//
-//    
-//    resetRot.color = ccGREEN;
-//    yawOnly.color = ccGREEN;
-//    arcBall.color = ccGREEN;
-//    playLooped.color = ccGREEN;
-//    playOnce.color = ccGREEN;
-//    play.color = ccGREEN;
-//    stop.color = ccGREEN;
-//    
-//    CCMenu *menu = [CCMenu menuWithItems:
-//                    resetRot,yawOnly,arcBall,
-//                    playLooped, playOnce, play,stop, nil];
-//
-//    menu.position = ccp(800,480);
-//    [menu alignItemsVerticallyWithPadding:10];
-//    
-//    [self addChild:menu];
-////    CGRect r = [self boundingBoxInPixels];
-// //   LogInfo(@"layer size %f %f %f %f",r.origin.x, r.origin.y, r.size.width, r.size.height);
-//
-//    
-//    UIButton    *btn = [[UIButton alloc] initWithFrame:CGRectMake(0,0,320,480)];
-//    [btn setImage:[UIImage imageNamed:@"comingsoon"] forState:UIControlEventTouchUpInside];
-//    [btn addTarget:self action:@selector(playAnim) forControlEvents:UIControlEventTouchUpInside];
-//    [[[CCDirector sharedDirector] openGLView] addSubview:btn];
-    
     
     [self addNavBar];
-    
     
     [self addModel];
     [self addSkin];
@@ -175,15 +125,20 @@
     
     [(AvatarSceneViewController*)[self cc3Scene] setAvatarSettings: _avatarSettings];
     
-    self.avatarSettings.top = [[FileToSettingsConverter instance] getSettings: @"shirt1"];
+    
+    self.avatarSettings.skin = (ModelSettings*)[[FileToSettingsConverter instance] getSettings: @"skin3"];
+    [[skinButtons objectAtIndex:2] setChoosed:YES];
+    self.avatarSettings.top = (ModelSettings*)[[FileToSettingsConverter instance] getSettings: @"shirt1"];
     [[topButtons objectAtIndex:0] setChoosed:YES];
-    self.avatarSettings.bottom = [[FileToSettingsConverter instance] getSettings: @"trousers1"];
+    self.avatarSettings.bottom = (ModelSettings*)[[FileToSettingsConverter instance] getSettings: @"trousers1"];
     [[bottomButtons objectAtIndex:0] setChoosed:YES];
-    self.avatarSettings.shoes = [[FileToSettingsConverter instance] getSettings: @"shoes1"];
-    self.avatarSettings.hair = [[FileToSettingsConverter instance] getSettings: @"hairstyle1"];
-    self.avatarSettings.glasses = [[FileToSettingsConverter instance] getSettings: @"glasses1"];
+    self.avatarSettings.shoes = (ModelSettings*) [[FileToSettingsConverter instance] getSettings: @"shoes1"];
+    [[shoesButtons objectAtIndex:0] setChoosed:YES];
+    self.avatarSettings.hair = (ModelSettings*) [[FileToSettingsConverter instance] getSettings: @"hairstyle1"];
+    [[hairButtons objectAtIndex:0] setChoosed:YES];
+    self.avatarSettings.body = (NSDictionary*)[[FileToSettingsConverter instance] getSettings: @"cha1"];
+    [[modelButtons objectAtIndex:3] setChoosed:YES];
 }
-
 
 - (void) addNavBar
 {
@@ -263,36 +218,40 @@
     if([sender isKindOfClass:[UIButtonTag class]])
     {
         UIButtonTag *btn = (UIButtonTag *)sender;
-        switch (btn.tagSettings.type) {
+        if ([btn.tagSettings isKindOfClass:[NSDictionary class]]) {
+            self.avatarSettings.body = (NSDictionary*) btn.tagSettings;
+            [self unsetButtons:modelButtons];
+        }
+        else
+        {
+            ModelSettings *settings = (ModelSettings*) btn.tagSettings;
+            switch (settings.type) {
             case skin:
-                self.avatarSettings.skin = btn.tagSettings;
+                self.avatarSettings.skin = settings;
                 [self unsetButtons:skinButtons];
                 break;
-            case body:
-                self.avatarSettings.body = btn.tagSettings;
-                [self unsetButtons:modelButtons];
-                break;
             case hair:
-                self.avatarSettings.hair = btn.tagSettings;
+                self.avatarSettings.hair = settings;
                 [self unsetButtons:hairButtons];
                 break;
             case top:
-                self.avatarSettings.top = btn.tagSettings;
+                self.avatarSettings.top = settings;
                 [self unsetButtons:topButtons];
                 break;
             case bottom:
-                self.avatarSettings.bottom = btn.tagSettings;
+                self.avatarSettings.bottom = settings;
                 [self unsetButtons:bottomButtons];
                 break;
             case shoes:
-                self.avatarSettings.shoes = btn.tagSettings;
+                self.avatarSettings.shoes = settings;
                 [self unsetButtons:shoesButtons];
                 break;
             case glasses:
-                self.avatarSettings.glasses = btn.tagSettings;
+                self.avatarSettings.glasses = settings;
                 [self unsetButtons:glassesButtons];
             default:
                 break;
+            }
         }
         btn.choosed = YES;
     }

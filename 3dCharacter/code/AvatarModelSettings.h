@@ -11,7 +11,7 @@
 
 @interface AvatarModelSettings : NSObject
 {
-    ModelSettings* _body;
+    NSDictionary* _body;
     ModelSettings* _hair;
     ModelSettings* _skin;
     ModelSettings* _top;
@@ -20,7 +20,7 @@
     ModelSettings* _glasses;
 }
 
-@property (nonatomic, retain, setter = setBody:) ModelSettings* body;
+@property (nonatomic, retain, setter = setBody:) NSDictionary* body;
 @property (nonatomic, retain, setter = setHair:) ModelSettings* hair;
 @property (nonatomic, retain, setter = setSkin:) ModelSettings* skin;
 @property (nonatomic, retain, setter = setTop:) ModelSettings* top;
@@ -28,8 +28,6 @@
 @property (nonatomic, retain, setter = setShoes:) ModelSettings* shoes;
 @property (nonatomic, retain, setter = setGlasses:) ModelSettings* glasses;
 
--(void) raiseModelChanged:(NSString*) propertyName settings: (ModelSettings*) modelSettings;
--(void) raiseColorChanged:(NSString*) propertyName settings: (ModelSettings*) modelSettings;
 -(void) compareAndRaiseChanges:(NSString *)propertyName oldSettings:(ModelSettings *)oldSetting withNewSettings:(ModelSettings*) newSettings;
 
 @end

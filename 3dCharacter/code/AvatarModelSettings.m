@@ -16,9 +16,8 @@
 {
     if (_body != aBody)
     {
-        ModelSettings* oldBody = _body;
         _body = aBody;
-        [self compareAndRaiseChanges:@"body" oldSettings: oldBody withNewSettings:_body];
+        [self raiseBodyChanged:_body];
     }
 }
 
@@ -105,6 +104,12 @@
 {
     NSDictionary *userInfo = [NSDictionary dictionaryWithObject:modelSettings forKey:propertyName];
     [[NSNotificationCenter defaultCenter] postNotificationName: @"colorChanged" object:nil userInfo:userInfo];
+}
+
+-(void) raiseBodyChanged:(NSDictionary*) settings
+{
+    NSDictionary *userInfo = [NSDictionary dictionaryWithObject:settings forKey:@"body"];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"bodyChanged" object:nil userInfo:userInfo];
 }
 
 @end

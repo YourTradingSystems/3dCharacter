@@ -16,6 +16,6 @@
 
 + (id) instance;
 
--(ModelSettings*) getSettings:(NSString*) fileName;
+-(NSObject*) getSettings:(NSString*) fileName;
 
 @end
