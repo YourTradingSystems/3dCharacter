@@ -69,20 +69,10 @@
  * For more info, read the notes of this method on CC3Layer.
  */
 
-//-(void) arbitory {
-//    [[self cc3Scene] arbitory];
-//}
-//
-//
 -(void) yawOnly {
     [(AvatarSceneViewController*)[self cc3Scene] yawOnly];
 }
-//
-//-(void) resetRot {
-//    [[self cc3Scene] resetRot];
-//}
-//
-//
+
 -(void) playAnim {
     id aClass = self.cc3Scene;
     NSLog(@"cc3Scene.class = %@", [aClass class]);
@@ -93,15 +83,7 @@
     
     [(AvatarSceneViewController*)[self cc3Scene] playAnim];
 }
-//
-//-(void) stopAnimations {
-//    [[self cc3Scene] stopAnimations];
-//}
-//
-//-(void) playAnimModeLooped {
-//    [[self cc3Scene] playAnimModeLooped];
-//}
-//
+
 -(void) playAnimModeOnce {
     [(AvatarSceneViewController*)[self cc3Scene] playAnimModeOnce];
 }
@@ -157,7 +139,6 @@
     [btnStart setImage:[UIImage imageNamed:@"3dStartBtn"] forState:UIControlStateNormal];
     [btnStart addTarget:self action:@selector(playAnim) forControlEvents:UIControlEventTouchUpInside];
     [[[CCDirector sharedDirector] openGLView] addSubview:btnStart];
-    
 }
 
 - (void) onBack

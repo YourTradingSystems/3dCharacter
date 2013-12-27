@@ -35,4 +35,6 @@ enum modelType
 - (id) initWithDictionary: (NSDictionary*) theDictionary;
 - (NSDictionary*) toDictionary;
 
+- (NSString*) modelTypeToString: (enum modelType) modelType;
+
 @end
