@@ -33,6 +33,7 @@
     if (self = [super init])
     {
         dicNameColor = [self initializeDictionary];
+        [self saveToJson];
     }
     return self;
 }
@@ -145,7 +146,7 @@
                                                          andColor: [UIColor colorWithRed:20.0/255.0 green:100.0 / 255.0 blue:250.0 / 255.0 alpha:1.0]],
              @"shirt2" : [[ModelSettings alloc] initWithType: top
                                                     andName:@"shirt2"
-                                                   andColor: [UIColor colorWithRed:210.0/255.0 green:10.0 / 25.0 blue:40.0 / 255.0 alpha:1.0]],
+                                                   andColor: [UIColor colorWithRed:210.0/255.0 green:10.0 / 255.0 blue:40.0 / 255.0 alpha:1.0]],
              @"shirt3" : [[ModelSettings alloc] initWithType: top
                                                     andName:@"t-shirt_long"
                                                    andColor: [UIColor colorWithRed:250.0/255.0 green:10.0 / 255.0 blue:200.0 / 255.0 alpha:1.0]],
@@ -278,6 +279,26 @@
 - (NSObject*) getSettings: (NSString*) fileName
 {
     return dicNameColor[fileName];
+}
+
+- (void) saveToJson
+{
+    NSMutableDictionary* dicForJson = [self getDictionaryForJson: dicNameColor];
+    
+    NSError *writeError = nil;
+    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:dicForJson options:NSJSONWritingPrettyPrinted error:&writeError];
+    NSString *jsonString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
+    NSLog(@"JSON Output: %@", jsonString);
+}
+
+- (NSMutableDictionary*) getDictionaryForJson: (NSDictionary*) theDictionary
+{
+    NSMutableDictionary* dictionaryForJson = [[NSMutableDictionary alloc] init];
+    for (NSString* key in theDictionary) {
+        ModelSettings* settings = [theDictionary objectForKey:key];
+        [dictionaryForJson setObject:settings.toDictionary forKey:key];
+    }
+    return dictionaryForJson;
 }
 
 @end

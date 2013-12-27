@@ -499,9 +499,6 @@
 -(void) onBodyChanged:(NSNotification *) notification
 {
     NSDictionary* spines = (NSDictionary*)[notification.userInfo objectForKey:@"body"];
-    NSLog(@"body changed: %@", spines);
 }
 
-
 @end
-

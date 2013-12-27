@@ -10,6 +10,7 @@
 
 enum modelType
 {
+    none,
     body,
     skin,
     hair,
@@ -31,5 +32,7 @@ enum modelType
 @property (nonatomic, retain) UIColor* color;
 
 - (id) initWithType: (enum modelType) theType andName: (NSString*) theName andColor:(UIColor*) theColor;
+- (id) initWithDictionary: (NSDictionary*) theDictionary;
+- (NSDictionary*) toDictionary;
 
 @end

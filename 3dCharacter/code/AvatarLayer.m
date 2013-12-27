@@ -107,8 +107,6 @@
 }
 
 
-
-
 -(void) onOpenCC3Layer {
     
     [self addNavBar];
@@ -253,6 +251,8 @@
             default:
                 break;
             }
+            NSDictionary* dict = settings.toDictionary;
+            NSLog(@"%@", dict);
         }
         btn.choosed = YES;
     }
@@ -373,7 +373,6 @@
     bottomClotheImg.image = [UIImage imageNamed:@"bottomClotheTitle"];
     [[[CCDirector sharedDirector] openGLView] addSubview:bottomClotheImg];
     
-    
     UIScrollView    *scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(655, 400, 350,110)];
     
     for (int i = 0; i < Avatar_BottomClothesItemCount; i ++)
@@ -451,7 +450,6 @@
     UIImageView *glassImg = [[UIImageView alloc] initWithFrame:CGRectMake(655,540,350,23)];
     glassImg.image = [UIImage imageNamed:@"glassTitle"];
     [[[CCDirector sharedDirector] openGLView] addSubview:glassImg];
-    
     
     UIScrollView    *scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(655, 570, 350,90)];
     
