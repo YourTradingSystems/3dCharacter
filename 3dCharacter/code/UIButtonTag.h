@@ -16,6 +16,6 @@
 }
 
 @property (atomic, retain ) NSObject* tagSettings;
-@property (atomic, setter = setChoosed:) BOOL choosed;
+@property (nonatomic, setter = setChoosed:) BOOL choosed;
 
 @end

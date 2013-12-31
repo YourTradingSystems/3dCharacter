@@ -59,7 +59,6 @@
     
 }
 
-
 #pragma mark Updating layer
 
 /**
@@ -115,7 +114,7 @@
     [[shoesButtons objectAtIndex:0] setChoosed:YES];
     self.avatarSettings.hair = (ModelSettings*) [[FileToSettingsConverter instance] getSettings: @"hairstyle1"];
     [[hairButtons objectAtIndex:0] setChoosed:YES];
-    self.avatarSettings.body = (NSDictionary*)[[FileToSettingsConverter instance] getSettings: @"cha1"];
+    self.avatarSettings.body = (ModelSettings*)[[FileToSettingsConverter instance] getSettings: @"cha1"];
     [[modelButtons objectAtIndex:3] setChoosed:YES];
     self.avatarSettings.glasses = (ModelSettings*)[[FileToSettingsConverter instance] getSettings: @"glasses1"];
     [[glassesButtons objectAtIndex:0] setChoosed:YES];
@@ -198,17 +197,15 @@
     if([sender isKindOfClass:[UIButtonTag class]])
     {
         UIButtonTag *btn = (UIButtonTag *)sender;
-        if ([btn.tagSettings isKindOfClass:[NSDictionary class]]) {
-            self.avatarSettings.body = (NSDictionary*) btn.tagSettings;
-            [self unsetButtons:modelButtons];
-        }
-        else
-        {
-            ModelSettings *settings = (ModelSettings*) btn.tagSettings;
-            switch (settings.type) {
+        ModelSettings *settings = (ModelSettings*) btn.tagSettings;
+        switch (settings.type) {
             case skin:
                 self.avatarSettings.skin = settings;
                 [self unsetButtons:skinButtons];
+                break;
+            case body:
+                self.avatarSettings.body = settings;
+                [self unsetButtons:modelButtons];
                 break;
             case hair:
                 self.avatarSettings.hair = settings;
@@ -232,9 +229,6 @@
             default:
                 break;
             }
-            NSDictionary* dict = settings.toDictionary;
-            NSLog(@"%@", dict);
-        }
         btn.choosed = YES;
     }
 }

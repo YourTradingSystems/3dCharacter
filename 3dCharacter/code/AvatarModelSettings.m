@@ -12,7 +12,7 @@
 
 @synthesize body = _body, hair = _hair, skin = _skin, top = _top, bottom = _bottom, shoes = _shoes, glasses = _glasses;
 
--(void) setBody:(NSDictionary *)aBody
+-(void) setBody:(ModelSettings *)aBody
 {
     if (_body != aBody)
     {
@@ -106,7 +106,7 @@
     [[NSNotificationCenter defaultCenter] postNotificationName: @"colorChanged" object:nil userInfo:userInfo];
 }
 
--(void) raiseBodyChanged:(NSDictionary*) settings
+-(void) raiseBodyChanged:(ModelSettings*) settings
 {
     NSDictionary *userInfo = [NSDictionary dictionaryWithObject:settings forKey:@"body"];
     [[NSNotificationCenter defaultCenter] postNotificationName:@"bodyChanged" object:nil userInfo:userInfo];

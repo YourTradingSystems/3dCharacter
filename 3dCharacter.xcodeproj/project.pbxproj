@@ -397,6 +397,7 @@
 		84342CB8186C624000B4A6F6 /* trousers1.png in Resources */ = {isa = PBXBuildFile; fileRef = 84342CB6186C624000B4A6F6 /* trousers1.png */; };
 		84342CBA186C877800B4A6F6 /* final_female.pod in Resources */ = {isa = PBXBuildFile; fileRef = 84342CB9186C877800B4A6F6 /* final_female.pod */; };
 		84342CBD186DB87900B4A6F6 /* BodyModelSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = 84342CBC186DB87900B4A6F6 /* BodyModelSettings.m */; };
+		84342D021871B3C700B4A6F6 /* settings in Resources */ = {isa = PBXBuildFile; fileRef = 84342D011871B3C700B4A6F6 /* settings */; };
 		84D8D81F1859B70C00B328B2 /* AvatarModelSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D8D81E1859B70C00B328B2 /* AvatarModelSettings.m */; };
 		84D8D8221859F10C00B328B2 /* FileToSettingsConverter.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D8D8211859F10C00B328B2 /* FileToSettingsConverter.m */; };
 		84D8D828185AF85E00B328B2 /* ModelSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D8D827185AF85E00B328B2 /* ModelSettings.m */; };
@@ -1049,6 +1050,7 @@
 		84342CB9186C877800B4A6F6 /* final_female.pod */ = {isa = PBXFileReference; lastKnownFileType = file; path = final_female.pod; sourceTree = "<group>"; };
 		84342CBB186DB87900B4A6F6 /* BodyModelSettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BodyModelSettings.h; sourceTree = "<group>"; };
 		84342CBC186DB87900B4A6F6 /* BodyModelSettings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BodyModelSettings.m; sourceTree = "<group>"; };
+		84342D011871B3C700B4A6F6 /* settings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = settings; sourceTree = "<group>"; };
 		84D8D81D1859B70C00B328B2 /* AvatarModelSettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AvatarModelSettings.h; sourceTree = "<group>"; };
 		84D8D81E1859B70C00B328B2 /* AvatarModelSettings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AvatarModelSettings.m; sourceTree = "<group>"; };
 		84D8D8201859F10C00B328B2 /* FileToSettingsConverter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileToSettingsConverter.h; sourceTree = "<group>"; };
@@ -1989,6 +1991,7 @@
 		08A10497185759DF00B26770 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				84342D011871B3C700B4A6F6 /* settings */,
 				84342CB9186C877800B4A6F6 /* final_female.pod */,
 				04E33086186B0692001F1D1C /* ShoesModels */,
 				04F3F7CD1863473600D2A5FE /* GlassesModels */,
@@ -2303,6 +2306,7 @@
 				08A1053118575A1500B26770 /* glasses9.png in Resources */,
 				08A1052218575A1500B26770 /* glasses11.png in Resources */,
 				08A1052818575A1500B26770 /* glasses17.png in Resources */,
+				84342D021871B3C700B4A6F6 /* settings in Resources */,
 				84342CAA186C428800B4A6F6 /* t-shirt.pod in Resources */,
 				04A974971869942600ECE773 /* shirt31.png in Resources */,
 				08A1054118575A1500B26770 /* hairstyle9.png in Resources */,

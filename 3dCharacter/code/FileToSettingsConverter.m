@@ -9,6 +9,7 @@
 #import "FileToSettingsConverter.h"
 #import "ModelSettings.h"
 #import "Point3d.h"
+#import "BodyModelSettings.h"
 
 @interface FileToSettingsConverter()
 
@@ -32,15 +33,56 @@
 - (id) init {
     if (self = [super init])
     {
-        dicNameColor = [self initializeDictionary];
-        [self saveToJson];
+        dicNameColor = [self initializeDictionaryFromJson];
+        //[self saveToJson];
     }
     return self;
 }
 
--(NSDictionary*) initializeBodySpines: (float) x withY: (float) y withZ: (float) z
+-(NSDictionary*) initializeDictionaryFromJson
 {
-    return @{@"Spine2.002" : [[Point3d alloc] initWithX:x withY:y withZ:z],
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *docDir = [paths objectAtIndex: 0];
+    NSString *docFile = [docDir stringByAppendingPathComponent: @"settings"];
+    
+    NSData* jsonData = [NSData dataWithContentsOfFile:docFile];
+    
+    NSError* error;
+    NSDictionary * parsedData = [NSJSONSerialization JSONObjectWithData:jsonData options:kNilOptions error:&error];
+    
+    return [self parseDictionaryToModels: parsedData];
+}
+
+- (NSDictionary*) parseDictionaryToModels: (NSDictionary*) theDictionary
+{
+    NSMutableDictionary* resultDict = [[NSMutableDictionary alloc] init];
+    for (NSString* key in theDictionary) {
+        NSDictionary* setDict = (NSDictionary*)[theDictionary objectForKey:key];
+        ModelSettings* settings = [self getSettingsFromDictionary: setDict];
+       
+        [resultDict setObject:settings forKey:key];
+    }
+    return resultDict;
+}
+
+-(ModelSettings*) getSettingsFromDictionary: (NSDictionary*) setDictionary
+{
+    ModelSettings* settings;
+    @try
+    {
+        settings = [[BodyModelSettings alloc] initWithDictionary:setDictionary];
+    }
+    @catch (NSException *exception)
+    {
+        settings = [[ModelSettings alloc] initWithDictionary:setDictionary];
+    }
+    return settings;
+}
+
+-(ModelSettings*) initializeBodySpines: (float) x withY: (float) y withZ: (float) z
+{
+    BodyModelSettings* bmset = [[BodyModelSettings alloc] initWithType:body andName:@"final_female" andColor:nil];
+    bmset.boneSizes = @{@"Spine2.002" : [[Point3d alloc] initWithX:x withY:y withZ:z],
              @"Spine2.001" : [[Point3d alloc] initWithX:x withY:y withZ:z],
              @"RightForeArm" : [[Point3d alloc] initWithX:x withY:y withZ:z],
              @"RightArm" : [[Point3d alloc] initWithX:x withY:y withZ:z],
@@ -57,6 +99,7 @@
              @"LeftFoot" : [[Point3d alloc] initWithX:x withY:y withZ:z],
              @"LeftToeBase" : [[Point3d alloc] initWithX:x withY:y withZ:z],
              };
+    return bmset;
 }
 
 - (NSDictionary*) initializeDictionary
@@ -288,15 +331,22 @@
     NSError *writeError = nil;
     NSData *jsonData = [NSJSONSerialization dataWithJSONObject:dicForJson options:NSJSONWritingPrettyPrinted error:&writeError];
     NSString *jsonString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
-    NSLog(@"JSON Output: %@", jsonString);
+    
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *docDir = [paths objectAtIndex: 0];
+    NSString *docFile = [docDir stringByAppendingPathComponent: @"settings"];
+    
+    NSError* error;
+    [jsonString writeToFile:docFile atomically:YES encoding:NSUTF8StringEncoding error:&error];
 }
 
 - (NSMutableDictionary*) getDictionaryForJson: (NSDictionary*) theDictionary
 {
     NSMutableDictionary* dictionaryForJson = [[NSMutableDictionary alloc] init];
     for (NSString* key in theDictionary) {
+        NSLog(@"model name:  %@", key);
         ModelSettings* settings = [theDictionary objectForKey:key];
-        [dictionaryForJson setObject:settings.toDictionary forKey:key];
+        [dictionaryForJson setObject:[settings toDictionary] forKey:key];
     }
     return dictionaryForJson;
 }

@@ -12,7 +12,7 @@
 
 @synthesize type, modelName, color;
 
-- (id) initWithType: (enum modelType) theType andName: (NSString*) theName andColor:(UIColor*) theColor;
+-(id) initWithType: (enum modelType) theType andName: (NSString*) theName andColor:(UIColor*) theColor;
 {
     if(self = [super init])
     {
@@ -23,13 +23,25 @@
     return self;
 }
 
-- (id) initWithDictionary:(NSDictionary *)theDictionary
+-(id) initWithDictionary:(NSDictionary *)theDictionary
 {
     enum modelType theType = [self stringToModelType:[theDictionary objectForKey:@"type"]];
-    NSString* theModelName = [theDictionary objectForKey:@"modelName"];
+    NSString* theModelName = [self getModelNameFromDictionary:[theDictionary objectForKey:@"modelName"]];
     UIColor* theColor = [self getColorFromDictionary: [theDictionary objectForKey:@"color"]];
     
     return [self initWithType:theType andName:theModelName andColor: theColor];
+}
+
+-(enum modelType) stringToModelType: (NSString*) stringType
+{
+    return [stringType intValue];
+}
+
+-(NSString*) getModelNameFromDictionary: (NSString*) theName
+{
+    if([theName compare:@""] == NSOrderedSame)
+        return nil;
+    return theName;
 }
 
 -(UIColor*) getColorFromDictionary: (NSDictionary*) theDictionary
@@ -41,55 +53,36 @@
     return [UIColor colorWithRed:r/255.0 green:g/255.0 blue:b/255.0 alpha:a/255.0];
 }
 
-- (NSDictionary*) toDictionary
+-(NSDictionary*) toDictionary
+{
+    return @{@"type": [self getModelTypeString:type],
+             @"modelName": [self getModelName],
+             @"color": [self getColorDictionary]};
+}
+
+-(NSString*) getModelTypeString: (enum modelType) modelType
+{
+    return [NSString stringWithFormat:@"%d", modelType];
+}
+
+-(NSString*) getModelName
+{
+    if (modelName == nil)
+        return @"";
+    return modelName;
+}
+
+-(NSDictionary*) getColorDictionary
 {
     CGFloat red = 0.0;
     CGFloat green = 0.0;
-    CGFloat blue;
-    CGFloat alpha;
-    [color getRed:&red green:&green blue:&blue alpha: &alpha];
-    return @{@"type": [self modelTypeToString:type],
-             @"modelName": modelName,
-             @"color": @{@"red": [NSString stringWithFormat: @"%d", (int)(255.0 * red)],
-                         @"green": [NSString stringWithFormat: @"%d", (int)(255.0 * green)],
-                         @"blue": [NSString stringWithFormat: @"%d", (int)(255.0 * blue)],
-                         @"alpha": [NSString stringWithFormat:@"%d", (int)(255.0 * alpha)]}};
-}
-
--(NSString*) modelTypeToString: (enum modelType) modelType
-{
-    return [NSString stringWithFormat:@"%d", modelType];
-//    switch(modelType)
-//    {
-//        case body: return @"BODY";
-//        case skin: return @"SKIN";
-//        case hair: return @"HAIR";
-//        case top: return @"TOP";
-//        case bottom: return @"BOTTOM";
-//        case shoes: return @"SHOES";
-//        case glasses: return @"GLASSES";
-//        default: return nil;
-//    }
-}
-
--(enum modelType) stringToModelType: (NSString*) stringType
-{
-    return [stringType intValue];
-//    if([stringType compare:@"BODY"] == NSOrderedSame)
-//        return body;
-//    if([stringType compare:@"SKIN"] == NSOrderedSame)
-//        return skin;
-//    if([stringType compare:@"HAIR"] == NSOrderedSame)
-//        return hair;
-//    if([stringType compare:@"TOP"] == NSOrderedSame)
-//        return top;
-//    if([stringType compare:@"BOTTOM"] == NSOrderedSame)
-//        return bottom;
-//    if([stringType compare:@"SHOES"] == NSOrderedSame)
-//        return shoes;
-//    if([stringType compare:@"GLASSES"] == NSOrderedSame)
-//        return glasses;
-//    return none;
+    CGFloat blue = 0.0;
+    CGFloat alpha = 0.0;
+    if(color != nil) [color getRed:&red green:&green blue:&blue alpha: &alpha];
+    return @{@"red": [NSString stringWithFormat: @"%d", (int)(255.0 * red)],
+             @"green": [NSString stringWithFormat: @"%d", (int)(255.0 * green)],
+             @"blue": [NSString stringWithFormat: @"%d", (int)(255.0 * blue)],
+             @"alpha": [NSString stringWithFormat:@"%d", (int)(255.0 * alpha)]};
 }
 
 @end

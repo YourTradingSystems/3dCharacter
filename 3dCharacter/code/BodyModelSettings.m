@@ -24,6 +24,10 @@
 
 - (NSDictionary*) getDictionaryForBones: (NSDictionary*) bonesDictionary
 {
+    if (bonesDictionary == nil) {
+        NSException* ex = [[NSException alloc] initWithName:@"NilBonesDictionary" reason:@"Bones Size Dictionary is nil" userInfo:@{@"modelName": modelName}];
+        @throw ex;
+    }
     NSMutableDictionary* dictionaryForBones = [[NSMutableDictionary alloc] init];
     for (NSString* key in bonesDictionary) {
         NSDictionary* dicPoint = [bonesDictionary objectForKey:key];
@@ -38,17 +42,9 @@
 
 - (NSDictionary*) toDictionary
 {
-    CGFloat red = 0.0;
-    CGFloat green = 0.0;
-    CGFloat blue;
-    CGFloat alpha;
-    [color getRed:&red green:&green blue:&blue alpha: &alpha];
-    return @{@"type": [super modelTypeToString:type],
-             @"modelName": modelName,
-             @"color": @{@"red": [NSString stringWithFormat: @"%d", (int)(255.0 * red)],
-                         @"green": [NSString stringWithFormat: @"%d", (int)(255.0 * green)],
-                         @"blue": [NSString stringWithFormat: @"%d", (int)(255.0 * blue)],
-                         @"alpha": [NSString stringWithFormat:@"%d", (int)(255.0 * alpha)]},
+    return @{@"type": [self getModelTypeString:type],
+             @"modelName": [self getModelName],
+             @"color": [self getColorDictionary],
              @"boneSizes": [self getBonesDictionary]};
 }
 
