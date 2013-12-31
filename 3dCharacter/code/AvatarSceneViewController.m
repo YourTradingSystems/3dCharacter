@@ -126,8 +126,8 @@
 	lamp.isDirectionalOnly = NO;
     lamp.opacity = 1.0;
 	[cam addChild: lamp];
-    [self addContentFromPODFile:@"final_female.pod"];
-    mainNode = [self getNodeNamed: @"final_female.pod"];
+    [self addContentFromPODFile:@"female_model.pod"];
+    mainNode = [self getNodeNamed: @"female_model.pod"];
     
     //adjust main node w.r.t backdrop
     [mainNode setScale:CC3VectorMake(0.5, 0.5, 0.55)];
@@ -141,22 +141,22 @@
     mainNodeSavedLocation = mainNode.location;
     mainNodeSavedRotation = mainNode.quaternion;
     
-    /*actions = [[NSMutableArray alloc] initWithCapacity:6];
+    actions = [[NSMutableArray alloc] initWithCapacity:6];
     
     //init animation
     currentAction = 0;
     loopAnimations = YES;
     //anim 1
     //"punching"
-    CCAction *a0 = [[self makePlayFirstFrameActionFromFrameStart:0 withTrackFrameCount:1930] retain];
-    CCAction *a1 = [[self makePlayOnceActionFromFrameStart:0 toFrameEnd:28 atFPS:30 withTrackFrameCount:1930] retain];
-    CCAction *a2 = [[self makePlayLoopedActionFromFrameStart:0 toFrameEnd:28 at:30 withTrackFrameCount:1930] retain];
+    CCAction *a0 = [[self makePlayFirstFrameActionFromFrameStart:0 withTrackFrameCount:600] retain];
+    CCAction *a1 = [[self makePlayOnceActionFromFrameStart:0 toFrameEnd:600 atFPS:30 withTrackFrameCount:600] retain];
+    CCAction *a2 = [[self makePlayLoopedActionFromFrameStart:0 toFrameEnd:600 at:30 withTrackFrameCount:600] retain];
     
     //anim 2
     //"expressing_thanks"	
-    CCAction *b0 = [[self makePlayFirstFrameActionFromFrameStart:100 withTrackFrameCount:193] retain];
-    CCAction *b1 = [[self makePlayOnceActionFromFrameStart:100 toFrameEnd:193 atFPS:30 withTrackFrameCount:1930] retain];
-    CCAction *b2 = [[self makePlayLoopedActionFromFrameStart:100 toFrameEnd:193 at:30 withTrackFrameCount:1930] retain];
+    CCAction *b0 = [[self makePlayFirstFrameActionFromFrameStart:100 withTrackFrameCount:600] retain];
+    CCAction *b1 = [[self makePlayOnceActionFromFrameStart:100 toFrameEnd:600 atFPS:30 withTrackFrameCount:600] retain];
+    CCAction *b2 = [[self makePlayLoopedActionFromFrameStart:100 toFrameEnd:600 at:30 withTrackFrameCount:600] retain];
     
     //add animations
     [actions addObject:a0];
@@ -164,7 +164,7 @@
     [actions addObject:a2];
     [actions addObject:b0];
     [actions addObject:b1];
-    [actions addObject:b2];*/
+    [actions addObject:b2];
 
     //CCActionInterval *stride = [CC3Animate actionWithDuration:10.0];
     //[mainNode runAction:[CCRepeatForever actionWithAction:stride]];
