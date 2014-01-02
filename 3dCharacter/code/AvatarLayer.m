@@ -104,7 +104,7 @@
     
     [(AvatarSceneViewController*)[self cc3Scene] setAvatarSettings: _avatarSettings];
     
-    self.avatarSettings.skin = (ModelSettings*)[[FileToSettingsConverter instance] getSettings: @"skin3"];
+    /*self.avatarSettings.skin = (ModelSettings*)[[FileToSettingsConverter instance] getSettings: @"skin3"];
     [[skinButtons objectAtIndex:2] setChoosed:YES];
     self.avatarSettings.top = (ModelSettings*)[[FileToSettingsConverter instance] getSettings: @"shirt5"];
     [[topButtons objectAtIndex:4] setChoosed:YES];
@@ -114,10 +114,10 @@
     [[shoesButtons objectAtIndex:0] setChoosed:YES];
     self.avatarSettings.hair = (ModelSettings*) [[FileToSettingsConverter instance] getSettings: @"hairstyle1"];
     [[hairButtons objectAtIndex:0] setChoosed:YES];
-    self.avatarSettings.body = (ModelSettings*)[[FileToSettingsConverter instance] getSettings: @"cha1"];
+    self.avatarSettings.body = (ModelSettings*)[[FileToSettingsConverter instance] getSettings: @"cha3"];
     [[modelButtons objectAtIndex:3] setChoosed:YES];
     self.avatarSettings.glasses = (ModelSettings*)[[FileToSettingsConverter instance] getSettings: @"glasses1"];
-    [[glassesButtons objectAtIndex:0] setChoosed:YES];
+    [[glassesButtons objectAtIndex:0] setChoosed:YES];*/
 }
 
 - (void) addNavBar

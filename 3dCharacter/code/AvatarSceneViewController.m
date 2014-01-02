@@ -16,7 +16,8 @@
 #import "CC3ParametricMeshNodes.h"
 #import "CC3UtilityMeshNodes.h"
 #import "ModelSettings.h"
-#import "CC3AffineMatrix.h"
+#import "BodyModelSettings.h"
+#import "Point3d.h"
 
 @implementation AvatarSceneViewController
 
@@ -50,7 +51,7 @@
 
 
 -(void) playAnim {
-    currentAction++;
+    /*currentAction++;
     currentAction %= 2;
     NSInteger index=currentAction * 3;
     if (loopAnimations) {
@@ -63,15 +64,13 @@
     NSObject* o = [actions objectAtIndex:index];
     CCAction* a = (CCAction*) o;
     LogInfo(@"playing anim %d ", currentAction);
-    [mainNode runAction: a];
-    
-
+    [mainNode runAction: a];*/
 }
 
 -(void) stopAnimations {
-    [mainNode stopAllActions];
+    /*[mainNode stopAllActions];
     LogInfo(@"stopping anim %d ", currentAction);
-    [mainNode runAction: [actions objectAtIndex: ( currentAction * 3 )]];
+    [mainNode runAction: [actions objectAtIndex: ( currentAction * 3 )]];*/
 }
 
 
@@ -130,7 +129,7 @@
     mainNode = [self getNodeNamed: @"female_model.pod"];
     
     //adjust main node w.r.t backdrop
-    [mainNode setScale:CC3VectorMake(0.5, 0.5, 0.55)];
+    [mainNode setScale:CC3VectorMake(0.5, 0.5, 0.51)];
     
     CC3Vector loc =  mainNode.location;
     loc.x -= 5.5;
@@ -141,7 +140,7 @@
     mainNodeSavedLocation = mainNode.location;
     mainNodeSavedRotation = mainNode.quaternion;
     
-    actions = [[NSMutableArray alloc] initWithCapacity:6];
+    /*actions = [[NSMutableArray alloc] initWithCapacity:6];
     
     //init animation
     currentAction = 0;
@@ -164,10 +163,7 @@
     [actions addObject:a2];
     [actions addObject:b0];
     [actions addObject:b1];
-    [actions addObject:b2];
-
-    //CCActionInterval *stride = [CC3Animate actionWithDuration:10.0];
-    //[mainNode runAction:[CCRepeatForever actionWithAction:stride]];
+    [actions addObject:b2];*/
 
 	[self createGLBuffers];
 	[self releaseRedundantContent];
@@ -471,7 +467,7 @@
         }
         removedNode.remove;
         [model addChild:attachedModel];
-        //[attachedModel reattachBonesFrom:model];
+        [attachedModel reattachBonesFrom:model];
         //CC3Bone *spineBone = (CC3Bone*)[model getNodeNamed:@"LeftUpLeg"];
         //[spineBone setScale: cc3v(1.4, 1, 1.2)];
     }
@@ -484,6 +480,8 @@
         colorMaterial.diffuseColor = color.asCCColor4F;
     else
         model.diffuseColor = color.asCCColor4F;
+    CCActionInterval *stride = [CC3Animate actionWithDuration:10.0];
+    [mainNode runAction:[CCRepeatForever actionWithAction:stride]];
 }
 
 -(void) onModelChanged:(NSNotification *) notification
@@ -498,7 +496,13 @@
 
 -(void) onBodyChanged:(NSNotification *) notification
 {
-    NSDictionary* spines = (NSDictionary*)[notification.userInfo objectForKey:@"body"];
+    BodyModelSettings* bodySet = (BodyModelSettings*)[notification.userInfo objectForKey:@"body"];
+    NSDictionary* spines = bodySet.boneSizes;
+    for (NSString *boneName in spines) {
+        CC3Bone* bone = (CC3Bone*)[mainNode getNodeNamed:boneName];
+        [bone setScale:[(Point3d*)[spines objectForKey:boneName] getCC3Vector]];
+    }
+    [mainNode disableAllScaleAnimation];
 }
 
 @end
