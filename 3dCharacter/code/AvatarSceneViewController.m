@@ -17,6 +17,7 @@
 #import "CC3UtilityMeshNodes.h"
 #import "ModelSettings.h"
 #import "CC3AffineMatrix.h"
+#import "BodyModelSettings.h"
 
 @implementation AvatarSceneViewController
 
@@ -24,30 +25,14 @@
 	[super dealloc];
 }
 
-
-//-(void) resetRot {
-//    [self restoreCamAndMainNode];
-//}
-//
-//-(void) arbitory {
-//    isArcBallRotationEnabled = YES;
-//}
-//
-//
 -(void) yawOnly {
     isArcBallRotationEnabled = NO;
     [self restoreCamAndMainNode];
 }
 
-//
-//-(void) playAnimModeLooped {
-//    loopAnimations = YES;
-//}
-//
 -(void) playAnimModeOnce {
     loopAnimations = NO;
 }
-
 
 -(void) playAnim {
     currentAction++;
@@ -64,8 +49,6 @@
     CCAction* a = (CCAction*) o;
     LogInfo(@"playing anim %d ", currentAction);
     [mainNode runAction: a];
-    
-
 }
 
 -(void) stopAnimations {
@@ -73,8 +56,6 @@
     LogInfo(@"stopping anim %d ", currentAction);
     [mainNode runAction: [actions objectAtIndex: ( currentAction * 3 )]];
 }
-
-
 
 -(CCAction*) makePlayOnceActionFromFrameStart:(CGFloat) frameStart toFrameEnd:(CGFloat) frameEnd atFPS:(CGFloat)fps withTrackFrameCount:(CGFloat) frames
 {
@@ -498,7 +479,8 @@
 
 -(void) onBodyChanged:(NSNotification *) notification
 {
-    NSDictionary* spines = (NSDictionary*)[notification.userInfo objectForKey:@"body"];
+    BodyModelSettings* bodySet = [notification.userInfo objectForKey:@"body"];
+    NSDictionary* spines = bodySet.boneSizes;
 }
 
 @end
