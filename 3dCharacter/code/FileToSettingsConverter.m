@@ -11,6 +11,9 @@
 #import "Point3d.h"
 #import "BodyModelSettings.h"
 
+#define makeRgb(r,g,b) [UIColor colorWithRed:r/255.0f green:g / 255.0f blue:b / 255.0f alpha:1.0]]
+#define makeSettings(name, type, r,g,b) [[ModelSettings alloc] initWithType: type andName:name andColor: makeRgb(r, g, b)
+
 @interface FileToSettingsConverter()
 
 - (NSDictionary*) initializeDictionary;
@@ -111,209 +114,77 @@
              @"cha4" : [self initializeBodySpines:10 withY:40 withZ:40],
              @"cha5" : [self initializeBodySpines:20 withY:60 withZ:60],
              
-             @"glasses1" : [[ModelSettings alloc] initWithType: glasses
-                                                   andName:@"none"
-                                                      andColor: [UIColor colorWithRed:200.0/255.0 green:50.0 / 255.0 blue:50.0 / 255.0 alpha:1.0]],
-             @"glasses2" : [[ModelSettings alloc] initWithType: glasses
-                                                       andName:@"glasses1"
-                                                      andColor: [UIColor colorWithRed:200.0/255.0 green:50.0 / 255.0 blue:50.0 / 255.0 alpha:1.0]],
-             @"glasses3" : [[ModelSettings alloc] initWithType: glasses
-                                                       andName:@"glasses1"
-                                                      andColor: [UIColor colorWithRed:200.0/255.0 green:50.0 / 255.0 blue:50.0 / 255.0 alpha:1.0]],
-             @"glasses4" : [[ModelSettings alloc] initWithType: glasses
-                                                       andName:@"glasses1"
-                                                      andColor: [UIColor colorWithRed:200.0/255.0 green:50.0 / 255.0 blue:50.0 / 255.0 alpha:1.0]],
-             @"glasses5" : [[ModelSettings alloc] initWithType: glasses
-                                                       andName:@"glasses1"
-                                                      andColor: [UIColor colorWithRed:200.0/255.0 green:50.0 / 255.0 blue:50.0 / 255.0 alpha:1.0]],
-             @"glasses6" : [[ModelSettings alloc] initWithType: glasses
-                                                       andName:@"glasses1"
-                                                      andColor: [UIColor colorWithRed:200.0/255.0 green:50.0 / 255.0 blue:50.0 / 255.0 alpha:1.0]],
-             @"glasses7" : [[ModelSettings alloc] initWithType: glasses
-                                                       andName:@"glasses1"
-                                                      andColor: [UIColor colorWithRed:200.0/255.0 green:50.0 / 255.0 blue:50.0 / 255.0 alpha:1.0]],
-             @"glasses8" : [[ModelSettings alloc] initWithType: glasses
-                                                       andName:@"glasses"
-                                                      andColor: [UIColor colorWithRed:200.0/255.0 green:50.0 / 255.0 blue:50.0 / 255.0 alpha:1.0]],
-             @"glasses9" : [[ModelSettings alloc] initWithType: glasses
-                                                       andName:@"glasses"
-                                                      andColor: [UIColor colorWithRed:200.0/255.0 green:50.0 / 255.0 blue:50.0 / 255.0 alpha:1.0]],
-             @"glasses10" : [[ModelSettings alloc] initWithType: glasses
-                                                       andName:@"glasses"
-                                                      andColor: [UIColor colorWithRed:200.0/255.0 green:50.0 / 255.0 blue:50.0 / 255.0 alpha:1.0]],
-             @"glasses11" : [[ModelSettings alloc] initWithType: glasses
-                                                       andName:@"glasses"
-                                                      andColor: [UIColor colorWithRed:200.0/255.0 green:50.0 / 255.0 blue:50.0 / 255.0 alpha:1.0]],
-             @"glasses12" : [[ModelSettings alloc] initWithType: glasses
-                                                       andName:@"glasses"
-                                                      andColor: [UIColor colorWithRed:200.0/255.0 green:50.0 / 255.0 blue:50.0 / 255.0 alpha:1.0]],
+             @"glasses1" : makeSettings(@"none", glasses, 200.0f, 50.0f, 50.0f),
+             @"glasses2" : makeSettings(@"glasses1", glasses, 200.0f, 50.0f, 50.0f),
+             @"glasses3" : makeSettings(@"glasses1", glasses, 200.0f, 50.0f, 50.0f),
+             @"glasses4" : makeSettings(@"glasses1", glasses, 200.0f, 50.0f, 50.0f),
+             @"glasses5" : makeSettings(@"glasses1", glasses, 200.0f, 50.0f, 50.0f),
+             @"glasses6" : makeSettings(@"glasses1", glasses, 200.0f, 50.0f, 50.0f),
+             @"glasses7" : makeSettings(@"glasses1", glasses, 200.0f, 50.0f, 50.0f),
+             @"glasses8" : makeSettings(@"glasses1", glasses, 200.0f, 50.0f, 50.0f),
+             @"glasses9" : makeSettings(@"glasses1", glasses, 200.0f, 50.0f, 50.0f),
+             @"glasses10" : makeSettings(@"glasses1", glasses, 200.0f, 50.0f, 50.0f),
+             @"glasses11" : makeSettings(@"glasses1", glasses, 200.0f, 50.0f, 50.0f),
+             @"glasses12" : makeSettings(@"glasses1", glasses, 200.0f, 50.0f, 50.0f),
              
-             @"hairstyle1" : [[ModelSettings alloc] initWithType: hair
-                                                        andName:@"hair1"
-                                                       andColor: [UIColor colorWithRed:200.0/255.0 green:100.0 / 255.0 blue:0.0 / 255.0 alpha:1.0]],
-             @"hairstyle2" : [[ModelSettings alloc] initWithType: hair
-                                                        andName:@"hair2"
-                                                       andColor: [UIColor colorWithRed:200.0/255.0 green:100.0 / 255.0 blue:0.0 / 255.0 alpha:1.0]],
-             @"hairstyle3" : [[ModelSettings alloc] initWithType: hair
-                                                        andName:@"hair3"
-                                                       andColor: [UIColor colorWithRed:200.0/255.0 green:100.0 / 255.0 blue:0.0 / 255.0 alpha:1.0]],
-             @"hairstyle4" : [[ModelSettings alloc] initWithType: hair
-                                                        andName:@"hair4"
-                                                       andColor: [UIColor colorWithRed:200.0/255.0 green:100.0 / 255.0 blue:0.0 / 255.0 alpha:1.0]],
-             @"hairstyle5" : [[ModelSettings alloc] initWithType: hair
-                                                        andName:@"hair1"
-                                                       andColor: [UIColor colorWithRed:200.0/255.0 green:100.0 / 255.0 blue:0.0 / 255.0 alpha:1.0]],
-             @"hairstyle6" : [[ModelSettings alloc] initWithType: hair
-                                                        andName:@"hair1"
-                                                       andColor: [UIColor colorWithRed:200.0/255.0 green:100.0 / 255.0 blue:0.0 / 255.0 alpha:1.0]],
-             @"hairstyle7" : [[ModelSettings alloc] initWithType: hair
-                                                        andName:@"hair1"
-                                                       andColor: [UIColor colorWithRed:200.0/255.0 green:100.0 / 255.0 blue:0.0 / 255.0 alpha:1.0]],
-             @"hairstyle8" : [[ModelSettings alloc] initWithType: hair
-                                                        andName:@"hair1"
-                                                       andColor: [UIColor colorWithRed:200.0/255.0 green:100.0 / 255.0 blue:0.0 / 255.0 alpha:1.0]],
-             @"hairstyle9" : [[ModelSettings alloc] initWithType: hair
-                                                        andName:@"hair1"
-                                                       andColor: [UIColor colorWithRed:200.0/255.0 green:100.0 / 255.0 blue:0.0 / 255.0 alpha:1.0]],
-             @"hairstyle10" : [[ModelSettings alloc] initWithType: hair
-                                                        andName:@"hair1"
-                                                       andColor: [UIColor colorWithRed:200.0/255.0 green:100.0 / 255.0 blue:0.0 / 255.0 alpha:1.0]],
-             @"hairstyle11" : [[ModelSettings alloc] initWithType: hair
-                                                        andName:@"hair1"
-                                                       andColor: [UIColor colorWithRed:200.0/255.0 green:100.0 / 255.0 blue:0.0 / 255.0 alpha:1.0]],
-             @"hairstyle12" : [[ModelSettings alloc] initWithType: hair
-                                                         andName:@"hair1"
-                                                        andColor: [UIColor colorWithRed:200.0/255.0 green:100.0 / 255.0 blue:0.0 / 255.0 alpha:1.0]],
+             @"hairstyle1" : makeSettings(@"hair1", hair, 200.0f, 100.0f, 0.0f),
+             @"hairstyle2" : makeSettings(@"hair2", hair, 200.0f, 100.0f, 0.0f),
+             @"hairstyle3" : makeSettings(@"hair3", hair, 200.0f, 100.0f, 0.0f),
+             @"hairstyle4" : makeSettings(@"hair4", hair, 200.0f, 100.0f, 0.0f),
+             @"hairstyle5" : makeSettings(@"hair1", hair, 200.0f, 50.0f, 0.0f),
+             @"hairstyle6" : makeSettings(@"hair1", hair, 200.0f, 50.0f, 0.0f),
+             @"hairstyle7" : makeSettings(@"hair1", hair, 200.0f, 50.0f, 0.0f),
+             @"hairstyle8" : makeSettings(@"hair1", hair, 200.0f, 50.0f, 0.0f),
+             @"hairstyle9" : makeSettings(@"hair1", hair, 200.0f, 50.0f, 0.0f),
+             @"hairstyle10" : makeSettings(@"hair1", hair, 200.0f, 50.0f, 0.0f),
+             @"hairstyle11" : makeSettings(@"hair1", hair, 200.0f, 50.0f, 0.0f),
+             @"hairstyle12" : makeSettings(@"hair1", hair, 200.0f, 50.0f, 0.0f),
              
-             @"shirt1" : [[ModelSettings alloc] initWithType: top
-                                                          andName:@"shirt"
-                                                         andColor: [UIColor colorWithRed:127.0/255.0 green:0.0 / 255.0 blue:0.0 / 255.0 alpha:1.0]],
-             @"shirt2" : [[ModelSettings alloc] initWithType: top
-                                                    andName:@"shirt"
-                                                   andColor: [UIColor colorWithRed:38.0/255.0 green:127.0 / 25.0 blue:0.0 / 255.0 alpha:1.0]],
-             @"shirt3" : [[ModelSettings alloc] initWithType: top
-                                                    andName:@"shirt"
-                                                   andColor: [UIColor colorWithRed:0.0/255.0 green:148.0 / 255.0 blue:255.0 / 255.0 alpha:1.0]],
-             @"shirt4" : [[ModelSettings alloc] initWithType: top
-                                                    andName:@"shirt"
-                                                   andColor: [UIColor colorWithRed:255.0/255.0 green:106.0 / 255.0 blue:0.0 / 255.0 alpha:1.0]],
-             @"shirt5" : [[ModelSettings alloc] initWithType: top
-                                                     andName:@"shirt_middle"
-                                                    andColor: [UIColor colorWithRed:127.0/255.0 green:0.0 / 255.0 blue:0.0 / 255.0 alpha:1.0]],
-             @"shirt6" : [[ModelSettings alloc] initWithType: top
-                                                     andName:@"shirt_middle"
-                                                    andColor: [UIColor colorWithRed:38.0/255.0 green:127.0 / 255.0 blue:0.0 / 255.0 alpha:1.0]],
-             @"shirt7" : [[ModelSettings alloc] initWithType: top
-                                                     andName:@"shirt_middle"
-                                                    andColor: [UIColor colorWithRed:0.0/255.0 green:148.0 / 255.0 blue:255.0 / 255.0 alpha:1.0]],
-             @"shirt8" : [[ModelSettings alloc] initWithType: top
-                                                     andName:@"shirt_middle"
-                                                    andColor: [UIColor colorWithRed:255.0/255.0 green:106.0 / 255.0 blue:0.0 / 255.0 alpha:1.0]],
-             @"shirt9" : [[ModelSettings alloc] initWithType: top
-                                                    andName:@"shirt"
-                                                   andColor: [UIColor colorWithRed:20.0/255.0 green:100.0 / 255.0 blue:250.0 / 255.0 alpha:1.0]],
-             @"shirt10" : [[ModelSettings alloc] initWithType: top
-                                                    andName:@"shirt"
-                                                    andColor: [UIColor colorWithRed:20.0/255.0 green:100.0 / 255.0 blue:250.0 / 255.0 alpha:1.0]],
-             @"shirt11" : [[ModelSettings alloc] initWithType: top
-                                                     andName:@"shirt"
-                                                    andColor: [UIColor colorWithRed:20.0/255.0 green:100.0 / 255.0 blue:250.0 / 255.0 alpha:1.0]],
-             @"shirt12" : [[ModelSettings alloc] initWithType: top
-                                                     andName:@"shirt"
-                                                    andColor: [UIColor colorWithRed:20.0/255.0 green:100.0 / 255.0 blue:250.0 / 255.0 alpha:1.0]],
+             @"shirt1" : makeSettings(@"shirt", top, 127.0f, 0.0f, 0.0f),
+             @"shirt2" : makeSettings(@"shirt", top, 38.0f, 127.0f, 0.0f),
+             @"shirt3" : makeSettings(@"shirt", top, 0.0f, 148.0f, 255.0f),
+             @"shirt4" : makeSettings(@"shirt", top, 255.0f, 106.0f, 0.0f),
+             @"shirt5" : makeSettings(@"shirt_middle", top, 127.0f, 0.0f, 0.0f),
+             @"shirt6" : makeSettings(@"shirt_middle", top, 38.0f, 127.0f, 0.0f),
+             @"shirt7" : makeSettings(@"shirt_middle", top, 0.0f, 148.0f, 255.0f),
+             @"shirt8" : makeSettings(@"shirt_middle", top, 255.0f, 105.0f, 0.0f),
+             @"shirt9" : makeSettings(@"shirt", top, 20.0f, 100.0f, 250.0f),
+             @"shirt10" : makeSettings(@"shirt", top, 20.0f, 100.0f, 250.0f),
+             @"shirt11" : makeSettings(@"shirt", top, 20.0f, 100.0f, 250.0f),
+             @"shirt12" : makeSettings(@"shirt", top, 20.0f, 100.0f, 250.0f),
              
-             @"shoes1" : [[ModelSettings alloc] initWithType: shoes
-                                                     andName:@"shoes1"
-                                                    andColor: [UIColor colorWithRed:213.0/255.0 green:189.0 / 255.0 blue:164.0 / 255.0 alpha:1.0]],
-             @"shoes2" : [[ModelSettings alloc] initWithType: shoes
-                                                     andName:@"shoes1"
-                                                    andColor: [UIColor colorWithRed:178.0/255.0 green:139.0 / 255.0 blue:104.0 / 255.0 alpha:1.0]],
-             @"shoes3" : [[ModelSettings alloc] initWithType: shoes
-                                                     andName:@"shoes1"
-                                                    andColor: [UIColor colorWithRed:209.0/255.0 green:137.0 / 255.0 blue:156.0 / 255.0 alpha:1.0]],
-             @"shoes4" : [[ModelSettings alloc] initWithType: shoes
-                                                     andName:@"shoes1"
-                                                    andColor: [UIColor colorWithRed:157.0/255.0 green:141.0 / 255.0 blue:110.0 / 255.0 alpha:1.0]],
-             @"shoes5" : [[ModelSettings alloc] initWithType: shoes
-                                                     andName:@"shoes1"
-                                                    andColor: [UIColor colorWithRed:86.0/255.0 green:64.0 / 255.0 blue:42.0 / 255.0 alpha:1.0]],
-             @"shoes6" : [[ModelSettings alloc] initWithType: shoes
-                                                     andName:@"shoes1"
-                                                    andColor: [UIColor colorWithRed:39.0/255.0 green:43.0 / 255.0 blue:19.0 / 255.0 alpha:1.0]],
-             @"shoes7" : [[ModelSettings alloc] initWithType: shoes
-                                                     andName:@"shoes1"
-                                                    andColor: [UIColor colorWithRed:211.0/255.0 green:186.0 / 255.0 blue:61.0 / 255.0 alpha:1.0]],
-             @"shoes8" : [[ModelSettings alloc] initWithType: shoes
-                                                     andName:@"shoes1"
-                                                    andColor: [UIColor colorWithRed:175.0/255.0 green:134.0 / 255.0 blue:100.0 / 255.0 alpha:1.0]],
-             @"shoes9" : [[ModelSettings alloc] initWithType: shoes
-                                                     andName:@"shoes1"
-                                                    andColor: [UIColor colorWithRed:20.0/255.0 green:100.0 / 255.0 blue:250.0 / 255.0 alpha:1.0]],
-             @"shoes10" : [[ModelSettings alloc] initWithType: shoes
-                                                      andName:@"shoes1"
-                                                     andColor: [UIColor colorWithRed:20.0/255.0 green:100.0 / 255.0 blue:250.0 / 255.0 alpha:1.0]],
-             @"shoes11" : [[ModelSettings alloc] initWithType: shoes
-                                                      andName:@"shoes1"
-                                                     andColor: [UIColor colorWithRed:20.0/255.0 green:100.0 / 255.0 blue:250.0 / 255.0 alpha:1.0]],
-             @"shoes12" : [[ModelSettings alloc] initWithType: shoes
-                                                      andName:@"shoes1"
-                                                     andColor: [UIColor colorWithRed:20.0/255.0 green:100.0 / 255.0 blue:250.0 / 255.0 alpha:1.0]],
+             @"shoes1" : makeSettings(@"shoes1", shoes, 213.0f, 189.0f, 164.0f),
+             @"shoes2" : makeSettings(@"shoes1", shoes, 178.0f, 139.0f, 104.0f),
+             @"shoes3" : makeSettings(@"shoes1", shoes, 209.0f, 137.0f, 156.0f),
+             @"shoes4" : makeSettings(@"shoes1", shoes, 157.0f, 141.0f, 110.0f),
+             @"shoes5" : makeSettings(@"shoes1", shoes, 86.0f, 64.0f, 42.0f),
+             @"shoes6" : makeSettings(@"shoes1", shoes, 39.0f, 43.0f, 19.0f),
+             @"shoes7" : makeSettings(@"shoes1", shoes, 211.0f, 186.0f, 61.0f),
+             @"shoes8" : makeSettings(@"shoes1", shoes, 175.0f, 134.0f, 100.0f),
+             @"shoes9" : makeSettings(@"shoes1", shoes, 20.0f, 100.0f, 250.0f),
+             @"shoes10" : makeSettings(@"shoes1", shoes, 20.0f, 100.0f, 250.0f),
+             @"shoes11" : makeSettings(@"shoes1", shoes, 20.0f, 100.0f, 250.0f),
+             @"shoes12" : makeSettings(@"shoes1", shoes, 20.0f, 100.0f, 250.0f),
              
-             @"skin1" : [[ModelSettings alloc] initWithType: skin
-                                                   andName:nil
-                                                   andColor: [UIColor colorWithRed:252.0/255.0 green:239.0 / 255.0 blue:202.0 / 255.0 alpha:1.0]],
-             @"skin2" : [[ModelSettings alloc] initWithType: skin
-                                                    andName:nil
-                                                   andColor: [UIColor colorWithRed:237.0/255.0 green:223.0 / 255.0 blue:220.0 / 255.0 alpha:1.0]],
-             @"skin3" : [[ModelSettings alloc] initWithType: skin
-                                                    andName:nil
-                                                   andColor: [UIColor colorWithRed:255.0/255.0 green:206.0 / 255.0 blue:160.0 / 255.0 alpha:1.0]],
-             @"skin4" : [[ModelSettings alloc] initWithType: skin
-                                                    andName:nil
-                                                    andColor: [UIColor colorWithRed:225.0/255.0 green:170.0 / 255.0 blue:149.0 / 255.0 alpha:1.0]],
-             @"skin5" : [[ModelSettings alloc] initWithType: skin
-                                                    andName:nil
-                                                   andColor: [UIColor colorWithRed:144.0/255.0 green:97.0 / 255.0 blue:69.0 / 255.0 alpha:1.0]],
-             @"skin6" : [[ModelSettings alloc] initWithType: skin
-                                                    andName:nil
-                                                   andColor: [UIColor colorWithRed:95.0/255.0 green:69.0 / 255.0 blue:53.0 / 255.0 alpha:1.0]],
+             @"skin1" : makeSettings(nil, skin, 252.0f, 239.0f, 202.0f),
+             @"skin2" : makeSettings(nil, skin, 237.0f, 223.0f, 220.0f),
+             @"skin3" : makeSettings(nil, skin, 255.0f, 206.0f, 160.0f),
+             @"skin4" : makeSettings(nil, skin, 225.0f, 170.0f, 149.0f),
+             @"skin5" : makeSettings(nil, skin, 144.0f, 97.0f, 69.0f),
+             @"skin6" : makeSettings(nil, skin, 95.0f, 69.0f, 53.0f),
              
-             @"trousers1" : [[ModelSettings alloc] initWithType: bottom
-                                                    andName:@"pants"
-                                                      andColor: [UIColor colorWithRed:127.0/255.0 green:0.0 / 255.0 blue:0.0 / 255.0 alpha:1.0]],
-             @"trousers2" : [[ModelSettings alloc] initWithType: bottom
-                                                       andName:@"pants"
-                                                      andColor: [UIColor colorWithRed:38.0/255.0 green:127.0 / 255.0 blue:0.0 / 255.0 alpha:1.0]],
-             @"trousers3" : [[ModelSettings alloc] initWithType: bottom
-                                                       andName:@"pants"
-                                                      andColor: [UIColor colorWithRed:0.0/255.0 green:148.0 / 255.0 blue:255.0 / 255.0 alpha:1.0]],
-             @"trousers4" : [[ModelSettings alloc] initWithType: bottom
-                                                       andName:@"pants"
-                                                      andColor: [UIColor colorWithRed:255.0/255.0 green:106.0 / 255.0 blue:0.0 / 255.0 alpha:1.0]],
-             @"trousers5" : [[ModelSettings alloc] initWithType: bottom
-                                                        andName:@"skirt_and_belt"
-                                                       andColor: [UIColor colorWithRed:127.0/255.0 green:0.0 / 255.0 blue:0.0 / 255.0 alpha:1.0]],
-             @"trousers6" : [[ModelSettings alloc] initWithType: bottom
-                                                        andName:@"skirt_and_belt"
-                                                       andColor: [UIColor colorWithRed:38.0/255.0 green:127.0 / 255.0 blue:0.0 / 255.0 alpha:1.0]],
-             @"trousers7" : [[ModelSettings alloc] initWithType: bottom
-                                                        andName:@"skirt_and_belt"
-                                                       andColor: [UIColor colorWithRed:0.0/255.0 green:148.0 / 255.0 blue:255.0 / 255.0 alpha:1.0]],
-             @"trousers8" : [[ModelSettings alloc] initWithType: bottom
-                                                        andName:@"skirt_and_belt"
-                                                       andColor: [UIColor colorWithRed:255.0/255.0 green:106.0 / 255.0 blue:0.0 / 255.0 alpha:1.0]],
-             @"trousers9" : [[ModelSettings alloc] initWithType: bottom
-                                                       andName:@"pants"
-                                                      andColor: [UIColor colorWithRed:247.0/255.0 green:247.0 / 255.0 blue:247.0 / 255.0 alpha:1.0]],
-             @"trousers10" : [[ModelSettings alloc] initWithType: bottom
-                                                       andName:@"pants"
-                                                      andColor: [UIColor colorWithRed:247.0/255.0 green:247.0 / 255.0 blue:247.0 / 255.0 alpha:1.0]],
-             @"trousers11" : [[ModelSettings alloc] initWithType: bottom
-                                                       andName:@"pants"
-                                                       andColor: [UIColor colorWithRed:247.0/255.0 green:247.0 / 255.0 blue:247.0 / 255.0 alpha:1.0]],
-             @"trousers12" : [[ModelSettings alloc] initWithType: bottom
-                                                        andName:@"pants"
-                                                       andColor: [UIColor colorWithRed:247.0/255.0 green:247.0 / 255.0 blue:247.0 / 255.0 alpha:1.0]]};
+             @"trousers1" : makeSettings(@"pants", bottom, 127.0f, 0.0f, 0.0f),
+             @"trousers2" : makeSettings(@"pants", bottom, 38.0f, 127.0f, 0.0f),
+             @"trousers3" : makeSettings(@"pants", bottom, 0.0f, 148.0f, 255.0f),
+             @"trousers4" : makeSettings(@"pants", bottom, 255.0f, 106.0f, 0.0f),
+             @"trousers5" : makeSettings(@"skirt_and_belt", bottom, 127.0f, 0.0f, 0.0f),
+             @"trousers6" : makeSettings(@"skirt_and_belt", bottom, 38.0f, 127.0f, 0.0f),
+             @"trousers7" : makeSettings(@"skirt_and_belt", bottom, 0.0f, 148.0f, 255.0f),
+             @"trousers8" : makeSettings(@"skirt_and_belt", bottom, 255.0f, 106.0f, 0.0f),
+             @"trousers9" : makeSettings(@"pants", bottom, 247.0f, 247.0f, 247.0f),
+             @"trousers10" : makeSettings(@"pants", bottom, 247.0f, 247.0f, 247.0f),
+             @"trousers11" : makeSettings(@"pants", bottom, 247.0f, 247.0f, 247.0f),
+             @"trousers12" : makeSettings(@"pants", bottom, 247.0f, 247.0f, 247.0f)};
 }
 
 - (void)dealloc {

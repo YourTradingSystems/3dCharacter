@@ -25,30 +25,14 @@
 	[super dealloc];
 }
 
-
-//-(void) resetRot {
-//    [self restoreCamAndMainNode];
-//}
-//
-//-(void) arbitory {
-//    isArcBallRotationEnabled = YES;
-//}
-//
-//
 -(void) yawOnly {
     isArcBallRotationEnabled = NO;
     [self restoreCamAndMainNode];
 }
 
-//
-//-(void) playAnimModeLooped {
-//    loopAnimations = YES;
-//}
-//
 -(void) playAnimModeOnce {
     loopAnimations = NO;
 }
-
 
 -(void) playAnim {
     /*currentAction++;
@@ -72,8 +56,6 @@
     LogInfo(@"stopping anim %d ", currentAction);
     [mainNode runAction: [actions objectAtIndex: ( currentAction * 3 )]];*/
 }
-
-
 
 -(CCAction*) makePlayOnceActionFromFrameStart:(CGFloat) frameStart toFrameEnd:(CGFloat) frameEnd atFPS:(CGFloat)fps withTrackFrameCount:(CGFloat) frames
 {

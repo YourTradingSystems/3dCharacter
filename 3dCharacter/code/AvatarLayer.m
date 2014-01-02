@@ -122,19 +122,19 @@
 
 - (void) addNavBar
 {
-    UIImageView *imgView = [[UIImageView alloc] initWithFrame:CGRectMake(0,0,1024,40)];
+    UIImageView *imgView = [[UIImageView alloc] initWithFrame:CGRectMake(0,0,1024,60)];
     imgView.image = [UIImage imageNamed:@"3dNavBg"];
     [[[CCDirector sharedDirector] openGLView] addSubview:imgView];
     [imgView release];
     imgView = nil;
     UIButton    *btnBack = [UIButton buttonWithType:UIButtonTypeCustom];
-    btnBack.frame = CGRectMake(10,3,80,30);
+    btnBack.frame = CGRectMake(10,20,80,30);
     [btnBack setImage:[UIImage imageNamed:@"3dBackBtn"] forState:UIControlStateNormal];
     [btnBack addTarget:self action:@selector(onBack) forControlEvents:UIControlEventTouchUpInside];
     [[[CCDirector sharedDirector] openGLView] addSubview:btnBack];
     
     UIButton    *btnStart = [UIButton buttonWithType:UIButtonTypeCustom];
-    btnStart.frame = CGRectMake(920,3,92,30);
+    btnStart.frame = CGRectMake(920,20,92,30);
     [btnStart setImage:[UIImage imageNamed:@"3dStartBtn"] forState:UIControlStateNormal];
     [btnStart addTarget:self action:@selector(playAnim) forControlEvents:UIControlEventTouchUpInside];
     [[[CCDirector sharedDirector] openGLView] addSubview:btnStart];
