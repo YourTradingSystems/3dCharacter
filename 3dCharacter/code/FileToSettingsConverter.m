@@ -84,34 +84,35 @@
 
 -(ModelSettings*) initializeBodySpines: (float) x withY: (float) y withZ: (float) z
 {
-    BodyModelSettings* bmset = [[BodyModelSettings alloc] initWithType:body andName:@"final_female" andColor:nil];
-    bmset.boneSizes = @{@"Spine2.002" : [[Point3d alloc] initWithX:x withY:y withZ:z],
-             @"Spine2.001" : [[Point3d alloc] initWithX:x withY:y withZ:z],
-             @"RightForeArm" : [[Point3d alloc] initWithX:x withY:y withZ:z],
-             @"RightArm" : [[Point3d alloc] initWithX:x withY:y withZ:z],
-             @"LeftForeArm" : [[Point3d alloc] initWithX:x withY:y withZ:z],
-             @"LeftArm" : [[Point3d alloc] initWithX:x withY:y withZ:z],
-             @"Spine2" : [[Point3d alloc] initWithX:x withY:y withZ:z],
-             @"Spine1" : [[Point3d alloc] initWithX:x withY:y withZ:z],
-             @"RightUpLeg" : [[Point3d alloc] initWithX:x withY:y withZ:z],
-             @"RightLeg" : [[Point3d alloc] initWithX:x withY:y withZ:z],
-             @"RightFoot" : [[Point3d alloc] initWithX:x withY:y withZ:z],
-             @"RightToeBase" : [[Point3d alloc] initWithX:x withY:y withZ:z],
-             @"LeftUpLeg" : [[Point3d alloc] initWithX:x withY:y withZ:z],
-             @"LeftLeg" : [[Point3d alloc] initWithX:x withY:y withZ:z],
-             @"LeftFoot" : [[Point3d alloc] initWithX:x withY:y withZ:z],
-             @"LeftToeBase" : [[Point3d alloc] initWithX:x withY:y withZ:z],
+    BodyModelSettings* bmset = [[BodyModelSettings alloc] initWithType:body andName:@"female_model" andColor:nil];
+    bmset.boneSizes = @{
+        @"Bip002_Head" : [[Point3d alloc] initWithX:1 withY:1+y*-1/1000 withZ:1+z*-1/1000],
+        @"Bip002_Neck" : [[Point3d alloc] initWithX:1+(x/1000)  withY:1+y*-1/1000 withZ:1+z*-1/1000],
+        @"Bip002_R_UpperArm" : [[Point3d alloc] initWithX:1+(x/1000)  withY:1+y*-1/1000 withZ:1+z*-1/1000],
+        @"Bip002_R_Forearm" : [[Point3d alloc] initWithX:1+(x/1000)  withY:1+y*-1/1000 withZ:1+z*-1/1000],
+        @"Bip002_L_UpperArm" : [[Point3d alloc] initWithX:1+(x/1000)  withY:1+y*-1/1000 withZ:1+z*-1/1000],
+        @"Bip002_L_Forearm" : [[Point3d alloc] initWithX:1+(x/1000)  withY:1+y*-1/1000 withZ:1+z*-1/1000],
+        @"Bip002_Spine2" : [[Point3d alloc] initWithX:1+(x/1000)  withY:1+(y/1000) withZ:1+(z/1000)],
+        @"Bip002_Spine1" : [[Point3d alloc] initWithX:1+(x/1000)  withY:1+(y/1000) withZ:1+(z/1000)],
+        @"Bip002_Spine" : [[Point3d alloc] initWithX:1+(x/1000)  withY:1+(y/1000) withZ:1+(z/1000)],
+        @"Bip002_Pelvis" : [[Point3d alloc] initWithX:1+(x/1000)  withY:1+(y/1000) withZ:1+(z/1000)],
+        @"Bip002_R_Thigh" : [[Point3d alloc] initWithX:1+(x/1000)  withY:1+(y/1000) withZ:1+(z/1000)],
+        @"Bip002_R_Calf" : [[Point3d alloc] initWithX:1+(x/1000)  withY:1+(y/1000) withZ:1+(z/1000)],
+        @"Bip002_L_Thigh" : [[Point3d alloc] initWithX:1+(x/1000)  withY:1+(y/1000) withZ:1+(z/1000)],
+        @"Bip002_L_Calf" : [[Point3d alloc] initWithX:1+(x/1000)  withY:1+(y/1000) withZ:1+(z/1000)],
+             //@"Bip002_" : [[Point3d alloc] initWithX:x withY:y withZ:z],
+             //@"Bip002_" : [[Point3d alloc] initWithX:x withY:y withZ:z],
              };
     return bmset;
 }
 
 - (NSDictionary*) initializeDictionary
 {
-    return @{@"cha1" : [self initializeBodySpines:1.4 withY:0.8 withZ:1.4],
-             @"cha2" : [self initializeBodySpines:1.2 withY:0.9 withZ:1.2],
-             @"cha3" : [self initializeBodySpines:1 withY:1 withZ:1],
-             @"cha4" : [self initializeBodySpines:1.2 withY:1.1 withZ:1.2],
-             @"cha5" : [self initializeBodySpines:1.4 withY:1.2 withZ:1.4],
+    return @{@"cha1" : [self initializeBodySpines:-20 withY:60 withZ:60],
+             @"cha2" : [self initializeBodySpines:-10 withY:40 withZ:40],
+             @"cha3" : [self initializeBodySpines:0 withY:0 withZ:0],
+             @"cha4" : [self initializeBodySpines:10 withY:40 withZ:40],
+             @"cha5" : [self initializeBodySpines:20 withY:60 withZ:60],
              
              @"glasses1" : makeSettings(@"none", glasses, 200.0f, 50.0f, 50.0f),
              @"glasses2" : makeSettings(@"glasses1", glasses, 200.0f, 50.0f, 50.0f),
@@ -192,6 +193,7 @@
 
 - (NSObject*) getSettings: (NSString*) fileName
 {
+    NSLog(@"%@  -  %@", fileName, dicNameColor[fileName]);
     return dicNameColor[fileName];
 }
 
