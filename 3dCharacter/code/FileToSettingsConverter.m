@@ -12,7 +12,7 @@
 #import "BodyModelSettings.h"
 
 #define makeRgb(r,g,b) [UIColor colorWithRed:r/255.0f green:g / 255.0f blue:b / 255.0f alpha:1.0]]
-#define makeSettings(name, type, r,g,b) [[ModelSettings alloc] initWithType: type andName:name andColor: makeRgb(r, g, b)
+#define makeSettings(modelName, type, r,g,b) [[ModelSettings alloc] initWithType: type andName:modelName andColor: makeRgb(r, g, b)
 
 @interface FileToSettingsConverter()
 
@@ -195,7 +195,6 @@
 
 - (NSObject*) getSettings: (NSString*) fileName
 {
-    NSLog(@"%@  -  %@", fileName, dicNameColor[fileName]);
     return dicNameColor[fileName];
 }
 
@@ -219,7 +218,6 @@
 {
     NSMutableDictionary* dictionaryForJson = [[NSMutableDictionary alloc] init];
     for (NSString* key in theDictionary) {
-        NSLog(@"model name:  %@", key);
         ModelSettings* settings = [theDictionary objectForKey:key];
         [dictionaryForJson setObject:[settings toDictionary] forKey:key];
     }

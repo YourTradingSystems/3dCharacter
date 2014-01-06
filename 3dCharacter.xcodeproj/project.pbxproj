@@ -317,9 +317,6 @@
 		08A1054018575A1500B26770 /* hairstyle8.png in Resources */ = {isa = PBXBuildFile; fileRef = 08A104DD18575A1500B26770 /* hairstyle8.png */; };
 		08A1054118575A1500B26770 /* hairstyle9.png in Resources */ = {isa = PBXBuildFile; fileRef = 08A104DE18575A1500B26770 /* hairstyle9.png */; };
 		08A1054218575A1500B26770 /* shirt1.png in Resources */ = {isa = PBXBuildFile; fileRef = 08A104DF18575A1500B26770 /* shirt1.png */; };
-		08A1054318575A1500B26770 /* shirt10.png in Resources */ = {isa = PBXBuildFile; fileRef = 08A104E018575A1500B26770 /* shirt10.png */; };
-		08A1054418575A1500B26770 /* shirt11.png in Resources */ = {isa = PBXBuildFile; fileRef = 08A104E118575A1500B26770 /* shirt11.png */; };
-		08A1054518575A1500B26770 /* shirt12.png in Resources */ = {isa = PBXBuildFile; fileRef = 08A104E218575A1500B26770 /* shirt12.png */; };
 		08A1054618575A1500B26770 /* shirt13.png in Resources */ = {isa = PBXBuildFile; fileRef = 08A104E318575A1500B26770 /* shirt13.png */; };
 		08A1054718575A1500B26770 /* shirt14.png in Resources */ = {isa = PBXBuildFile; fileRef = 08A104E418575A1500B26770 /* shirt14.png */; };
 		08A1054818575A1500B26770 /* shirt15.png in Resources */ = {isa = PBXBuildFile; fileRef = 08A104E518575A1500B26770 /* shirt15.png */; };
@@ -333,7 +330,6 @@
 		08A1055018575A1500B26770 /* shirt6.png in Resources */ = {isa = PBXBuildFile; fileRef = 08A104ED18575A1500B26770 /* shirt6.png */; };
 		08A1055118575A1500B26770 /* shirt7.png in Resources */ = {isa = PBXBuildFile; fileRef = 08A104EE18575A1500B26770 /* shirt7.png */; };
 		08A1055218575A1500B26770 /* shirt8.png in Resources */ = {isa = PBXBuildFile; fileRef = 08A104EF18575A1500B26770 /* shirt8.png */; };
-		08A1055318575A1500B26770 /* shirt9.png in Resources */ = {isa = PBXBuildFile; fileRef = 08A104F018575A1500B26770 /* shirt9.png */; };
 		08A1055418575A1500B26770 /* shoes1.png in Resources */ = {isa = PBXBuildFile; fileRef = 08A104F118575A1500B26770 /* shoes1.png */; };
 		08A1055518575A1500B26770 /* shoes10.png in Resources */ = {isa = PBXBuildFile; fileRef = 08A104F218575A1500B26770 /* shoes10.png */; };
 		08A1055618575A1500B26770 /* shoes11.png in Resources */ = {isa = PBXBuildFile; fileRef = 08A104F318575A1500B26770 /* shoes11.png */; };
@@ -358,9 +354,6 @@
 		08A1056918575A1500B26770 /* skin4.png in Resources */ = {isa = PBXBuildFile; fileRef = 08A1050618575A1500B26770 /* skin4.png */; };
 		08A1056A18575A1500B26770 /* skin5.png in Resources */ = {isa = PBXBuildFile; fileRef = 08A1050718575A1500B26770 /* skin5.png */; };
 		08A1056B18575A1500B26770 /* skin6.png in Resources */ = {isa = PBXBuildFile; fileRef = 08A1050818575A1500B26770 /* skin6.png */; };
-		08A1056D18575A1500B26770 /* trousers10.png in Resources */ = {isa = PBXBuildFile; fileRef = 08A1050A18575A1500B26770 /* trousers10.png */; };
-		08A1056E18575A1500B26770 /* trousers11.png in Resources */ = {isa = PBXBuildFile; fileRef = 08A1050B18575A1500B26770 /* trousers11.png */; };
-		08A1056F18575A1500B26770 /* trousers12.png in Resources */ = {isa = PBXBuildFile; fileRef = 08A1050C18575A1500B26770 /* trousers12.png */; };
 		08A1057018575A1500B26770 /* trousers13.png in Resources */ = {isa = PBXBuildFile; fileRef = 08A1050D18575A1500B26770 /* trousers13.png */; };
 		08A1057118575A1500B26770 /* trousers14.png in Resources */ = {isa = PBXBuildFile; fileRef = 08A1050E18575A1500B26770 /* trousers14.png */; };
 		08A1057218575A1500B26770 /* trousers15.png in Resources */ = {isa = PBXBuildFile; fileRef = 08A1050F18575A1500B26770 /* trousers15.png */; };
@@ -373,7 +366,6 @@
 		08A1057A18575A1500B26770 /* trousers6.png in Resources */ = {isa = PBXBuildFile; fileRef = 08A1051718575A1500B26770 /* trousers6.png */; };
 		08A1057B18575A1500B26770 /* trousers7.png in Resources */ = {isa = PBXBuildFile; fileRef = 08A1051818575A1500B26770 /* trousers7.png */; };
 		08A1057C18575A1500B26770 /* trousers8.png in Resources */ = {isa = PBXBuildFile; fileRef = 08A1051918575A1500B26770 /* trousers8.png */; };
-		08A1057D18575A1500B26770 /* trousers9.png in Resources */ = {isa = PBXBuildFile; fileRef = 08A1051A18575A1500B26770 /* trousers9.png */; };
 		08A1058518575A2200B26770 /* bottomClotheTitle.png in Resources */ = {isa = PBXBuildFile; fileRef = 08A1057F18575A2200B26770 /* bottomClotheTitle.png */; };
 		08A1058618575A2200B26770 /* clotheTItle.png in Resources */ = {isa = PBXBuildFile; fileRef = 08A1058018575A2200B26770 /* clotheTItle.png */; };
 		08A1058718575A2200B26770 /* glassTitle.png in Resources */ = {isa = PBXBuildFile; fileRef = 08A1058118575A2200B26770 /* glassTitle.png */; };
@@ -397,6 +389,18 @@
 		84D8D8221859F10C00B328B2 /* FileToSettingsConverter.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D8D8211859F10C00B328B2 /* FileToSettingsConverter.m */; };
 		84D8D828185AF85E00B328B2 /* ModelSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D8D827185AF85E00B328B2 /* ModelSettings.m */; };
 		84D8D82B185B374100B328B2 /* UIButtonTag.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D8D82A185B374100B328B2 /* UIButtonTag.m */; };
+		84D9E5A91876E75700DB3F15 /* glasses1.pod in Resources */ = {isa = PBXBuildFile; fileRef = 84D9E5A81876E75700DB3F15 /* glasses1.pod */; };
+		84D9E5AC1876E85800DB3F15 /* hair1.pod in Resources */ = {isa = PBXBuildFile; fileRef = 84D9E5AA1876E85800DB3F15 /* hair1.pod */; };
+		84D9E5AD1876E85800DB3F15 /* hair4.pod in Resources */ = {isa = PBXBuildFile; fileRef = 84D9E5AB1876E85800DB3F15 /* hair4.pod */; };
+		84D9E5AF1876EAC700DB3F15 /* female_model.pod in Resources */ = {isa = PBXBuildFile; fileRef = 84D9E5AE1876EAC700DB3F15 /* female_model.pod */; };
+		84D9E5B41877131A00DB3F15 /* shirt9.png in Resources */ = {isa = PBXBuildFile; fileRef = 84D9E5B01877131A00DB3F15 /* shirt9.png */; };
+		84D9E5B51877131A00DB3F15 /* shirt10.png in Resources */ = {isa = PBXBuildFile; fileRef = 84D9E5B11877131A00DB3F15 /* shirt10.png */; };
+		84D9E5B61877131A00DB3F15 /* shirt11.png in Resources */ = {isa = PBXBuildFile; fileRef = 84D9E5B21877131A00DB3F15 /* shirt11.png */; };
+		84D9E5B71877131A00DB3F15 /* shirt12.png in Resources */ = {isa = PBXBuildFile; fileRef = 84D9E5B31877131A00DB3F15 /* shirt12.png */; };
+		84D9E5B91877138E00DB3F15 /* trousers9.png in Resources */ = {isa = PBXBuildFile; fileRef = 84D9E5B81877138E00DB3F15 /* trousers9.png */; };
+		84D9E5BD1877139C00DB3F15 /* trousers10.png in Resources */ = {isa = PBXBuildFile; fileRef = 84D9E5BA1877139C00DB3F15 /* trousers10.png */; };
+		84D9E5BE1877139C00DB3F15 /* trousers11.png in Resources */ = {isa = PBXBuildFile; fileRef = 84D9E5BB1877139C00DB3F15 /* trousers11.png */; };
+		84D9E5BF1877139C00DB3F15 /* trousers12.png in Resources */ = {isa = PBXBuildFile; fileRef = 84D9E5BC1877139C00DB3F15 /* trousers12.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -964,9 +968,6 @@
 		08A104DD18575A1500B26770 /* hairstyle8.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hairstyle8.png; sourceTree = "<group>"; };
 		08A104DE18575A1500B26770 /* hairstyle9.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hairstyle9.png; sourceTree = "<group>"; };
 		08A104DF18575A1500B26770 /* shirt1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = shirt1.png; sourceTree = "<group>"; };
-		08A104E018575A1500B26770 /* shirt10.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = shirt10.png; sourceTree = "<group>"; };
-		08A104E118575A1500B26770 /* shirt11.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = shirt11.png; sourceTree = "<group>"; };
-		08A104E218575A1500B26770 /* shirt12.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = shirt12.png; sourceTree = "<group>"; };
 		08A104E318575A1500B26770 /* shirt13.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = shirt13.png; sourceTree = "<group>"; };
 		08A104E418575A1500B26770 /* shirt14.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = shirt14.png; sourceTree = "<group>"; };
 		08A104E518575A1500B26770 /* shirt15.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = shirt15.png; sourceTree = "<group>"; };
@@ -980,7 +981,6 @@
 		08A104ED18575A1500B26770 /* shirt6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = shirt6.png; sourceTree = "<group>"; };
 		08A104EE18575A1500B26770 /* shirt7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = shirt7.png; sourceTree = "<group>"; };
 		08A104EF18575A1500B26770 /* shirt8.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = shirt8.png; sourceTree = "<group>"; };
-		08A104F018575A1500B26770 /* shirt9.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = shirt9.png; sourceTree = "<group>"; };
 		08A104F118575A1500B26770 /* shoes1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = shoes1.png; sourceTree = "<group>"; };
 		08A104F218575A1500B26770 /* shoes10.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = shoes10.png; sourceTree = "<group>"; };
 		08A104F318575A1500B26770 /* shoes11.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = shoes11.png; sourceTree = "<group>"; };
@@ -1005,9 +1005,6 @@
 		08A1050618575A1500B26770 /* skin4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = skin4.png; sourceTree = "<group>"; };
 		08A1050718575A1500B26770 /* skin5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = skin5.png; sourceTree = "<group>"; };
 		08A1050818575A1500B26770 /* skin6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = skin6.png; sourceTree = "<group>"; };
-		08A1050A18575A1500B26770 /* trousers10.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = trousers10.png; sourceTree = "<group>"; };
-		08A1050B18575A1500B26770 /* trousers11.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = trousers11.png; sourceTree = "<group>"; };
-		08A1050C18575A1500B26770 /* trousers12.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = trousers12.png; sourceTree = "<group>"; };
 		08A1050D18575A1500B26770 /* trousers13.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = trousers13.png; sourceTree = "<group>"; };
 		08A1050E18575A1500B26770 /* trousers14.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = trousers14.png; sourceTree = "<group>"; };
 		08A1050F18575A1500B26770 /* trousers15.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = trousers15.png; sourceTree = "<group>"; };
@@ -1020,7 +1017,6 @@
 		08A1051718575A1500B26770 /* trousers6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = trousers6.png; sourceTree = "<group>"; };
 		08A1051818575A1500B26770 /* trousers7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = trousers7.png; sourceTree = "<group>"; };
 		08A1051918575A1500B26770 /* trousers8.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = trousers8.png; sourceTree = "<group>"; };
-		08A1051A18575A1500B26770 /* trousers9.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = trousers9.png; sourceTree = "<group>"; };
 		08A1057F18575A2200B26770 /* bottomClotheTitle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bottomClotheTitle.png; sourceTree = "<group>"; };
 		08A1058018575A2200B26770 /* clotheTItle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = clotheTItle.png; sourceTree = "<group>"; };
 		08A1058118575A2200B26770 /* glassTitle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = glassTitle.png; sourceTree = "<group>"; };
@@ -1050,6 +1046,18 @@
 		84D8D827185AF85E00B328B2 /* ModelSettings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModelSettings.m; sourceTree = "<group>"; };
 		84D8D829185B374100B328B2 /* UIButtonTag.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIButtonTag.h; sourceTree = "<group>"; };
 		84D8D82A185B374100B328B2 /* UIButtonTag.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIButtonTag.m; sourceTree = "<group>"; };
+		84D9E5A81876E75700DB3F15 /* glasses1.pod */ = {isa = PBXFileReference; lastKnownFileType = file; path = glasses1.pod; sourceTree = "<group>"; };
+		84D9E5AA1876E85800DB3F15 /* hair1.pod */ = {isa = PBXFileReference; lastKnownFileType = file; path = hair1.pod; sourceTree = "<group>"; };
+		84D9E5AB1876E85800DB3F15 /* hair4.pod */ = {isa = PBXFileReference; lastKnownFileType = file; path = hair4.pod; sourceTree = "<group>"; };
+		84D9E5AE1876EAC700DB3F15 /* female_model.pod */ = {isa = PBXFileReference; lastKnownFileType = file; path = female_model.pod; sourceTree = "<group>"; };
+		84D9E5B01877131A00DB3F15 /* shirt9.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = shirt9.png; sourceTree = "<group>"; };
+		84D9E5B11877131A00DB3F15 /* shirt10.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = shirt10.png; sourceTree = "<group>"; };
+		84D9E5B21877131A00DB3F15 /* shirt11.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = shirt11.png; sourceTree = "<group>"; };
+		84D9E5B31877131A00DB3F15 /* shirt12.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = shirt12.png; sourceTree = "<group>"; };
+		84D9E5B81877138E00DB3F15 /* trousers9.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = trousers9.png; sourceTree = "<group>"; };
+		84D9E5BA1877139C00DB3F15 /* trousers10.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = trousers10.png; sourceTree = "<group>"; };
+		84D9E5BB1877139C00DB3F15 /* trousers11.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = trousers11.png; sourceTree = "<group>"; };
+		84D9E5BC1877139C00DB3F15 /* trousers12.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = trousers12.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -2009,15 +2017,12 @@
 		08A104B718575A1500B26770 /* 3DItem */ = {
 			isa = PBXGroup;
 			children = (
-				84342CB5186C624000B4A6F6 /* trousers2.png */,
-				84342CB6186C624000B4A6F6 /* trousers1.png */,
-				84342CB3186C604E00B4A6F6 /* glasses1.png */,
-				84342C97186C121800B4A6F6 /* cha3.png */,
 				84342C8D186C119300B4A6F6 /* cha1.png */,
 				84342C8E186C119300B4A6F6 /* cha2.png */,
+				84342C97186C121800B4A6F6 /* cha3.png */,
 				84342C90186C119300B4A6F6 /* cha4.png */,
 				84342C91186C119300B4A6F6 /* cha5.png */,
-				04A974961869942600ECE773 /* shirt31.png */,
+				84342CB3186C604E00B4A6F6 /* glasses1.png */,
 				08A104BE18575A1500B26770 /* glasses10.png */,
 				08A104BF18575A1500B26770 /* glasses11.png */,
 				08A104C018575A1500B26770 /* glasses12.png */,
@@ -2052,9 +2057,9 @@
 				08A104DD18575A1500B26770 /* hairstyle8.png */,
 				08A104DE18575A1500B26770 /* hairstyle9.png */,
 				08A104DF18575A1500B26770 /* shirt1.png */,
-				08A104E018575A1500B26770 /* shirt10.png */,
-				08A104E118575A1500B26770 /* shirt11.png */,
-				08A104E218575A1500B26770 /* shirt12.png */,
+				84D9E5B11877131A00DB3F15 /* shirt10.png */,
+				84D9E5B21877131A00DB3F15 /* shirt11.png */,
+				84D9E5B31877131A00DB3F15 /* shirt12.png */,
 				08A104E318575A1500B26770 /* shirt13.png */,
 				08A104E418575A1500B26770 /* shirt14.png */,
 				08A104E518575A1500B26770 /* shirt15.png */,
@@ -2063,12 +2068,13 @@
 				08A104E818575A1500B26770 /* shirt18.png */,
 				08A104E918575A1500B26770 /* shirt2.png */,
 				08A104EA18575A1500B26770 /* shirt3.png */,
+				04A974961869942600ECE773 /* shirt31.png */,
 				08A104EB18575A1500B26770 /* shirt4.png */,
 				08A104EC18575A1500B26770 /* shirt5.png */,
 				08A104ED18575A1500B26770 /* shirt6.png */,
 				08A104EE18575A1500B26770 /* shirt7.png */,
 				08A104EF18575A1500B26770 /* shirt8.png */,
-				08A104F018575A1500B26770 /* shirt9.png */,
+				84D9E5B01877131A00DB3F15 /* shirt9.png */,
 				08A104F118575A1500B26770 /* shoes1.png */,
 				08A104F218575A1500B26770 /* shoes10.png */,
 				08A104F318575A1500B26770 /* shoes11.png */,
@@ -2093,22 +2099,24 @@
 				08A1050618575A1500B26770 /* skin4.png */,
 				08A1050718575A1500B26770 /* skin5.png */,
 				08A1050818575A1500B26770 /* skin6.png */,
-				08A1050A18575A1500B26770 /* trousers10.png */,
-				08A1050B18575A1500B26770 /* trousers11.png */,
-				08A1050C18575A1500B26770 /* trousers12.png */,
+				84342CB6186C624000B4A6F6 /* trousers1.png */,
+				84D9E5BA1877139C00DB3F15 /* trousers10.png */,
+				84D9E5BB1877139C00DB3F15 /* trousers11.png */,
+				84D9E5BC1877139C00DB3F15 /* trousers12.png */,
 				08A1050D18575A1500B26770 /* trousers13.png */,
 				08A1050E18575A1500B26770 /* trousers14.png */,
 				08A1050F18575A1500B26770 /* trousers15.png */,
 				08A1051018575A1500B26770 /* trousers16.png */,
 				08A1051118575A1500B26770 /* trousers17.png */,
 				08A1051218575A1500B26770 /* trousers18.png */,
+				84342CB5186C624000B4A6F6 /* trousers2.png */,
 				08A1051418575A1500B26770 /* trousers3.png */,
 				08A1051518575A1500B26770 /* trousers4.png */,
 				08A1051618575A1500B26770 /* trousers5.png */,
 				08A1051718575A1500B26770 /* trousers6.png */,
 				08A1051818575A1500B26770 /* trousers7.png */,
 				08A1051918575A1500B26770 /* trousers8.png */,
-				08A1051A18575A1500B26770 /* trousers9.png */,
+				84D9E5B81877138E00DB3F15 /* trousers9.png */,
 			);
 			path = 3DItem;
 			sourceTree = "<group>";
@@ -2208,12 +2216,15 @@
 				08A101721857261E00B26770 /* InfoPlist.strings in Resources */,
 				04F001101876A905001BEA08 /* t-shirt_02.jpg in Resources */,
 				08A1055918575A1500B26770 /* shoes14.png in Resources */,
+				84D9E5AD1876E85800DB3F15 /* hair4.pod in Resources */,
 				08A1055B18575A1500B26770 /* shoes16.png in Resources */,
+				84D9E5B61877131A00DB3F15 /* shirt11.png in Resources */,
 				08A1056118575A1500B26770 /* shoes5.png in Resources */,
 				04F000FA1876A7F2001BEA08 /* eye.jpg in Resources */,
 				08A1056D18575A1500B26770 /* trousers10.png in Resources */,
 				08A1055E18575A1500B26770 /* shoes2.png in Resources */,
 				08A1053C18575A1500B26770 /* hairstyle4.png in Resources */,
+				84D9E5BF1877139C00DB3F15 /* trousers12.png in Resources */,
 				08A1055218575A1500B26770 /* shirt8.png in Resources */,
 				08A104B3185759FF00B26770 /* tex_arm.pvr in Resources */,
 				08A1056018575A1500B26770 /* shoes4.png in Resources */,
@@ -2241,17 +2252,17 @@
 				08A1054918575A1500B26770 /* shirt16.png in Resources */,
 				04F0010D1876A899001BEA08 /* shirt_short.pod in Resources */,
 				08A1055C18575A1500B26770 /* shoes17.png in Resources */,
+				84D9E5AC1876E85800DB3F15 /* hair1.pod in Resources */,
 				84342CB1186C566400B4A6F6 /* t-shirt_long.jpg in Resources */,
 				08A1052B18575A1500B26770 /* glasses3.png in Resources */,
 				08A1054D18575A1500B26770 /* shirt3.png in Resources */,
 				08A1056218575A1500B26770 /* shoes6.png in Resources */,
 				08A1053718575A1500B26770 /* hairstyle14.png in Resources */,
+				84D9E5B41877131A00DB3F15 /* shirt9.png in Resources */,
 				08A1055418575A1500B26770 /* shoes1.png in Resources */,
 				08A1017A1857261E00B26770 /* Images.xcassets in Resources */,
 				08A1058518575A2200B26770 /* bottomClotheTitle.png in Resources */,
 				08A104A9185759FF00B26770 /* 3dStartBtn.png in Resources */,
-				08A1055318575A1500B26770 /* shirt9.png in Resources */,
-				08A1056E18575A1500B26770 /* trousers11.png in Resources */,
 				84342CB7186C624000B4A6F6 /* trousers2.png in Resources */,
 				08A1056B18575A1500B26770 /* skin6.png in Resources */,
 				08A1052118575A1500B26770 /* glasses10.png in Resources */,
@@ -2288,7 +2299,6 @@
 				08A1053318575A1500B26770 /* hairstyle10.png in Resources */,
 				04F0010C1876A899001BEA08 /* t-shirt.jpg in Resources */,
 				08A1057718575A1500B26770 /* trousers3.png in Resources */,
-				08A1056F18575A1500B26770 /* trousers12.png in Resources */,
 				08A1053218575A1500B26770 /* hairstyle1.png in Resources */,
 				045E6018187AA81700560CCE /* female_model.pod in Resources */,
 				08A104A7185759FF00B26770 /* 3dBackBtn.png in Resources */,
@@ -2301,7 +2311,6 @@
 				04A974971869942600ECE773 /* shirt31.png in Resources */,
 				08A1054118575A1500B26770 /* hairstyle9.png in Resources */,
 				08A1052D18575A1500B26770 /* glasses5.png in Resources */,
-				08A1054518575A1500B26770 /* shirt12.png in Resources */,
 				08A1057818575A1500B26770 /* trousers4.png in Resources */,
 				08A1052C18575A1500B26770 /* glasses4.png in Resources */,
 				08A1057318575A1500B26770 /* trousers16.png in Resources */,
@@ -2317,16 +2326,18 @@
 				08A1055F18575A1500B26770 /* shoes3.png in Resources */,
 				08A1056418575A1500B26770 /* shoes8.png in Resources */,
 				08A1052A18575A1500B26770 /* glasses2.png in Resources */,
+				84D9E5AF1876EAC700DB3F15 /* female_model.pod in Resources */,
 				08A1055A18575A1500B26770 /* shoes15.png in Resources */,
 				08A1058718575A2200B26770 /* glassTitle.png in Resources */,
 				84342C96186C119300B4A6F6 /* cha5.png in Resources */,
 				08A1053D18575A1500B26770 /* hairstyle5.png in Resources */,
-				08A1054318575A1500B26770 /* shirt10.png in Resources */,
+				84D9E5A91876E75700DB3F15 /* glasses1.pod in Resources */,
 				08A1053A18575A1500B26770 /* hairstyle2.png in Resources */,
 				08A1055118575A1500B26770 /* shirt7.png in Resources */,
 				04F0015F1876EB3A001BEA08 /* top2.jpg in Resources */,
 				84342C93186C119300B4A6F6 /* cha2.png in Resources */,
 				08A1055018575A1500B26770 /* shirt6.png in Resources */,
+				84D9E5B91877138E00DB3F15 /* trousers9.png in Resources */,
 				08A1058618575A2200B26770 /* clotheTItle.png in Resources */,
 				08A1053518575A1500B26770 /* hairstyle12.png in Resources */,
 				04F0015D1876EA39001BEA08 /* hair1.pod in Resources */,

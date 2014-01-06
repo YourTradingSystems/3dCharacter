@@ -143,6 +143,30 @@
     [btnStart setImage:[UIImage imageNamed:@"3dStartBtn"] forState:UIControlStateNormal];
     [btnStart addTarget:self action:@selector(playAnim) forControlEvents:UIControlEventTouchUpInside];
     [[[CCDirector sharedDirector] openGLView] addSubview:btnStart];
+    
+    [self addSliderMale];
+}
+
+-(void) addSliderMale
+{
+    UILabel *lblMaleFemale = [[UILabel alloc] init];
+    lblMaleFemale.text = @"Male/Female";
+    lblMaleFemale.frame = CGRectMake(750, 20, 100, 30);
+    [[[CCDirector sharedDirector] openGLView] addSubview:lblMaleFemale];
+    
+    UISlider *sliderMale = [[UISlider alloc] init];
+    sliderMale.frame = CGRectMake(860, 20, 50, 30);
+    sliderMale.minimumValue = 0;
+    sliderMale.maximumValue = 1;
+    [sliderMale addTarget:self action:@selector(sliderChanged:) forControlEvents:UIControlEventValueChanged];
+    [[[CCDirector sharedDirector] openGLView] addSubview:sliderMale];
+}
+
+-(void) sliderChanged : (id)sender
+{
+    UISlider *slider = (UISlider*) sender;
+    float newStep = roundf(slider.value);
+    slider.value = newStep;
 }
 
 - (void) onBack
@@ -193,7 +217,7 @@
 -(void) unsetButtons: (NSMutableArray*) buttons
 {
     for (UIButtonTag *btnTag in buttons) {
-        btnTag.choosed = NO;
+        btnTag.selected = NO;
     }
 }
 
@@ -235,7 +259,7 @@
             default:
                 break;
             }
-        btn.choosed = YES;
+        btn.selected = YES;
     }
 }
 
