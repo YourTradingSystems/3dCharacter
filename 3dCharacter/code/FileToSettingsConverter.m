@@ -12,7 +12,7 @@
 #import "BodyModelSettings.h"
 
 #define makeRgb(r,g,b) [UIColor colorWithRed:r/255.0f green:g / 255.0f blue:b / 255.0f alpha:1.0]]
-#define makeSettings(name, type, r,g,b) [[ModelSettings alloc] initWithType: type andName:name andColor: makeRgb(r, g, b)
+#define makeSettings(modelName, type, r,g,b) [[ModelSettings alloc] initWithType: type andName:modelName andColor: makeRgb(r, g, b)
 
 @interface FileToSettingsConverter()
 
@@ -148,10 +148,10 @@
              @"shirt6" : makeSettings(@"shirt_middle", top, 38.0f, 127.0f, 0.0f),
              @"shirt7" : makeSettings(@"shirt_middle", top, 0.0f, 148.0f, 255.0f),
              @"shirt8" : makeSettings(@"shirt_middle", top, 255.0f, 105.0f, 0.0f),
-             @"shirt9" : makeSettings(@"shirt", top, 20.0f, 100.0f, 250.0f),
-             @"shirt10" : makeSettings(@"shirt", top, 20.0f, 100.0f, 250.0f),
-             @"shirt11" : makeSettings(@"shirt", top, 20.0f, 100.0f, 250.0f),
-             @"shirt12" : makeSettings(@"shirt", top, 20.0f, 100.0f, 250.0f),
+             @"shirt9" : makeSettings(@"shirt", top, 127.0f, 0.0f, 0.0f),
+             @"shirt10" : makeSettings(@"shirt", top, 38.0f, 127.0f, 0.0f),
+             @"shirt11" : makeSettings(@"shirt", top, 86.0f, 64.0f, 42.0f),
+             @"shirt12" : makeSettings(@"shirt", top, 255.0f, 105.0f, 0.0f),
              
              @"shoes1" : makeSettings(@"shoes1", shoes, 213.0f, 189.0f, 164.0f),
              @"shoes2" : makeSettings(@"shoes1", shoes, 178.0f, 139.0f, 104.0f),
@@ -181,10 +181,10 @@
              @"trousers6" : makeSettings(@"skirt_and_belt", bottom, 38.0f, 127.0f, 0.0f),
              @"trousers7" : makeSettings(@"skirt_and_belt", bottom, 0.0f, 148.0f, 255.0f),
              @"trousers8" : makeSettings(@"skirt_and_belt", bottom, 255.0f, 106.0f, 0.0f),
-             @"trousers9" : makeSettings(@"pants", bottom, 247.0f, 247.0f, 247.0f),
-             @"trousers10" : makeSettings(@"pants", bottom, 247.0f, 247.0f, 247.0f),
-             @"trousers11" : makeSettings(@"pants", bottom, 247.0f, 247.0f, 247.0f),
-             @"trousers12" : makeSettings(@"pants", bottom, 247.0f, 247.0f, 247.0f)};
+             @"trousers9" : makeSettings(@"pants", bottom, 127.0f, 0.0f, 0.0f),
+             @"trousers10" : makeSettings(@"pants", bottom, 38.0f, 127.0f, 0.0f),
+             @"trousers11" : makeSettings(@"pants", bottom, 0.0f, 148.0f, 255.0f),
+             @"trousers12" : makeSettings(@"pants", bottom, 255.0f, 106.0f, 0.0f)};
 }
 
 - (void)dealloc {
@@ -193,7 +193,6 @@
 
 - (NSObject*) getSettings: (NSString*) fileName
 {
-    NSLog(@"%@  -  %@", fileName, dicNameColor[fileName]);
     return dicNameColor[fileName];
 }
 
@@ -217,7 +216,6 @@
 {
     NSMutableDictionary* dictionaryForJson = [[NSMutableDictionary alloc] init];
     for (NSString* key in theDictionary) {
-        NSLog(@"model name:  %@", key);
         ModelSettings* settings = [theDictionary objectForKey:key];
         [dictionaryForJson setObject:[settings toDictionary] forKey:key];
     }

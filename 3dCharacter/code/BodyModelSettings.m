@@ -24,7 +24,8 @@
 
 - (NSDictionary*) getDictionaryForBones: (NSDictionary*) bonesDictionary
 {
-    if (bonesDictionary == nil) {
+    if (bonesDictionary == nil)
+    {
         NSException* ex = [[NSException alloc] initWithName:@"NilBonesDictionary" reason:@"Bones Size Dictionary is nil" userInfo:@{@"modelName": modelName}];
         @throw ex;
     }

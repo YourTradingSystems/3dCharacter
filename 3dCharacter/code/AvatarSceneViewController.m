@@ -122,7 +122,7 @@
     mainNodeSavedLocation = mainNode.location;
     mainNodeSavedRotation = mainNode.quaternion;
     
-    /*actions = [[NSMutableArray alloc] initWithCapacity:6];
+    actions = [[NSMutableArray alloc] initWithCapacity:6];
     
     //init animation
     currentAction = 0;
@@ -145,7 +145,7 @@
     [actions addObject:a2];
     [actions addObject:b0];
     [actions addObject:b1];
-    [actions addObject:b2];*/
+    [actions addObject:b2];
 
 	[self createGLBuffers];
 	[self releaseRedundantContent];

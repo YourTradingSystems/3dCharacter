@@ -11,11 +11,8 @@
 
 @interface UIButtonTag : UIButton
 {
-    @private NSObject* _tagSettings;
-    @private BOOL _choosed;
 }
 
 @property (atomic, retain ) NSObject* tagSettings;
-@property (nonatomic, setter = setChoosed:) BOOL choosed;
 
 @end

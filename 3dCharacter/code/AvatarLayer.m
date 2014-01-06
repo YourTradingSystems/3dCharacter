@@ -104,20 +104,27 @@
     
     [(AvatarSceneViewController*)[self cc3Scene] setAvatarSettings: _avatarSettings];
     
-    /*self.avatarSettings.skin = (ModelSettings*)[[FileToSettingsConverter instance] getSettings: @"skin3"];
-    [[skinButtons objectAtIndex:2] setChoosed:YES];
-    self.avatarSettings.top = (ModelSettings*)[[FileToSettingsConverter instance] getSettings: @"shirt5"];
-    [[topButtons objectAtIndex:4] setChoosed:YES];
-    self.avatarSettings.bottom = (ModelSettings*)[[FileToSettingsConverter instance] getSettings: @"trousers1"];
-    [[bottomButtons objectAtIndex:0] setChoosed:YES];
-    self.avatarSettings.shoes = (ModelSettings*) [[FileToSettingsConverter instance] getSettings: @"shoes1"];
-    [[shoesButtons objectAtIndex:0] setChoosed:YES];
-    self.avatarSettings.hair = (ModelSettings*) [[FileToSettingsConverter instance] getSettings: @"hairstyle1"];
-    [[hairButtons objectAtIndex:0] setChoosed:YES];
-    self.avatarSettings.body = (ModelSettings*)[[FileToSettingsConverter instance] getSettings: @"cha3"];
-    [[modelButtons objectAtIndex:3] setChoosed:YES];
-    self.avatarSettings.glasses = (ModelSettings*)[[FileToSettingsConverter instance] getSettings: @"glasses1"];
-    [[glassesButtons objectAtIndex:0] setChoosed:YES];*/
+    [self wearDefaultSet];
+    
+    [UIApplication sharedApplication].statusBarHidden = YES;
+}
+
+-(void) wearDefaultSet
+{
+     self.avatarSettings.skin = (ModelSettings*)[[FileToSettingsConverter instance] getSettings: @"skin3"];
+     ((UIButtonTag*)[skinButtons objectAtIndex:2]).selected = YES;
+     self.avatarSettings.top = (ModelSettings*)[[FileToSettingsConverter instance] getSettings: @"shirt5"];
+     ((UIButtonTag*)[topButtons objectAtIndex:4]).selected = YES;
+     self.avatarSettings.bottom = (ModelSettings*)[[FileToSettingsConverter instance] getSettings: @"trousers1"];
+     ((UIButtonTag*)[bottomButtons objectAtIndex:0]).selected = YES;
+     self.avatarSettings.shoes = (ModelSettings*) [[FileToSettingsConverter instance] getSettings: @"shoes1"];
+     ((UIButtonTag*)[shoesButtons objectAtIndex:0]).selected = YES;
+     self.avatarSettings.hair = (ModelSettings*) [[FileToSettingsConverter instance] getSettings: @"hairstyle1"];
+     ((UIButtonTag*)[hairButtons objectAtIndex:0]).selected = YES;
+     self.avatarSettings.body = (ModelSettings*)[[FileToSettingsConverter instance] getSettings: @"cha3"];
+     ((UIButtonTag*)[modelButtons objectAtIndex:3]).selected = YES;
+     self.avatarSettings.glasses = (ModelSettings*)[[FileToSettingsConverter instance] getSettings: @"glasses1"];
+     ((UIButtonTag*)[glassesButtons objectAtIndex:0]).selected = YES;
 }
 
 - (void) addNavBar
@@ -138,6 +145,30 @@
     [btnStart setImage:[UIImage imageNamed:@"3dStartBtn"] forState:UIControlStateNormal];
     [btnStart addTarget:self action:@selector(playAnim) forControlEvents:UIControlEventTouchUpInside];
     [[[CCDirector sharedDirector] openGLView] addSubview:btnStart];
+    
+    [self addSliderMale];
+}
+
+-(void) addSliderMale
+{
+    UILabel *lblMaleFemale = [[UILabel alloc] init];
+    lblMaleFemale.text = @"Male/Female";
+    lblMaleFemale.frame = CGRectMake(750, 20, 100, 30);
+    [[[CCDirector sharedDirector] openGLView] addSubview:lblMaleFemale];
+    
+    UISlider *sliderMale = [[UISlider alloc] init];
+    sliderMale.frame = CGRectMake(860, 20, 50, 30);
+    sliderMale.minimumValue = 0;
+    sliderMale.maximumValue = 1;
+    [sliderMale addTarget:self action:@selector(sliderChanged:) forControlEvents:UIControlEventValueChanged];
+    [[[CCDirector sharedDirector] openGLView] addSubview:sliderMale];
+}
+
+-(void) sliderChanged : (id)sender
+{
+    UISlider *slider = (UISlider*) sender;
+    float newStep = roundf(slider.value);
+    slider.value = newStep;
 }
 
 - (void) onBack
@@ -188,7 +219,7 @@
 -(void) unsetButtons: (NSMutableArray*) buttons
 {
     for (UIButtonTag *btnTag in buttons) {
-        btnTag.choosed = NO;
+        btnTag.selected = NO;
     }
 }
 
@@ -224,13 +255,12 @@
                 [self unsetButtons:shoesButtons];
                 break;
             case glasses:
-                //TODO glasses model problem
-                //self.avatarSettings.glasses = settings;
+                self.avatarSettings.glasses = settings;
                 [self unsetButtons:glassesButtons];
             default:
                 break;
             }
-        btn.choosed = YES;
+        btn.selected = YES;
     }
 }
 
