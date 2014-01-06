@@ -2137,8 +2137,8 @@
 		84342D531872D6EB00B4A6F6 /* BodyModels */ = {
 			isa = PBXGroup;
 			children = (
-				84D9E5C0187AA5F700DB3F15 /* female_model.pod */,
-				84342D541872D6FF00B4A6F6 /* eye.jpg */,
+				045E6017187AA81700560CCE /* female_model.pod */,
+				04F000F81876A7F2001BEA08 /* eye.jpg */,
 			);
 			name = BodyModels;
 			sourceTree = "<group>";
