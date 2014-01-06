@@ -16,6 +16,7 @@
 #import "CC3ParametricMeshNodes.h"
 #import "CC3UtilityMeshNodes.h"
 #import "ModelSettings.h"
+#import "CC3AffineMatrix.h"
 #import "BodyModelSettings.h"
 #import "Point3d.h"
 
@@ -35,7 +36,7 @@
 }
 
 -(void) playAnim {
-    /*currentAction++;
+    currentAction++;
     currentAction %= 2;
     NSInteger index=currentAction * 3;
     if (loopAnimations) {
@@ -48,13 +49,13 @@
     NSObject* o = [actions objectAtIndex:index];
     CCAction* a = (CCAction*) o;
     LogInfo(@"playing anim %d ", currentAction);
-    [mainNode runAction: a];*/
+    [mainNode runAction: a];
 }
 
 -(void) stopAnimations {
-    /*[mainNode stopAllActions];
+    [mainNode stopAllActions];
     LogInfo(@"stopping anim %d ", currentAction);
-    [mainNode runAction: [actions objectAtIndex: ( currentAction * 3 )]];*/
+    [mainNode runAction: [actions objectAtIndex: ( currentAction * 3 )]];
 }
 
 -(CCAction*) makePlayOnceActionFromFrameStart:(CGFloat) frameStart toFrameEnd:(CGFloat) frameEnd atFPS:(CGFloat)fps withTrackFrameCount:(CGFloat) frames
@@ -110,6 +111,10 @@
     [self addContentFromPODFile:@"female_model.pod"];
     mainNode = [self getNodeNamed: @"female_model.pod"];
     
+    [[mainNode getNodeNamed:@"planeColor_ncl1_1"] remove];
+    [[mainNode getNodeNamed:@"planeColor_ncl1_2"] remove];
+    [[mainNode getNodeNamed:@"Plane_004"] remove];
+    
     //adjust main node w.r.t backdrop
     [mainNode setScale:CC3VectorMake(0.5, 0.5, 0.51)];
     
@@ -147,6 +152,10 @@
     [actions addObject:b1];
     [actions addObject:b2];
 
+    
+    //CCActionInterval *stride = [CC3Animate actionWithDuration:10.0];
+    //[mainNode runAction:[CCRepeatForever actionWithAction:stride]];
+    
 	[self createGLBuffers];
 	[self releaseRedundantContent];
 	[self selectShaderPrograms];
@@ -462,8 +471,6 @@
         colorMaterial.diffuseColor = color.asCCColor4F;
     else
         model.diffuseColor = color.asCCColor4F;
-    CCActionInterval *stride = [CC3Animate actionWithDuration:10.0];
-    [mainNode runAction:[CCRepeatForever actionWithAction:stride]];
 }
 
 -(void) onModelChanged:(NSNotification *) notification

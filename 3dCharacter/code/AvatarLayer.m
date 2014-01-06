@@ -104,27 +104,25 @@
     
     [(AvatarSceneViewController*)[self cc3Scene] setAvatarSettings: _avatarSettings];
     
-    [self wearDefaultSet];
-    
-    [UIApplication sharedApplication].statusBarHidden = YES;
+    [self makeDefaultAvatar];
 }
 
--(void) wearDefaultSet
+- (void) makeDefaultAvatar
 {
-     self.avatarSettings.skin = (ModelSettings*)[[FileToSettingsConverter instance] getSettings: @"skin3"];
-     ((UIButtonTag*)[skinButtons objectAtIndex:2]).selected = YES;
-     self.avatarSettings.top = (ModelSettings*)[[FileToSettingsConverter instance] getSettings: @"shirt5"];
-     ((UIButtonTag*)[topButtons objectAtIndex:4]).selected = YES;
-     self.avatarSettings.bottom = (ModelSettings*)[[FileToSettingsConverter instance] getSettings: @"trousers1"];
-     ((UIButtonTag*)[bottomButtons objectAtIndex:0]).selected = YES;
-     self.avatarSettings.shoes = (ModelSettings*) [[FileToSettingsConverter instance] getSettings: @"shoes1"];
-     ((UIButtonTag*)[shoesButtons objectAtIndex:0]).selected = YES;
-     self.avatarSettings.hair = (ModelSettings*) [[FileToSettingsConverter instance] getSettings: @"hairstyle1"];
-     ((UIButtonTag*)[hairButtons objectAtIndex:0]).selected = YES;
-     self.avatarSettings.body = (ModelSettings*)[[FileToSettingsConverter instance] getSettings: @"cha3"];
-     ((UIButtonTag*)[modelButtons objectAtIndex:3]).selected = YES;
-     self.avatarSettings.glasses = (ModelSettings*)[[FileToSettingsConverter instance] getSettings: @"glasses1"];
-     ((UIButtonTag*)[glassesButtons objectAtIndex:0]).selected = YES;
+    self.avatarSettings.skin = (ModelSettings*)[[FileToSettingsConverter instance] getSettings: @"skin3"];
+    [[skinButtons objectAtIndex:2] setChoosed:YES];
+    self.avatarSettings.top = (ModelSettings*)[[FileToSettingsConverter instance] getSettings: @"shirt5"];
+    [[topButtons objectAtIndex:4] setChoosed:YES];
+    self.avatarSettings.bottom = (ModelSettings*)[[FileToSettingsConverter instance] getSettings: @"trousers1"];
+    [[bottomButtons objectAtIndex:0] setChoosed:YES];
+    self.avatarSettings.shoes = (ModelSettings*) [[FileToSettingsConverter instance] getSettings: @"shoes1"];
+    [[shoesButtons objectAtIndex:0] setChoosed:YES];
+    self.avatarSettings.hair = (ModelSettings*) [[FileToSettingsConverter instance] getSettings: @"hairstyle1"];
+    [[hairButtons objectAtIndex:0] setChoosed:YES];
+    self.avatarSettings.body = (ModelSettings*)[[FileToSettingsConverter instance] getSettings: @"cha3"];
+    [[modelButtons objectAtIndex:3] setChoosed:YES];
+    self.avatarSettings.glasses = (ModelSettings*)[[FileToSettingsConverter instance] getSettings: @"glasses1"];
+    [[glassesButtons objectAtIndex:0] setChoosed:YES];
 }
 
 - (void) addNavBar
@@ -255,6 +253,7 @@
                 [self unsetButtons:shoesButtons];
                 break;
             case glasses:
+                //TODO glasses model problem
                 self.avatarSettings.glasses = settings;
                 [self unsetButtons:glassesButtons];
             default:
