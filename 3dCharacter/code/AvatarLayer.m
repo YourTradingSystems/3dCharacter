@@ -21,6 +21,7 @@
 
 @implementation AvatarLayer
 {
+    BOOL _male;
     NSMutableArray *modelButtons;
     NSMutableArray *skinButtons;
     NSMutableArray *hairButtons;
@@ -44,6 +45,7 @@
 -(void) initializeControls {
 	[self scheduleUpdate];
     self.isTouchEnabled = YES;
+    _male = NO;
     _avatarSettings = [[AvatarModelSettings alloc] init];
     
     [self setContentSize:CGSizeMake(1024,768)];
@@ -158,6 +160,7 @@
     sliderMale.frame = CGRectMake(860, 20, 50, 30);
     sliderMale.minimumValue = 0;
     sliderMale.maximumValue = 1;
+    sliderMale.value = 1;
     [sliderMale addTarget:self action:@selector(sliderChanged:) forControlEvents:UIControlEventValueChanged];
     [[[CCDirector sharedDirector] openGLView] addSubview:sliderMale];
 }
@@ -167,6 +170,33 @@
     UISlider *slider = (UISlider*) sender;
     float newStep = roundf(slider.value);
     slider.value = newStep;
+    BOOL male = newStep <= 0.0f;
+    //[self setMale:male];
+}
+
+-(void) setMale: (BOOL) value
+{
+    if(_male != value)
+    {
+        _male = value;
+        [[FileToSettingsConverter instance] setMale:_male];
+        if(_male)
+            [self prepareMaleAvatar];
+        else
+            [self prepareFemaleAvatar];
+    }
+}
+
+-(void) prepareMaleAvatar
+{
+    [(AvatarSceneViewController*)[self cc3Scene] setMainNode:@"male_model.pod"];
+    [self makeDefaultAvatar];
+}
+
+-(void) prepareFemaleAvatar
+{
+    [(AvatarSceneViewController*)[self cc3Scene] setMainNode:@"female_model.pod"];
+    [self makeDefaultAvatar];
 }
 
 - (void) onBack
@@ -192,6 +222,7 @@
     [btn setImage:[UIImage imageNamed: name] forState:UIControlStateNormal];
     [btn setImage:[self imageWithShadowForImage:[UIImage imageNamed: name]] forState: UIControlStateSelected];
     btn.tagSettings = [[FileToSettingsConverter instance] getSettings: name];
+    btn.tagName = name;
     [btn addTarget:self action:@selector(buttonTouchedUp:) forControlEvents: UIControlEventTouchUpInside];
     return btn;
 }
@@ -226,7 +257,7 @@
     if([sender isKindOfClass:[UIButtonTag class]])
     {
         UIButtonTag *btn = (UIButtonTag *)sender;
-        ModelSettings *settings = (ModelSettings*) btn.tagSettings;
+        ModelSettings *settings = (ModelSettings*)[[FileToSettingsConverter instance] getSettings: btn.tagName];
         switch (settings.type) {
             case skin:
                 self.avatarSettings.skin = settings;

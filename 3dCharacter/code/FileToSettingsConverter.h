@@ -11,11 +11,15 @@
 
 @interface FileToSettingsConverter : NSObject
 {
-    @public NSDictionary* dicNameColor;
+    @private BOOL male;
+    NSDictionary* maleSettings;
+    NSDictionary* femaleSettings;
+    //@public NSDictionary* dicNameColor;
 }
 
 + (id) instance;
 
 -(NSObject*) getSettings:(NSString*) fileName;
+-(void) setMale: (BOOL) value;
 
 @end

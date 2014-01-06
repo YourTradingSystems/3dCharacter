@@ -73,4 +73,6 @@
 -(void) enableChildOf:(CC3Node*) node AtIndex: (int) index;
 -(CC3Quaternion) CreateQuatFromVectors: (CC3Vector) v0 : (CC3Vector) v1;
 
+-(void) setMainNode: (NSString*) modelName;
+
 @end

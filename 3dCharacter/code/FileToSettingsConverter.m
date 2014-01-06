@@ -14,13 +14,6 @@
 #define makeRgb(r,g,b) [UIColor colorWithRed:r/255.0f green:g / 255.0f blue:b / 255.0f alpha:1.0]]
 #define makeSettings(modelName, type, r,g,b) [[ModelSettings alloc] initWithType: type andName:modelName andColor: makeRgb(r, g, b)
 
-@interface FileToSettingsConverter()
-
-- (NSDictionary*) initializeDictionary;
-
-@end
-
-
 @implementation FileToSettingsConverter
 
 + (id) instance {
@@ -36,8 +29,9 @@
 - (id) init {
     if (self = [super init])
     {
-        dicNameColor = [self initializeDictionary];
-        //[self saveToJson];
+        male = NO;
+        maleSettings = [self initializeMaleDictionary];
+        femaleSettings = [self initializeFemaleDictionary];
     }
     return self;
 }
@@ -104,7 +98,7 @@
     return bmset;
 }
 
-- (NSDictionary*) initializeDictionary
+- (NSDictionary*) initializeFemaleDictionary
 {
     return @{@"cha1" : [self initializeBodySpines:-20 withY:40 withZ:60],
              @"cha2" : [self initializeBodySpines:-10 withY:20 withZ:40],
@@ -185,18 +179,115 @@
              @"trousers12" : makeSettings(@"skirt", bottom, 255.0f, 106.0f, 0.0f)};
 }
 
+- (NSDictionary*) initializeMaleDictionary
+{
+    return @{@"cha1" : [self initializeBodySpines:-20 withY:40 withZ:60],
+             @"cha2" : [self initializeBodySpines:-10 withY:20 withZ:40],
+             @"cha3" : [self initializeBodySpines:0 withY:0 withZ:0],
+             @"cha4" : [self initializeBodySpines:10 withY:20 withZ:40],
+             @"cha5" : [self initializeBodySpines:20 withY:40 withZ:60],
+             
+             @"glasses1" : makeSettings(@"none", glasses, 200.0f, 50.0f, 50.0f),
+             @"glasses2" : makeSettings(@"glasses1_male", glasses, 200.0f, 50.0f, 50.0f),
+             @"glasses3" : makeSettings(@"glasses1_male", glasses, 200.0f, 50.0f, 50.0f),
+             @"glasses4" : makeSettings(@"glasses1_male", glasses, 200.0f, 50.0f, 50.0f),
+             @"glasses5" : makeSettings(@"glasses1_male", glasses, 200.0f, 50.0f, 50.0f),
+             @"glasses6" : makeSettings(@"glasses1_male", glasses, 200.0f, 50.0f, 50.0f),
+             @"glasses7" : makeSettings(@"glasses1_male", glasses, 200.0f, 50.0f, 50.0f),
+             @"glasses8" : makeSettings(@"glasses1_male", glasses, 200.0f, 50.0f, 50.0f),
+             @"glasses9" : makeSettings(@"glasses1_male", glasses, 200.0f, 50.0f, 50.0f),
+             @"glasses10" : makeSettings(@"glasses1_male", glasses, 200.0f, 50.0f, 50.0f),
+             @"glasses11" : makeSettings(@"glasses1_male", glasses, 200.0f, 50.0f, 50.0f),
+             @"glasses12" : makeSettings(@"glasses1_male", glasses, 200.0f, 50.0f, 50.0f),
+             
+             @"hairstyle1" : makeSettings(@"hair1_male", hair, 200.0f, 100.0f, 0.0f),
+             @"hairstyle2" : makeSettings(@"hair1_male", hair, 200.0f, 100.0f, 0.0f),
+             @"hairstyle3" : makeSettings(@"hair1_male", hair, 200.0f, 100.0f, 0.0f),
+             @"hairstyle4" : makeSettings(@"hair1_male", hair, 200.0f, 100.0f, 0.0f),
+             @"hairstyle5" : makeSettings(@"hair1_male", hair, 200.0f, 50.0f, 0.0f),
+             @"hairstyle6" : makeSettings(@"hair1_male", hair, 200.0f, 50.0f, 0.0f),
+             @"hairstyle7" : makeSettings(@"hair1_male", hair, 200.0f, 50.0f, 0.0f),
+             @"hairstyle8" : makeSettings(@"hair1_male", hair, 200.0f, 50.0f, 0.0f),
+             @"hairstyle9" : makeSettings(@"hair1_male", hair, 200.0f, 50.0f, 0.0f),
+             @"hairstyle10" : makeSettings(@"hair1_male", hair, 200.0f, 50.0f, 0.0f),
+             @"hairstyle11" : makeSettings(@"hair1_male", hair, 200.0f, 50.0f, 0.0f),
+             @"hairstyle12" : makeSettings(@"hair1_male", hair, 200.0f, 50.0f, 0.0f),
+             
+             @"shirt1" : makeSettings(@"shirt1_male", top, 127.0f, 0.0f, 0.0f),
+             @"shirt2" : makeSettings(@"shirt1_male", top, 38.0f, 127.0f, 0.0f),
+             @"shirt3" : makeSettings(@"shirt1_male", top, 0.0f, 148.0f, 255.0f),
+             @"shirt4" : makeSettings(@"shirt1_male", top, 255.0f, 106.0f, 0.0f),
+             @"shirt5" : makeSettings(@"shirt1_male", top, 127.0f, 0.0f, 0.0f),
+             @"shirt6" : makeSettings(@"shirt1_male", top, 38.0f, 127.0f, 0.0f),
+             @"shirt7" : makeSettings(@"shirt1_male", top, 0.0f, 148.0f, 255.0f),
+             @"shirt8" : makeSettings(@"shirt1_male", top, 157.0f, 141.0f, 110.0f),
+             @"shirt9" : makeSettings(@"shirt1_male", top, 127.0f, 0.0f, 0.0f),
+             @"shirt10" : makeSettings(@"shirt1_male", top, 0.0f, 157.0f, 0.0f),
+             @"shirt11" : makeSettings(@"shirt1_male", top, 86.0f, 64.0f, 42.0f),
+             @"shirt12" : makeSettings(@"shirt1_male.pod", top, 255.0f, 105.0f, 0.0f),
+             
+             @"shoes1" : makeSettings(@"shoes1_male", shoes, 213.0f, 189.0f, 164.0f),
+             @"shoes2" : makeSettings(@"shoes1_male", shoes, 178.0f, 139.0f, 104.0f),
+             @"shoes3" : makeSettings(@"shoes1_male", shoes, 209.0f, 137.0f, 156.0f),
+             @"shoes4" : makeSettings(@"shoes1_male", shoes, 157.0f, 141.0f, 110.0f),
+             @"shoes5" : makeSettings(@"shoes1_male", shoes, 86.0f, 64.0f, 42.0f),
+             @"shoes6" : makeSettings(@"shoes1_male", shoes, 39.0f, 43.0f, 19.0f),
+             @"shoes7" : makeSettings(@"shoes1_male", shoes, 211.0f, 186.0f, 61.0f),
+             @"shoes8" : makeSettings(@"shoes1_male", shoes, 175.0f, 134.0f, 100.0f),
+             @"shoes9" : makeSettings(@"shoes1_male", shoes, 20.0f, 100.0f, 250.0f),
+             @"shoes10" : makeSettings(@"shoes1_male", shoes, 20.0f, 100.0f, 250.0f),
+             @"shoes11" : makeSettings(@"shoes1_male", shoes, 20.0f, 100.0f, 250.0f),
+             @"shoes12" : makeSettings(@"shoes1_male", shoes, 20.0f, 100.0f, 250.0f),
+             
+             @"skin1" : makeSettings(nil, skin, 252.0f, 239.0f, 202.0f),
+             @"skin2" : makeSettings(nil, skin, 237.0f, 223.0f, 220.0f),
+             @"skin3" : makeSettings(nil, skin, 255.0f, 206.0f, 160.0f),
+             @"skin4" : makeSettings(nil, skin, 225.0f, 170.0f, 149.0f),
+             @"skin5" : makeSettings(nil, skin, 144.0f, 97.0f, 69.0f),
+             @"skin6" : makeSettings(nil, skin, 95.0f, 69.0f, 53.0f),
+             
+             @"trousers1" : makeSettings(@"shorts1_male", bottom, 127.0f, 0.0f, 0.0f),
+             @"trousers2" : makeSettings(@"shorts1_male", bottom, 38.0f, 127.0f, 0.0f),
+             @"trousers3" : makeSettings(@"shorts1_male", bottom, 0.0f, 148.0f, 255.0f),
+             @"trousers4" : makeSettings(@"shorts1_male", bottom, 255.0f, 106.0f, 0.0f),
+             @"trousers5" : makeSettings(@"shorts1_male", bottom, 127.0f, 0.0f, 0.0f),
+             @"trousers6" : makeSettings(@"shorts1_male", bottom, 38.0f, 127.0f, 0.0f),
+             @"trousers7" : makeSettings(@"shorts1_male", bottom, 0.0f, 148.0f, 255.0f),
+             @"trousers8" : makeSettings(@"shorts1_male", bottom, 255.0f, 106.0f, 0.0f),
+             @"trousers9" : makeSettings(@"shorts1_male", bottom, 127.0f, 0.0f, 0.0f),
+             @"trousers10" : makeSettings(@"shorts1_male", bottom, 38.0f, 127.0f, 0.0f),
+             @"trousers11" : makeSettings(@"shorts1_male", bottom, 0.0f, 148.0f, 255.0f),
+             @"trousers12" : makeSettings(@"shorts1_male", bottom, 255.0f, 106.0f, 0.0f)};
+}
+
 - (void)dealloc {
     // Should never be called, but just here for clarity really.
 }
 
-- (NSObject*) getSettings: (NSString*) fileName
+- (NSObject*) getSettings: (NSString*) setName
 {
-    return dicNameColor[fileName];
+    if (male)
+        return maleSettings[setName];
+    else
+        return femaleSettings[setName];
+}
+
+-(void) setMale:(BOOL)value
+{
+    male = value;
 }
 
 - (void) saveToJson
 {
-    NSMutableDictionary* dicForJson = [self getDictionaryForJson: dicNameColor];
+    NSDictionary* dicToJson;
+    if (male){
+        dicToJson = maleSettings;
+    }
+    else {
+        dicToJson = femaleSettings;
+    }
+    
+    NSMutableDictionary* dicForJson = [self getDictionaryForJson: dicToJson];
     
     NSError *writeError = nil;
     NSData *jsonData = [NSJSONSerialization dataWithJSONObject:dicForJson options:NSJSONWritingPrettyPrinted error:&writeError];
