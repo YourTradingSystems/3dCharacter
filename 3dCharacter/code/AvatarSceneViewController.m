@@ -111,6 +111,10 @@
     [self addContentFromPODFile:@"female_model.pod"];
     mainNode = [self getNodeNamed: @"female_model.pod"];
     
+    [[mainNode getNodeNamed:@"planeColor_ncl1_1"] remove];
+    [[mainNode getNodeNamed:@"planeColor_ncl1_2"] remove];
+    [[mainNode getNodeNamed:@"Plane_004"] remove];
+    
     //adjust main node w.r.t backdrop
     [mainNode setScale:CC3VectorMake(0.5, 0.5, 0.51)];
     

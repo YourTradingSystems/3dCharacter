@@ -93,8 +93,8 @@
         @"Bip002_L_UpperArm" : [[Point3d alloc] initWithX:1+(x/1000)  withY:1+(y*0.5)/1000 withZ:1+(z*0.5)/1000],
         @"Bip002_L_Forearm" : [[Point3d alloc] initWithX:1+(x/1000)  withY:1+(y*0.5)/1000 withZ:1+(z*0.5)/1000],
         @"Bip002_Spine2" : [[Point3d alloc] initWithX:1+(x/1000)  withY:1+(y*0.3)/1000 withZ:1+(z*0.3)/1000],
-        @"Bip002_Spine1" : [[Point3d alloc] initWithX:1+(x/1000)  withY:1+(y*0.4)/1000 withZ:1+(z*0.4)/1000],
-        @"Bip002_Spine" : [[Point3d alloc] initWithX:1+(x/1000)  withY:1+(y*0.7)/1000 withZ:1+(y*0.7)/1000],
+        @"Bip002_Spine1" : [[Point3d alloc] initWithX:1+(x/1000)  withY:1+(y*4)/1000 withZ:1+(z*4)/1000],
+        @"Bip002_Spine" : [[Point3d alloc] initWithX:1+(x/1000)  withY:1+(y*3)/1000 withZ:1+(y*3)/1000],
         @"Bip002_Pelvis" : [[Point3d alloc] initWithX:1+(x/1000)  withY:1+(y*0.5)/1000 withZ:1+(z*0.5)/1000],
         @"Bip002_R_Thigh" : [[Point3d alloc] initWithX:1+(x/1000)  withY:1+(y*0.5)/1000 withZ:1+(z*0.5)/1000],
         @"Bip002_R_Calf" : [[Point3d alloc] initWithX:1+(x/1000)  withY:1+(y*0.5)/1000 withZ:1+(z*0.5)/1000],
@@ -106,11 +106,11 @@
 
 - (NSDictionary*) initializeDictionary
 {
-    return @{@"cha1" : [self initializeBodySpines:-10 withY:40 withZ:40],
-             @"cha2" : [self initializeBodySpines:-5 withY:20 withZ:20],
+    return @{@"cha1" : [self initializeBodySpines:-20 withY:40 withZ:60],
+             @"cha2" : [self initializeBodySpines:-10 withY:20 withZ:40],
              @"cha3" : [self initializeBodySpines:0 withY:0 withZ:0],
-             @"cha4" : [self initializeBodySpines:5 withY:20 withZ:20],
-             @"cha5" : [self initializeBodySpines:10 withY:40 withZ:40],
+             @"cha4" : [self initializeBodySpines:10 withY:20 withZ:40],
+             @"cha5" : [self initializeBodySpines:20 withY:40 withZ:60],
              
              @"glasses1" : makeSettings(@"none", glasses, 200.0f, 50.0f, 50.0f),
              @"glasses2" : makeSettings(@"glasses1", glasses, 200.0f, 50.0f, 50.0f),

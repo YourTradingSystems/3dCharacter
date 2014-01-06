@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		045E6016187AA74100560CCE /* female_model.pod in Resources */ = {isa = PBXBuildFile; fileRef = 045E6015187AA74000560CCE /* female_model.pod */; };
+		045E6018187AA81700560CCE /* female_model.pod in Resources */ = {isa = PBXBuildFile; fileRef = 045E6017187AA81700560CCE /* female_model.pod */; };
 		04A974971869942600ECE773 /* shirt31.png in Resources */ = {isa = PBXBuildFile; fileRef = 04A974961869942600ECE773 /* shirt31.png */; };
 		04E3309E186B349B001F1D1C /* hair2.pod in Resources */ = {isa = PBXBuildFile; fileRef = 04E3309A186B349B001F1D1C /* hair2.pod */; };
 		04E3309F186B349B001F1D1C /* hair3.pod in Resources */ = {isa = PBXBuildFile; fileRef = 04E3309B186B349B001F1D1C /* hair3.pod */; };
@@ -400,7 +400,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		045E6015187AA74000560CCE /* female_model.pod */ = {isa = PBXFileReference; lastKnownFileType = file; path = female_model.pod; sourceTree = "<group>"; };
+		045E6017187AA81700560CCE /* female_model.pod */ = {isa = PBXFileReference; lastKnownFileType = file; path = female_model.pod; sourceTree = "<group>"; };
 		04A974961869942600ECE773 /* shirt31.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = shirt31.png; sourceTree = "<group>"; };
 		04E3309A186B349B001F1D1C /* hair2.pod */ = {isa = PBXFileReference; lastKnownFileType = file; path = hair2.pod; sourceTree = "<group>"; };
 		04E3309B186B349B001F1D1C /* hair3.pod */ = {isa = PBXFileReference; lastKnownFileType = file; path = hair3.pod; sourceTree = "<group>"; };
@@ -2129,7 +2129,7 @@
 		84342D531872D6EB00B4A6F6 /* BodyModels */ = {
 			isa = PBXGroup;
 			children = (
-				045E6015187AA74000560CCE /* female_model.pod */,
+				045E6017187AA81700560CCE /* female_model.pod */,
 				04F000F81876A7F2001BEA08 /* eye.jpg */,
 			);
 			name = BodyModels;
@@ -2205,7 +2205,6 @@
 				08A1058A18575A2200B26770 /* skinTitle.png in Resources */,
 				08A1052518575A1500B26770 /* glasses14.png in Resources */,
 				08A1056918575A1500B26770 /* skin4.png in Resources */,
-				045E6016187AA74100560CCE /* female_model.pod in Resources */,
 				08A101721857261E00B26770 /* InfoPlist.strings in Resources */,
 				04F001101876A905001BEA08 /* t-shirt_02.jpg in Resources */,
 				08A1055918575A1500B26770 /* shoes14.png in Resources */,
@@ -2291,6 +2290,7 @@
 				08A1057718575A1500B26770 /* trousers3.png in Resources */,
 				08A1056F18575A1500B26770 /* trousers12.png in Resources */,
 				08A1053218575A1500B26770 /* hairstyle1.png in Resources */,
+				045E6018187AA81700560CCE /* female_model.pod in Resources */,
 				08A104A7185759FF00B26770 /* 3dBackBtn.png in Resources */,
 				08A1054618575A1500B26770 /* shirt13.png in Resources */,
 				08A1055618575A1500B26770 /* shoes11.png in Resources */,
