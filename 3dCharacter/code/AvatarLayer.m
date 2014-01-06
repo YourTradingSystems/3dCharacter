@@ -104,6 +104,11 @@
     
     [(AvatarSceneViewController*)[self cc3Scene] setAvatarSettings: _avatarSettings];
     
+    [self makeDefaultAvatar];
+}
+
+- (void) makeDefaultAvatar
+{
     /*self.avatarSettings.skin = (ModelSettings*)[[FileToSettingsConverter instance] getSettings: @"skin3"];
     [[skinButtons objectAtIndex:2] setChoosed:YES];
     self.avatarSettings.top = (ModelSettings*)[[FileToSettingsConverter instance] getSettings: @"shirt5"];
@@ -114,8 +119,8 @@
     [[shoesButtons objectAtIndex:0] setChoosed:YES];
     self.avatarSettings.hair = (ModelSettings*) [[FileToSettingsConverter instance] getSettings: @"hairstyle1"];
     [[hairButtons objectAtIndex:0] setChoosed:YES];
-    self.avatarSettings.body = (ModelSettings*)[[FileToSettingsConverter instance] getSettings: @"cha3"];
-    [[modelButtons objectAtIndex:3] setChoosed:YES];
+    //self.avatarSettings.body = (ModelSettings*)[[FileToSettingsConverter instance] getSettings: @"cha3"];
+    //[[modelButtons objectAtIndex:3] setChoosed:YES];
     self.avatarSettings.glasses = (ModelSettings*)[[FileToSettingsConverter instance] getSettings: @"glasses1"];
     [[glassesButtons objectAtIndex:0] setChoosed:YES];*/
 }
@@ -225,7 +230,7 @@
                 break;
             case glasses:
                 //TODO glasses model problem
-                //self.avatarSettings.glasses = settings;
+                self.avatarSettings.glasses = settings;
                 [self unsetButtons:glassesButtons];
             default:
                 break;
