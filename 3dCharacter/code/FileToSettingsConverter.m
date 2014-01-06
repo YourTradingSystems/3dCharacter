@@ -142,18 +142,14 @@
              @"shirt2" : makeSettings(@"shirt", top, 38.0f, 127.0f, 0.0f),
              @"shirt3" : makeSettings(@"shirt", top, 0.0f, 148.0f, 255.0f),
              @"shirt4" : makeSettings(@"shirt", top, 255.0f, 106.0f, 0.0f),
-             @"shirt5" : makeSettings(@"shirt_short", top, 127.0f, 0.0f, 0.0f),
-             @"shirt6" : makeSettings(@"shirt_short", top, 38.0f, 127.0f, 0.0f),
-             @"shirt7" : makeSettings(@"shirt_short", top, 0.0f, 148.0f, 255.0f),
-             @"shirt8" : makeSettings(@"shirt_short", top, 255.0f, 105.0f, 0.0f),
-             @"shirt9" : makeSettings(@"shirt_middle", top, 127.0f, 0.0f, 0.0f),
-             @"shirt10" : makeSettings(@"shirt_middle", top, 38.0f, 127.0f, 0.0f),
-             @"shirt11" : makeSettings(@"shirt_middle", top, 0.0f, 148.0f, 255.0f),
-             @"shirt12" : makeSettings(@"shirt_middle", top, 255.0f, 105.0f, 0.0f),
-             @"shirt13" : makeSettings(@"shirt_long", top, 20.0f, 100.0f, 250.0f),
-             @"shirt14" : makeSettings(@"shirt_long", top, 20.0f, 100.0f, 250.0f),
-             @"shirt15" : makeSettings(@"shirt_long", top, 20.0f, 100.0f, 250.0f),
-             @"shirt16" : makeSettings(@"shirt_long", top, 20.0f, 100.0f, 250.0f),
+             @"shirt5" : makeSettings(@"shirt_middle", top, 127.0f, 0.0f, 0.0f),
+             @"shirt6" : makeSettings(@"shirt_middle", top, 38.0f, 127.0f, 0.0f),
+             @"shirt7" : makeSettings(@"shirt_middle", top, 0.0f, 148.0f, 255.0f),
+             @"shirt8" : makeSettings(@"shirt_middle", top, 157.0f, 141.0f, 110.0f),
+             @"shirt9" : makeSettings(@"shirt_long", top, 127.0f, 0.0f, 0.0f),
+             @"shirt10" : makeSettings(@"shirt_long", top, 0.0f, 157.0f, 0.0f),
+             @"shirt11" : makeSettings(@"shirt_long", top, 86.0f, 64.0f, 42.0f),
+             @"shirt12" : makeSettings(@"shirt_long", top, 255.0f, 105.0f, 0.0f),
              
              @"shoes1" : makeSettings(@"shoes1", shoes, 213.0f, 189.0f, 164.0f),
              @"shoes2" : makeSettings(@"shoes1", shoes, 178.0f, 139.0f, 104.0f),
@@ -183,10 +179,10 @@
              @"trousers6" : makeSettings(@"skirt_and_belt", bottom, 38.0f, 127.0f, 0.0f),
              @"trousers7" : makeSettings(@"skirt_and_belt", bottom, 0.0f, 148.0f, 255.0f),
              @"trousers8" : makeSettings(@"skirt_and_belt", bottom, 255.0f, 106.0f, 0.0f),
-             @"trousers9" : makeSettings(@"skirt", bottom, 247.0f, 247.0f, 247.0f),
-             @"trousers10" : makeSettings(@"skirt", bottom, 247.0f, 247.0f, 247.0f),
-             @"trousers11" : makeSettings(@"skirt", bottom, 247.0f, 247.0f, 247.0f),
-             @"trousers12" : makeSettings(@"skirt", bottom, 247.0f, 247.0f, 247.0f)};
+             @"trousers9" : makeSettings(@"skirt", bottom, 127.0f, 0.0f, 0.0f),
+             @"trousers10" : makeSettings(@"skirt", bottom, 38.0f, 127.0f, 0.0f),
+             @"trousers11" : makeSettings(@"skirt", bottom, 0.0f, 148.0f, 255.0f),
+             @"trousers12" : makeSettings(@"skirt", bottom, 255.0f, 106.0f, 0.0f)};
 }
 
 - (void)dealloc {

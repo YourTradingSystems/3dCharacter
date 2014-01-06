@@ -393,12 +393,8 @@
 		84D9E5AC1876E85800DB3F15 /* hair1.pod in Resources */ = {isa = PBXBuildFile; fileRef = 84D9E5AA1876E85800DB3F15 /* hair1.pod */; };
 		84D9E5AD1876E85800DB3F15 /* hair4.pod in Resources */ = {isa = PBXBuildFile; fileRef = 84D9E5AB1876E85800DB3F15 /* hair4.pod */; };
 		84D9E5B41877131A00DB3F15 /* shirt9.png in Resources */ = {isa = PBXBuildFile; fileRef = 84D9E5B01877131A00DB3F15 /* shirt9.png */; };
-		84D9E5B51877131A00DB3F15 /* shirt10.png in Resources */ = {isa = PBXBuildFile; fileRef = 84D9E5B11877131A00DB3F15 /* shirt10.png */; };
 		84D9E5B61877131A00DB3F15 /* shirt11.png in Resources */ = {isa = PBXBuildFile; fileRef = 84D9E5B21877131A00DB3F15 /* shirt11.png */; };
-		84D9E5B71877131A00DB3F15 /* shirt12.png in Resources */ = {isa = PBXBuildFile; fileRef = 84D9E5B31877131A00DB3F15 /* shirt12.png */; };
 		84D9E5B91877138E00DB3F15 /* trousers9.png in Resources */ = {isa = PBXBuildFile; fileRef = 84D9E5B81877138E00DB3F15 /* trousers9.png */; };
-		84D9E5BD1877139C00DB3F15 /* trousers10.png in Resources */ = {isa = PBXBuildFile; fileRef = 84D9E5BA1877139C00DB3F15 /* trousers10.png */; };
-		84D9E5BE1877139C00DB3F15 /* trousers11.png in Resources */ = {isa = PBXBuildFile; fileRef = 84D9E5BB1877139C00DB3F15 /* trousers11.png */; };
 		84D9E5BF1877139C00DB3F15 /* trousers12.png in Resources */ = {isa = PBXBuildFile; fileRef = 84D9E5BC1877139C00DB3F15 /* trousers12.png */; };
 		84D9E5C1187AA5F700DB3F15 /* female_model.pod in Resources */ = {isa = PBXBuildFile; fileRef = 84D9E5C0187AA5F700DB3F15 /* female_model.pod */; };
 /* End PBXBuildFile section */
@@ -2202,7 +2198,6 @@
 				08A104B4185759FF00B26770 /* tex_base.pvr in Resources */,
 				08A1056818575A1500B26770 /* skin3.png in Resources */,
 				08A1051C18575A1500B26770 /* (null) in Resources */,
-				08A1057D18575A1500B26770 /* trousers9.png in Resources */,
 				08A1052318575A1500B26770 /* glasses12.png in Resources */,
 				08A1055518575A1500B26770 /* shoes10.png in Resources */,
 				08A1053418575A1500B26770 /* hairstyle11.png in Resources */,
@@ -2221,7 +2216,6 @@
 				84D9E5B61877131A00DB3F15 /* shirt11.png in Resources */,
 				08A1056118575A1500B26770 /* shoes5.png in Resources */,
 				04F000FA1876A7F2001BEA08 /* eye.jpg in Resources */,
-				08A1056D18575A1500B26770 /* trousers10.png in Resources */,
 				08A1055E18575A1500B26770 /* shoes2.png in Resources */,
 				08A1053C18575A1500B26770 /* hairstyle4.png in Resources */,
 				84D9E5BF1877139C00DB3F15 /* trousers12.png in Resources */,
@@ -2278,7 +2272,6 @@
 				08A102DE1857282500B26770 /* Cal3D File Formats.txt in Resources */,
 				08A1057C18575A1500B26770 /* trousers8.png in Resources */,
 				04F001311876BEE4001BEA08 /* hair4.pod in Resources */,
-				08A1054418575A1500B26770 /* shirt11.png in Resources */,
 				04F001471876DDDE001BEA08 /* shirt12.pod in Resources */,
 				08A1053918575A1500B26770 /* hairstyle16.png in Resources */,
 				04E3309F186B349B001F1D1C /* hair3.pod in Resources */,
