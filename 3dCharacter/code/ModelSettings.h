@@ -24,14 +24,18 @@ enum modelType
 {
     enum modelType type;
     NSString* modelName;
+    NSString* screenName;
     UIColor* color;
+    int index;
 }
 
 @property (nonatomic) enum modelType type;
 @property (nonatomic, retain) NSString* modelName;
+@property (nonatomic, retain) NSString* screenName;
 @property (nonatomic, retain) UIColor* color;
+@property (nonatomic) int index;
 
-- (id) initWithType: (enum modelType) theType andName: (NSString*) theName andColor:(UIColor*) theColor;
+- (id) initWithType: (enum modelType) theType andModel: (NSString*) theModel ansScreen: (NSString*) theScreen andColor:(UIColor*) theColor;
 - (id) initWithDictionary: (NSDictionary*) theDictionary;
 - (NSDictionary*) toDictionary;
 

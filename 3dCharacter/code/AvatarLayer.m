@@ -94,7 +94,7 @@
     
     [self addNavBar];
     
-    [self addModel];
+    [self createModelButtons];
     [self addSkin];
     [self addHair];
     [self addTopClothese];
@@ -205,16 +205,32 @@
     //[[NavigationBarManager sharedNavigationController] popViewControllerAnimated:YES];
 }
 
--(void) addModel
+-(void) createModelButtons
 {
     modelButtons = [[NSMutableArray alloc] init];
-    for (int i = 0; i < 6; i ++)
+    
+    NSArray *sortedModelSets = [self getSortedTypeSettings:body];
+    
+    for (int i = 0; i < sortedModelSets.count; i++)
     {
-        UIButtonTag    *btn = [self createButtonWithTag: [NSString stringWithFormat:@"cha%d",i]];
-        btn.frame = CGRectMake(200 + 129 * i, 50, 129, 161);
+        ModelSettings* set = sortedModelSets[i];
+        UIButtonTag    *btn = [self createButtonWithTag: set.screenName];
+        btn.frame = CGRectMake(200 + 129 * (i+1), 50, 129, 161);
         [[[CCDirector sharedDirector] openGLView] addSubview:btn];
         [modelButtons addObject:btn];
     }
+}
+
+-(NSArray*) getSortedTypeSettings: (enum modelType) type
+{
+    NSArray* modelSets = [[FileToSettingsConverter instance] getTypeSettings:type];
+    NSArray *sortedArray;
+    sortedArray = [modelSets sortedArrayUsingComparator:^NSComparisonResult(id a, id b) {
+        int first = ((ModelSettings*)a).index;
+        int second = ((ModelSettings*)b).index;
+        return first >= second;
+    }];
+    return sortedArray;
 }
 
 -(UIButtonTag*) createButtonWithTag: (NSString*) name
@@ -305,16 +321,18 @@
     [[[CCDirector sharedDirector] openGLView] addSubview:skinTitleImg];
     
     UIScrollView    *scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(290, 290, 350,55)];
+    NSArray* sortedSkinSets = [self getSortedTypeSettings:skin];
     
-    for (int i = 0; i < Avatar_SkinItemCount; i ++)
+    for (int i = 0; i < sortedSkinSets.count; i ++)
     {
-        UIButtonTag    *btn = [self createButtonWithTag: [NSString stringWithFormat:@"skin%d",i+1]];
-        btn.frame = CGRectMake(60 * i ,0,45,45);
+        ModelSettings *model = sortedSkinSets[i];
+        UIButtonTag *btn = [self createButtonWithTag: model.screenName];
+        btn.frame = CGRectMake(60 * i,0,45,45);
         [scrollView addSubview:btn];
         [skinButtons addObject:btn];
     }
     
-    [scrollView setContentSize:CGSizeMake(60 * Avatar_SkinItemCount, 55)];
+    [scrollView setContentSize:CGSizeMake(60 * sortedSkinSets.count, 55)];
     [scrollView setBackgroundColor:[UIColor colorWithRed:247.0/255.0 green:247.0 / 255.0 blue:247.0 / 255.0 alpha:1.0]];
     scrollView.showsHorizontalScrollIndicator = NO;
     scrollView.showsVerticalScrollIndicator = NO;
@@ -333,10 +351,12 @@
     [[[CCDirector sharedDirector] openGLView] addSubview:hairTitleImg];
     
     UIScrollView    *scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(655, 290, 350,55)];
+    NSArray* sortedHairSets = [self getSortedTypeSettings:hair];
     
-    for (int i = 0; i < Avatar_HairItemCount; i ++)
+    for (int i = 0; i < sortedHairSets.count; i ++)
     {
-        UIButtonTag    *btn = [self createButtonWithTag:[NSString stringWithFormat:@"hairstyle%d",i+1]];
+        ModelSettings* model = sortedHairSets[i];
+        UIButtonTag    *btn = [self createButtonWithTag: model.screenName];
         btn.frame = CGRectMake(90 * i ,0,45,35);
         [scrollView addSubview:btn];
         [hairButtons addObject:btn];
@@ -349,7 +369,7 @@
     scrollView.tag = Avatar_HairScr;
     scrollView.delegate = self;
     
-    [scrollView setContentSize:CGSizeMake(90 * Avatar_HairItemCount, 55)];
+    [scrollView setContentSize:CGSizeMake(90 * sortedHairSets.count, 55)];
     [[[CCDirector sharedDirector] openGLView] addSubview:scrollView];
     [scrollView release];
     
@@ -372,10 +392,12 @@
     [[[CCDirector sharedDirector] openGLView] addSubview:topClotheImg];
     
     UIScrollView    *scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(290, 400, 350,110)];
+    NSArray* sortedTopSets = [self getSortedTypeSettings: top];
     
-    for (int i = 0; i < Avatar_TopClothesItemCount; i ++)
+    for (int i = 0; i < sortedTopSets.count; i ++)
     {
-        UIButtonTag    *btn = [self createButtonWithTag:[NSString stringWithFormat:@"shirt%d",i+1]];
+        ModelSettings* model = sortedTopSets[i];
+        UIButtonTag    *btn = [self createButtonWithTag: model.screenName];
         btn.frame = CGRectMake(88 * i ,0,80,100);
         [scrollView addSubview:btn];
         [topButtons addObject:btn];
@@ -388,7 +410,7 @@
     scrollView.tag = Avatar_TopClotheScr;
     scrollView.delegate = self;
 
-    [scrollView setContentSize:CGSizeMake(88 * Avatar_TopClothesItemCount, 110)];
+    [scrollView setContentSize:CGSizeMake(88 * sortedTopSets.count, 110)];
     [[[CCDirector sharedDirector] openGLView] addSubview:scrollView];
     [scrollView release];
     
@@ -411,10 +433,12 @@
     [[[CCDirector sharedDirector] openGLView] addSubview:bottomClotheImg];
     
     UIScrollView    *scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(655, 400, 350,110)];
+    NSArray* sortedBottomSets = [self getSortedTypeSettings:bottom];
     
-    for (int i = 0; i < Avatar_BottomClothesItemCount; i ++)
+    for (int i = 0; i < sortedBottomSets.count; i ++)
     {
-        UIButtonTag    *btn = [self createButtonWithTag:[NSString stringWithFormat:@"trousers%d",i+1]];
+        ModelSettings* model = sortedBottomSets[i];
+        UIButtonTag    *btn = [self createButtonWithTag: model.screenName];
         btn.frame = CGRectMake(90 * i ,0,80,100);
         [scrollView addSubview:btn];
         [bottomButtons addObject:btn];
@@ -427,7 +451,7 @@
     scrollView.tag = Avatar_BottomClotheScr;
     scrollView.delegate = self;
 
-    [scrollView setContentSize:CGSizeMake(90 * Avatar_BottomClothesItemCount, 110)];
+    [scrollView setContentSize:CGSizeMake(90 * sortedBottomSets.count, 110)];
     [[[CCDirector sharedDirector] openGLView] addSubview:scrollView];
     [scrollView release];
     
@@ -451,9 +475,12 @@
     
     UIScrollView    *scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(290, 570, 350,90)];
     
-    for (int i = 0; i < Avatar_ShoesItemCount; i ++)
+    NSArray* sortedShoesSets = [self getSortedTypeSettings:shoes];
+    
+    for (int i = 0; i < sortedShoesSets.count; i++)
     {
-        UIButtonTag    *btn = [self createButtonWithTag:[NSString stringWithFormat:@"shoes%d",i+1]];
+        ModelSettings* set = sortedShoesSets[i];
+        UIButtonTag *btn = [self createButtonWithTag:set.screenName];
         btn.frame = CGRectMake(90 * i ,0,75,80);
         [scrollView addSubview:btn];
         [shoesButtons addObject: btn];
@@ -466,7 +493,7 @@
     scrollView.tag = Avatar_ShoeScr;
     scrollView.delegate = self;
 
-    [scrollView setContentSize:CGSizeMake(90 * Avatar_ShoesItemCount, 90)];
+    [scrollView setContentSize:CGSizeMake(90 * sortedShoesSets.count, 90)];
     [[[CCDirector sharedDirector] openGLView] addSubview:scrollView];
     [scrollView release];
     
@@ -490,9 +517,12 @@
     
     UIScrollView    *scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(655, 570, 350,90)];
     
-    for (int i = 0; i < Avatar_GlassItemCount; i ++)
+    NSArray* sortedGlassesSets = [self getSortedTypeSettings:glasses];
+    
+    for (int i = 0; i < sortedGlassesSets.count; i ++)
     {
-        UIButtonTag *btn = [self createButtonWithTag:[NSString stringWithFormat:@"glasses%d",i+1]];
+        ModelSettings* modelSet = sortedGlassesSets[i];
+        UIButtonTag *btn = [self createButtonWithTag: modelSet.screenName];
         btn.frame = CGRectMake(120 * i ,0,92,58);
         [scrollView addSubview:btn];
         [glassesButtons addObject:btn];
@@ -505,7 +535,7 @@
     scrollView.tag = Avatar_GlassScr;
     scrollView.delegate = self;
 
-    [scrollView setContentSize:CGSizeMake(120 * Avatar_GlassItemCount, 90)];
+    [scrollView setContentSize:CGSizeMake(120 * sortedGlassesSets.count, 90)];
     [[[CCDirector sharedDirector] openGLView] addSubview:scrollView];
     [scrollView release];
     
