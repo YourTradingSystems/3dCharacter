@@ -21,6 +21,7 @@
 
 @implementation AvatarLayer
 {
+    BOOL _male;
     NSMutableArray *modelButtons;
     NSMutableArray *skinButtons;
     NSMutableArray *hairButtons;
@@ -44,6 +45,7 @@
 -(void) initializeControls {
 	[self scheduleUpdate];
     self.isTouchEnabled = YES;
+    _male = NO;
     _avatarSettings = [[AvatarModelSettings alloc] init];
     
     [self setContentSize:CGSizeMake(1024,768)];
@@ -110,19 +112,19 @@
 - (void) makeDefaultAvatar
 {
     self.avatarSettings.skin = (ModelSettings*)[[FileToSettingsConverter instance] getSettings: @"skin3"];
-    [[skinButtons objectAtIndex:2] setChoosed:YES];
+    ((UIButtonTag*)[skinButtons objectAtIndex:2]).selected = YES;
     self.avatarSettings.top = (ModelSettings*)[[FileToSettingsConverter instance] getSettings: @"shirt5"];
-    [[topButtons objectAtIndex:4] setChoosed:YES];
+    ((UIButtonTag*)[topButtons objectAtIndex:4]).selected = YES;
     self.avatarSettings.bottom = (ModelSettings*)[[FileToSettingsConverter instance] getSettings: @"trousers1"];
-    [[bottomButtons objectAtIndex:0] setChoosed:YES];
+    ((UIButtonTag*)[bottomButtons objectAtIndex:0]).selected = YES;
     self.avatarSettings.shoes = (ModelSettings*) [[FileToSettingsConverter instance] getSettings: @"shoes1"];
-    [[shoesButtons objectAtIndex:0] setChoosed:YES];
+    ((UIButtonTag*)[shoesButtons objectAtIndex:0]).selected = YES;
     self.avatarSettings.hair = (ModelSettings*) [[FileToSettingsConverter instance] getSettings: @"hairstyle1"];
-    [[hairButtons objectAtIndex:0] setChoosed:YES];
+    ((UIButtonTag*)[hairButtons objectAtIndex:0]).selected = YES;
     self.avatarSettings.body = (ModelSettings*)[[FileToSettingsConverter instance] getSettings: @"cha3"];
-    [[modelButtons objectAtIndex:3] setChoosed:YES];
+    ((UIButtonTag*)[modelButtons objectAtIndex:3]).selected = YES;
     self.avatarSettings.glasses = (ModelSettings*)[[FileToSettingsConverter instance] getSettings: @"glasses1"];
-    [[glassesButtons objectAtIndex:0] setChoosed:YES];
+    ((UIButtonTag*)[glassesButtons objectAtIndex:0]).selected = YES;
 }
 
 -(void) wearDefaultSet
@@ -176,6 +178,7 @@
     sliderMale.frame = CGRectMake(860, 20, 50, 30);
     sliderMale.minimumValue = 0;
     sliderMale.maximumValue = 1;
+    sliderMale.value = 0;
     [sliderMale addTarget:self action:@selector(sliderChanged:) forControlEvents:UIControlEventValueChanged];
     [[[CCDirector sharedDirector] openGLView] addSubview:sliderMale];
 }
@@ -185,6 +188,34 @@
     UISlider *slider = (UISlider*) sender;
     float newStep = roundf(slider.value);
     slider.value = newStep;
+    BOOL male = newStep <= 0.0f;
+    [self setMale:male];
+}
+
+-(void) setMale: (BOOL) value
+{
+    if(_male != value)
+    {
+        _male = value;
+        [[FileToSettingsConverter instance] setMale:_male];
+        if(_male)
+            [self prepareMaleAvatar];
+        else
+            [self prepareFemaleAvatar];
+    }
+}
+
+-(void) prepareMaleAvatar
+{
+    [(AvatarSceneViewController*)[self cc3Scene] setMainNode:@"male_model.pod"];
+    
+    //[self makeDefaultAvatar];
+}
+
+-(void) prepareFemaleAvatar
+{
+    [(AvatarSceneViewController*)[self cc3Scene] setMainNode:@"female_model.pod"];
+    //[self makeDefaultAvatar];
 }
 
 - (void) onBack
@@ -210,6 +241,7 @@
     [btn setImage:[UIImage imageNamed: name] forState:UIControlStateNormal];
     [btn setImage:[self imageWithShadowForImage:[UIImage imageNamed: name]] forState: UIControlStateSelected];
     btn.tagSettings = [[FileToSettingsConverter instance] getSettings: name];
+    btn.tagName = name;
     [btn addTarget:self action:@selector(buttonTouchedUp:) forControlEvents: UIControlEventTouchUpInside];
     return btn;
 }
@@ -244,7 +276,7 @@
     if([sender isKindOfClass:[UIButtonTag class]])
     {
         UIButtonTag *btn = (UIButtonTag *)sender;
-        ModelSettings *settings = (ModelSettings*) btn.tagSettings;
+        ModelSettings *settings = (ModelSettings*)[[FileToSettingsConverter instance] getSettings: btn.tagName];
         switch (settings.type) {
             case skin:
                 self.avatarSettings.skin = settings;

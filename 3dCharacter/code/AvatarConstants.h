@@ -10,7 +10,7 @@
 
 #define Avatar_SkinItemCount 6
 #define Avatar_HairItemCount 12
-#define Avatar_TopClothesItemCount 16
+#define Avatar_TopClothesItemCount 12
 #define Avatar_BottomClothesItemCount 12
 #define Avatar_ShoesItemCount 12
 #define Avatar_GlassItemCount 12

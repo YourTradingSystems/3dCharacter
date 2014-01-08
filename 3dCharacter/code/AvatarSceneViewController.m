@@ -108,8 +108,8 @@
 	lamp.isDirectionalOnly = NO;
     lamp.opacity = 1.0;
 	[cam addChild: lamp];
-    [self addContentFromPODFile:@"female_model.pod"];
-    mainNode = [self getNodeNamed: @"female_model.pod"];
+    [self addContentFromPODFile:@"male_model.pod"];
+    mainNode = [self getNodeNamed: @"male_model.pod"];
     
     [[mainNode getNodeNamed:@"planeColor_ncl1_1"] remove];
     [[mainNode getNodeNamed:@"planeColor_ncl1_2"] remove];
@@ -174,6 +174,29 @@
     
     [self yawOnly];
     //[self playAnimModeOnce];
+}
+
+-(void) setMainNode: (NSString*) modelName
+{
+    [self removeChild:mainNode];
+    [self addContentFromPODFile:modelName];
+    mainNode = [self getNodeNamed: modelName];
+    
+    [[mainNode getNodeNamed:@"planeColor_ncl1_1"] remove];
+    [[mainNode getNodeNamed:@"planeColor_ncl1_2"] remove];
+    [[mainNode getNodeNamed:@"Plane_004"] remove];
+    
+    //adjust main node w.r.t backdrop
+    [mainNode setScale:CC3VectorMake(0.5, 0.5, 0.51)];
+    
+    CC3Vector loc =  mainNode.location;
+    loc.x -= 5.5;
+    loc.y += 2;
+    mainNode.location = loc;
+    
+    //save restore point
+    mainNodeSavedLocation = mainNode.location;
+    mainNodeSavedRotation = mainNode.quaternion;
 }
 
 -(void) restoreCamAndMainNode {
