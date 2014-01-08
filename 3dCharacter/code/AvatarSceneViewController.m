@@ -36,7 +36,7 @@
 }
 
 -(void) playAnim {
-    currentAction++;
+    /*currentAction++;
     currentAction %= 2;
     NSInteger index=currentAction * 3;
     if (loopAnimations) {
@@ -49,13 +49,13 @@
     NSObject* o = [actions objectAtIndex:index];
     CCAction* a = (CCAction*) o;
     LogInfo(@"playing anim %d ", currentAction);
-    [mainNode runAction: a];
+    [mainNode runAction: a];*/
 }
 
 -(void) stopAnimations {
-    [mainNode stopAllActions];
+    /*[mainNode stopAllActions];
     LogInfo(@"stopping anim %d ", currentAction);
-    [mainNode runAction: [actions objectAtIndex: ( currentAction * 3 )]];
+    [mainNode runAction: [actions objectAtIndex: ( currentAction * 3 )]];*/
 }
 
 -(CCAction*) makePlayOnceActionFromFrameStart:(CGFloat) frameStart toFrameEnd:(CGFloat) frameEnd atFPS:(CGFloat)fps withTrackFrameCount:(CGFloat) frames
@@ -111,10 +111,10 @@
     [self addContentFromPODFile:@"male_model.pod"];
     mainNode = [self getNodeNamed: @"male_model.pod"];
     
-    [[mainNode getNodeNamed:@"planeColor_ncl1_1"] remove];
-    [[mainNode getNodeNamed:@"planeColor_ncl1_2"] remove];
-    [[mainNode getNodeNamed:@"Plane_004"] remove];
-    
+    if ([mainNode.name isEqualToString:@"male_model.pod"]){
+        [[mainNode getNodeNamed:@"Bip002_R_Toe0"] remove];
+        [[mainNode getNodeNamed:@"Bip002_L_Toe0"] remove];
+    }
     //adjust main node w.r.t backdrop
     [mainNode setScale:CC3VectorMake(0.5, 0.5, 0.51)];
     
@@ -127,7 +127,10 @@
     mainNodeSavedLocation = mainNode.location;
     mainNodeSavedRotation = mainNode.quaternion;
     
-    actions = [[NSMutableArray alloc] initWithCapacity:6];
+    CCActionInterval *stride = [CC3Animate actionWithDuration:20.0];
+    [mainNode runAction:[CCRepeatForever actionWithAction:stride]];
+    //CCAction *pingPongAction = CCSequence::actions(action, action->reverse(), NULL);
+    /*actions = [[NSMutableArray alloc] initWithCapacity:6];
     
     //init animation
     currentAction = 0;
@@ -150,11 +153,7 @@
     [actions addObject:a2];
     [actions addObject:b0];
     [actions addObject:b1];
-    [actions addObject:b2];
-
-    
-    //CCActionInterval *stride = [CC3Animate actionWithDuration:10.0];
-    //[mainNode runAction:[CCRepeatForever actionWithAction:stride]];
+    [actions addObject:b2];*/
     
 	[self createGLBuffers];
 	[self releaseRedundantContent];
@@ -182,9 +181,10 @@
     [self addContentFromPODFile:modelName];
     mainNode = [self getNodeNamed: modelName];
     
-    [[mainNode getNodeNamed:@"planeColor_ncl1_1"] remove];
-    [[mainNode getNodeNamed:@"planeColor_ncl1_2"] remove];
-    [[mainNode getNodeNamed:@"Plane_004"] remove];
+    if ([mainNode.name isEqualToString:@"male_model.pod"]) {
+        [[mainNode getNodeNamed:@"Bip002_R_Toe0"] remove];
+        [[mainNode getNodeNamed:@"Bip002_L_Toe0"] remove];
+    }
     
     //adjust main node w.r.t backdrop
     [mainNode setScale:CC3VectorMake(0.5, 0.5, 0.51)];
@@ -193,6 +193,9 @@
     loc.x -= 5.5;
     loc.y += 2;
     mainNode.location = loc;
+    
+    CCActionInterval *stride = [CC3Animate actionWithDuration:20.0];
+    [mainNode runAction:[CCRepeatForever actionWithAction:stride]];
     
     //save restore point
     mainNodeSavedLocation = mainNode.location;
@@ -479,11 +482,16 @@
             if (node.tag == tag)
                 removedNode = node;
         }
-        removedNode.remove;
+        [removedNode remove];
+        
         [model addChild:attachedModel];
+        [attachedModel removeAnimationTrack:0];
         [attachedModel reattachBonesFrom:model];
-        //CC3Bone *spineBone = (CC3Bone*)[model getNodeNamed:@"LeftUpLeg"];
-        //[spineBone setScale: cc3v(1.4, 1, 1.2)];
+        for (CC3Bone *softbone in attachedModel.children) {
+            for (CC3Bone *skinMesh in softbone.children)
+                for (CC3Bone *bone in skinMesh.children)
+                    [softbone removeChild:bone];
+        }
     }
 }
 
@@ -512,7 +520,7 @@
     NSDictionary* spines = bodySet.boneSizes;
     for (NSString *boneName in spines) {
         CC3Bone* bone = (CC3Bone*)[mainNode getNodeNamed:boneName];
-        [bone setScale:[(Point3d*)[spines objectForKey:boneName] getCC3Vector]];
+        [bone setScale: [(Point3d*)[spines objectForKey:boneName] getCC3Vector]];
     }
     [mainNode disableAllScaleAnimation];
 }

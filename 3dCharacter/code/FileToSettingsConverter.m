@@ -89,10 +89,10 @@
         @"Bip002_Spine1" : [[Point3d alloc] initWithX:1+(x/1000)  withY:1+(y*4)/1000 withZ:1+(z*4)/1000],
         @"Bip002_Spine" : [[Point3d alloc] initWithX:1+(x/1000)  withY:1+(y*3)/1000 withZ:1+(y*3)/1000],
         @"Bip002_Pelvis" : [[Point3d alloc] initWithX:1+(x/1000)  withY:1+(y*0.5)/1000 withZ:1+(z*0.5)/1000],
-        @"Bip002_R_Thigh" : [[Point3d alloc] initWithX:1+(x/1000)  withY:1+(y*0.5)/1000 withZ:1+(z*0.5)/1000],
-        @"Bip002_R_Calf" : [[Point3d alloc] initWithX:1+(x/1000)  withY:1+(y*0.5)/1000 withZ:1+(z*0.5)/1000],
-        @"Bip002_L_Thigh" : [[Point3d alloc] initWithX:1+(x/1000)  withY:1+(y*0.5)/1000 withZ:1+(z*0.5)/1000],
-        @"Bip002_L_Calf" : [[Point3d alloc] initWithX:1+(x/1000)  withY:1+(y*0.5)/1000 withZ:1+(z*0.5)/1000],
+        @"Bip002_R_Thigh" : [[Point3d alloc] initWithX:1+(x/1000)  withY:1+(y*0.3)/1000 withZ:1+(z*0.3)/1000],
+        @"Bip002_R_Calf" : [[Point3d alloc] initWithX:1+(x/1000)  withY:1+(y*0.3)/1000 withZ:1+(z*0.3)/1000],
+        @"Bip002_L_Thigh" : [[Point3d alloc] initWithX:1+(x/1000)  withY:1+(y*0.3)/1000 withZ:1+(z*0.3)/1000],
+        @"Bip002_L_Calf" : [[Point3d alloc] initWithX:1+(x/1000)  withY:1+(y*0.3)/1000 withZ:1+(z*0.3)/1000],
              };
     return bmset;
 }
