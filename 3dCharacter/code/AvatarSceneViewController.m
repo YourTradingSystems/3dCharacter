@@ -178,6 +178,7 @@
 
 -(void) setMainNode: (NSString*) modelName
 {
+    [self removeChild:mainNode];
     [self addContentFromPODFile:modelName];
     mainNode = [self getNodeNamed: modelName];
     
