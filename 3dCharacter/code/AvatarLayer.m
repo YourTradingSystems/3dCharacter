@@ -105,20 +105,20 @@
     [self playAnim];
     
     [(AvatarSceneViewController*)[self cc3Scene] setAvatarSettings: _avatarSettings];
-    
-    [self wearDefaultSet];
+    [[FileToSettingsConverter instance] setMale:YES];
+    [self makeDefaultAvatar];
 }
 
 - (void) makeDefaultAvatar
 {
+    self.avatarSettings.shoes = (ModelSettings*) [[FileToSettingsConverter instance] getSettings: @"shoes1"];
+    ((UIButtonTag*)[shoesButtons objectAtIndex:0]).selected = YES;
     self.avatarSettings.skin = (ModelSettings*)[[FileToSettingsConverter instance] getSettings: @"skin3"];
     ((UIButtonTag*)[skinButtons objectAtIndex:2]).selected = YES;
     self.avatarSettings.top = (ModelSettings*)[[FileToSettingsConverter instance] getSettings: @"shirt5"];
     ((UIButtonTag*)[topButtons objectAtIndex:4]).selected = YES;
     self.avatarSettings.bottom = (ModelSettings*)[[FileToSettingsConverter instance] getSettings: @"trousers1"];
     ((UIButtonTag*)[bottomButtons objectAtIndex:0]).selected = YES;
-    self.avatarSettings.shoes = (ModelSettings*) [[FileToSettingsConverter instance] getSettings: @"shoes1"];
-    ((UIButtonTag*)[shoesButtons objectAtIndex:0]).selected = YES;
     self.avatarSettings.hair = (ModelSettings*) [[FileToSettingsConverter instance] getSettings: @"hairstyle1"];
     ((UIButtonTag*)[hairButtons objectAtIndex:0]).selected = YES;
     self.avatarSettings.body = (ModelSettings*)[[FileToSettingsConverter instance] getSettings: @"cha3"];
@@ -208,14 +208,13 @@
 -(void) prepareMaleAvatar
 {
     [(AvatarSceneViewController*)[self cc3Scene] setMainNode:@"male_model.pod"];
-    
-    //[self makeDefaultAvatar];
+    [self makeDefaultAvatar];
 }
 
 -(void) prepareFemaleAvatar
 {
     [(AvatarSceneViewController*)[self cc3Scene] setMainNode:@"female_model.pod"];
-    //[self makeDefaultAvatar];
+    [self makeDefaultAvatar];
 }
 
 - (void) onBack

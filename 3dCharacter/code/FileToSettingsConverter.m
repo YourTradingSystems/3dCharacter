@@ -90,10 +90,10 @@
         @"Bip002_Spine1" : [[Point3d alloc] initWithX:1+(x/1000)  withY:1+(y*4)/1000 withZ:1+(z*4)/1000],
         @"Bip002_Spine" : [[Point3d alloc] initWithX:1+(x/1000)  withY:1+(y*3)/1000 withZ:1+(y*3)/1000],
         @"Bip002_Pelvis" : [[Point3d alloc] initWithX:1+(x/1000)  withY:1+(y*0.5)/1000 withZ:1+(z*0.5)/1000],
-        @"Bip002_R_Thigh" : [[Point3d alloc] initWithX:1+(x/1000)  withY:1+(y*0.5)/1000 withZ:1+(z*0.5)/1000],
-        @"Bip002_R_Calf" : [[Point3d alloc] initWithX:1+(x/1000)  withY:1+(y*0.5)/1000 withZ:1+(z*0.5)/1000],
-        @"Bip002_L_Thigh" : [[Point3d alloc] initWithX:1+(x/1000)  withY:1+(y*0.5)/1000 withZ:1+(z*0.5)/1000],
-        @"Bip002_L_Calf" : [[Point3d alloc] initWithX:1+(x/1000)  withY:1+(y*0.5)/1000 withZ:1+(z*0.5)/1000],
+        @"Bip002_R_Thigh" : [[Point3d alloc] initWithX:1+(x/1000)  withY:1+(y*0.3)/1000 withZ:1+(z*0.3)/1000],
+        @"Bip002_R_Calf" : [[Point3d alloc] initWithX:1+(x/1000)  withY:1+(y*0.3)/1000 withZ:1+(z*0.3)/1000],
+        @"Bip002_L_Thigh" : [[Point3d alloc] initWithX:1+(x/1000)  withY:1+(y*0.3)/1000 withZ:1+(z*0.3)/1000],
+        @"Bip002_L_Calf" : [[Point3d alloc] initWithX:1+(x/1000)  withY:1+(y*0.3)/1000 withZ:1+(z*0.3)/1000],
              };
     return bmset;
 }
@@ -213,7 +213,7 @@
              @"hairstyle11" : makeSettings(@"hair1_male", hair, 200.0f, 50.0f, 0.0f),
              @"hairstyle12" : makeSettings(@"hair1_male", hair, 200.0f, 50.0f, 0.0f),
              
-             @"shirt1" : makeSettings(@"shirt1_male", top, 127.0f, 0.0f, 0.0f),
+             @"shirt1" : makeSettings(@"shirt_long", top, 127.0f, 0.0f, 0.0f),
              @"shirt2" : makeSettings(@"shirt1_male", top, 38.0f, 127.0f, 0.0f),
              @"shirt3" : makeSettings(@"shirt1_male", top, 0.0f, 148.0f, 255.0f),
              @"shirt4" : makeSettings(@"shirt1_male", top, 255.0f, 106.0f, 0.0f),

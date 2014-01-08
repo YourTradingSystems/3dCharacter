@@ -371,6 +371,10 @@
 	CCArray* oldBones = self.bones;
 	[_skinnedBones removeAllObjects];
 	for (CC3Bone* ob in oldBones) [self addBone: (CC3Bone*)[aNode getNodeNamed: ob.name]];
+    /*
+     CC3Bone *bone = (CC3Bone*)[aNode getNodeNamed: ob.name];
+     [self addBone: bone];
+     */
 }
 
 -(void) populateFrom: (CC3SkinSection*) another {
