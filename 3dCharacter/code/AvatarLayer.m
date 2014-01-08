@@ -105,8 +105,8 @@
     [self playAnim];
     
     [(AvatarSceneViewController*)[self cc3Scene] setAvatarSettings: _avatarSettings];
-    
-    [self makeDefaultAvatar];
+    [[FileToSettingsConverter instance] setMale:YES];
+    //[self makeDefaultAvatar];
 }
 
 - (void) makeDefaultAvatar
@@ -160,7 +160,7 @@
     sliderMale.frame = CGRectMake(860, 20, 50, 30);
     sliderMale.minimumValue = 0;
     sliderMale.maximumValue = 1;
-    sliderMale.value = 1;
+    sliderMale.value = 0;
     [sliderMale addTarget:self action:@selector(sliderChanged:) forControlEvents:UIControlEventValueChanged];
     [[[CCDirector sharedDirector] openGLView] addSubview:sliderMale];
 }
@@ -171,7 +171,7 @@
     float newStep = roundf(slider.value);
     slider.value = newStep;
     BOOL male = newStep <= 0.0f;
-    //[self setMale:male];
+    [self setMale:male];
 }
 
 -(void) setMale: (BOOL) value
@@ -190,13 +190,14 @@
 -(void) prepareMaleAvatar
 {
     [(AvatarSceneViewController*)[self cc3Scene] setMainNode:@"male_model.pod"];
-    [self makeDefaultAvatar];
+    
+    //[self makeDefaultAvatar];
 }
 
 -(void) prepareFemaleAvatar
 {
     [(AvatarSceneViewController*)[self cc3Scene] setMainNode:@"female_model.pod"];
-    [self makeDefaultAvatar];
+    //[self makeDefaultAvatar];
 }
 
 - (void) onBack

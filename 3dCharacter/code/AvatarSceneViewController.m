@@ -108,8 +108,8 @@
 	lamp.isDirectionalOnly = NO;
     lamp.opacity = 1.0;
 	[cam addChild: lamp];
-    [self addContentFromPODFile:@"female_model.pod"];
-    mainNode = [self getNodeNamed: @"female_model.pod"];
+    [self addContentFromPODFile:@"male_model.pod"];
+    mainNode = [self getNodeNamed: @"male_model.pod"];
     
     [[mainNode getNodeNamed:@"planeColor_ncl1_1"] remove];
     [[mainNode getNodeNamed:@"planeColor_ncl1_2"] remove];
