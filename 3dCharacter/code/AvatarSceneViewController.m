@@ -111,10 +111,11 @@
     [self addContentFromPODFile:@"male_model.pod"];
     mainNode = [self getNodeNamed: @"male_model.pod"];
     
-    if ([mainNode.name isEqualToString:@"male_model.pod"]){
+    /*if ([mainNode.name isEqualToString:@"male_model.pod"]){
         [[mainNode getNodeNamed:@"Bip002_R_Toe0"] remove];
         [[mainNode getNodeNamed:@"Bip002_L_Toe0"] remove];
-    }
+    }*/
+    
     //adjust main node w.r.t backdrop
     [mainNode setScale:CC3VectorMake(0.5, 0.5, 0.51)];
     
@@ -181,10 +182,10 @@
     [self addContentFromPODFile:modelName];
     mainNode = [self getNodeNamed: modelName];
     
-    if ([mainNode.name isEqualToString:@"male_model.pod"]) {
+    /*if ([mainNode.name isEqualToString:@"male_model.pod"]) {
         [[mainNode getNodeNamed:@"Bip002_R_Toe0"] remove];
         [[mainNode getNodeNamed:@"Bip002_L_Toe0"] remove];
-    }
+    }*/
     
     //adjust main node w.r.t backdrop
     [mainNode setScale:CC3VectorMake(0.5, 0.5, 0.51)];
