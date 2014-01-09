@@ -106,7 +106,7 @@
     
     [(AvatarSceneViewController*)[self cc3Scene] setAvatarSettings: _avatarSettings];
     [[FileToSettingsConverter instance] setMale:YES];
-    [self makeDefaultAvatar];
+    //[self makeDefaultAvatar];
 }
 
 - (void) makeDefaultAvatar
