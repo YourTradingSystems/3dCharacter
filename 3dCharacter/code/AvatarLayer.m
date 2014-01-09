@@ -29,6 +29,12 @@
     NSMutableArray *bottomButtons;
     NSMutableArray *shoesButtons;
     NSMutableArray *glassesButtons;
+    
+    UIScrollView *hairScrollView;
+    UIScrollView *topClohesScrollView;
+    UIScrollView *bottomClohesScrollView;
+    UIScrollView *shoesScrollView;
+    UIScrollView *glassesScrollView;
 }
 
 @synthesize avatarSettings = _avatarSettings;
@@ -45,7 +51,7 @@
 -(void) initializeControls {
 	[self scheduleUpdate];
     self.isTouchEnabled = YES;
-    _male = NO;
+    _male = YES;
     _avatarSettings = [[AvatarModelSettings alloc] init];
     
     [self setContentSize:CGSizeMake(1024,768)];
@@ -97,7 +103,7 @@
     [self createModelButtons];
     [self addSkin];
     [self addHair];
-    [self addTopClothese];
+    [self createTopClothesButtons];
     [self addBottomClothese];
     [self addShoes];
     [self addGlasses];
@@ -111,7 +117,6 @@
 
 - (void) makeDefaultAvatar
 {
-    
     [self unsetButtons:shoesButtons];
     [self unsetButtons:skinButtons];
     [self unsetButtons:topButtons];
@@ -201,12 +206,47 @@
 -(void) prepareMaleAvatar
 {
     [(AvatarSceneViewController*)[self cc3Scene] setMainNode:@"male_model.pod"];
+    
+    [self prepareButtons];
+    
     [self makeDefaultAvatar];
+}
+
+-(void) prepareButtons
+{
+    [self removeButtons:modelButtons];
+    [self addBodyButtons];
+    
+    [self removeButtons:hairButtons];
+    [self addHairButtons];
+    
+    [self removeButtons:topButtons];
+    [self addTopClothesButtons];
+    
+    [self removeButtons:bottomButtons];
+    [self addBottomClothesButtons];
+    
+    [self removeButtons:shoesButtons];
+    [self addShoesButtons];
+    
+    [self removeButtons:glassesButtons];
+    [self addGlassesButtons];
+}
+
+-(void) removeButtons: (NSMutableArray*) buttons
+{
+    for (UIButtonTag *btnTag in buttons) {
+        [btnTag removeFromSuperview];
+    }
+    [buttons removeAllObjects];
 }
 
 -(void) prepareFemaleAvatar
 {
     [(AvatarSceneViewController*)[self cc3Scene] setMainNode:@"female_model.pod"];
+    
+    [self prepareButtons];
+    
     [self makeDefaultAvatar];
 }
 
@@ -218,13 +258,17 @@
 -(void) createModelButtons
 {
     modelButtons = [[NSMutableArray alloc] init];
-    
+    [self addBodyButtons];
+}
+
+-(void) addBodyButtons
+{
     NSArray *sortedModelSets = [self getSortedTypeSettings:body];
     
     for (int i = 0; i < sortedModelSets.count; i++)
     {
-        ModelSettings* set = sortedModelSets[i];
-        UIButtonTag    *btn = [self createButtonWithTag: set.screenName];
+        ModelSettings *set = sortedModelSets[i];
+        UIButtonTag *btn = [self createButtonWithTag: set];
         btn.frame = CGRectMake(200 + 129 * (i+1), 50, 129, 161);
         [[[CCDirector sharedDirector] openGLView] addSubview:btn];
         [modelButtons addObject:btn];
@@ -243,13 +287,13 @@
     return sortedArray;
 }
 
--(UIButtonTag*) createButtonWithTag: (NSString*) name
+-(UIButtonTag*) createButtonWithTag: (ModelSettings*) modelSet
 {
     UIButtonTag *btn = [UIButtonTag buttonWithType:UIButtonTypeCustom];
-    [btn setImage:[UIImage imageNamed: name] forState:UIControlStateNormal];
-    [btn setImage:[self imageWithShadowForImage:[UIImage imageNamed: name]] forState: UIControlStateSelected];
-    btn.tagSettings = [[FileToSettingsConverter instance] getSettings: name];
-    btn.tagName = name;
+    [btn setImage:[UIImage imageNamed: modelSet.screenName] forState:UIControlStateNormal];
+    [btn setImage:[self imageWithShadowForImage:[UIImage imageNamed: modelSet.screenName]] forState: UIControlStateSelected];
+    btn.tagSettings = modelSet;
+    btn.tagName = modelSet.screenName;
     [btn addTarget:self action:@selector(buttonTouchedUp:) forControlEvents: UIControlEventTouchUpInside];
     return btn;
 }
@@ -257,7 +301,7 @@
 -(UIImage*)imageWithShadowForImage:(UIImage *)initialImage {
     
     CGColorSpaceRef colourSpace = CGColorSpaceCreateDeviceRGB();
-    CGContextRef shadowContext = CGBitmapContextCreate(NULL, initialImage.size.width + 10, initialImage.size.height + 10, CGImageGetBitsPerComponent(initialImage.CGImage), 0, colourSpace, kCGImageAlphaPremultipliedLast);
+    CGContextRef shadowContext = CGBitmapContextCreate(NULL, initialImage.size.width + 10, initialImage.size.height + 10, CGImageGetBitsPerComponent(initialImage.CGImage), 0, colourSpace, (enum CGBitmapInfo) kCGImageAlphaPremultipliedLast);
     CGColorSpaceRelease(colourSpace);
     
     CGContextSetShadowWithColor(shadowContext, CGSizeMake(0,0), 15, [UIColor blueColor].CGColor);
@@ -284,7 +328,7 @@
     if([sender isKindOfClass:[UIButtonTag class]])
     {
         UIButtonTag *btn = (UIButtonTag *)sender;
-        ModelSettings *settings = (ModelSettings*)[[FileToSettingsConverter instance] getSettings: btn.tagName];
+        ModelSettings *settings = (ModelSettings*) btn.tagSettings;
         switch (settings.type) {
             case skin:
                 self.avatarSettings.skin = settings;
@@ -311,7 +355,6 @@
                 [self unsetButtons:shoesButtons];
                 break;
             case glasses:
-                //TODO glasses model problem
                 self.avatarSettings.glasses = settings;
                 [self unsetButtons:glassesButtons];
             default:
@@ -336,7 +379,7 @@
     for (int i = 0; i < sortedSkinSets.count; i ++)
     {
         ModelSettings *model = sortedSkinSets[i];
-        UIButtonTag *btn = [self createButtonWithTag: model.screenName];
+        UIButtonTag *btn = [self createButtonWithTag: model];
         btn.frame = CGRectMake(60 * i,0,45,45);
         [scrollView addSubview:btn];
         [skinButtons addObject:btn];
@@ -360,31 +403,22 @@
     hairTitleImg.image = [UIImage imageNamed:@"hairTitle"];
     [[[CCDirector sharedDirector] openGLView] addSubview:hairTitleImg];
     
-    UIScrollView    *scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(655, 290, 350,55)];
-    NSArray* sortedHairSets = [self getSortedTypeSettings:hair];
+    hairScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(655, 290, 350,55)];
     
-    for (int i = 0; i < sortedHairSets.count; i ++)
-    {
-        ModelSettings* model = sortedHairSets[i];
-        UIButtonTag    *btn = [self createButtonWithTag: model.screenName];
-        btn.frame = CGRectMake(90 * i ,0,45,35);
-        [scrollView addSubview:btn];
-        [hairButtons addObject:btn];
-    }    
+    [hairScrollView setBackgroundColor:[UIColor colorWithRed:247.0/255.0 green:247.0 / 255.0 blue:247.0 / 255.0 alpha:1.0]];
+    hairScrollView.pagingEnabled = YES;
+    hairScrollView.showsHorizontalScrollIndicator = NO;
+    hairScrollView.showsVerticalScrollIndicator = NO;
+    hairScrollView.tag = Avatar_HairScr;
+    hairScrollView.delegate = self;
     
-    [scrollView setBackgroundColor:[UIColor colorWithRed:247.0/255.0 green:247.0 / 255.0 blue:247.0 / 255.0 alpha:1.0]];
-    scrollView.pagingEnabled = YES;
-    scrollView.showsHorizontalScrollIndicator = NO;
-    scrollView.showsVerticalScrollIndicator = NO;
-    scrollView.tag = Avatar_HairScr;
-    scrollView.delegate = self;
+    [self addHairButtons];
     
-    [scrollView setContentSize:CGSizeMake(90 * sortedHairSets.count, 55)];
-    [[[CCDirector sharedDirector] openGLView] addSubview:scrollView];
-    [scrollView release];
+    [[[CCDirector sharedDirector] openGLView] addSubview:hairScrollView];
+    [hairScrollView release];
     
     UIPageControl   *pageControl = [[UIPageControl alloc] initWithFrame:CGRectMake(655,355,350,20)];
-    pageControl.numberOfPages = scrollView.contentSize.width / Avatar_ScrollViewWidth;
+    pageControl.numberOfPages = hairScrollView.contentSize.width / Avatar_ScrollViewWidth;
     pageControl.pageIndicatorTintColor = [UIColor lightGrayColor];
     pageControl.currentPageIndicatorTintColor = [UIColor orangeColor];
     pageControl.tag = Avatar_HairScr + 1000;
@@ -392,7 +426,22 @@
     [pageControl release];
 }
 
-- (void) addTopClothese
+-(void) addHairButtons
+{
+    NSArray* sortedHairSets = [self getSortedTypeSettings:hair];
+    
+    for (int i = 0; i < sortedHairSets.count; i ++)
+    {
+        ModelSettings* model = sortedHairSets[i];
+        UIButtonTag    *btn = [self createButtonWithTag: model];
+        btn.frame = CGRectMake(90 * i ,0,45,35);
+        [hairScrollView addSubview:btn];
+        [hairButtons addObject:btn];
+    }
+    [hairScrollView setContentSize:CGSizeMake(90 * sortedHairSets.count, 55)];
+}
+
+- (void) createTopClothesButtons
 {
     //Add Top Clothese
     topButtons = [[NSMutableArray alloc] init];
@@ -401,36 +450,43 @@
     topClotheImg.image = [UIImage imageNamed:@"clotheTitle"];
     [[[CCDirector sharedDirector] openGLView] addSubview:topClotheImg];
     
-    UIScrollView    *scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(290, 400, 350,110)];
-    NSArray* sortedTopSets = [self getSortedTypeSettings: top];
+    topClohesScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(290, 400, 350,110)];
     
-    for (int i = 0; i < sortedTopSets.count; i ++)
-    {
-        ModelSettings* model = sortedTopSets[i];
-        UIButtonTag    *btn = [self createButtonWithTag: model.screenName];
-        btn.frame = CGRectMake(88 * i ,0,80,100);
-        [scrollView addSubview:btn];
-        [topButtons addObject:btn];
-    }
-    
-    [scrollView setBackgroundColor:[UIColor colorWithRed:247.0/255.0 green:247.0 / 255.0 blue:247.0 / 255.0 alpha:1.0]];
-    scrollView.pagingEnabled = YES;
-    scrollView.showsHorizontalScrollIndicator = NO;
-    scrollView.showsVerticalScrollIndicator = NO;
-    scrollView.tag = Avatar_TopClotheScr;
-    scrollView.delegate = self;
+    [topClohesScrollView setBackgroundColor:[UIColor colorWithRed:247.0/255.0 green:247.0 / 255.0 blue:247.0 / 255.0 alpha:1.0]];
+    topClohesScrollView.pagingEnabled = YES;
+    topClohesScrollView.showsHorizontalScrollIndicator = NO;
+    topClohesScrollView.showsVerticalScrollIndicator = NO;
+    topClohesScrollView.tag = Avatar_TopClotheScr;
+    topClohesScrollView.delegate = self;
 
-    [scrollView setContentSize:CGSizeMake(88 * sortedTopSets.count, 110)];
-    [[[CCDirector sharedDirector] openGLView] addSubview:scrollView];
-    [scrollView release];
+    [self addTopClothesButtons];
+    
+    [[[CCDirector sharedDirector] openGLView] addSubview:topClohesScrollView];
+    [topClohesScrollView release];
     
     UIPageControl   *pageControl = [[UIPageControl alloc] initWithFrame:CGRectMake(290,520,350,20)];
-    pageControl.numberOfPages = scrollView.contentSize.width / Avatar_ScrollViewWidth;
+    pageControl.numberOfPages = topClohesScrollView.contentSize.width / Avatar_ScrollViewWidth;
     pageControl.pageIndicatorTintColor = [UIColor lightGrayColor];
     pageControl.currentPageIndicatorTintColor = [UIColor orangeColor];
     pageControl.tag = Avatar_TopClotheScr + 1000;
     [[[CCDirector sharedDirector] openGLView] addSubview:pageControl];
     [pageControl release];
+}
+
+-(void) addTopClothesButtons
+{
+    NSArray* sortedTopSets = [self getSortedTypeSettings: top];
+    
+    for (int i = 0; i < sortedTopSets.count; i ++)
+    {
+        ModelSettings *model = sortedTopSets[i];
+        UIButtonTag *btn = [self createButtonWithTag: model];
+        btn.frame = CGRectMake(88 * i, 0, 80, 100);
+        [topClohesScrollView addSubview:btn];
+        [topButtons addObject:btn];
+    }
+    
+    [topClohesScrollView setContentSize:CGSizeMake(88 * sortedTopSets.count, 110)];
 }
 
 - (void) addBottomClothese
@@ -442,36 +498,42 @@
     bottomClotheImg.image = [UIImage imageNamed:@"bottomClotheTitle"];
     [[[CCDirector sharedDirector] openGLView] addSubview:bottomClotheImg];
     
-    UIScrollView    *scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(655, 400, 350,110)];
-    NSArray* sortedBottomSets = [self getSortedTypeSettings:bottom];
+    bottomClohesScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(655, 400, 350,110)];
     
-    for (int i = 0; i < sortedBottomSets.count; i ++)
-    {
-        ModelSettings* model = sortedBottomSets[i];
-        UIButtonTag    *btn = [self createButtonWithTag: model.screenName];
-        btn.frame = CGRectMake(90 * i ,0,80,100);
-        [scrollView addSubview:btn];
-        [bottomButtons addObject:btn];
-    }
+    [bottomClohesScrollView setBackgroundColor:[UIColor colorWithRed:247.0/255.0 green:247.0 / 255.0 blue:247.0 / 255.0 alpha:1.0]];
+    bottomClohesScrollView.pagingEnabled = YES;
+    bottomClohesScrollView.showsHorizontalScrollIndicator = NO;
+    bottomClohesScrollView.showsVerticalScrollIndicator = NO;
+    bottomClohesScrollView.tag = Avatar_BottomClotheScr;
+    bottomClohesScrollView.delegate = self;
     
-    [scrollView setBackgroundColor:[UIColor colorWithRed:247.0/255.0 green:247.0 / 255.0 blue:247.0 / 255.0 alpha:1.0]];
-    scrollView.pagingEnabled = YES;
-    scrollView.showsHorizontalScrollIndicator = NO;
-    scrollView.showsVerticalScrollIndicator = NO;
-    scrollView.tag = Avatar_BottomClotheScr;
-    scrollView.delegate = self;
+    [self addBottomClothesButtons];
 
-    [scrollView setContentSize:CGSizeMake(90 * sortedBottomSets.count, 110)];
-    [[[CCDirector sharedDirector] openGLView] addSubview:scrollView];
-    [scrollView release];
+    [[[CCDirector sharedDirector] openGLView] addSubview:bottomClohesScrollView];
+    [bottomClohesScrollView release];
     
     UIPageControl   *pageControl = [[UIPageControl alloc] initWithFrame:CGRectMake(655,520,350,20)];
-    pageControl.numberOfPages = scrollView.contentSize.width / Avatar_ScrollViewWidth;
+    pageControl.numberOfPages = bottomClohesScrollView.contentSize.width / Avatar_ScrollViewWidth;
     pageControl.pageIndicatorTintColor = [UIColor lightGrayColor];
     pageControl.currentPageIndicatorTintColor = [UIColor orangeColor];
     pageControl.tag = Avatar_BottomClotheScr + 1000;
     [[[CCDirector sharedDirector] openGLView] addSubview:pageControl];
     [pageControl release];
+}
+
+-(void) addBottomClothesButtons
+{
+    NSArray* sortedBottomSets = [self getSortedTypeSettings:bottom];
+    
+    for (int i = 0; i < sortedBottomSets.count; i ++)
+    {
+        ModelSettings* model = sortedBottomSets[i];
+        UIButtonTag    *btn = [self createButtonWithTag: model];
+        btn.frame = CGRectMake(90 * i ,0,80,100);
+        [bottomClohesScrollView addSubview:btn];
+        [bottomButtons addObject:btn];
+    }
+    [bottomClohesScrollView setContentSize:CGSizeMake(90 * sortedBottomSets.count, 110)];
 }
 
 - (void) addShoes
@@ -483,37 +545,42 @@
     shoeImg.image = [UIImage imageNamed:@"shoeTitle"];
     [[[CCDirector sharedDirector] openGLView] addSubview:shoeImg];
     
-    UIScrollView    *scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(290, 570, 350,90)];
+    shoesScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(290, 570, 350,90)];
     
-    NSArray* sortedShoesSets = [self getSortedTypeSettings:shoes];
+    [shoesScrollView setBackgroundColor:[UIColor colorWithRed:247.0/255.0 green:247.0 / 255.0 blue:247.0 / 255.0 alpha:1.0]];
+    shoesScrollView.pagingEnabled = YES;
+    shoesScrollView.showsHorizontalScrollIndicator = NO;
+    shoesScrollView.showsVerticalScrollIndicator = NO;
+    shoesScrollView.tag = Avatar_ShoeScr;
+    shoesScrollView.delegate = self;
     
-    for (int i = 0; i < sortedShoesSets.count; i++)
-    {
-        ModelSettings* set = sortedShoesSets[i];
-        UIButtonTag *btn = [self createButtonWithTag:set.screenName];
-        btn.frame = CGRectMake(90 * i ,0,75,80);
-        [scrollView addSubview:btn];
-        [shoesButtons addObject: btn];
-    }
+    [self addShoesButtons];
     
-    [scrollView setBackgroundColor:[UIColor colorWithRed:247.0/255.0 green:247.0 / 255.0 blue:247.0 / 255.0 alpha:1.0]];
-    scrollView.pagingEnabled = YES;
-    scrollView.showsHorizontalScrollIndicator = NO;
-    scrollView.showsVerticalScrollIndicator = NO;
-    scrollView.tag = Avatar_ShoeScr;
-    scrollView.delegate = self;
-
-    [scrollView setContentSize:CGSizeMake(90 * sortedShoesSets.count, 90)];
-    [[[CCDirector sharedDirector] openGLView] addSubview:scrollView];
-    [scrollView release];
+    [[[CCDirector sharedDirector] openGLView] addSubview:shoesScrollView];
+    [shoesScrollView release];
     
     UIPageControl   *pageControl = [[UIPageControl alloc] initWithFrame:CGRectMake(290,670,350,20)];
-    pageControl.numberOfPages = scrollView.contentSize.width / Avatar_ScrollViewWidth;
+    pageControl.numberOfPages = shoesScrollView.contentSize.width / Avatar_ScrollViewWidth;
     pageControl.pageIndicatorTintColor = [UIColor lightGrayColor];
     pageControl.currentPageIndicatorTintColor = [UIColor orangeColor];
     pageControl.tag = Avatar_ShoeScr + 1000;
     [[[CCDirector sharedDirector] openGLView] addSubview:pageControl];
     [pageControl release];
+}
+
+-(void) addShoesButtons
+{
+    NSArray* sortedShoesSets = [self getSortedTypeSettings:shoes];
+    
+    for (int i = 0; i < sortedShoesSets.count; i++)
+    {
+        ModelSettings* set = sortedShoesSets[i];
+        UIButtonTag *btn = [self createButtonWithTag:set];
+        btn.frame = CGRectMake(90 * i ,0,75,80);
+        [shoesScrollView addSubview:btn];
+        [shoesButtons addObject: btn];
+    }
+    [shoesScrollView setContentSize:CGSizeMake(90 * sortedShoesSets.count, 90)];
 }
 
 - (void) addGlasses
@@ -525,37 +592,43 @@
     glassImg.image = [UIImage imageNamed:@"glassTitle"];
     [[[CCDirector sharedDirector] openGLView] addSubview:glassImg];
     
-    UIScrollView    *scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(655, 570, 350,90)];
+    glassesScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(655, 570, 350,90)];
     
-    NSArray* sortedGlassesSets = [self getSortedTypeSettings:glasses];
+    [glassesScrollView setBackgroundColor:[UIColor colorWithRed:247.0/255.0 green:247.0 / 255.0 blue:247.0 / 255.0 alpha:1.0]];
+    glassesScrollView.pagingEnabled = YES;
+    glassesScrollView.showsHorizontalScrollIndicator = NO;
+    glassesScrollView.showsVerticalScrollIndicator = NO;
+    glassesScrollView.tag = Avatar_GlassScr;
+    glassesScrollView.delegate = self;
     
-    for (int i = 0; i < sortedGlassesSets.count; i ++)
-    {
-        ModelSettings* modelSet = sortedGlassesSets[i];
-        UIButtonTag *btn = [self createButtonWithTag: modelSet.screenName];
-        btn.frame = CGRectMake(120 * i ,0,92,58);
-        [scrollView addSubview:btn];
-        [glassesButtons addObject:btn];
-    }
-    
-    [scrollView setBackgroundColor:[UIColor colorWithRed:247.0/255.0 green:247.0 / 255.0 blue:247.0 / 255.0 alpha:1.0]];
-    scrollView.pagingEnabled = YES;
-    scrollView.showsHorizontalScrollIndicator = NO;
-    scrollView.showsVerticalScrollIndicator = NO;
-    scrollView.tag = Avatar_GlassScr;
-    scrollView.delegate = self;
+    [self addGlassesButtons];
 
-    [scrollView setContentSize:CGSizeMake(120 * sortedGlassesSets.count, 90)];
-    [[[CCDirector sharedDirector] openGLView] addSubview:scrollView];
-    [scrollView release];
+    [[[CCDirector sharedDirector] openGLView] addSubview:glassesScrollView];
+    [glassesScrollView release];
     
     UIPageControl   *pageControl = [[UIPageControl alloc] initWithFrame:CGRectMake(655,670,350,20)];
-    pageControl.numberOfPages = scrollView.contentSize.width / Avatar_ScrollViewWidth;
+    pageControl.numberOfPages = glassesScrollView.contentSize.width / Avatar_ScrollViewWidth;
     pageControl.pageIndicatorTintColor = [UIColor lightGrayColor];
     pageControl.currentPageIndicatorTintColor = [UIColor orangeColor];
     pageControl.tag = Avatar_GlassScr + 1000;
     [[[CCDirector sharedDirector] openGLView] addSubview:pageControl];
     [pageControl release];
+}
+
+-(void) addGlassesButtons
+{
+    NSArray* sortedGlassesSets = [self getSortedTypeSettings:glasses];
+    
+    for (int i = 0; i < sortedGlassesSets.count; i ++)
+    {
+        ModelSettings* modelSet = sortedGlassesSets[i];
+        UIButtonTag *btn = [self createButtonWithTag: modelSet];
+        btn.frame = CGRectMake(120 * i ,0,92,58);
+        [glassesScrollView addSubview:btn];
+        [glassesButtons addObject:btn];
+    }
+    
+    [glassesScrollView setContentSize:CGSizeMake(120 * sortedGlassesSets.count, 90)];
 }
 
 /**

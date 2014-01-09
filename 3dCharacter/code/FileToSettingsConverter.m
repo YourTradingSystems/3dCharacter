@@ -29,7 +29,7 @@
 - (id) init {
     if (self = [super init])
     {
-        male = NO;
+        male = YES;
         maleSettings = [self initializeMaleDictionary];
         femaleSettings = [self initializeFemaleDictionary];
     }
@@ -212,18 +212,18 @@
              @"hairstyle11" : makeSettings(@"hair1_male", @"hairstyle11", hair, 200.0f, 50.0f, 0.0f),
              @"hairstyle12" : makeSettings(@"hair1_male", @"hairstyle12", hair, 200.0f, 50.0f, 0.0f),
              
-             @"shirt1" : makeSettings(@"shirt1_male", @"shirt1", top, 127.0f, 0.0f, 0.0f),
-             @"shirt2" : makeSettings(@"shirt1_male", @"shirt2", top, 38.0f, 127.0f, 0.0f),
-             @"shirt3" : makeSettings(@"shirt1_male", @"shirt3", top, 0.0f, 148.0f, 255.0f),
-             @"shirt4" : makeSettings(@"shirt1_male", @"shirt4", top, 255.0f, 106.0f, 0.0f),
-             @"shirt5" : makeSettings(@"shirt1_male", @"shirt5", top, 127.0f, 0.0f, 0.0f),
-             @"shirt6" : makeSettings(@"shirt1_male", @"shirt6", top, 38.0f, 127.0f, 0.0f),
-             @"shirt7" : makeSettings(@"shirt1_male", @"shirt7", top, 0.0f, 148.0f, 255.0f),
-             @"shirt8" : makeSettings(@"shirt1_male", @"shirt8", top, 157.0f, 141.0f, 110.0f),
-             @"shirt9" : makeSettings(@"shirt1_male", @"shirt9", top, 127.0f, 0.0f, 0.0f),
-             @"shirt10" : makeSettings(@"shirt1_male", @"shirt10", top, 0.0f, 157.0f, 0.0f),
-             @"shirt11" : makeSettings(@"shirt1_male", @"shirt11", top, 86.0f, 64.0f, 42.0f),
-             @"shirt12" : makeSettings(@"shirt1_male", @"shirt12", top, 255.0f, 105.0f, 0.0f),
+             @"shirt1" : makeSettings(@"shirt1_male", @"shirt1_male", top, 127.0f, 0.0f, 0.0f),
+             @"shirt2" : makeSettings(@"shirt1_male", @"shirt2_male", top, 38.0f, 127.0f, 0.0f),
+             @"shirt3" : makeSettings(@"shirt1_male", @"shirt3_male", top, 0.0f, 148.0f, 255.0f),
+             @"shirt4" : makeSettings(@"shirt1_male", @"shirt4_male", top, 255.0f, 106.0f, 0.0f),
+             @"shirt5" : makeSettings(@"shirt1_male", @"shirt5_male", top, 127.0f, 0.0f, 0.0f),
+             @"shirt6" : makeSettings(@"shirt1_male", @"shirt6_male", top, 38.0f, 127.0f, 0.0f),
+             @"shirt7" : makeSettings(@"shirt1_male", @"shirt7_male", top, 0.0f, 148.0f, 255.0f),
+             @"shirt8" : makeSettings(@"shirt1_male", @"shirt8_male", top, 157.0f, 141.0f, 110.0f),
+             @"shirt9" : makeSettings(@"shirt1_male", @"shirt9_male", top, 127.0f, 0.0f, 0.0f),
+             @"shirt10" : makeSettings(@"shirt1_male", @"shirt10_male", top, 0.0f, 157.0f, 0.0f),
+             @"shirt11" : makeSettings(@"shirt1_male", @"shirt11_male", top, 86.0f, 64.0f, 42.0f),
+             @"shirt12" : makeSettings(@"shirt1_male", @"shirt12_male", top, 255.0f, 105.0f, 0.0f),
              
              @"shoes1" : makeSettings(@"shoes1_male", @"shoes1", shoes, 213.0f, 189.0f, 164.0f),
              @"shoes2" : makeSettings(@"shoes1_male", @"shoes2", shoes, 178.0f, 139.0f, 104.0f),
@@ -245,18 +245,18 @@
              @"skin5" : makeSettings(nil, @"skin5", skin, 144.0f, 97.0f, 69.0f),
              @"skin6" : makeSettings(nil, @"skin6", skin, 95.0f, 69.0f, 53.0f),
              
-             @"trousers1" : makeSettings(@"shorts1_male", @"trousers1", bottom, 127.0f, 0.0f, 0.0f),
-             @"trousers2" : makeSettings(@"shorts1_male", @"trousers2", bottom, 38.0f, 127.0f, 0.0f),
-             @"trousers3" : makeSettings(@"shorts1_male", @"trousers3", bottom, 0.0f, 148.0f, 255.0f),
-             @"trousers4" : makeSettings(@"shorts1_male", @"trousers4", bottom, 255.0f, 106.0f, 0.0f),
-             @"trousers5" : makeSettings(@"shorts1_male", @"trousers5", bottom, 127.0f, 0.0f, 0.0f),
-             @"trousers6" : makeSettings(@"shorts1_male", @"trousers6", bottom, 38.0f, 127.0f, 0.0f),
-             @"trousers7" : makeSettings(@"shorts1_male", @"trousers7", bottom, 0.0f, 148.0f, 255.0f),
-             @"trousers8" : makeSettings(@"shorts1_male", @"trousers8", bottom, 255.0f, 106.0f, 0.0f),
-             @"trousers9" : makeSettings(@"shorts1_male", @"trousers9", bottom, 127.0f, 0.0f, 0.0f),
-             @"trousers10" : makeSettings(@"shorts1_male", @"trousers10", bottom, 38.0f, 127.0f, 0.0f),
-             @"trousers11" : makeSettings(@"shorts1_male", @"trousers11", bottom, 0.0f, 148.0f, 255.0f),
-             @"trousers12" : makeSettings(@"shorts1_male", @"trousers12", bottom, 255.0f, 106.0f, 0.0f)};
+             @"trousers1" : makeSettings(@"shorts1_male", @"trousers1_male", bottom, 127.0f, 0.0f, 0.0f),
+             @"trousers2" : makeSettings(@"shorts1_male", @"trousers2_male", bottom, 38.0f, 127.0f, 0.0f),
+             @"trousers3" : makeSettings(@"shorts1_male", @"trousers3_male", bottom, 0.0f, 148.0f, 255.0f),
+             @"trousers4" : makeSettings(@"shorts1_male", @"trousers4_male", bottom, 255.0f, 106.0f, 0.0f),
+             @"trousers5" : makeSettings(@"shorts1_male", @"trousers5_male", bottom, 127.0f, 0.0f, 0.0f),
+             @"trousers6" : makeSettings(@"shorts1_male", @"trousers6_male", bottom, 38.0f, 127.0f, 0.0f),
+             @"trousers7" : makeSettings(@"shorts1_male", @"trousers7_male", bottom, 0.0f, 148.0f, 255.0f),
+             @"trousers8" : makeSettings(@"shorts1_male", @"trousers8_male", bottom, 255.0f, 106.0f, 0.0f),
+             @"trousers9" : makeSettings(@"shorts1_male", @"trousers9_male", bottom, 127.0f, 0.0f, 0.0f),
+             @"trousers10" : makeSettings(@"shorts1_male", @"trousers10_male", bottom, 38.0f, 127.0f, 0.0f),
+             @"trousers11" : makeSettings(@"shorts1_male", @"trousers11_male", bottom, 0.0f, 148.0f, 255.0f),
+             @"trousers12" : makeSettings(@"shorts1_male", @"trousers12_male", bottom, 255.0f, 106.0f, 0.0f)};
 }
 
 - (void)dealloc {
