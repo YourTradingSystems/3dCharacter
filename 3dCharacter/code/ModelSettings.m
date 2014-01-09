@@ -8,17 +8,21 @@
 
 #import "ModelSettings.h"
 
+static int baseIndex = 0;
+
 @implementation ModelSettings
 
-@synthesize type, modelName, color;
+@synthesize type, screenName, modelName, color, index;
 
--(id) initWithType: (enum modelType) theType andName: (NSString*) theName andColor:(UIColor*) theColor;
+-(id) initWithType: (enum modelType) theType andModel: (NSString*) theModel ansScreen: (NSString*) theScreen andColor:(UIColor*) theColor;
 {
-    if(self = [super init])
+    if (self = [super init])
     {
         type = theType;
-        modelName = theName;
+        modelName = theModel;
+        screenName = theScreen;
         color = theColor;
+        index = ++baseIndex;
     }
     return self;
 }
@@ -27,9 +31,10 @@
 {
     enum modelType theType = [self stringToModelType:[theDictionary objectForKey:@"type"]];
     NSString* theModelName = [self getModelNameFromDictionary:[theDictionary objectForKey:@"modelName"]];
+    NSString* theScreenName = [self getScreenNameFromDictionary:[theDictionary objectForKey:@"screenName"]];
     UIColor* theColor = [self getColorFromDictionary: [theDictionary objectForKey:@"color"]];
     
-    return [self initWithType:theType andName:theModelName andColor: theColor];
+    return [self initWithType:theType andModel:theModelName ansScreen:theScreenName andColor:theColor];
 }
 
 -(enum modelType) stringToModelType: (NSString*) stringType
@@ -42,6 +47,13 @@
     if([theName compare:@""] == NSOrderedSame)
         return nil;
     return theName;
+}
+
+-(NSString*) getScreenNameFromDictionary: (NSString*) theScreenName
+{
+    if([theScreenName compare:@""] == NSOrderedSame)
+        return nil;
+    return theScreenName;
 }
 
 -(UIColor*) getColorFromDictionary: (NSDictionary*) theDictionary

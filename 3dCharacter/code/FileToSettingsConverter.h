@@ -20,6 +20,7 @@
 + (id) instance;
 
 -(NSObject*) getSettings:(NSString*) fileName;
+-(NSArray*) getTypeSettings: (enum modelType) type;
 -(void) setMale: (BOOL) value;
 
 @end
