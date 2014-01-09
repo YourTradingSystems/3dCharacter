@@ -5,9 +5,9 @@
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleExecutable</key>
-	<string>${EXECUTABLE_NAME}</string>
+	<string>3DCharacter</string>
 	<key>CFBundleIdentifier</key>
-	<string>-.${PRODUCT_NAME:rfc1034identifier}</string>
+	<string>com.mobilesoft365.3DCharacter</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundlePackageType</key>

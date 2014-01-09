@@ -14,6 +14,5 @@
 }
 
 @property (atomic, retain) NSObject* tagSettings;
-@property (atomic, retain) NSString* tagName;
 
 @end

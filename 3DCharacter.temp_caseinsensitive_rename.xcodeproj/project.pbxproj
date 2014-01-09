@@ -2275,7 +2275,7 @@
 				LastUpgradeCheck = 0500;
 				ORGANIZATIONNAME = 1;
 			};
-			buildConfigurationList = 08A1015F1857261E00B26770 /* Build configuration list for PBXProject "3dCharacter" */;
+			buildConfigurationList = 08A1015F1857261E00B26770 /* Build configuration list for PBXProject "3DCharacter.temp_caseinsensitive_rename" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -2837,12 +2837,14 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Alexander Sokhanych (U5HL738569)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "3dCharacter/3dCharacter-Prefix.pch";
 				INFOPLIST_FILE = "3dCharacter/3dCharacter-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos6.1;
+				PROVISIONING_PROFILE = "630426F6-311C-4BA2-9DDA-8805DAABD2C9";
+				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 2;
 				WRAPPER_EXTENSION = app;
 			};
@@ -2854,12 +2856,14 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Alexander Sokhanych (U5HL738569)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "3dCharacter/3dCharacter-Prefix.pch";
 				INFOPLIST_FILE = "3dCharacter/3dCharacter-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos6.1;
+				PROVISIONING_PROFILE = "630426F6-311C-4BA2-9DDA-8805DAABD2C9";
+				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 2;
 				WRAPPER_EXTENSION = app;
 			};
@@ -2868,7 +2872,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		08A1015F1857261E00B26770 /* Build configuration list for PBXProject "3dCharacter" */ = {
+		08A1015F1857261E00B26770 /* Build configuration list for PBXProject "3DCharacter.temp_caseinsensitive_rename" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				08A1018E1857261E00B26770 /* Debug */,

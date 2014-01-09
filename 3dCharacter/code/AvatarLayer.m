@@ -22,7 +22,7 @@
 @implementation AvatarLayer
 {
     BOOL _male;
-    NSMutableArray *modelButtons;
+    NSMutableArray *bodyButtons;
     NSMutableArray *skinButtons;
     NSMutableArray *hairButtons;
     NSMutableArray *topButtons;
@@ -100,13 +100,13 @@
     
     [self addNavBar];
     
-    [self createModelButtons];
-    [self addSkin];
-    [self addHair];
-    [self createTopClothesButtons];
-    [self addBottomClothese];
-    [self addShoes];
-    [self addGlasses];
+    [self createBodyModelsView];
+    [self createSkinView];
+    [self createHairView];
+    [self createTopClothesView];
+    [self createBottomClothesView];
+    [self createShoesView];
+    [self createGlassesView];
     
     [self playAnim];
     
@@ -122,22 +122,22 @@
     [self unsetButtons:topButtons];
     [self unsetButtons:bottomButtons];
     [self unsetButtons:hairButtons];
-    [self unsetButtons:modelButtons];
+    [self unsetButtons:bodyButtons];
     [self unsetButtons:glassesButtons];
     
-    self.avatarSettings.shoes = (ModelSettings*) [[FileToSettingsConverter instance] getSettings: @"shoes1"];
+    self.avatarSettings.shoes = (ModelSettings*) ((UIButtonTag*)[shoesButtons objectAtIndex:0]).tagSettings;
     ((UIButtonTag*)[shoesButtons objectAtIndex:0]).selected = YES;
-    self.avatarSettings.skin = (ModelSettings*)[[FileToSettingsConverter instance] getSettings: @"skin3"];
+    self.avatarSettings.skin = (ModelSettings*) ((UIButtonTag*)[shoesButtons objectAtIndex:0]).tagSettings;
     ((UIButtonTag*)[skinButtons objectAtIndex:2]).selected = YES;
-    self.avatarSettings.top = (ModelSettings*)[[FileToSettingsConverter instance] getSettings: @"shirt5"];
+    self.avatarSettings.top = (ModelSettings*) ((UIButtonTag*)[topButtons objectAtIndex:3]).tagSettings;
     ((UIButtonTag*)[topButtons objectAtIndex:3]).selected = YES;
-    self.avatarSettings.bottom = (ModelSettings*)[[FileToSettingsConverter instance] getSettings: @"trousers1"];
+    self.avatarSettings.bottom = (ModelSettings*) ((UIButtonTag*)[bottomButtons objectAtIndex:0]).tagSettings;
     ((UIButtonTag*)[bottomButtons objectAtIndex:0]).selected = YES;
-    self.avatarSettings.hair = (ModelSettings*) [[FileToSettingsConverter instance] getSettings: @"hairstyle1"];
+    self.avatarSettings.hair = (ModelSettings*) ((UIButtonTag*)[hairButtons objectAtIndex:0]).tagSettings;
     ((UIButtonTag*)[hairButtons objectAtIndex:0]).selected = YES;
-    self.avatarSettings.body = (ModelSettings*)[[FileToSettingsConverter instance] getSettings: @"cha3"];
-    ((UIButtonTag*)[modelButtons objectAtIndex:3]).selected = YES;
-    self.avatarSettings.glasses = (ModelSettings*)[[FileToSettingsConverter instance] getSettings: @"glasses1"];
+    self.avatarSettings.body = (ModelSettings*) ((UIButtonTag*)[bodyButtons objectAtIndex:3]).tagSettings;
+    ((UIButtonTag*)[bodyButtons objectAtIndex:3]).selected = YES;
+    self.avatarSettings.glasses = (ModelSettings*) ((UIButtonTag*)[glassesButtons objectAtIndex:0]).tagSettings;
     ((UIButtonTag*)[glassesButtons objectAtIndex:0]).selected = YES;
 }
 
@@ -148,6 +148,7 @@
     [[[CCDirector sharedDirector] openGLView] addSubview:imgView];
     [imgView release];
     imgView = nil;
+    
     UIButton    *btnBack = [UIButton buttonWithType:UIButtonTypeCustom];
     btnBack.frame = CGRectMake(10,20,80,30);
     [btnBack setImage:[UIImage imageNamed:@"3dBackBtn"] forState:UIControlStateNormal];
@@ -158,7 +159,6 @@
     btnStart.frame = CGRectMake(920,20,92,30);
     [btnStart setImage:[UIImage imageNamed:@"3dStartBtn"] forState:UIControlStateNormal];
     [btnStart addTarget:self action:@selector(playAnim) forControlEvents:UIControlEventTouchUpInside];
-    
     [btnStart addTarget:self action:@selector(makeDefaultAvatar) forControlEvents:UIControlEventTouchUpInside];
     [[[CCDirector sharedDirector] openGLView] addSubview:btnStart];
     
@@ -206,15 +206,20 @@
 -(void) prepareMaleAvatar
 {
     [(AvatarSceneViewController*)[self cc3Scene] setMainNode:@"male_model.pod"];
-    
     [self prepareButtons];
-    
+    [self makeDefaultAvatar];
+}
+
+-(void) prepareFemaleAvatar
+{
+    [(AvatarSceneViewController*)[self cc3Scene] setMainNode:@"female_model.pod"];
+    [self prepareButtons];
     [self makeDefaultAvatar];
 }
 
 -(void) prepareButtons
 {
-    [self removeButtons:modelButtons];
+    [self removeButtons:bodyButtons];
     [self addBodyButtons];
     
     [self removeButtons:hairButtons];
@@ -241,23 +246,14 @@
     [buttons removeAllObjects];
 }
 
--(void) prepareFemaleAvatar
-{
-    [(AvatarSceneViewController*)[self cc3Scene] setMainNode:@"female_model.pod"];
-    
-    [self prepareButtons];
-    
-    [self makeDefaultAvatar];
-}
-
 - (void) onBack
 {
     //[[NavigationBarManager sharedNavigationController] popViewControllerAnimated:YES];
 }
 
--(void) createModelButtons
+-(void) createBodyModelsView
 {
-    modelButtons = [[NSMutableArray alloc] init];
+    bodyButtons = [[NSMutableArray alloc] init];
     [self addBodyButtons];
 }
 
@@ -271,7 +267,7 @@
         UIButtonTag *btn = [self createButtonWithTag: set];
         btn.frame = CGRectMake(200 + 129 * (i+1), 50, 129, 161);
         [[[CCDirector sharedDirector] openGLView] addSubview:btn];
-        [modelButtons addObject:btn];
+        [bodyButtons addObject:btn];
     }
 }
 
@@ -293,7 +289,6 @@
     [btn setImage:[UIImage imageNamed: modelSet.screenName] forState:UIControlStateNormal];
     [btn setImage:[self imageWithShadowForImage:[UIImage imageNamed: modelSet.screenName]] forState: UIControlStateSelected];
     btn.tagSettings = modelSet;
-    btn.tagName = modelSet.screenName;
     [btn addTarget:self action:@selector(buttonTouchedUp:) forControlEvents: UIControlEventTouchUpInside];
     return btn;
 }
@@ -329,42 +324,47 @@
     {
         UIButtonTag *btn = (UIButtonTag *)sender;
         ModelSettings *settings = (ModelSettings*) btn.tagSettings;
-        switch (settings.type) {
-            case skin:
-                self.avatarSettings.skin = settings;
-                [self unsetButtons:skinButtons];
-                break;
-            case body:
-                self.avatarSettings.body = settings;
-                [self unsetButtons:modelButtons];
-                break;
-            case hair:
-                self.avatarSettings.hair = settings;
-                [self unsetButtons:hairButtons];
-                break;
-            case top:
-                self.avatarSettings.top = settings;
-                [self unsetButtons:topButtons];
-                break;
-            case bottom:
-                self.avatarSettings.bottom = settings;
-                [self unsetButtons:bottomButtons];
-                break;
-            case shoes:
-                self.avatarSettings.shoes = settings;
-                [self unsetButtons:shoesButtons];
-                break;
-            case glasses:
-                self.avatarSettings.glasses = settings;
-                [self unsetButtons:glassesButtons];
-            default:
-                break;
-            }
+        [self setAvatarSettings:settings];
         btn.selected = YES;
     }
 }
 
-- (void) addSkin
+-(void)setAvatarSettings:(ModelSettings *)settings
+{
+    switch (settings.type) {
+        case skin:
+            self.avatarSettings.skin = settings;
+            [self unsetButtons:skinButtons];
+            break;
+        case body:
+            self.avatarSettings.body = settings;
+            [self unsetButtons:bodyButtons];
+            break;
+        case hair:
+            self.avatarSettings.hair = settings;
+            [self unsetButtons:hairButtons];
+            break;
+        case top:
+            self.avatarSettings.top = settings;
+            [self unsetButtons:topButtons];
+            break;
+        case bottom:
+            self.avatarSettings.bottom = settings;
+            [self unsetButtons:bottomButtons];
+            break;
+        case shoes:
+            self.avatarSettings.shoes = settings;
+            [self unsetButtons:shoesButtons];
+            break;
+        case glasses:
+            self.avatarSettings.glasses = settings;
+            [self unsetButtons:glassesButtons];
+        default:
+            break;
+    }
+}
+
+- (void) createSkinView
 {
     //Add Skin Color
     skinButtons = [[NSMutableArray alloc] init];
@@ -394,7 +394,7 @@
     [[[CCDirector sharedDirector] openGLView] addSubview:scrollView];
 }
 
-- (void) addHair
+- (void) createHairView
 {
     //Add Hair Style
     hairButtons = [[NSMutableArray alloc] init];
@@ -441,7 +441,7 @@
     [hairScrollView setContentSize:CGSizeMake(90 * sortedHairSets.count, 55)];
 }
 
-- (void) createTopClothesButtons
+- (void) createTopClothesView
 {
     //Add Top Clothese
     topButtons = [[NSMutableArray alloc] init];
@@ -489,7 +489,7 @@
     [topClohesScrollView setContentSize:CGSizeMake(88 * sortedTopSets.count, 110)];
 }
 
-- (void) addBottomClothese
+- (void) createBottomClothesView
 {
     //Add Bottom Clothese
     bottomButtons = [[NSMutableArray alloc] init];
@@ -536,7 +536,7 @@
     [bottomClohesScrollView setContentSize:CGSizeMake(90 * sortedBottomSets.count, 110)];
 }
 
-- (void) addShoes
+- (void) createShoesView
 {
     //Add Shoe Img
     shoesButtons = [[NSMutableArray alloc] init];
@@ -583,7 +583,7 @@
     [shoesScrollView setContentSize:CGSizeMake(90 * sortedShoesSets.count, 90)];
 }
 
-- (void) addGlasses
+- (void) createGlassesView
 {
     //Add glassImg
     glassesButtons =[[NSMutableArray alloc] init];
