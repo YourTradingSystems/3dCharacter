@@ -111,26 +111,23 @@
     [self addContentFromPODFile:@"male_model.pod"];
     mainNode = [self getNodeNamed: @"male_model.pod"];
     
-    /*if ([mainNode.name isEqualToString:@"male_model.pod"]){
-        [[mainNode getNodeNamed:@"Bip002_R_Toe0"] remove];
-        [[mainNode getNodeNamed:@"Bip002_L_Toe0"] remove];
-    }*/
-    
     //adjust main node w.r.t backdrop
     [mainNode setScale:CC3VectorMake(0.5, 0.5, 0.51)];
     
     CC3Vector loc =  mainNode.location;
     loc.x -= 5.5;
     loc.y += 2;
+    loc.z -= 1;
     mainNode.location = loc;
     
     //save restore point
     mainNodeSavedLocation = mainNode.location;
     mainNodeSavedRotation = mainNode.quaternion;
     
-    CCActionInterval *stride = [CC3Animate actionWithDuration:20.0];
-    [mainNode runAction:[CCRepeatForever actionWithAction:stride]];
-    //CCAction *pingPongAction = CCSequence::actions(action, action->reverse(), NULL);
+    CCActionInterval *action = [CC3Animate actionWithDuration:20.0];
+    CCAction *pingPongAction =[CCSequence actions:action, [action reverse], nil];
+    [mainNode runAction:[CCRepeatForever actionWithAction:pingPongAction]];
+    
     /*actions = [[NSMutableArray alloc] initWithCapacity:6];
     
     //init animation
@@ -182,21 +179,18 @@
     [self addContentFromPODFile:modelName];
     mainNode = [self getNodeNamed: modelName];
     
-    /*if ([mainNode.name isEqualToString:@"male_model.pod"]) {
-        [[mainNode getNodeNamed:@"Bip002_R_Toe0"] remove];
-        [[mainNode getNodeNamed:@"Bip002_L_Toe0"] remove];
-    }*/
-    
     //adjust main node w.r.t backdrop
     [mainNode setScale:CC3VectorMake(0.5, 0.5, 0.51)];
     
     CC3Vector loc =  mainNode.location;
     loc.x -= 5.5;
     loc.y += 2;
+    loc.z -= 1;
     mainNode.location = loc;
     
-    CCActionInterval *stride = [CC3Animate actionWithDuration:20.0];
-    [mainNode runAction:[CCRepeatForever actionWithAction:stride]];
+    CCActionInterval *action = [CC3Animate actionWithDuration:20.0];
+    CCAction *pingPongAction =[CCSequence actions:action, [action reverse], nil];
+    [mainNode runAction:[CCRepeatForever actionWithAction:pingPongAction]];
     
     //save restore point
     mainNodeSavedLocation = mainNode.location;
