@@ -31,6 +31,7 @@
     NSMutableArray *glassesButtons;
     
     UIScrollView *hairScrollView;
+    UIScrollView *skinScrollView;
     UIScrollView *topClohesScrollView;
     UIScrollView *bottomClohesScrollView;
     UIScrollView *shoesScrollView;
@@ -127,7 +128,7 @@
     
     self.avatarSettings.shoes = (ModelSettings*) ((UIButtonTag*)[shoesButtons objectAtIndex:0]).tagSettings;
     ((UIButtonTag*)[shoesButtons objectAtIndex:0]).selected = YES;
-    self.avatarSettings.skin = (ModelSettings*) ((UIButtonTag*)[shoesButtons objectAtIndex:0]).tagSettings;
+    self.avatarSettings.skin = (ModelSettings*) ((UIButtonTag*)[skinButtons objectAtIndex:2]).tagSettings;
     ((UIButtonTag*)[skinButtons objectAtIndex:2]).selected = YES;
     self.avatarSettings.top = (ModelSettings*) ((UIButtonTag*)[topButtons objectAtIndex:3]).tagSettings;
     ((UIButtonTag*)[topButtons objectAtIndex:3]).selected = YES;
@@ -158,7 +159,7 @@
     UIButton    *btnStart = [UIButton buttonWithType:UIButtonTypeCustom];
     btnStart.frame = CGRectMake(920,20,92,30);
     [btnStart setImage:[UIImage imageNamed:@"3dStartBtn"] forState:UIControlStateNormal];
-    [btnStart addTarget:self action:@selector(playAnim) forControlEvents:UIControlEventTouchUpInside];
+    //[btnStart addTarget:self action:@selector(playAnim) forControlEvents:UIControlEventTouchUpInside];
     [btnStart addTarget:self action:@selector(makeDefaultAvatar) forControlEvents:UIControlEventTouchUpInside];
     [[[CCDirector sharedDirector] openGLView] addSubview:btnStart];
     
@@ -224,6 +225,9 @@
     
     [self removeButtons:hairButtons];
     [self addHairButtons];
+    
+    [self removeButtons:skinButtons];
+    [self addSkinButtons];
     
     [self removeButtons:topButtons];
     [self addTopClothesButtons];
@@ -373,7 +377,20 @@
     skinTitleImg.image = [UIImage imageNamed:@"skinTitle"];
     [[[CCDirector sharedDirector] openGLView] addSubview:skinTitleImg];
     
-    UIScrollView    *scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(290, 290, 350,55)];
+    skinScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(290, 290, 350,55)];
+    
+    [self addSkinButtons];
+    
+    [skinScrollView setBackgroundColor:[UIColor colorWithRed:247.0/255.0 green:247.0 / 255.0 blue:247.0 / 255.0 alpha:1.0]];
+    skinScrollView.showsHorizontalScrollIndicator = NO;
+    skinScrollView.showsVerticalScrollIndicator = NO;
+    skinScrollView.scrollEnabled = NO;
+    
+    [[[CCDirector sharedDirector] openGLView] addSubview:skinScrollView];
+}
+
+-(void) addSkinButtons
+{
     NSArray* sortedSkinSets = [self getSortedTypeSettings:skin];
     
     for (int i = 0; i < sortedSkinSets.count; i ++)
@@ -381,17 +398,10 @@
         ModelSettings *model = sortedSkinSets[i];
         UIButtonTag *btn = [self createButtonWithTag: model];
         btn.frame = CGRectMake(60 * i,0,45,45);
-        [scrollView addSubview:btn];
+        [skinScrollView addSubview:btn];
         [skinButtons addObject:btn];
     }
-    
-    [scrollView setContentSize:CGSizeMake(60 * sortedSkinSets.count, 55)];
-    [scrollView setBackgroundColor:[UIColor colorWithRed:247.0/255.0 green:247.0 / 255.0 blue:247.0 / 255.0 alpha:1.0]];
-    scrollView.showsHorizontalScrollIndicator = NO;
-    scrollView.showsVerticalScrollIndicator = NO;
-    scrollView.scrollEnabled = NO;
-    
-    [[[CCDirector sharedDirector] openGLView] addSubview:scrollView];
+    [skinScrollView setContentSize:CGSizeMake(60 * sortedSkinSets.count, 55)];
 }
 
 - (void) createHairView
