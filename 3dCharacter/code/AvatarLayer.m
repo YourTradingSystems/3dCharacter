@@ -32,8 +32,8 @@
     
     UIScrollView *hairScrollView;
     UIScrollView *skinScrollView;
-    UIScrollView *topClohesScrollView;
-    UIScrollView *bottomClohesScrollView;
+    UIScrollView *topClothesScrollView;
+    UIScrollView *bottomClothesScrollView;
     UIScrollView *shoesScrollView;
     UIScrollView *glassesScrollView;
 }
@@ -460,22 +460,22 @@
     topClotheImg.image = [UIImage imageNamed:@"clotheTitle"];
     [[[CCDirector sharedDirector] openGLView] addSubview:topClotheImg];
     
-    topClohesScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(290, 400, 350,110)];
+    topClothesScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(290, 400, 350,110)];
     
-    [topClohesScrollView setBackgroundColor:[UIColor colorWithRed:247.0/255.0 green:247.0 / 255.0 blue:247.0 / 255.0 alpha:1.0]];
-    topClohesScrollView.pagingEnabled = YES;
-    topClohesScrollView.showsHorizontalScrollIndicator = NO;
-    topClohesScrollView.showsVerticalScrollIndicator = NO;
-    topClohesScrollView.tag = Avatar_TopClotheScr;
-    topClohesScrollView.delegate = self;
+    [topClothesScrollView setBackgroundColor:[UIColor colorWithRed:247.0/255.0 green:247.0 / 255.0 blue:247.0 / 255.0 alpha:1.0]];
+    topClothesScrollView.pagingEnabled = YES;
+    topClothesScrollView.showsHorizontalScrollIndicator = NO;
+    topClothesScrollView.showsVerticalScrollIndicator = NO;
+    topClothesScrollView.tag = Avatar_TopClotheScr;
+    topClothesScrollView.delegate = self;
 
     [self addTopClothesButtons];
     
-    [[[CCDirector sharedDirector] openGLView] addSubview:topClohesScrollView];
-    [topClohesScrollView release];
+    [[[CCDirector sharedDirector] openGLView] addSubview:topClothesScrollView];
+    [topClothesScrollView release];
     
     UIPageControl   *pageControl = [[UIPageControl alloc] initWithFrame:CGRectMake(290,520,350,20)];
-    pageControl.numberOfPages = topClohesScrollView.contentSize.width / Avatar_ScrollViewWidth;
+    pageControl.numberOfPages = topClothesScrollView.contentSize.width / Avatar_ScrollViewWidth;
     pageControl.pageIndicatorTintColor = [UIColor lightGrayColor];
     pageControl.currentPageIndicatorTintColor = [UIColor orangeColor];
     pageControl.tag = Avatar_TopClotheScr + 1000;
@@ -492,11 +492,11 @@
         ModelSettings *model = sortedTopSets[i];
         UIButtonTag *btn = [self createButtonWithTag: model];
         btn.frame = CGRectMake(88 * i, 0, 80, 100);
-        [topClohesScrollView addSubview:btn];
+        [topClothesScrollView addSubview:btn];
         [topButtons addObject:btn];
     }
     
-    [topClohesScrollView setContentSize:CGSizeMake(88 * sortedTopSets.count, 110)];
+    [topClothesScrollView setContentSize:CGSizeMake(88 * sortedTopSets.count, 110)];
 }
 
 - (void) createBottomClothesView
@@ -508,22 +508,22 @@
     bottomClotheImg.image = [UIImage imageNamed:@"bottomClotheTitle"];
     [[[CCDirector sharedDirector] openGLView] addSubview:bottomClotheImg];
     
-    bottomClohesScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(655, 400, 350,110)];
+    bottomClothesScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(655, 400, 350,110)];
     
-    [bottomClohesScrollView setBackgroundColor:[UIColor colorWithRed:247.0/255.0 green:247.0 / 255.0 blue:247.0 / 255.0 alpha:1.0]];
-    bottomClohesScrollView.pagingEnabled = YES;
-    bottomClohesScrollView.showsHorizontalScrollIndicator = NO;
-    bottomClohesScrollView.showsVerticalScrollIndicator = NO;
-    bottomClohesScrollView.tag = Avatar_BottomClotheScr;
-    bottomClohesScrollView.delegate = self;
+    [bottomClothesScrollView setBackgroundColor:[UIColor colorWithRed:247.0/255.0 green:247.0 / 255.0 blue:247.0 / 255.0 alpha:1.0]];
+    bottomClothesScrollView.pagingEnabled = YES;
+    bottomClothesScrollView.showsHorizontalScrollIndicator = NO;
+    bottomClothesScrollView.showsVerticalScrollIndicator = NO;
+    bottomClothesScrollView.tag = Avatar_BottomClotheScr;
+    bottomClothesScrollView.delegate = self;
     
     [self addBottomClothesButtons];
 
-    [[[CCDirector sharedDirector] openGLView] addSubview:bottomClohesScrollView];
-    [bottomClohesScrollView release];
+    [[[CCDirector sharedDirector] openGLView] addSubview:bottomClothesScrollView];
+    [bottomClothesScrollView release];
     
     UIPageControl   *pageControl = [[UIPageControl alloc] initWithFrame:CGRectMake(655,520,350,20)];
-    pageControl.numberOfPages = bottomClohesScrollView.contentSize.width / Avatar_ScrollViewWidth;
+    pageControl.numberOfPages = bottomClothesScrollView.contentSize.width / Avatar_ScrollViewWidth;
     pageControl.pageIndicatorTintColor = [UIColor lightGrayColor];
     pageControl.currentPageIndicatorTintColor = [UIColor orangeColor];
     pageControl.tag = Avatar_BottomClotheScr + 1000;
@@ -540,10 +540,10 @@
         ModelSettings* model = sortedBottomSets[i];
         UIButtonTag    *btn = [self createButtonWithTag: model];
         btn.frame = CGRectMake(90 * i ,0,80,100);
-        [bottomClohesScrollView addSubview:btn];
+        [bottomClothesScrollView addSubview:btn];
         [bottomButtons addObject:btn];
     }
-    [bottomClohesScrollView setContentSize:CGSizeMake(90 * sortedBottomSets.count, 110)];
+    [bottomClothesScrollView setContentSize:CGSizeMake(90 * sortedBottomSets.count, 110)];
 }
 
 - (void) createShoesView
