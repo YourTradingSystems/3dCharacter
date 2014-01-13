@@ -251,18 +251,14 @@
              @"skin5" : makeSettings(nil, @"skin5", skin, 144.0f, 97.0f, 69.0f),
              @"skin6" : makeSettings(nil, @"skin6", skin, 95.0f, 69.0f, 53.0f),
              
-             @"trousers1" : makeSettings(@"shorts1_male", @"trousers1_male", bottom, 164.0f, 164.0f, 164.0f),
-             @"trousers2" : makeSettings(@"shorts2_male", @"trousers2_male", bottom, 105.0f, 144.0f, 144.0f),
-             @"trousers3" : makeSettings(@"shorts1_male", @"trousers3_male", bottom, 69.0f, 77.0f, 116.0f),
-             @"trousers4" : makeSettings(@"shorts1_male", @"trousers4_male", bottom, 53.0f, 52.0f, 63.0f),
-             @"trousers5" : makeSettings(@"shorts1_male", @"trousers5_male", bottom, 42.0f, 35.0f, 79.0f),
-             @"trousers6" : makeSettings(@"shorts1_male", @"trousers6_male", bottom, 9.0f, 24.0f, 90.0f),
-             @"trousers7" : makeSettings(@"shorts1_male", @"trousers7_male", bottom, 164.0f, 164.0f, 164.0f),
-             @"trousers8" : makeSettings(@"shorts1_male", @"trousers8_male", bottom, 105.0f, 144.0f, 144.0f),
-             @"trousers9" : makeSettings(@"shorts1_male", @"trousers9_male", bottom, 69.0f, 77.0f, 116.0f),
-             @"trousers10" : makeSettings(@"shorts1_male", @"trousers10_male", bottom, 53.0f, 52.0f, 63.0f),
-             @"trousers11" : makeSettings(@"shorts1_male", @"trousers11_male", bottom, 42.0f, 35.0f, 79.0f),
-             @"trousers12" : makeSettings(@"shorts1_male", @"trousers12_male", bottom, 9.0f, 24.0f, 90.0f)};
+             @"trousers1" : makeSettings(@"shorts1_male", @"trousers1_male", bottom, 70.0f, 95.0f, 105.0f),
+             @"trousers2" : makeSettings(@"shorts1_male", @"trousers2_male", bottom, 100.0f, 116.0f, 66.0f),
+             @"trousers3" : makeSettings(@"shorts1_male", @"trousers3_male", bottom, 65.0f, 119.0f, 65.0f),
+             @"trousers4" : makeSettings(@"shorts1_male", @"trousers4_male", bottom, 137.0f, 87.0f, 51.0f),
+             @"trousers5" : makeSettings(@"shorts2_male", @"trousers5_male", bottom, 28.0f, 28.0f, 28.0f),
+             @"trousers6" : makeSettings(@"shorts2_male", @"trousers6_male", bottom, 202.0f, 127.0f, 124.0f),
+             @"trousers7" : makeSettings(@"shorts2_male", @"trousers7_male", bottom, 148.0f, 123.0f, 209.0f),
+             @"trousers8" : makeSettings(@"shorts2_male", @"trousers8_male", bottom, 192.0f, 213.0f, 90.0f)};
 }
 
 - (void)dealloc {

@@ -108,21 +108,8 @@
 	lamp.isDirectionalOnly = NO;
     lamp.opacity = 1.0;
 	[cam addChild: lamp];
-    [self addContentFromPODFile:@"male_model.pod"];
-    mainNode = [self getNodeNamed: @"male_model.pod"];
     
-    //adjust main node w.r.t backdrop
-    [mainNode setScale:CC3VectorMake(0.5, 0.5, 0.51)];
-    
-    CC3Vector loc =  mainNode.location;
-    loc.x -= 5.5;
-    loc.y += 2;
-    loc.z -= 1;
-    mainNode.location = loc;
-    
-    //save restore point
-    mainNodeSavedLocation = mainNode.location;
-    mainNodeSavedRotation = mainNode.quaternion;
+    [self setMainNode:@"male_model.pod"];
     
     CCActionInterval *action = [CC3Animate actionWithDuration:20.0];
     CCAction *pingPongAction =[CCSequence actions:action, [action reverse], nil];
@@ -178,6 +165,10 @@
     [self removeChild:mainNode];
     [self addContentFromPODFile:modelName];
     mainNode = [self getNodeNamed: modelName];
+    
+    //need this to do because we cant attach clothes to bones
+    CC3Node *cylinder = [mainNode getNodeNamed:@"Cylinder005"];
+    [cylinder remove];
     
     //adjust main node w.r.t backdrop
     [mainNode setScale:CC3VectorMake(0.5, 0.5, 0.51)];
