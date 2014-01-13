@@ -130,13 +130,13 @@
                 default:
                     break;
 			}
-			[self.text drawAtPoint:point forWidth:size.width withZFont:actualFont lineBreakMode:self.lineBreakMode];
+			[self.text drawAtPoint:point forWidth:size.width withZFont:actualFont lineBreakMode: (UILineBreakMode)self.lineBreakMode];
 		} else {
-			CGSize size = [self.text sizeWithZFont:actualFont constrainedToSize:origSize lineBreakMode:self.lineBreakMode numberOfLines:self.numberOfLines];
+			CGSize size = [self.text sizeWithZFont:actualFont constrainedToSize:origSize lineBreakMode:(UILineBreakMode)self.lineBreakMode numberOfLines:self.numberOfLines];
 			CGPoint point = rect.origin;
 			point.y += roundf((rect.size.height - size.height) / 2.0f);
 			rect = (CGRect){point, CGSizeMake(rect.size.width, size.height)};
-			[self.text drawInRect:rect withZFont:actualFont lineBreakMode:self.lineBreakMode alignment:self.textAlignment numberOfLines:self.numberOfLines];
+			[self.text drawInRect:rect withZFont:actualFont lineBreakMode:(UILineBreakMode)self.lineBreakMode alignment:self.textAlignment numberOfLines:self.numberOfLines];
 		}
 	} else {
 		ZAttributedString *attStr = self.zAttributedText;
@@ -155,11 +155,11 @@
 			}
 			attStr = mutStr;
 		}
-		CGSize size = [attStr sizeConstrainedToSize:rect.size lineBreakMode:self.lineBreakMode numberOfLines:self.numberOfLines];
+		CGSize size = [attStr sizeConstrainedToSize:rect.size lineBreakMode:(UILineBreakMode)self.lineBreakMode numberOfLines:self.numberOfLines];
 		CGPoint point = rect.origin;
 		point.y += roundf((rect.size.height - size.height) / 2.0f);
 		rect = (CGRect){point, CGSizeMake(rect.size.width, size.height)};
-		[attStr drawInRect:rect withLineBreakMode:self.lineBreakMode alignment:self.textAlignment numberOfLines:self.numberOfLines];
+		[attStr drawInRect:rect withLineBreakMode:(UILineBreakMode)self.lineBreakMode alignment:self.textAlignment numberOfLines:self.numberOfLines];
 	}
 }
 
@@ -181,9 +181,9 @@
 	} else {
 		if (numberOfLines > 0) bounds.size.height = MIN(bounds.size.height, self.zFont.leading * numberOfLines);
 		if (self.zAttributedText == nil) {
-			bounds.size = [self.text sizeWithZFont:self.zFont constrainedToSize:bounds.size lineBreakMode:self.lineBreakMode];
+			bounds.size = [self.text sizeWithZFont:self.zFont constrainedToSize:bounds.size lineBreakMode:(UILineBreakMode)self.lineBreakMode];
 		} else {
-			bounds.size = [self.zAttributedText sizeConstrainedToSize:bounds.size lineBreakMode:self.lineBreakMode];
+			bounds.size = [self.zAttributedText sizeConstrainedToSize:bounds.size lineBreakMode:(UILineBreakMode)self.lineBreakMode];
 		}
 	}
 	return bounds;
