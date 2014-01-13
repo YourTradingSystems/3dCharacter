@@ -293,7 +293,7 @@ static CCTexture2DPixelFormat defaultAlphaPixelFormat_ = kCCTexture2DPixelFormat
 		case kCCTexture2DPixelFormat_A8:
 			data = malloc(POTHigh * POTWide);
 			info = kCGImageAlphaOnly; 
-			context = CGBitmapContextCreate(data, POTWide, POTHigh, 8, POTWide, NULL, info);
+			context = CGBitmapContextCreate(data, POTWide, POTHigh, 8, POTWide, NULL, (CGBitmapInfo) info);
 			break;                    
 		default:
 			[NSException raise:NSInternalInconsistencyException format:@"Invalid pixel format"];
@@ -387,7 +387,7 @@ static CCTexture2DPixelFormat defaultAlphaPixelFormat_ = kCCTexture2DPixelFormat
 #endif
 
 	colorSpace = CGColorSpaceCreateDeviceGray();
-	context = CGBitmapContextCreate(data, POTWide, POTHigh, 8, POTWide, colorSpace, kCGImageAlphaNone);
+	context = CGBitmapContextCreate(data, POTWide, POTHigh, 8, POTWide, colorSpace, (CGBitmapInfo)kCGImageAlphaNone);
 	CGColorSpaceRelease(colorSpace);
 	
 	if( ! context ) {
@@ -408,7 +408,7 @@ static CCTexture2DPixelFormat defaultAlphaPixelFormat_ = kCCTexture2DPixelFormat
 	
 #if CC_FONT_LABEL_SUPPORT
 	else // ZFont class 
-		[string drawInRect:CGRectMake(0, 0, dimensions.width, dimensions.height) withZFont:uifont lineBreakMode:lineBreakMode alignment:alignment];
+		[string drawInRect:CGRectMake(0, 0, dimensions.width, dimensions.height) withZFont:uifont lineBreakMode:(UILineBreakMode)lineBreakMode alignment:alignment];
 #endif
 	
 	UIGraphicsPopContext();
@@ -497,7 +497,8 @@ static CCTexture2DPixelFormat defaultAlphaPixelFormat_ = kCCTexture2DPixelFormat
 	id font;
 	font = [UIFont fontWithName:name size:size];
 	if( font )
-		dim = [string sizeWithFont:font];
+        //dim = [string sizeWithFont:font];
+		dim = [string sizeWithAttributes:font];
 
 #if CC_FONT_LABEL_SUPPORT
 	if( ! font ){

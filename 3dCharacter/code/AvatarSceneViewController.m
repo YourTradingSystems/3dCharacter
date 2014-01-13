@@ -126,7 +126,7 @@
     
     CCActionInterval *action = [CC3Animate actionWithDuration:20.0];
     CCAction *pingPongAction =[CCSequence actions:action, [action reverse], nil];
-    [mainNode runAction:[CCRepeatForever actionWithAction:pingPongAction]];
+    [mainNode runAction:[CCRepeatForever actionWithAction:(CCActionInterval*) pingPongAction]];
     
     /*actions = [[NSMutableArray alloc] initWithCapacity:6];
     
@@ -190,7 +190,7 @@
     
     CCActionInterval *action = [CC3Animate actionWithDuration:20.0];
     CCAction *pingPongAction =[CCSequence actions:action, [action reverse], nil];
-    [mainNode runAction:[CCRepeatForever actionWithAction:pingPongAction]];
+    [mainNode runAction:[CCRepeatForever actionWithAction: (CCActionInterval*) pingPongAction]];
     
     //save restore point
     mainNodeSavedLocation = mainNode.location;
