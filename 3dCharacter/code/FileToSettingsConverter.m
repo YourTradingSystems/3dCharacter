@@ -11,8 +11,10 @@
 #import "Point3d.h"
 #import "BodyModelSettings.h"
 
-#define makeRgb(r,g,b) [UIColor colorWithRed:r/255.0f green:g / 255.0f blue:b / 255.0f alpha:1.0]]
-#define makeSettings(modelName, screenName, type, r, g, b) [[ModelSettings alloc]initWithType: type andModel: modelName ansScreen: screenName andColor: makeRgb(r, g, b)
+#define makeRgb(r,g,b) [UIColor colorWithRed:r/255.0f green:g / 255.0f blue:b / 255.0f alpha:1.0]
+#define makeColorFromRGBA(r,g,b,a) [UIColor colorWithRed:r/255.0f green:g/255.0f blue:b/255.0f alpha:a/100.0]
+#define makeSettings(modelName, screenName, type, r, g, b) [[ModelSettings alloc]initWithType: type andModel: modelName ansScreen: screenName andColor: makeRgb(r, g, b)]
+#define makeSettingsWithAlpha(modelName, screenName, type, r, g, b, a) [[ModelSettings alloc]initWithType: type andModel: modelName ansScreen: screenName andColor: makeColorFromRGBA(r, g, b, a)]
 
 @implementation FileToSettingsConverter
 
@@ -106,17 +108,17 @@
              @"cha5" : [self initializeBodySpines:20 withY:40 withZ:60 andScreen:@"cha5"],
              
              @"glasses1" : makeSettings(@"none", @"glasses1", glasses, 200.0f, 50.0f, 50.0f),
-             @"glasses2" : makeSettings(@"glasses1", @"glasses2", glasses, 200.0f, 50.0f, 50.0f),
-             @"glasses3" : makeSettings(@"glasses1", @"glasses3", glasses, 255.0f, 0.0f, 0.0f),
-             @"glasses4" : makeSettings(@"glasses1", @"glasses4", glasses, 255.0f, 255.0f, 255.0f),
-             @"glasses5" : makeSettings(@"glasses1", @"glasses5", glasses, 200.0f, 50.0f, 50.0f),
-             @"glasses6" : makeSettings(@"glasses1", @"glasses6", glasses, 200.0f, 50.0f, 50.0f),
-             @"glasses7" : makeSettings(@"glasses1", @"glasses7", glasses, 200.0f, 50.0f, 50.0f),
-             @"glasses8" : makeSettings(@"glasses1", @"glasses8", glasses, 200.0f, 50.0f, 50.0f),
-             @"glasses9" : makeSettings(@"glasses1", @"glasses9", glasses, 200.0f, 50.0f, 50.0f),
-             @"glasses10" : makeSettings(@"glasses1", @"glasses10", glasses, 200.0f, 50.0f, 50.0f),
-             @"glasses11" : makeSettings(@"glasses1", @"glasses11", glasses, 200.0f, 50.0f, 50.0f),
-             @"glasses12" : makeSettings(@"glasses1", @"glasses12", glasses, 200.0f, 50.0f, 50.0f),
+             @"glasses2" : makeSettingsWithAlpha(@"glasses1", @"glasses2", glasses, 200.0f, 50.0f, 50.0f, 30.0f),
+             @"glasses3" : makeSettingsWithAlpha(@"glasses1", @"glasses3", glasses, 255.0f, 0.0f, 0.0f, 30.0f),
+             @"glasses4" : makeSettingsWithAlpha(@"glasses1", @"glasses4", glasses, 255.0f, 255.0f, 255.0f, 30.0f),
+             @"glasses5" : makeSettingsWithAlpha(@"glasses1", @"glasses5", glasses, 200.0f, 50.0f, 50.0f, 30.0f),
+             @"glasses6" : makeSettingsWithAlpha(@"glasses1", @"glasses6", glasses, 200.0f, 50.0f, 50.0f, 30.0f),
+             @"glasses7" : makeSettingsWithAlpha(@"glasses1", @"glasses7", glasses, 200.0f, 50.0f, 50.0f, 30.0f),
+             @"glasses8" : makeSettingsWithAlpha(@"glasses1", @"glasses8", glasses, 200.0f, 50.0f, 50.0f, 30.0f),
+             @"glasses9" : makeSettingsWithAlpha(@"glasses1", @"glasses9", glasses, 200.0f, 50.0f, 50.0f, 30.0f),
+             @"glasses10" : makeSettingsWithAlpha(@"glasses1", @"glasses10", glasses, 200.0f, 50.0f, 50.0f, 30.0f),
+             @"glasses11" : makeSettingsWithAlpha(@"glasses1", @"glasses11", glasses, 200.0f, 50.0f, 50.0f, 30.0f),
+             @"glasses12" : makeSettingsWithAlpha(@"glasses1", @"glasses12", glasses, 200.0f, 50.0f, 50.0f, 30.0f),
              
              @"hairstyle1" : makeSettings(@"hair1", @"hairstyle1", hair, 200.0f, 95.0f, 20.0f),
              @"hairstyle2" : makeSettings(@"hair2", @"hairstyle2", hair, 200.0f, 95.0f, 20.0f),
@@ -194,17 +196,14 @@
              @"cha5" : [self initializeBodySpines:20 withY:40 withZ:60 andScreen:@"cha5"],
              
              @"glasses1" : makeSettings(@"none", @"glasses1", glasses, 200.0f, 50.0f, 50.0f),
-             @"glasses2" : makeSettings(@"glasses1_male", @"glasses2", glasses, 200.0f, 50.0f, 50.0f),
-             @"glasses3" : makeSettings(@"glasses1_male", @"glasses3", glasses, 200.0f, 50.0f, 50.0f),
-             @"glasses4" : makeSettings(@"glasses1_male", @"glasses4", glasses, 200.0f, 50.0f, 50.0f),
-             @"glasses5" : makeSettings(@"glasses1_male", @"glasses5", glasses, 200.0f, 50.0f, 50.0f),
-             @"glasses6" : makeSettings(@"glasses1_male", @"glasses6", glasses, 200.0f, 50.0f, 50.0f),
-             @"glasses7" : makeSettings(@"glasses1_male", @"glasses7", glasses, 200.0f, 50.0f, 50.0f),
-             @"glasses8" : makeSettings(@"glasses1_male", @"glasses8", glasses, 200.0f, 50.0f, 50.0f),
-             @"glasses9" : makeSettings(@"glasses1_male", @"glasses9", glasses, 200.0f, 50.0f, 50.0f),
-             @"glasses10" : makeSettings(@"glasses1_male", @"glasses10", glasses, 200.0f, 50.0f, 50.0f),
-             @"glasses11" : makeSettings(@"glasses1_male", @"glasses11", glasses, 200.0f, 50.0f, 50.0f),
-             @"glasses12" : makeSettings(@"glasses1_male", @"glasses12", glasses, 200.0f, 50.0f, 50.0f),
+             @"glasses2" : makeSettingsWithAlpha(@"glasses1_male", @"glasses2", glasses, 63.0f, 3.0f, 19.0f, 40.0f),
+             @"glasses3" : makeSettingsWithAlpha(@"glasses1_male", @"glasses3", glasses, 29.0f, 18.0f, 11.0f, 40.0f),
+             @"glasses4" : makeSettingsWithAlpha(@"glasses1_male", @"glasses4", glasses, 74.0f, 65.0f, 66.0f, 40.0f),
+             @"glasses5" : makeSettingsWithAlpha(@"glasses1_male", @"glasses5", glasses, 129.0f, 74.0f, 83.0f, 40.0f),
+             @"glasses6" : makeSettingsWithAlpha(@"glasses1_male", @"glasses6", glasses, 14.0f, 0.0f, 46.0f, 40.0f),
+             @"glasses7" : makeSettingsWithAlpha(@"glasses1_male", @"glasses7", glasses, 122.0f, 58.0f, 12.0f, 40.0f),
+             @"glasses8" : makeSettingsWithAlpha(@"glasses1_male", @"glasses8", glasses, 63.0f, 3.0f, 19.0f, 40.0f),
+             @"glasses9" : makeSettingsWithAlpha(@"glasses1_male", @"glasses9", glasses, 24.0f, 13.0f, 8.0f, 40.0f),
              
              @"hairstyle1" : makeSettings(@"hair1_male", @"hairstyle1_male", hair, 200.0f, 100.0f, 0.0f),
              @"hairstyle2" : makeSettings(@"hair1_male", @"hairstyle2_male", hair, 200.0f, 100.0f, 0.0f),
@@ -219,18 +218,18 @@
              @"hairstyle11" : makeSettings(@"hair1_male", @"hairstyle11_male", hair, 200.0f, 50.0f, 0.0f),
              @"hairstyle12" : makeSettings(@"hair1_male", @"hairstyle12_male", hair, 200.0f, 50.0f, 0.0f),
              
-             @"shirt1" : makeSettings(@"shirt_long_male", @"shirt1_male", top, 127.0f, 0.0f, 0.0f),
-             @"shirt2" : makeSettings(@"shirt_long_male", @"shirt2_male", top, 38.0f, 127.0f, 0.0f),
-             @"shirt3" : makeSettings(@"shirt_long_male", @"shirt3_male", top, 0.0f, 148.0f, 255.0f),
-             @"shirt4" : makeSettings(@"shirt_long_male", @"shirt4_male", top, 255.0f, 106.0f, 0.0f),
-             @"shirt5" : makeSettings(@"shirt_long2_male", @"shirt5_male", top, 127.0f, 0.0f, 0.0f),
-             @"shirt6" : makeSettings(@"shirt_long2_male", @"shirt6_male", top, 38.0f, 127.0f, 0.0f),
-             @"shirt7" : makeSettings(@"shirt_long2_male", @"shirt7_male", top, 0.0f, 148.0f, 255.0f),
-             @"shirt8" : makeSettings(@"shirt_long2_male", @"shirt8_male", top, 157.0f, 141.0f, 110.0f),
-             @"shirt9" : makeSettings(@"shirt_long_male", @"shirt9_male", top, 127.0f, 0.0f, 0.0f),
-             @"shirt10" : makeSettings(@"shirt_long_male", @"shirt10_male", top, 0.0f, 157.0f, 0.0f),
-             @"shirt11" : makeSettings(@"shirt_long_male", @"shirt11_male", top, 86.0f, 64.0f, 42.0f),
-             @"shirt12" : makeSettings(@"shirt_long_male", @"shirt12_male", top, 255.0f, 105.0f, 0.0f),
+             @"shirt1" : makeSettings(@"shirt_long_male", @"shirt1_male", top, 190.0f, 190.0f, 190.0f),
+             @"shirt2" : makeSettings(@"shirt_long_male", @"shirt2_male", top, 176.0f, 208.0f, 155.0f),
+             @"shirt3" : makeSettings(@"shirt_long_male", @"shirt3_male", top, 196.0f, 172.0f, 205.0f),
+             @"shirt4" : makeSettings(@"shirt_long_male", @"shirt4_male", top, 213.0f, 164.0f, 166.0f),
+             @"shirt5" : makeSettings(@"shirt_long2_male", @"shirt5_male", top, 83.0f, 101.0f, 60.0f),
+             @"shirt6" : makeSettings(@"shirt_long2_male", @"shirt6_male", top, 55.0f, 92.0f, 93.0f),
+             @"shirt7" : makeSettings(@"shirt_long2_male", @"shirt7_male", top, 114.0f, 67.0f, 42.0f),
+             @"shirt8" : makeSettings(@"shirt_long2_male", @"shirt8_male", top, 100.0f, 103.0f, 24.0f),
+             @"shirt9" : makeSettings(@"jacket_1", @"shirt9_male", top, 255.0f, 230.0f, 224.0f),
+             @"shirt10" : makeSettings(@"jacket_1", @"shirt10_male", top, 234.0f, 148.0f, 109.0f),
+             @"shirt11" : makeSettings(@"jacket_1", @"shirt11_male", top, 236.0f, 206.0f, 103.0f),
+             @"shirt12" : makeSettings(@"jacket_1", @"shirt12_male", top, 154.0f, 236.0f, 109.0f),
              
              @"shoes1" : makeSettings(@"shoes1_male", @"shoes1", shoes, 213.0f, 189.0f, 164.0f),
              @"shoes2" : makeSettings(@"shoes1_male", @"shoes2", shoes, 178.0f, 139.0f, 104.0f),
@@ -253,7 +252,7 @@
              @"skin6" : makeSettings(nil, @"skin6", skin, 95.0f, 69.0f, 53.0f),
              
              @"trousers1" : makeSettings(@"shorts1_male", @"trousers1_male", bottom, 164.0f, 164.0f, 164.0f),
-             @"trousers2" : makeSettings(@"shorts1_male", @"trousers2_male", bottom, 105.0f, 144.0f, 144.0f),
+             @"trousers2" : makeSettings(@"shorts2_male", @"trousers2_male", bottom, 105.0f, 144.0f, 144.0f),
              @"trousers3" : makeSettings(@"shorts1_male", @"trousers3_male", bottom, 69.0f, 77.0f, 116.0f),
              @"trousers4" : makeSettings(@"shorts1_male", @"trousers4_male", bottom, 53.0f, 52.0f, 63.0f),
              @"trousers5" : makeSettings(@"shorts1_male", @"trousers5_male", bottom, 42.0f, 35.0f, 79.0f),

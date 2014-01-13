@@ -128,8 +128,8 @@
     
     self.avatarSettings.shoes = (ModelSettings*) ((UIButtonTag*)[shoesButtons objectAtIndex:0]).tagSettings;
     ((UIButtonTag*)[shoesButtons objectAtIndex:0]).selected = YES;
-    self.avatarSettings.skin = (ModelSettings*) ((UIButtonTag*)[skinButtons objectAtIndex:3]).tagSettings;
-    ((UIButtonTag*)[skinButtons objectAtIndex:3]).selected = YES;
+    self.avatarSettings.skin = (ModelSettings*) ((UIButtonTag*)[skinButtons objectAtIndex:2]).tagSettings;
+    ((UIButtonTag*)[skinButtons objectAtIndex:2]).selected = YES;
     self.avatarSettings.top = (ModelSettings*) ((UIButtonTag*)[topButtons objectAtIndex:3]).tagSettings;
     ((UIButtonTag*)[topButtons objectAtIndex:3]).selected = YES;
     self.avatarSettings.bottom = (ModelSettings*) ((UIButtonTag*)[bottomButtons objectAtIndex:0]).tagSettings;
