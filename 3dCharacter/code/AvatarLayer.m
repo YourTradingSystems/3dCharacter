@@ -12,6 +12,7 @@
 #import "AvatarModelSettings.h"
 #import "FileToSettingsConverter.h"
 #import "UIButtonTag.h"
+#import "ButtonsScrollController.h"
 
 @interface CC3Layer(Private)
 
@@ -27,14 +28,16 @@
     NSMutableArray *hairButtons;
     NSMutableArray *topButtons;
     NSMutableArray *bottomButtons;
-    NSMutableArray *shoesButtons;
+    //NSMutableArray *shoesButtons;
     NSMutableArray *glassesButtons;
+    
+    ButtonsScrollController *shoesController;
     
     UIScrollView *hairScrollView;
     UIScrollView *skinScrollView;
     UIScrollView *topClothesScrollView;
     UIScrollView *bottomClothesScrollView;
-    UIScrollView *shoesScrollView;
+    //UIScrollView *shoesScrollView;
     UIScrollView *glassesScrollView;
 }
 
@@ -106,7 +109,12 @@
     [self createHairView];
     [self createTopClothesView];
     [self createBottomClothesView];
-    [self createShoesView];
+    
+    shoesController = [[ButtonsScrollController alloc] init];
+    [shoesController createShoesView];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onShoesSettingsChanged:) name:@"settingChanged" object:nil];
+    
+    //[self createShoesView];
     [self createGlassesView];
     
     [self playAnim];
@@ -116,9 +124,15 @@
     [self makeDefaultAvatar];
 }
 
+-(void) onShoesSettingsChanged:(NSNotification *) notification
+{
+    ModelSettings* settings = (ModelSettings*)[notification.userInfo objectForKey:@"shoes"];
+    self.avatarSettings.shoes = settings;
+}
+
 - (void) makeDefaultAvatar
 {
-    [self unsetButtons:shoesButtons];
+    //[self unsetButtons:shoesButtons];
     [self unsetButtons:skinButtons];
     [self unsetButtons:topButtons];
     [self unsetButtons:bottomButtons];
@@ -126,8 +140,11 @@
     [self unsetButtons:bodyButtons];
     [self unsetButtons:glassesButtons];
     
-    self.avatarSettings.shoes = (ModelSettings*) ((UIButtonTag*)[shoesButtons objectAtIndex:0]).tagSettings;
-    ((UIButtonTag*)[shoesButtons objectAtIndex:0]).selected = YES;
+    //self.avatarSettings.shoes = (ModelSettings*) ((UIButtonTag*)[shoesButtons objectAtIndex:0]).tagSettings;
+    //((UIButtonTag*)[shoesButtons objectAtIndex:0]).selected = YES;
+    
+    [shoesController setSelectedItemAtIndex:2];
+    
     self.avatarSettings.skin = (ModelSettings*) ((UIButtonTag*)[skinButtons objectAtIndex:2]).tagSettings;
     ((UIButtonTag*)[skinButtons objectAtIndex:2]).selected = YES;
     self.avatarSettings.top = (ModelSettings*) ((UIButtonTag*)[topButtons objectAtIndex:3]).tagSettings;
@@ -235,8 +252,10 @@
     [self removeButtons:bottomButtons];
     [self addBottomClothesButtons];
     
-    [self removeButtons:shoesButtons];
-    [self addShoesButtons];
+    //[self removeButtons:shoesButtons];
+    //[self addShoesButtons];
+    
+    [shoesController updateButtons];
     
     [self removeButtons:glassesButtons];
     [self addGlassesButtons];
@@ -356,10 +375,10 @@
             self.avatarSettings.bottom = settings;
             [self unsetButtons:bottomButtons];
             break;
-        case shoes:
+        /*case shoes:
             self.avatarSettings.shoes = settings;
             [self unsetButtons:shoesButtons];
-            break;
+            break;*/
         case glasses:
             self.avatarSettings.glasses = settings;
             [self unsetButtons:glassesButtons];
@@ -546,7 +565,7 @@
     [bottomClothesScrollView setContentSize:CGSizeMake(90 * sortedBottomSets.count, 110)];
 }
 
-- (void) createShoesView
+/*- (void) createShoesView
 {
     //Add Shoe Img
     shoesButtons = [[NSMutableArray alloc] init];
@@ -591,7 +610,7 @@
         [shoesButtons addObject: btn];
     }
     [shoesScrollView setContentSize:CGSizeMake(90 * sortedShoesSets.count, 90)];
-}
+}*/
 
 - (void) createGlassesView
 {

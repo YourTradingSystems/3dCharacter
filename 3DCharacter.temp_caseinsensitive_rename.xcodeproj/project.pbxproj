@@ -379,6 +379,7 @@
 		84083CF4187FDA93008026A9 /* shirt12.png in Resources */ = {isa = PBXBuildFile; fileRef = 84083CF2187FDA93008026A9 /* shirt12.png */; };
 		84098317188004FE0020DFE5 /* t-shirt_03.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 84098316188004FE0020DFE5 /* t-shirt_03.jpg */; };
 		84098319188020BB0020DFE5 /* pants_.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 84098318188020BB0020DFE5 /* pants_.jpg */; };
+		8409831E188540170020DFE5 /* ButtonsScrollController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8409831D188540170020DFE5 /* ButtonsScrollController.m */; };
 		84342C92186C119300B4A6F6 /* cha1.png in Resources */ = {isa = PBXBuildFile; fileRef = 84342C8D186C119300B4A6F6 /* cha1.png */; };
 		84342C93186C119300B4A6F6 /* cha2.png in Resources */ = {isa = PBXBuildFile; fileRef = 84342C8E186C119300B4A6F6 /* cha2.png */; };
 		84342C95186C119300B4A6F6 /* cha4.png in Resources */ = {isa = PBXBuildFile; fileRef = 84342C90186C119300B4A6F6 /* cha4.png */; };
@@ -1080,6 +1081,8 @@
 		84083CF2187FDA93008026A9 /* shirt12.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = shirt12.png; sourceTree = "<group>"; };
 		84098316188004FE0020DFE5 /* t-shirt_03.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "t-shirt_03.jpg"; sourceTree = "<group>"; };
 		84098318188020BB0020DFE5 /* pants_.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = pants_.jpg; sourceTree = "<group>"; };
+		8409831C188540170020DFE5 /* ButtonsScrollController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ButtonsScrollController.h; sourceTree = "<group>"; };
+		8409831D188540170020DFE5 /* ButtonsScrollController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ButtonsScrollController.m; sourceTree = "<group>"; };
 		84342C8D186C119300B4A6F6 /* cha1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cha1.png; sourceTree = "<group>"; };
 		84342C8E186C119300B4A6F6 /* cha2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cha2.png; sourceTree = "<group>"; };
 		84342C90186C119300B4A6F6 /* cha4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cha4.png; sourceTree = "<group>"; };
@@ -1307,36 +1310,38 @@
 				08A1019D1857269C00B26770 /* AvatarConstants.h */,
 				08A1019E1857269C00B26770 /* AvatarLayer.h */,
 				08A101971857269C00B26770 /* AvatarLayer.m */,
+				84D8D81D1859B70C00B328B2 /* AvatarModelSettings.h */,
+				84D8D81E1859B70C00B328B2 /* AvatarModelSettings.m */,
 				08A1019F1857269C00B26770 /* AvatarSceneViewController.h */,
 				08A101991857269C00B26770 /* AvatarSceneViewController.m */,
-				08A1019A1857269C00B26770 /* CharacterViewController.h */,
-				08A101981857269C00B26770 /* CharacterViewController.m */,
+				84342CBB186DB87900B4A6F6 /* BodyModelSettings.h */,
+				84342CBC186DB87900B4A6F6 /* BodyModelSettings.m */,
+				8409831C188540170020DFE5 /* ButtonsScrollController.h */,
+				8409831D188540170020DFE5 /* ButtonsScrollController.m */,
 				08A1046918573E6200B26770 /* CCManager.h */,
 				08A1046A18573E6200B26770 /* CCManager.m */,
+				08A1019A1857269C00B26770 /* CharacterViewController.h */,
+				08A101981857269C00B26770 /* CharacterViewController.m */,
+				84D8D8201859F10C00B328B2 /* FileToSettingsConverter.h */,
+				84D8D8211859F10C00B328B2 /* FileToSettingsConverter.m */,
+				08A1047218573FA900B26770 /* FontLabel.h */,
+				08A1047318573FA900B26770 /* FontLabel.m */,
 				08A1046C18573F8200B26770 /* FontLabelStringDrawing.h */,
 				08A1046D18573F8200B26770 /* FontLabelStringDrawing.m */,
 				08A1046E18573F8200B26770 /* FontManager.h */,
 				08A1046F18573F8200B26770 /* FontManager.m */,
-				08A1047218573FA900B26770 /* FontLabel.h */,
-				08A1047318573FA900B26770 /* FontLabel.m */,
+				08A10495185756F500B26770 /* GameConfig.h */,
+				84D8D826185AF85D00B328B2 /* ModelSettings.h */,
+				84D8D827185AF85E00B328B2 /* ModelSettings.m */,
+				84342C9C186C24CE00B4A6F6 /* Point3d.h */,
+				84342C9D186C24CE00B4A6F6 /* Point3d.m */,
+				84D8D829185B374100B328B2 /* UIButtonTag.h */,
+				84D8D82A185B374100B328B2 /* UIButtonTag.m */,
 				08A1047418573FA900B26770 /* ZAttributedString.h */,
 				08A1047518573FA900B26770 /* ZAttributedString.m */,
 				08A1047618573FA900B26770 /* ZAttributedStringPrivate.h */,
 				08A1047718573FA900B26770 /* ZFont.h */,
 				08A1047818573FA900B26770 /* ZFont.m */,
-				08A10495185756F500B26770 /* GameConfig.h */,
-				84D8D81D1859B70C00B328B2 /* AvatarModelSettings.h */,
-				84D8D81E1859B70C00B328B2 /* AvatarModelSettings.m */,
-				84D8D8201859F10C00B328B2 /* FileToSettingsConverter.h */,
-				84D8D8211859F10C00B328B2 /* FileToSettingsConverter.m */,
-				84D8D826185AF85D00B328B2 /* ModelSettings.h */,
-				84D8D827185AF85E00B328B2 /* ModelSettings.m */,
-				84D8D829185B374100B328B2 /* UIButtonTag.h */,
-				84D8D82A185B374100B328B2 /* UIButtonTag.m */,
-				84342C9C186C24CE00B4A6F6 /* Point3d.h */,
-				84342C9D186C24CE00B4A6F6 /* Point3d.m */,
-				84342CBB186DB87900B4A6F6 /* BodyModelSettings.h */,
-				84342CBC186DB87900B4A6F6 /* BodyModelSettings.m */,
 			);
 			path = code;
 			sourceTree = "<group>";
@@ -2681,6 +2686,7 @@
 				08A103231857282500B26770 /* CC3UtilityMeshNodes.m in Sources */,
 				08A1034F1857282500B26770 /* CC3PerformanceStatistics.m in Sources */,
 				08A102E31857282500B26770 /* CC3ModelSampleFactory.m in Sources */,
+				8409831E188540170020DFE5 /* ButtonsScrollController.m in Sources */,
 				08A10425185728C600B26770 /* CCAnimationCache.m in Sources */,
 				08A10431185728C600B26770 /* CCLayer.m in Sources */,
 				08A103441857282500B26770 /* CC3GLSLVariable.m in Sources */,
