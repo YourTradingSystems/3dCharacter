@@ -113,7 +113,8 @@
     
     CCActionInterval *action = [CC3Animate actionWithDuration:20.0];
     CCAction *pingPongAction =[CCSequence actions:action, [action reverse], nil];
-    [mainNode runAction:[CCRepeatForever actionWithAction:(CCActionInterval*) pingPongAction]];
+    [mainNode
+     runAction:[CCRepeatForever actionWithAction:(CCActionInterval*) pingPongAction]];
     
     /*actions = [[NSMutableArray alloc] initWithCapacity:6];
     
@@ -169,6 +170,8 @@
     //need this to do because we cant attach clothes to bones
     CC3Node *cylinder = [mainNode getNodeNamed:@"Cylinder005"];
     [cylinder remove];
+    
+    
     
     //adjust main node w.r.t backdrop
     [mainNode setScale:CC3VectorMake(0.5, 0.5, 0.51)];
