@@ -206,7 +206,7 @@
              @"glasses9" : makeSettingsWithAlpha(@"glasses1_male", @"glasses9", glasses, 24.0f, 13.0f, 8.0f, 40.0f),
              
              @"hairstyle1" : makeSettings(@"hair1_male", @"hairstyle1_male", hair, 200.0f, 100.0f, 0.0f),
-             @"hairstyle2" : makeSettings(@"hair1_male", @"hairstyle2_male", hair, 200.0f, 100.0f, 0.0f),
+             @"hairstyle2" : makeSettings(@"hair1_male", @"hairstyle2_male", hair, 50.0f, 200.0f, 50.0f),
              @"hairstyle3" : makeSettings(@"hair1_male", @"hairstyle3_male", hair, 200.0f, 100.0f, 0.0f),
              @"hairstyle4" : makeSettings(@"hair1_male", @"hairstyle4_male", hair, 200.0f, 100.0f, 0.0f),
              @"hairstyle5" : makeSettings(@"hair1_male", @"hairstyle5_male", hair, 200.0f, 50.0f, 0.0f),
@@ -258,7 +258,7 @@
              @"trousers5" : makeSettings(@"shorts2_male", @"trousers5_male", bottom, 28.0f, 28.0f, 28.0f),
              @"trousers6" : makeSettings(@"shorts2_male", @"trousers6_male", bottom, 202.0f, 127.0f, 124.0f),
              @"trousers7" : makeSettings(@"shorts2_male", @"trousers7_male", bottom, 148.0f, 123.0f, 209.0f),
-             @"trousers8" : makeSettings(@"shorts2_male", @"trousers8_male", bottom, 192.0f, 213.0f, 90.0f)};
+             @"trousers8" : makeSettings(@"shorts2_male", @"trousers8_male", bottom, 192.0f, 213.0f, 144.0f)};
 }
 
 - (void)dealloc {
