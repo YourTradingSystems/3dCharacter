@@ -377,7 +377,8 @@
 		84083CF3187FDA93008026A9 /* shirt10.png in Resources */ = {isa = PBXBuildFile; fileRef = 84083CF1187FDA93008026A9 /* shirt10.png */; };
 		84083CF4187FDA93008026A9 /* shirt12.png in Resources */ = {isa = PBXBuildFile; fileRef = 84083CF2187FDA93008026A9 /* shirt12.png */; };
 		84098317188004FE0020DFE5 /* t-shirt_03.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 84098316188004FE0020DFE5 /* t-shirt_03.jpg */; };
-		84098319188020BB0020DFE5 /* pants_.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 84098318188020BB0020DFE5 /* pants_.jpg */; };
+		84098319188020BB0020DFE5 /* pants.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 84098318188020BB0020DFE5 /* pants.jpg */; };
+		84098320188598F30020DFE5 /* top.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 8409831F188598F30020DFE5 /* top.jpg */; };
 		84342C92186C119300B4A6F6 /* cha1.png in Resources */ = {isa = PBXBuildFile; fileRef = 84342C8D186C119300B4A6F6 /* cha1.png */; };
 		84342C93186C119300B4A6F6 /* cha2.png in Resources */ = {isa = PBXBuildFile; fileRef = 84342C8E186C119300B4A6F6 /* cha2.png */; };
 		84342C95186C119300B4A6F6 /* cha4.png in Resources */ = {isa = PBXBuildFile; fileRef = 84342C90186C119300B4A6F6 /* cha4.png */; };
@@ -1077,7 +1078,8 @@
 		84083CF1187FDA93008026A9 /* shirt10.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = shirt10.png; sourceTree = "<group>"; };
 		84083CF2187FDA93008026A9 /* shirt12.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = shirt12.png; sourceTree = "<group>"; };
 		84098316188004FE0020DFE5 /* t-shirt_03.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "t-shirt_03.jpg"; sourceTree = "<group>"; };
-		84098318188020BB0020DFE5 /* pants_.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = pants_.jpg; sourceTree = "<group>"; };
+		84098318188020BB0020DFE5 /* pants.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = pants.jpg; sourceTree = "<group>"; };
+		8409831F188598F30020DFE5 /* top.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = top.jpg; sourceTree = "<group>"; };
 		84342C8D186C119300B4A6F6 /* cha1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cha1.png; sourceTree = "<group>"; };
 		84342C8E186C119300B4A6F6 /* cha2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cha2.png; sourceTree = "<group>"; };
 		84342C90186C119300B4A6F6 /* cha4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cha4.png; sourceTree = "<group>"; };
@@ -1174,6 +1176,7 @@
 		04F3F7CA186346EC00D2A5FE /* TopClothesModels */ = {
 			isa = PBXGroup;
 			children = (
+				8409831F188598F30020DFE5 /* top.jpg */,
 				04EB7749188594A60006CA54 /* jacket_1.pod */,
 				04EB773B18857F770006CA54 /* cravat_jacket.jpg */,
 				04EB772718853C280006CA54 /* shirt_long2_male.pod */,
@@ -1204,7 +1207,7 @@
 				04F602A718842C9E00A1E530 /* shorts_02.jpg */,
 				04F6028D1883FA5F00A1E530 /* shorts1_male.pod */,
 				04F602891883F4E200A1E530 /* shorts_1.jpg */,
-				84098318188020BB0020DFE5 /* pants_.jpg */,
+				84098318188020BB0020DFE5 /* pants.jpg */,
 				04E03FF7187ED809005F56EE /* pants.pod */,
 				04E03FF5187ED7FF005F56EE /* skirt.pod */,
 				04E03FF3187ED7F3005F56EE /* skirt_and_belt.pod */,
@@ -2394,13 +2397,14 @@
 				84DF378A187EA0B900442F08 /* trousers3_male.png in Resources */,
 				84DF378F187EA0B900442F08 /* trousers8_male.png in Resources */,
 				08A1056218575A1500B26770 /* shoes6.png in Resources */,
-				84098319188020BB0020DFE5 /* pants_.jpg in Resources */,
+				84098319188020BB0020DFE5 /* pants.jpg in Resources */,
 				08A1053718575A1500B26770 /* hairstyle14.png in Resources */,
 				84D9E5B41877131A00DB3F15 /* shirt9.png in Resources */,
 				08A1055418575A1500B26770 /* shoes1.png in Resources */,
 				08A1017A1857261E00B26770 /* Images.xcassets in Resources */,
 				08A1058518575A2200B26770 /* bottomClotheTitle.png in Resources */,
 				08A104A9185759FF00B26770 /* 3dStartBtn.png in Resources */,
+				84098320188598F30020DFE5 /* top.jpg in Resources */,
 				84342CB7186C624000B4A6F6 /* trousers2.png in Resources */,
 				08A1056B18575A1500B26770 /* skin6.png in Resources */,
 				84DF378D187EA0B900442F08 /* trousers6_male.png in Resources */,
