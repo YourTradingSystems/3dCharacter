@@ -58,8 +58,6 @@
     [self setContentSize:CGSizeMake(1024,768)];
 
     [self yawOnly];
-    
-    [self playAnimModeOnce];    
 }
     
      
@@ -81,22 +79,6 @@
     [(AvatarSceneViewController*)[self cc3Scene] yawOnly];
 }
 
--(void) playAnim {
-    id aClass = self.cc3Scene;
-    NSLog(@"cc3Scene.class = %@", [aClass class]);
-    
-    if (![aClass respondsToSelector:@selector(playAnim)]) {
-        NSLog(@"%@ not contain selector playAnim", [aClass class]);
-    }
-    
-    [(AvatarSceneViewController*)[self cc3Scene] playAnim];
-}
-
--(void) playAnimModeOnce {
-    [(AvatarSceneViewController*)[self cc3Scene] playAnimModeOnce];
-}
-
-
 -(void) onOpenCC3Layer {
     
     [self addNavBar];
@@ -108,8 +90,6 @@
     [self createBottomClothesView];
     [self createShoesView];
     [self createGlassesView];
-    
-    [self playAnim];
     
     [(AvatarSceneViewController*)[self cc3Scene] setAvatarSettings: _avatarSettings];
     [[FileToSettingsConverter instance] setMale:YES];

@@ -15,6 +15,7 @@
     CGPoint    lastTouchEventPoint;
     CC3Node* mainNode;
     CC3Node* hatAttachment;
+    CC3Node *pivot;
     CC3MeshNode* mainMesh;
     id texture1;
     id texture2;
@@ -36,24 +37,8 @@
     CC3Quaternion cameraSavedRotation;
     CC3Vector mainNodeSavedLocation;
     CC3Quaternion mainNodeSavedRotation;
-
-    //animation actions
-    id anim0;
-    id anim1;
-    id anim0Stop;
-    id anim1Stop;
-    
-    id anim;
-    int animindex;
-    BOOL loopAnimations;
-    
-    //mutable array
-    NSInteger currentAction;
-    NSMutableArray *actions;
 }
 
--(void) playAnim ;
--(void) playAnimModeOnce;
 -(void) yawOnly;
 -(void) setAvatarSettings: (AvatarModelSettings*) theAvatarSettings;
 

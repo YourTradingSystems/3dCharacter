@@ -19,6 +19,7 @@
 #import "CC3AffineMatrix.h"
 #import "BodyModelSettings.h"
 #import "Point3d.h"
+#import "AnimationPlayer.h"
 
 @implementation AvatarSceneViewController
 
@@ -30,57 +31,6 @@
     isArcBallRotationEnabled = NO;
     [self restoreCamAndMainNode];
 }
-
--(void) playAnimModeOnce {
-    loopAnimations = NO;
-}
-
--(void) playAnim {
-    /*currentAction++;
-    currentAction %= 2;
-    NSInteger index=currentAction * 3;
-    if (loopAnimations) {
-        index += 2;
-    }else {
-        index += 1;
-    }
-    
-    [mainNode stopAllActions];
-    NSObject* o = [actions objectAtIndex:index];
-    CCAction* a = (CCAction*) o;
-    LogInfo(@"playing anim %d ", currentAction);
-    [mainNode runAction: a];*/
-}
-
--(void) stopAnimations {
-    /*[mainNode stopAllActions];
-    LogInfo(@"stopping anim %d ", currentAction);
-    [mainNode runAction: [actions objectAtIndex: ( currentAction * 3 )]];*/
-}
-
--(CCAction*) makePlayOnceActionFromFrameStart:(CGFloat) frameStart toFrameEnd:(CGFloat) frameEnd atFPS:(CGFloat)fps withTrackFrameCount:(CGFloat) frames
-{
-    CCActionInterval *playOnceAnim =
-    [CC3Animate actionWithDuration:((frameEnd - frameStart) / fps) limitFrom:( frameStart/frames ) to: ( frameEnd/frames )];
-    [playOnceAnim retain];
-    return playOnceAnim;
-}
-
--(CCAction*) makePlayLoopedActionFromFrameStart:(CGFloat) frameStart toFrameEnd:(CGFloat) frameEnd at:(CGFloat)fps withTrackFrameCount:(CGFloat) frames {
-    CCAction* playLoopedAction
-        = [CCRepeatForever actionWithAction:
-           [CC3Animate actionWithDuration:((frameEnd - frameStart) / fps) limitFrom:( frameStart/frames ) to: ( frameEnd/frames )]];
-    [playLoopedAction retain];
-    return playLoopedAction;
-}
-
--(CCAction*) makePlayFirstFrameActionFromFrameStart:(CGFloat) frameStart withTrackFrameCount:(CGFloat) frames {
-    CCActionInterval *playFirstFrameAnim =
-    [CC3Animate actionWithDuration:0.01 limitFrom:( frameStart/frames ) to: ( frameStart/frames )];
-    [playFirstFrameAnim retain];
-    return playFirstFrameAnim;
-}
-
 
 -(void) initializeScene {
     
@@ -111,36 +61,6 @@
     
     [self setMainNode:@"male_model.pod"];
     
-    CCActionInterval *action = [CC3Animate actionWithDuration:20.0];
-    CCAction *pingPongAction =[CCSequence actions:action, [action reverse], nil];
-    [mainNode
-     runAction:[CCRepeatForever actionWithAction:(CCActionInterval*) pingPongAction]];
-    
-    /*actions = [[NSMutableArray alloc] initWithCapacity:6];
-    
-    //init animation
-    currentAction = 0;
-    loopAnimations = YES;
-    //anim 1
-    //"punching"
-    CCAction *a0 = [[self makePlayFirstFrameActionFromFrameStart:0 withTrackFrameCount:600] retain];
-    CCAction *a1 = [[self makePlayOnceActionFromFrameStart:0 toFrameEnd:600 atFPS:30 withTrackFrameCount:600] retain];
-    CCAction *a2 = [[self makePlayLoopedActionFromFrameStart:0 toFrameEnd:600 at:30 withTrackFrameCount:600] retain];
-    
-    //anim 2
-    //"expressing_thanks"	
-    CCAction *b0 = [[self makePlayFirstFrameActionFromFrameStart:100 withTrackFrameCount:600] retain];
-    CCAction *b1 = [[self makePlayOnceActionFromFrameStart:100 toFrameEnd:600 atFPS:30 withTrackFrameCount:600] retain];
-    CCAction *b2 = [[self makePlayLoopedActionFromFrameStart:100 toFrameEnd:600 at:30 withTrackFrameCount:600] retain];
-    
-    //add animations
-    [actions addObject:a0];
-    [actions addObject:a1];
-    [actions addObject:a2];
-    [actions addObject:b0];
-    [actions addObject:b1];
-    [actions addObject:b2];*/
-    
 	[self createGLBuffers];
 	[self releaseRedundantContent];
 	[self selectShaderPrograms];
@@ -158,7 +78,6 @@
     arcBallCenter = CGPointMake(winSize.width/2, winSize.height/2);
     
     [self yawOnly];
-    //[self playAnimModeOnce];
 }
 
 -(void) setMainNode: (NSString*) modelName
@@ -167,25 +86,26 @@
     [self addContentFromPODFile:modelName];
     mainNode = [self getNodeNamed: modelName];
     
+    mainNode.shouldCullBackFaces = YES;
     //need this to do because we cant attach clothes to bones
     CC3Node *cylinder = [mainNode getNodeNamed:@"Cylinder005"];
     [cylinder remove];
-    
-    
     
     //adjust main node w.r.t backdrop
     [mainNode setScale:CC3VectorMake(0.5, 0.5, 0.51)];
     
     CC3Vector loc =  mainNode.location;
-    loc.x -= 5.5;
-    loc.y += 2;
-    loc.z -= 1;
+    loc.x -= 6;
+    loc.y -= 1;
+    loc.z -= 2;
     mainNode.location = loc;
     
-    CCActionInterval *action = [CC3Animate actionWithDuration:20.0];
-    CCAction *pingPongAction =[CCSequence actions:action, [action reverse], nil];
-    [mainNode runAction:[CCRepeatForever actionWithAction: (CCActionInterval*) pingPongAction]];
-    
+    AnimationPlayer *player = [[AnimationPlayer alloc] initWithAnimatedModel:mainNode withKeyFrameStart:0 andKeyFrameEnd:889];
+    [player addNewAnimationWithTime:30 startKeyFrame:0 endKeyFrame:535];
+    [player addNewAnimationWithTime:30 startKeyFrame:535 endKeyFrame:719];
+    [player addNewAnimationWithTime:30 startKeyFrame:719 endKeyFrame:889];
+    [player playAnimations];
+
     //save restore point
     mainNodeSavedLocation = mainNode.location;
     mainNodeSavedRotation = mainNode.quaternion;
@@ -453,6 +373,10 @@
             CC3Node *aModel = [self getNodeNamed:namePODFile];
             aModel.tag = settings.type;
             [self attachModel:aModel ToModel:mainNode withTag:settings.type];
+            aModel.shouldCullBackFaces = NO;
+            //aModel.shouldBlendAtFullOpacity = YES;
+            //[aModel setBlendFunc:(ccBlendFunc){GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA, GL_ONE, GL_ONE_MINUS_SRC_ALPHA}];
+            //[aModel setOpacity:0];
         }
         aModel = [self getNodeNamed:namePODFile];
         [self changeColor:color ToModel:aModel];
