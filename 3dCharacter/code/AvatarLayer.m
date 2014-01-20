@@ -36,6 +36,8 @@
     UIScrollView *bottomClothesScrollView;
     UIScrollView *shoesScrollView;
     UIScrollView *glassesScrollView;
+    
+    UIActivityIndicatorView *activityIndicator;
 }
 
 @synthesize avatarSettings = _avatarSettings;
@@ -94,6 +96,19 @@
     [(AvatarSceneViewController*)[self cc3Scene] setAvatarSettings: _avatarSettings];
     [[FileToSettingsConverter instance] setMale:YES];
     [self makeDefaultAvatar];
+    [self createActivityIndicator];
+}
+
+
+-(void) createActivityIndicator
+{
+    activityIndicator = [[[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge] retain];
+    activityIndicator.hidesWhenStopped = NO;
+    activityIndicator.center = CGPointMake(160.0f, 768.0f/2.0f);
+    activityIndicator.color = [UIColor whiteColor];
+    activityIndicator.hidden = YES;
+    
+    [[[CCDirector sharedDirector] openGLView] addSubview:activityIndicator];
 }
 
 - (void) makeDefaultAvatar
@@ -175,13 +190,33 @@
 {
     if(_male != value)
     {
+        [NSThread detachNewThreadSelector:@selector(didStartActivity) toTarget:self withObject:nil];
+        
         _male = value;
         [[FileToSettingsConverter instance] setMale:_male];
-        if(_male)
-            [self prepareMaleAvatar];
-        else
-            [self prepareFemaleAvatar];
+        [self prepareAvatarModel];
     }
+}
+
+-(void) prepareAvatarModel
+{
+    if(_male)
+        [self prepareMaleAvatar];
+    else
+        [self prepareFemaleAvatar];
+    [self didStopActivity];
+}
+
+- (void)didStartActivity
+{
+    activityIndicator.hidden = NO;
+    [activityIndicator startAnimating];
+}
+
+- (void)didStopActivity
+{
+    activityIndicator.hidden = YES;
+    [activityIndicator stopAnimating];
 }
 
 -(void) prepareMaleAvatar
@@ -304,6 +339,8 @@
 
 -(void) buttonTouchedUp : (id)sender
 {
+    [NSThread detachNewThreadSelector:@selector(didStartActivity) toTarget:self withObject:nil];
+    
     if([sender isKindOfClass:[UIButtonTag class]])
     {
         UIButtonTag *btn = (UIButtonTag *)sender;
@@ -311,6 +348,7 @@
         [self setAvatarSettings:settings];
         btn.selected = YES;
     }
+    [self didStopActivity];
 }
 
 -(void)setAvatarSettings:(ModelSettings *)settings
